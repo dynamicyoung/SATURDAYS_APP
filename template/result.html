@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="result-table">
+        <h1>查詢結果</h1>
+        <table class="rwd-table">
+            <tr>
+                <th>
+                    <p>訂單編號</p>
+                </th>
+                <th>
+                    <p>訂購日期</p>
+                </th>
+                <th>
+                    <p>產品名稱</p>
+                </th>
+                <th>
+                    <p>數量</p>
+                </th>
+                <th>
+                    <p>訂單金額</p>
+                </th>
+                <th>
+                    <p>付款方式</p>
+                </th>
+                <th>
+                    <p>處理狀態</p>
+                </th>
+            </tr>
+            <tr ng-repeat="bill in result track by $index">
+                <td data-th="訂單編號">
+                    <p ng-bind="bill.order_number"></p>
+                </td>
+                <td data-th="訂購日期">
+                    <p ng-bind="bill.created"></p>
+                </td>
+                <td data-th="產品名稱" colspan="2">
+                    <table class="table-inner">
+                        <tr ng-repeat="plant in bill.items track by $index">
+                            <td ng-bind="findPlantName(plant.item)"></td>
+                            <td ng-bind="plant.quantity"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td data-th="訂單金額">
+                    <p ng-bind="bill.balance"></p>
+                </td>
+                <td data-th="付款方式">
+                    <p ng-bind="getPayment(bill.payment_method)"></p>
+                    <p ng-bind=" getPaid(bill.paid)"></p>
+                </td>
+                <td data-th="訂貨狀態">
+                    <p ng-bind="getShipped(bill.shipping.shipped)"></p>
+                    <!--ng-bind="bill.shipping_number"-->
+                    <p class="sub" ng-if="bill.shipping.shipping_number" ng-bind="'物流碼:'+ bill.shipping.shipping_number"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="paid-table">
+        <!--通知付款成功-->
+        <div class="blur" ng-show="status === 2">
+            <img class="logo" src="/img/flower.png">
+            <p class="title">通知付款成功</p>
+            <p class="subtitle">核對資料完成後，我們會盡快確認您的匯款，請耐心等候，謝謝您的配合。</p>
+            <button class="btn gray-btn" ui-sref="products">回到首頁</button>
+        </div>
+
+        <!--找不到該筆訂單-->
+        <div class="blur" ng-show="status === 3">
+            <img class="logo" src="/img/error.png">
+            <p class="title">Sorry..找不到您的訂單</p>
+            <p class="subtitle">請核對您的訂單資訊是否有誤，如有其他問題，歡迎聯絡我們。</p>
+            <button class="btn gray-btn" ng-tap="refound()">再試一次</button>
+        </div>
+
+        <!--錯誤訊息-->
+        <div class="error-div">
+            <p ng-repeat="(key, value) in check track by $index" ng-bind="value.info" ng-if="!value.valid && value.info.length > 0"></p>
+        </div>
+        <h1>通知已付款</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('order_number')}">
+                    <input type="text" ng-model="order_number" ng-keyup="checkOrderNumber('order_number', order_number)" required>
+                    <span class="text-bar"></span>
+                    <label>訂單編號</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('amount')}">
+                    <input type="text" ng-model="amount" ng-keyup="checkAmount('amount', amount)" required>
+                    <span class="text-bar"></span>
+                    <label>匯款金額</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('account')}">
+                    <input type="text" ng-model="account" ng-keyup="checkAccount('account', account)" required>
+                    <span class="text-bar"></span>
+                    <label>帳號後五碼</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('date')}">
+                    <input type="date" ng-model="date" id="datepicker" ng-blur="checkDate('date', date)" required>
+                    <span class="text-bar"></span>
+                    <label>匯款日期</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group">
+                    <input type="text" ng-model="note" required>
+                    <span class="text-bar"></span>
+                    <label>備註</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn gray-btn" ng-show="checkComplete()" ng-tap="send()">
+                <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66">
+                    <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+                {[{ statusData[status] }]}
+            </button>
+        </div>
+    </div>
+</div>

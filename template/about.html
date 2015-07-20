@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="about-tabs">
+        <ul class="tabs group">
+            <li>
+                <a ng-tap="changePage('關於我們')" ng-class="{'active':pageIndex === '關於我們'}">
+                    <h1 class="title">關於我們</h1>
+                </a>
+            </li>
+            <li>
+                <a ng-tap="changePage('品質宣言')" ng-class="{'active':pageIndex === '品質宣言'}">
+                    <h1 class="title">品質宣言</h1>
+                </a>
+            </li>
+            <li>
+                <a ng-tap="changePage('精選盆器')" ng-class="{'active':pageIndex === '精選盆器'}">
+                    <h1 class="title">精選盆器</h1>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content" ng-include="page">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="contact-table">
+        <div class="blur" ng-if="status === 2">
+            <div class="logo">
+                <img src="/img/pot.png">
+                <div class="water w1"></div>
+                <div class="water w2"></div>
+                <div class="water w3"></div>
+            </div>
+            <h2>您的訊息已經送出</h2>
+            <p>我們將盡快為您服務</p>
+            <button class="btn gray-btn" ui-sref="products">回到首頁</button>
+        </div>
+        <div class="error-div">
+            <p ng-repeat="(key, value) in check track by $index" ng-bind="value.info" ng-if="!value.valid && value.info.length > 0"></p>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('name')}">
+                    <input type="text" ng-model="name" ng-keyup="checkName('name', name)" required>
+                    <span class="text-bar"></span>
+                    <label>您的名字</label>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <label class="radio-inline">
+                    <input type="radio" name="sex" id="male" value="male" ng-model="sex">先生
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="sex" id="female" value="female" ng-model="sex">女士
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('email')}">
+                    <input type="text" ng-model="email" ng-keyup="checkEmail('email', email)" required>
+                    <span class="text-bar"></span>
+                    <label>連絡信箱</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('content')}">
+                    <textarea type="text" ng-model="content" ng-keyup="checkContent('content', content)" required></textarea>
+                    <span class="text-bar"></span>
+                    <label>寫點東西給我們吧！</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button ng-show="checkComplete()" class="btn gray-btn" ng-tap="send()">
+                <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66">
+                    <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+                {[{ statusData[status] }]}
+            </button>
+
+        </div>
+    </div>
+</div>

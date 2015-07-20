@@ -1,0 +1,98 @@
+<div class="row profile-table">
+    <!--錯誤訊息-->
+    <div class="error-div">
+        <p ng-repeat="(key, value) in check track by $index" ng-bind="value.role + value.info" ng-if="!value.valid && value.info.length > 0"></p>
+    </div>
+    <!--購買人-->
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <h4>購買人</h4>
+        </div>
+        <div class="row">
+            <div class="mertrial-group" ng-class="{'valid': !getValid('name')}">
+                <input type="text" ng-model="data.name" ng-maxlength="20" ng-minlength="0" maxlength="20" ng-keyup="checkName('name', data.name)" required>
+                <span class="text-bar"></span>
+                <label>姓名</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mertrial-group" ng-class="{'valid': !getValid('mobile')}">
+                <input type="text" ng-model="data.mobile" ng-keyup="checkPhone('mobile', data.mobile)" required>
+                <span class="text-bar"></span>
+                <label>手機</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mertrial-group" ng-class="{'valid': !getValid('email')}">
+                <input type="text" ng-model="data.email" ng-keyup="checkEmail('email', data.email)" required>
+                <span class="text-bar"></span>
+                <label>Email</label>
+            </div>
+        </div>
+    </div>
+    <!--收件人-->
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <h4 class="half-title">收件人</h4>
+            <label class="checkbox-inline">
+                <input type="checkbox" ng-model="copyToggle" ng-change="copy()">
+                <h5>同購買人</h5>
+            </label>
+
+        </div>
+
+        <div class="row">
+            <div class="mertrial-group" ng-class="{'valid': !getValid('addressee')}">
+                <input type="text" ng-model="data.addressee" ng-keyup="checkName('addressee', data.addressee)" ng-maxlength="20" ng-minlength="0" maxlength="20" required>
+                <span class="text-bar"></span>
+                <label>姓名</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mertrial-group" ng-class="{'valid': !getValid('addressee_mobile')}">
+                <input type="text" ng-model="data.addressee_mobile" ng-keyup="checkPhone('addressee_mobile', data.addressee_mobile)" ng-maxlength="20" ng-minlength="0" maxlength="20" required>
+                <span class="text-bar"></span>
+                <label>手機</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mertrial-group" ng-class="{'valid': !getValid('address')}">
+                <textarea class="simple msd-elastic" data-ng-model="data.address" type="text" ng-keyup="checkAddress('address', data.address)" required></textarea>
+                <span class="text-bar"></span>
+                <label>地址</label>
+            </div>
+        </div>
+    </div>
+    <!--付款方式-->
+    <div class="col-xs-12">
+        <div class="row">
+            <h4>請選擇付款方式</h4>
+        </div>
+        <div class="row">
+            <label class="radio-inline col-xs-12 col-md-3">
+                <input type="radio" ng-model="data.payment_method" name="payway" value="0">
+                <h5>信用卡</h5>
+            </label>
+
+            <label class="radio-inline col-xs-12 col-md-3">
+                <input type="radio" ng-model="data.payment_method" name="payway" value="1">
+                <h5>Paypal</h5>
+            </label>
+            <label class="radio-inline col-xs-12 col-md-3">
+                <input type="radio" ng-model="data.payment_method" name="payway" value="2">
+                <h5>ATM轉帳</h5>
+            </label>
+        </div>
+    </div>
+    <div class="col-xs-12 next-step">
+        <button class="btn gray30-btn left " ng-tap="prevStep()">上一步</button>
+        <button class="btn gray-btn right" ng-tap="payment()" ng-disabled="status > 0 " ng-show="checkComplete()">
+            <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66">
+                <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+            {[{ statusData[status] }]}
+        </button>
+    </div>
+
+</div>

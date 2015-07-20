@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html ng-app="plant" ng-controller="PlantController">
+
+<head>
+    <script src="cordova.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline';">
+    <meta name="format-detection" content="telephone=no">
+    <!--CSS-->
+    <!--favicon.ico -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plant.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+</head>
+
+
+<body class="side-hide" ng-class="{'menu-show':menuShow, 'cart-show': cartShow}">
+
+    <!--最上方的進度條-->
+    <div class="progress-bar">
+        <div class="bar"></div>
+    </div>
+    <!--側邊menu-->
+    <div class="side-menu side-hide">
+        <ul class="">
+            <li>
+                <a ui-sref="about">關於我們</a>
+            </li>
+            <li>
+                <a ui-sref="products">線上購買</a>
+            </li>
+            <li>
+                <a ui-sref="contact">聯絡我們</a>
+            </li>
+            <li>
+                <a ui-sref="search">訂單查詢</a>
+            </li>
+            <hr>
+            <li>
+                <a ui-sref="tutorial({tabName:'新手指南'})">新手教學</a>
+            </li>
+            <li>
+                <a ui-sref="tutorial({tabName:'購物須知'})">購物須知</a>
+            </li>
+            <li>
+                <a ui-sref="tutorial({tabName:'售後說明'})">售後服務</a>
+            </li>
+            <li>
+                <a ui-sref="paid">通知已付款</a>
+            </li>
+        </ul>
+    </div>
+    <!--側邊購物車-->
+    <div class="side-cart">
+        <p class="title">購物車</p>
+        <ul>
+            <li ng-repeat="item in cart track by $index" ng-tap="openDetail(item)">
+                <div class="thumb" rn-Lazy-Background="item.images[0]|| 'img/notfound.jpg'"></div>
+                <a href="#" ng-bind="item.name"></a>
+                <p ng-bind="item.subtitle"></p>
+                <p ng-bind="item.quantity + 'X NT$' + item.price"></p>
+            </li>
+            <p class="empty" ng-show="cart.length <= 0">您的購物車是空的</p>
+            <hr>
+            <p class="total" ng-bind="'總計 NT$' + getTotal()"></p>
+            <button class="btn white-btn" ng-show="cart.length > 0" ui-sref="checkout">訂單結帳</button>
+        </ul>
+    </div>
+    <!--右邊主內容-->
+    <div class="side-content">
+        <div class="side-blur" ng-tap="hideSide()"></div>
+        <div class="jumbotron jumbotron_plant" rn-Lazy-Background="'img/plant_BG.jpg'">
+            <img class="logo" ui-sref="products" src='img/plant_logo_w.svg'>
+        </div>
+        <div class="nav-div">
+            <nav class="navbar navbar-default navbar-plant">
+                <div class="navbar-header">
+                    <img class="logo-left" src="img/plant_logo.svg" ui-sref="products">
+                    <button type="button" class="navbar-toggle side-toggle" data-toggle="collapse" ng-tap="openMenu()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <button type="button" class="navbar-toggle cart-btn" data-toggle="collapse" ng-tap="openCart()">
+                        <span class="glyphicon glyphicon-shopping-cart">
+                    </span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a ui-sref="about">關於我們</a>
+                        </li>
+                        <li>
+                            <a ui-sref="products">線上購買</a>
+                        </li>
+                        <li class="logo">
+                            <h1>
+                            <img src="img/plant_logo.svg" ui-sref="products">
+                            </h1>
+                        </li>
+                        <li>
+                            <a ui-sref="contact">聯絡我們</a>
+                        </li>
+                        <li>
+                            <a ui-sref="search">訂單查詢</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn cart-btn" ng-tap="openCart()">
+                        <span class="glyphicon glyphicon-shopping-cart">
+                    </span>
+                        <p ng-bind="cart.length"></p>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <!--ui-view-->
+        <div ui-view class="view"></div>
+        <!--頁面導向中的modal-->
+        <div class="loading-modal" ng-class="{'show': redirect}">
+            <div class="content">
+                <img class="logo" src="img/plant_draw.png">
+                <p>頁面重新導向中...</p>
+                <svg class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66">
+                    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+            </div>
+        </div>
+        <!--pictureModal-->
+        <div class="picture-modal" ng-show="pictureModal" ng-click="closePictureModal()">
+            <button class="btn trans-btn remove" ng-click="closePictureModal()">
+                <i class="glyphicon glyphicon-remove"></i>
+            </button>
+            <img class="pinch" src="img/pinch.png">
+            <div class="wrapper">
+                <div class="picture" rn-lazy-background="picture" pan-Zoom> </div>
+            </div>
+        </div>
+
+
+
+
+        <footer class="footer-plant">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="content">
+                        <h2 ui-sref="tutorial({tabName:'新手指南'})">新手指南</h2>
+                        <p>組盆教學</p>
+                        <p>照顧方式</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="content">
+                        <h2 ui-sref="tutorial({tabName:'購物須知'})">購物須知</h2>
+                        <p>關於植物</p>
+                        <p>付款方式</p>
+                        <p>包裝 / 寄送</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="content">
+                        <h2 ui-sref="tutorial({tabName:'售後說明'})">售後說明</h2>
+                        <p>退貨服務</p>
+                        <p ui-sref="paid">通知已付款</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="content">
+                        <h2>關注</h2>
+                        <h3>SATURDAYS</h3>
+                        <div class="icon-list">
+                            <a href="#">
+                                <img class="icon" src="img/twitter.png">
+                            </a>
+                            <a href="https://www.facebook.com/saturdays.succulents">
+                                <img class="icon" src="img/facebook.png">
+                            </a>
+                            <a href="#">
+                                <img class="icon" src="img/weibo.png">
+                            </a>
+                            <a href="#">
+                                <img class="icon" src="img/google.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--LIB-->
+
+    <!--Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.7/js/swiper.jquery.min.js"></script>
+
+    <!--Angular-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.1/isotope.pkgd.min.js"></script>
+    <!--LIB-->
+    <script src="lib/imagesloaded.pkgd.min.js"></script>
+    <script src="lib/jquery.panzoom.min.js"></script>
+    <!--JS-->
+    <script src="js/plant.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/service_util.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+
+    <script src="js/lazy.js"></script>
+</body>
+
+
+
+
+
+</html>

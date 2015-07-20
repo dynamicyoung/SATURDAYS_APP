@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="teach-tabs">
+        <ul class="tabs group">
+            <li>
+                <a ng-tap="changePage(0)" ng-class="{'active':pageIndex === 0}">新手指南</a>
+            </li>
+            <li>
+                <a ng-tap="changePage(1)" ng-class="{'active':pageIndex === 1}">購物須知</a>
+            </li>
+            <li>
+                <a ng-tap="changePage(2)" ng-class="{'active':pageIndex === 2}">售後說明</a>
+            </li>
+        </ul>
+        <div class="tab-content" ng-include="page">
+        </div>
+    </div>
+</div>

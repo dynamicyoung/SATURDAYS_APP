@@ -1,0 +1,152 @@
+<!--產品內頁-->
+<div class="container">
+    <!--產品內頁：上半部-->
+    <div class="plant-carousel">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <!--carousel上方大圖-->
+                <div class="swiper-container carousel-top">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" ng-repeat="image in detail.images track by $index" rn-Lazy-Background="image" ng-if="$index > 0 || detail.images.length <= 1" ng-click="openPictureModal(image)"></div>
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" rn-Lazy-Background="'img/notfound.jpg'" ng-if="detail.images.length === 0"></div>
+                    </div>
+                    <div class="swiper-button-next swiper-button-black"></div>
+                    <div class="swiper-button-prev swiper-button-black"></div>
+                </div>
+                <!--carousel下方thumb-->
+                <div class="swiper-container carousel-bottom">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" ng-repeat="image in detail.images track by $index" rn-Lazy-Background="image" ng-if="$index > 0 || detail.images.length <= 1"></div>
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" rn-Lazy-Background="'img/notfound.jpg'" ng-if="detail.images.length === 0"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="plant-detail">
+                    <!--商品標題h1-->
+                    <h1 class="title" ng-bind="detail.name"></h1>
+                    <!--產品副標h2-->
+                    <h2 class="subtitle" ng-bind="detail.subtitle"></h2>
+                    <p class="price" ng-bind="'NT&nbsp;' + detail.price"></p>
+                    <div class="form-group">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">數量</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="number" class="form-control" ng-model="quantity" watch-Value ngMin='1' ngMax='{[{detail.stock}]}'>
+                        </div>
+                    </div>
+                    <button ng-if="detail.stock > 0" type="button" class="btn gray-btn" ng-tap="plusCart(detail.id, quantity); ">放入購物車</button>
+                    <button ng-if="detail.stock <= 0" type="button" class="btn gray-btn" ng-tap="toggleEmail()">到貨請通知我</button>
+                    <div class="row" ng-show="showEmail && (status === 0 || status === 1 )">
+                        <div class="col-xs-12 col-md-8">
+                            <div class="mertrial-group">
+                                <input type="text" ng-model="email" required>
+                                <span class="text-bar"></span>
+                                <label>電子信箱</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <button class="btn gray-btn" ng-tap="sendEmail(detail.id, email)">
+                                <svg class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66" ng-show="status === 1">
+                                    <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                                </svg>
+                                {[{ statusData[status] }]}</button>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="status === 2 || status === 3">
+                        <h4 ng-show="status === 2" class="text-center">發送成功</h4>
+                        <h4 ng-show="status === 3" class="text-center">發送失敗</h4>
+                    </div>
+                    <hr>
+                    <div class="share-div">
+                        <div class="col-xs-12 col-sm-3">
+                            <label>分享到</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-9">
+                            <img src="img/weibo.png" ng-tap="share('weibo')">
+                            <img src="img/twitter.png" ng-tap="share('twitter')">
+                            <img src="img/google.png" ng-tap="share('google')">
+                            <img src="img/facebook.png" ng-tap="share('facebook')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- 中間部-->
+    <div class="plant-content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="feature" ng-repeat="(key, value) in detail.features track by $index">
+                    <p ng-bind="value"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 plant-card">
+                <h3 class="title">關於他
+                    <small ng-bind="detail.subabout">
+                    </small>
+                </h3>
+                <p ng-bind-html="detail.about"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 plant-card">
+                <h3 class="title">產品規格 / 內容物</h3>
+                <ul>
+                    <li ng-repeat="spec in detail.specs track by $index">
+                        <p>{[{spec[0]}]}
+                            <sub ng-bind-html="spec[1]"></sub>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 plant-card">
+                <h3 class="title">養護方式</h3>
+                <div class="care-div">
+                    <div class="col-xs-12 col-sm-2">
+                        <label>澆水</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-10">
+                        <img ng-repeat="water in detail.waterPoint track by $index" ng-src="img/water_{[{ water.value ? 'full':'empty' }]}.svg">
+                    </div>
+                </div>
+                <div class="care-div">
+                    <div class="col-xs-12 col-sm-2">
+                        <label>陽光</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-10">
+                        <img ng-repeat="sun in detail.sunPoint track by $index" ng-src="img/sun_{[{ sun.value ? 'full':'empty' }]}.svg">
+                    </div>
+                </div>
+                <div class="care-div">
+                    <div class="col-xs-12">
+                        <label class="explain">・一顆水滴代表一星期澆一次水，以此類推</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!--相關產品-->
+    <div class="plant-browse">
+        <h2 class="title">相關產品</h2>
+        <div class="swiper-container carousel-browse">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" repeat-done="initSwiper()" ng-click="openDetail(plant)" ng-init="sug = findPlant(id)">
+                    <div class="blur loading" rn-lazy-loading-class="loading" rn-Lazy-Background="sug.images_local[0] || sug.images[0]"></div>
+                    <div class="slide-text">
+                        <p class="title" ng-bind="sug.name"></p>
+                        <p class="price" ng-bind="'NT$ '+ sug.price"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-button-next-browse swiper-button-black"></div>
+            <div class="swiper-button-prev swiper-button-prev-browse swiper-button-black"></div>
+        </div>
+    </div>
+</div>

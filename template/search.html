@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="search-table">
+        <!--找不到訂單-->
+        <div class="blur" ng-show="notfound">
+            <img class="logo" src="/img/flower.png">
+            <p class="title">Sorry..找不到訂單</p>
+            <p class="subtitle">請檢查訂單編號跟手機號碼是否錯誤</p>
+            <button class="btn gray-btn" ng-tap="refound()">再試一次</button>
+        </div>
+        <!--錯誤訊息-->
+        <div class="error-div">
+            <p ng-repeat="(key, value) in check track by $index" ng-bind="value.info" ng-if="!value.valid && value.info.length > 0"></p>
+        </div>
+        <h1>訂單查詢</h1>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('order_number')}">
+                    <input type="text" ng-model="order_number" ng-keyup="checkOrder('order_number', order_number)" required>
+                    <span class="text-bar"></span>
+                    <label>訂單編號</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mertrial-group" ng-class="{'valid': !getValid('mobile')}">
+                    <input type="text" ng-model="mobile" ng-keyup="checkPhone('mobile', mobile)" required>
+                    <span class="text-bar"></span>
+                    <label>手機號碼</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn gray-btn" ng-show="checkComplete()" ng-tap="search()">
+                <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66">
+                    <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+                {[{ statusData[status] }]}
+            </button>
+
+        </div>
+    </div>
+</div>

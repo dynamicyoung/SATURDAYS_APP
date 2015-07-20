@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="teach-tabs">
+        <ul class="tabs group">
+            <li>
+                <a ng-tap="changePage('新手指南')" ng-class="{'active':pageIndex === '新手指南'}">
+                    <h1 class="title">新手指南</h1>
+                </a>
+            </li>
+            <li>
+                <a ng-tap="changePage('常見問題')" ng-class="{'active':pageIndex === '常見問題'}">
+                    <h1 class="title">常見問題</h1>
+                </a>
+            </li>
+            <li>
+                <a ng-tap="changePage('購物須知')" ng-class="{'active':pageIndex === '購物須知'}">
+                    <h1 class="title">購物須知</h1>
+                </a>
+            </li>
+            <li>
+                <a ng-tap="changePage('售後說明')" ng-class="{'active':pageIndex === '售後說明'}">
+                    <h1 class="title">售後說明</h1>
+                </a>
+            </li>
+
+        </ul>
+        <div class="tab-content" ng-include="page">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+com.ionic.keyboard 1.0.4 "Keyboard"
+com.plugin.datepicker 0.6.0 "DatePicker" https://github.com/VitaliiBlagodir/cordova-plugin-datepicker
+cordova-plugin-globalization 1.0.1-dev "Globalization"
+org.apache.cordova.console 0.2.13 "Console"
+org.apache.cordova.device 0.3.0 "Device"
