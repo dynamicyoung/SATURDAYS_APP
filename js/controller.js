@@ -3,7 +3,7 @@ plant
         $interpolateProvider.startSymbol('{[{');
         $interpolateProvider.endSymbol('}]}');
     })
-    .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $location, plantService, cartService, service_utility) {
+    .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $location, $interval, plantService, cartService, service_utility) {
         //初始化變數
 
         $scope.menuShow = false; //menu開關
@@ -16,7 +16,6 @@ plant
         $scope.page = 1;
         $scope.totalPage;
         //一頁最多顯示幾個
-        $scope.total = 10;
         //取得目前頁數的data
         $scope.progress = 0;
         $scope.statusData = {
@@ -26,25 +25,20 @@ plant
             3: '發送失敗'
         };
 
-        //取得下一頁
-        $scope.nextPage = function () {
-            $scope.total += 10;
-        };
-
         //切換state時
         $rootScope.$on('$stateChangeSuccess',
             function (e, toState, toParams, fromState, fromParams) {
                 function scrollTo(value) {
                     $timeout(function () {
                         window.scrollTo(0, value);
-                    }, 100);
+                    }, 500);
                 }
-                console.log('from', fromState.name, 'To', toState.name);
                 if (fromState.name === 'domain' || fromState.name === 'products') {
                     $rootScope.memoryTop = $(window).scrollTop();
                 }
                 if (toState.name === 'domain' || toState.name === 'products') {
                     scrollTo($rootScope.memoryTop);
+                    console.log('scrollto', $rootScope.memoryTop);
                 } else {
                     scrollTo(0);
                 }
@@ -52,9 +46,7 @@ plant
                 $scope.hideSide();
                 $scope.watchLoaded();
             });
-        $scope.decodeURI = function (str) {
-            return decodeURI(str);
-        };
+
         //重新導向回首頁
         $scope.reload = function () {
             window.location.href = '/';
@@ -134,16 +126,7 @@ plant
                 }
             });
         };
-        //用id找植物名字
-        $scope.findPlantName = function (id) {
-            var plant = plantService.findPlant(id);
-            return plant.name;
-        };
 
-        $scope.findPlant = function (id) {
-            var plant = plantService.findPlant(id);
-            return plant;
-        };
 
         $scope.openPictureModal = function (url) {
             $scope.pictureModal = true;
@@ -209,13 +192,10 @@ plant
                 $scope.cartShow = true;
             }
         };
-
-        //打開產品內頁
-        $scope.openDetail = function (plant) {
-            $state.go('detail', {
-                plantName: plant.name
-            });
-        };
+        //找id找到植物
+        $scope.findPlant = function (id) {
+            return plantService.findPlant(id);
+        }
 
         //打開側邊選單
         $scope.openMenu = function () {

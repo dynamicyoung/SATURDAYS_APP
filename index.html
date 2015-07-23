@@ -4,7 +4,7 @@
 <head>
     <script src="cordova.js"></script>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">-->
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-eval' 'unsafe-inline';">
     <meta name="format-detection" content="telephone=no">
     <!--CSS-->
@@ -73,11 +73,8 @@
     <!--右邊主內容-->
     <div class="side-content">
         <div class="side-blur" ng-tap="hideSide()"></div>
-        <div class="jumbotron jumbotron_plant" rn-Lazy-Background="'img/plant_BG.jpg'">
-            <img class="logo" ui-sref="products" src='img/plant_logo_w.svg'>
-        </div>
         <div class="nav-div">
-            <nav class="navbar navbar-default navbar-plant">
+            <nav class="navbar navbar-default navbar-plant affix">
                 <div class="navbar-header">
                     <img class="logo-left" src="img/plant_logo.svg" ui-sref="products">
                     <button type="button" class="navbar-toggle side-toggle" data-toggle="collapse" ng-tap="openMenu()">
@@ -118,6 +115,10 @@
                 </div>
             </nav>
         </div>
+        <div class="jumbotron jumbotron_plant" rn-Lazy-Background="'img/plant_BG.jpg'">
+            <img class="logo" ui-sref="products" src='img/plant_logo_w.svg'>
+        </div>
+
         <!--ui-view-->
         <div ui-view class="view"></div>
         <!--頁面導向中的modal-->
@@ -131,7 +132,7 @@
             </div>
         </div>
         <!--pictureModal-->
-        <div class="picture-modal" ng-show="pictureModal" ng-click="closePictureModal()">
+        <div class="picture-modal" ng-class="{'show': pictureModal}" ng-click="closePictureModal()">
             <button class="btn trans-btn remove" ng-click="closePictureModal()">
                 <i class="glyphicon glyphicon-remove"></i>
             </button>
@@ -191,6 +192,7 @@
             </div>
         </footer>
     </div>
+
     <!--LIB-->
 
     <!--Jquery-->
@@ -207,6 +209,7 @@
     <!--LIB-->
     <script src="lib/imagesloaded.pkgd.min.js"></script>
     <script src="lib/jquery.panzoom.min.js"></script>
+
     <!--JS-->
     <script src="js/plant.js"></script>
     <script src="js/router.js"></script>

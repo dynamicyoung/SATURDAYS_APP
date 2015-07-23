@@ -7,8 +7,8 @@
                 <!--carousel上方大圖-->
                 <div class="swiper-container carousel-top">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" ng-repeat="image in detail.images track by $index" rn-Lazy-Background="image" ng-if="$index > 0 || detail.images.length <= 1" ng-click="openPictureModal(image)"></div>
-                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" rn-Lazy-Background="'img/notfound.jpg'" ng-if="detail.images.length === 0"></div>
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" ng-repeat="image in (detail.images_local || detail.images) track by $index" rn-Lazy-Background="image" ng-if="$index > 0 || detail.images.length <= 1" ng-click="openPictureModal(image)"></div>
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" rn-Lazy-Background="'img/notfound.jpg'" ng-if="$index > 0 || detail.images.length <= 1 || detail.images.local.length <= 1"></div>
                     </div>
                     <div class="swiper-button-next swiper-button-black"></div>
                     <div class="swiper-button-prev swiper-button-black"></div>
@@ -16,7 +16,7 @@
                 <!--carousel下方thumb-->
                 <div class="swiper-container carousel-bottom">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" ng-repeat="image in detail.images track by $index" rn-Lazy-Background="image" ng-if="$index > 0 || detail.images.length <= 1"></div>
+                        <div class="swiper-slide loading" rn-lazy-loading-class="loading" ng-repeat="image in  (detail.images_local || detail.images) track by $index" rn-Lazy-Background="image" ng-if="$index > 0 || detail.images.length <= 1 || detail.images.local.length <= 1"></div>
                         <div class="swiper-slide loading" rn-lazy-loading-class="loading" rn-Lazy-Background="'img/notfound.jpg'" ng-if="detail.images.length === 0"></div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
         <h2 class="title">相關產品</h2>
         <div class="swiper-container carousel-browse">
             <div class="swiper-wrapper">
-                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" repeat-done="initSwiper()" ng-click="openDetail(plant)" ng-init="sug = findPlant(id)">
+                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" repeat-done="initSwiper()" ng-init="sug = findPlant(id)" ng-click="openDetail(sug)">
                     <div class="blur loading" rn-lazy-loading-class="loading" rn-Lazy-Background="sug.images_local[0] || sug.images[0]"></div>
                     <div class="slide-text">
                         <p class="title" ng-bind="sug.name"></p>

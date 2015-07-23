@@ -1,25 +1,29 @@
 var serverurl = 'https://saturdays.takko.me';
+//var serverurl = 'http://192.168.1.196:8000';
 plant
 //植物列表
     .service('plantService', function ($http, $q, $rootScope, service_utility) {
-        var order;
+
         var plantService = this;
-        //og
-        //一開始取得植物列表的defer
-        //初始化植物列表
+
+        //初始化
         this.initPlants = function () {
             var deferred = $q.defer();
-            if (this.getPlants()) {
-                plantService.plants = this.getPlants();
-                deferred.resolve(this.getPlants());
+            var localPlants = this.getPlantsFromLocal();
+            if (localPlants) {
+                console.log('從LoaclStorage讀取中');
+                plantService.plants = localPlants;
+                deferred.resolve(plantService.plants);
+                plantService.checkUpdate();
             } else {
+                console.log('從Server下載列表中');
                 $http.get(serverurl + '/api-products/').
                 success(function (data, status, headers, config) {
-                    console.log('INIT_PLANT:success:' + status);
-                    plantService.standardizationPlants(data);
+                    console.log('INIT_PLANT:success:', data);
+                    plantService.plants = plantService.standardizationPlants(data);
                     deferred.resolve(plantService.plants);
                     plantService.savePlants();
-                    plantService.downloadImages();
+                    plantService.downloadAllImages();
 
                 }).error(function (data, status, headers, config) {
                     console.log('INIT_PLANT:error:' + status);
@@ -28,6 +32,34 @@ plant
             return deferred.promise;
         };
 
+        //如果從local取得列表，
+        this.checkUpdate = function () {
+            //取得所有列表一一比對最後更新時間，查看是否有圖片需要重新下載
+            $http.get(serverurl + '/api-products/').
+            success(success).error(error);
+
+            function success(data, status, headers, config) {
+                var newPlants = plantService.standardizationPlants(data);
+                var localPlants = plantService.plants;
+                angular.forEach(newPlants, function (plant, index) {
+                    var localPlant = plantService.findPlant(plant.id);
+                    var newDate = new Date(plant.updated);
+                    var oldDate = new Date(localPlant.updated);
+                    if (newDate - oldDate > 0) {
+                        console.log('NEW UPDATE:', plant.name);
+                        plantService.downloadImages(plant, index);
+                    } else {
+                        console.log('IS LATEST:', plant.name);
+                    }
+                });
+            }
+
+            function error(data, status, headers, config) {
+                console.log('checkupdate失敗');
+            }
+        };
+
+        //把水滴跟太陽的數字改成array
         this.standardizationPlants = function (data) {
             var plants = [];
             angular.forEach(data, function (plant, index) {
@@ -37,21 +69,28 @@ plant
                 plant.sunPoint = getNumberSun(plant.sun);
                 plants.push(plant);
             });
-            plantService.plants = plants;
+            return plants;
         };
-        //下載植物裡面的所有圖片
-        this.downloadImages = function () {
-            angular.forEach(plantService.plants, function (plant, index) {
-                plant.images_local = [];
-                angular.forEach(plant.images, function (image, key) {
-                    service_utility.downloadFile(image, 'plants').then(function (value) {
-                        var filePath = service_utility.MakeFilePath(value);
-                        plant.images_local.push(filePath);
-                        plantService.plants[index] = plant;
-                        plantService.savePlants();
-                        $rootScope.$broadcast('plantsUpdate');
-                    });
+
+        //下載植物的所有圖片
+        this.downloadImages = function (plant, index) {
+            plant.images_local = [];
+            angular.forEach(plant.images, function (image, key) {
+                service_utility.downloadFile(image, 'plants').then(function (value) {
+                    console.log('downLoadImage:', image);
+                    var filePath = service_utility.MakeFilePath(value);
+                    plant.images_local.push(filePath);
+                    plantService.plants[index] = plant;
+                    plantService.savePlants();
+                    $rootScope.$broadcast('plantsUpdate');
                 });
+            });
+        }
+
+        //下載植物裡面的所有圖片
+        this.downloadAllImages = function () {
+            angular.forEach(plantService.plants, function (plant, index) {
+                plantService.downloadImages(plant, index);
             });
         };
         //把plants存入localStorage
@@ -60,14 +99,10 @@ plant
             localStorage.setItem('plants', JSON.stringify(plants));
         };
         //取得目前lacalStorage的Plants
-        this.getPlants = function () {
+        this.getPlantsFromLocal = function () {
             var plants = JSON.parse(localStorage.getItem('plants'));
             return plants;
         };
-
-
-
-
 
         //回報訂單成功
         this.orderComplete = function (temp) {
@@ -91,20 +126,22 @@ plant
             });
             return deferred.promise;
         };
-
+        //取得目前訂單
         this.getOrder = function () {
-            return order;
+            return this.order;
         };
 
+        //清除現在訂單
         this.removeOrder = function () {
-            order = null;
+            this.order = null;
         };
 
         //取得植物列表
         this.getPlants = function () {
             return this.plants;
         };
-        //用id找植物
+
+        //用植物id來找植物
         this.findPlant = function (id) {
             var temps = this.getPlants();
             var plant;
@@ -116,15 +153,16 @@ plant
             return plant;
         };
 
+        //用植物名稱來找札物
         this.findPlantName = function (name) {
-            var temps = this.getPlants();
-            var plant;
-            angular.forEach(temps, function (temp, key) {
-                if (temp.name == name) {
-                    plant = temp;
+            var plants = this.getPlants();
+            var temp;
+            angular.forEach(plants, function (plant, key) {
+                if (plant.name === name) {
+                    temp = plant;
                 }
             });
-            return plant;
+            return temp;
         };
 
         //貨到時通知我

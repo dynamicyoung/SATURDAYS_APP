@@ -1,7 +1,7 @@
 var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSanitize'])
     //ui-router設定
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-        //        $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
         $stateProvider
             .state('domain', {
                 url: "/",
@@ -60,7 +60,5 @@ var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSan
                 url: "/error",
                 templateUrl: "template/error.html"
             });
-
         $urlRouterProvider.otherwise("/products");
-
     });

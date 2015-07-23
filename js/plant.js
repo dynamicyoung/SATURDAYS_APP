@@ -1,3 +1,4 @@
+var serverurl = 'https://saturdays.takko.me';
 //產生亂數字串
 function makeText(min, max) {
     var text = "";
@@ -9,14 +10,22 @@ function makeText(min, max) {
     return text;
 };
 
-//判斷目前瀏覽裝置為何
-function checkDevice() {
-    if (/ipad/i.test(navigator.userAgent.toLowerCase())) {
-        return "ipad"; // 目前是用ipad瀏覽
-    } else if (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase())) {
-        return "mobile"; // 目前是用手機瀏覽
+////判斷目前瀏覽裝置為何
+//function checkDevice() {
+//    if (/ipad/i.test(navigator.userAgent.toLowerCase())) {
+//        return "ipad"; // 目前是用ipad瀏覽
+//    } else if (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase())) {
+//        return "mobile"; // 目前是用手機瀏覽
+//    } else {
+//        return "pc"; // 目前是用電腦瀏覽
+//    }
+//}
+
+function getPlatform() {
+    if (cordova.platformId === 'ios') {
+        return 'ios';
     } else {
-        return "pc"; // 目前是用電腦瀏覽
+        return 'android';
     }
 }
 
@@ -36,54 +45,58 @@ function getCookie(c_name) {
 
 //affix
 $(document).ready(function () {
-    var $nav_div = $('.nav-div')
-    var $nav = $('.navbar-plant');
-    var start = $nav.offset().top;
-    var prev = 0;
-    var reversePoint = 0;
-    var direction;
-    var threshold = 200;
-    var device = checkDevice();
-    //affix
-    $nav.affix({
-        offset: {
-            top: $nav.offset().top
-        }
-    });
-    //只有是行動裝置時才讓navbar伸縮
-    if (device === 'mobile' || device === 'ipad') {
-        $(window).scroll(function () {
-            var offsetTop = $(this).scrollTop();
+    window.open = cordova.InAppBrowser.open;
+    var affix = {
+        initial: function () {
+            this.$nav_div = $('.nav-div');
+            this.$nav = $('.navbar-plant');
+            this.offsetTop = this.$nav.offset().top;
+            this.prev = 0;
+            this.reversePoint = 0;
+            this.direction;
+            this.threshold = 200;
+            this.interval;
+            $('body').on("scroll", this.bindScroll);
+        },
+        bindScroll: function () {
+            console.log($('body').scrollTop());
+            var scrollTop = $('body').scrollTop();
             //滑動的距離超過threshold時讓他伸縮
             var distance = function () {
-                var temp = Math.abs(reversePoint) - Math.abs(offsetTop);
+                var temp = Math.abs(affix.reversePoint) - Math.abs(scrollTop);
                 return Math.abs(temp);
             };
-            //判斷滑上滑下
-            if (offsetTop > start) {
-                if (offsetTop > prev) {
-                    if (distance() > threshold) {
-                        $nav.removeClass('slidedown').addClass('slideup');
-                    }
-                    if (direction !== 'down') {
-                        direction = 'down';
-                        reversePoint = offsetTop;
-                    }
-                } else {
-                    if (distance() > threshold) {
-                        $nav.removeClass('slideup').addClass('slidedown');
-                    }
-                    if (direction !== 'up') {
-                        direction = 'up';
-                        reversePoint = offsetTop;
-                    }
-                }
+            if (scrollTop > affix.offsetTop) {
+                affix.$nav.addClass('affix');
             } else {
-                $nav.removeClass('slideup').addClass('slidedown');
+                affix.$nav.removeClass('affix');
             }
-            prev = offsetTop;
-        });
+            //判斷滑上滑下
+            //            if (scrollTop > affix.offsetTop + 100) {
+            //                if (scrollTop > affix.prev) {
+            //                    if (distance() > affix.threshold) {
+            //                        affix.$nav.removeClass('slidedown').addClass('slideup');
+            //                    }
+            //                    if (affix.direction !== 'down') {
+            //                        affix.direction = 'down';
+            //                        affix.reversePoint = scrollTop;
+            //                    }
+            //                } else {
+            //                    if (distance() > affix.threshold) {
+            //                        affix.$nav.removeClass('slideup').addClass('slidedown');
+            //                    }
+            //                    if (affix.direction !== 'up') {
+            //                        affix.direction = 'up';
+            //                        affix.reversePoint = scrollTop;
+            //                    }
+            //                }
+            //            } else {
+            //                affix.$nav.removeClass('slideup').addClass('slidedown');
+            //            }
+            //            affix.prev = scrollTop;
+        }
     }
+    affix.initial();
 });
 
 //取得url參數
@@ -147,27 +160,33 @@ function strToJson(array) {
     return temp;
 };
 
+
+function getNowUrl() {
+    var path = decodeURIComponent(location.href.substr(location.href.indexOf("#") + 1));
+    return serverurl + path;
+}
+
 //SHARE
 function shareTwitter() {
-    var url = 'http://twitter.com/home/?status='.concat(decodeURIComponent(document.title)).concat(' ').concat(decodeURIComponent(location.href));
-    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    var url = 'http://twitter.com/home/?status=' + getNowUrl();
+    window.open(url, '_system', 'location=yes');
 }
 
 function shareGoogle() {
-    var url = 'https://plus.google.com/share?url='.concat(decodeURIComponent(location.href));
-    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+    var url = 'https://plus.google.com/share?url=' + getNowUrl();
+    window.open(url, '_system', 'location=yes');
     return false;
 };
 
 function shareFacebook() {
-    var url = 'http://www.facebook.com/share.php?u='.concat(decodeURIComponent(location.href));
-    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+    var url = 'http://www.facebook.com/share.php?u=' + getNowUrl();
+    window.open(url, '_system', 'location=yes');
     return false;
 };
 
 function shareWeibo() {
-    var url = 'http://v.t.sina.com.cn/share/share.php?title=' + decodeURIComponent(document.title) + '&url=' + decodeURIComponent(location.href);
-    window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+    var url = 'http://v.t.sina.com.cn/share/share.php?title=' + 'SATURDAYS' + '&url=' + getNowUrl();
+    window.open(url, '_system', 'location=yes');
     return false;
 };
 
