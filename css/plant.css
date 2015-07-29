@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 63, /Users/young/takkostore/www/css/plant.scss */
+/* line 58, /Users/young/takkostore/www/css/plant.scss */
 li {
   -moz-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
@@ -7,25 +7,39 @@ li {
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
-/* line 66, /Users/young/takkostore/www/css/plant.scss */
-.container {
-  padding-bottom: 60px; }
+/* line 62, /Users/young/takkostore/www/css/plant.scss */
+input,
+textarea {
+  box-shadow: none !important; }
+  /* line 64, /Users/young/takkostore/www/css/plant.scss */
+  input:invalid,
+  textarea:invalid {
+    box-shadow: none; }
+  /* line 67, /Users/young/takkostore/www/css/plant.scss */
+  input:-moz-submit-invalid,
+  textarea:-moz-submit-invalid {
+    box-shadow: none; }
+  /* line 70, /Users/young/takkostore/www/css/plant.scss */
+  input:-moz-ui-invalid,
+  textarea:-moz-ui-invalid {
+    box-shadow: none; }
 
-/* line 70, /Users/young/takkostore/www/css/plant.scss */
+/* line 74, /Users/young/takkostore/www/css/plant.scss */
+.container {
+  margin-bottom: 50px; }
+
+/* line 78, /Users/young/takkostore/www/css/plant.scss */
 .loading-modal {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
   z-index: 9969;
-  display: none;
-  -webkit-backface-visibility: hidden;
-  top: 0px;
-  left: 0px; }
-  /* line 78, /Users/young/takkostore/www/css/plant.scss */
+  display: none; }
+  /* line 85, /Users/young/takkostore/www/css/plant.scss */
   .loading-modal.show {
     display: block; }
-  /* line 81, /Users/young/takkostore/www/css/plant.scss */
+  /* line 88, /Users/young/takkostore/www/css/plant.scss */
   .loading-modal .content {
     vertical-align: middle;
     z-index: 100;
@@ -41,63 +55,73 @@ li {
     padding: 30px 10px;
     text-align: center;
     opacity: 0.9; }
-    /* line 96, /Users/young/takkostore/www/css/plant.scss */
+    /* line 103, /Users/young/takkostore/www/css/plant.scss */
     .loading-modal .content .logo {
       width: 100px;
       height: 100px;
       margin: 20px; }
-    /* line 101, /Users/young/takkostore/www/css/plant.scss */
+    /* line 108, /Users/young/takkostore/www/css/plant.scss */
     .loading-modal .content p {
       color: #595757;
       font-size: 20px;
       letter-spacing: 2px; }
-    /* line 106, /Users/young/takkostore/www/css/plant.scss */
+    /* line 113, /Users/young/takkostore/www/css/plant.scss */
     .loading-modal .content .loading-icon {
       position: relative;
       height: 30px;
       width: 30px; }
 
-/* line 114, /Users/young/takkostore/www/css/plant.scss */
+/* line 120, /Users/young/takkostore/www/css/plant.scss */
 .picture-modal {
   position: fixed;
   background-color: #000;
   width: 100%;
   height: 100%;
   z-index: 9969;
-  display: none;
-  -webkit-backface-visibility: hidden;
-  top: 0px;
-  left: 0px; }
-  /* line 122, /Users/young/takkostore/www/css/plant.scss */
+  display: block; }
+  /* line 127, /Users/young/takkostore/www/css/plant.scss */
   .picture-modal.ng-hide-remove {
+    -webkit-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     -moz-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     -o-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
-    -webkit-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     -ms-transform: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     opacity: 0; }
-  /* line 126, /Users/young/takkostore/www/css/plant.scss */
+  /* line 131, /Users/young/takkostore/www/css/plant.scss */
   .picture-modal.ng-hide-remove-active {
     opacity: 1; }
-  /* line 129, /Users/young/takkostore/www/css/plant.scss */
+  /* line 134, /Users/young/takkostore/www/css/plant.scss */
   .picture-modal.ng-hide-add {
+    -webkit-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     -moz-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     -o-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
-    -webkit-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     -ms-transform: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1) all;
     opacity: 1; }
-  /* line 133, /Users/young/takkostore/www/css/plant.scss */
+  /* line 138, /Users/young/takkostore/www/css/plant.scss */
   .picture-modal.ng-hide-add-active {
     opacity: 0; }
-  /* line 136, /Users/young/takkostore/www/css/plant.scss */
-  .picture-modal > .remove {
+  /* line 141, /Users/young/takkostore/www/css/plant.scss */
+  .picture-modal .remove {
     position: absolute;
     right: 10px;
     top: 10px;
     width: 40px;
+    font-size: 28px;
     z-index: 2; }
-  /* line 143, /Users/young/takkostore/www/css/plant.scss */
+  /* line 149, /Users/young/takkostore/www/css/plant.scss */
+  .picture-modal .actions {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 100px;
+    z-index: 2; }
+    /* line 155, /Users/young/takkostore/www/css/plant.scss */
+    .picture-modal .actions > .btn {
+      display: inline-block;
+      width: 45%;
+      font-size: 28px; }
+  /* line 161, /Users/young/takkostore/www/css/plant.scss */
   .picture-modal > .pinch {
     position: absolute;
     right: 0%;
@@ -105,21 +129,25 @@ li {
     z-index: 2;
     height: 100px;
     width: 100px; }
-  /* line 151, /Users/young/takkostore/www/css/plant.scss */
+  /* line 169, /Users/young/takkostore/www/css/plant.scss */
   .picture-modal .wrapper {
     width: 100%;
     height: 100%; }
-    /* line 154, /Users/young/takkostore/www/css/plant.scss */
+    /* line 172, /Users/young/takkostore/www/css/plant.scss */
     .picture-modal .wrapper .picture {
       width: 100%;
       height: 100%;
       background-color: #000;
       z-index: 1;
       background-position: center;
-      background-size: contain;
+      background-size: 600px auto;
       background-repeat: no-repeat; }
+      @media all and (max-width: 768px) {
+        /* line 172, /Users/young/takkostore/www/css/plant.scss */
+        .picture-modal .wrapper .picture {
+          background-size: 320px auto; } }
 
-/* line 163, /Users/young/takkostore/www/css/plant.scss */
+/* line 186, /Users/young/takkostore/www/css/plant.scss */
 .progress-bar {
   position: fixed;
   width: 100%;
@@ -128,41 +156,42 @@ li {
   background-color: #f5f5f5;
   z-index: 999;
   display: none; }
-  /* line 171, /Users/young/takkostore/www/css/plant.scss */
+  /* line 194, /Users/young/takkostore/www/css/plant.scss */
   .progress-bar .bar {
     height: 100%;
     width: 0%;
     opacity: 0.8;
     background-color: #595757;
+    -webkit-transition: 3s all cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: 3s all cubic-bezier(0.4, 0, 0.2, 1);
     -o-transition: 3s all cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: 3s all cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: 3s all cubic-bezier(0.4, 0, 0.2, 1);
     transition: 3s all cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* line 180, /Users/young/takkostore/www/css/plant.scss */
+/* line 203, /Users/young/takkostore/www/css/plant.scss */
 html,
 body {
-  width: 100%;
+  position: relative;
+  height: 100%;
+  -webkit-transition: 1s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: 1s all cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: 1s all cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: 1s all cubic-bezier(0.4, 0, 0.2, 1);
   -ms-transform: 1s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 1s all cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* line 184, /Users/young/takkostore/www/css/plant.scss */
+/* line 208, /Users/young/takkostore/www/css/plant.scss */
 .hidden {
   visibility: hidden; }
 
-/* line 187, /Users/young/takkostore/www/css/plant.scss */
+/* line 211, /Users/young/takkostore/www/css/plant.scss */
 .left {
   float: left; }
 
-/* line 190, /Users/young/takkostore/www/css/plant.scss */
+/* line 214, /Users/young/takkostore/www/css/plant.scss */
 .right {
   float: right; }
 
-/* line 193, /Users/young/takkostore/www/css/plant.scss */
+/* line 217, /Users/young/takkostore/www/css/plant.scss */
 body {
   background-color: #fff;
   font-family: Microsoft JhengHei, Helvetica Neue, Arial, sans-serif;
@@ -170,15 +199,17 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
-  position: relative; }
-  /* line 202, /Users/young/takkostore/www/css/plant.scss */
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto; }
+  /* line 228, /Users/young/takkostore/www/css/plant.scss */
   body.menu-show .side-content {
     -moz-transform: translateX(270px) translate3d(0, 0, 0);
     -o-transform: translateX(270px) translate3d(0, 0, 0);
     -webkit-transform: translateX(270px) translate3d(0, 0, 0);
     -ms-transform: translateX(270px) translate3d(0, 0, 0);
     transform: translateX(270px) translate3d(0, 0, 0); }
-    /* line 204, /Users/young/takkostore/www/css/plant.scss */
+    /* line 230, /Users/young/takkostore/www/css/plant.scss */
     body.menu-show .side-content .side-blur {
       position: absolute;
       left: 0;
@@ -188,21 +219,21 @@ body {
       z-index: 999;
       background-color: transparent;
       display: block; }
-  /* line 215, /Users/young/takkostore/www/css/plant.scss */
+  /* line 241, /Users/young/takkostore/www/css/plant.scss */
   body.menu-show .side-menu {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
-  /* line 220, /Users/young/takkostore/www/css/plant.scss */
+  /* line 246, /Users/young/takkostore/www/css/plant.scss */
   body.cart-show .side-content {
     -moz-transform: translateX(270px);
     -o-transform: translateX(270px);
     -webkit-transform: translateX(270px);
     -ms-transform: translateX(270px);
     transform: translateX(270px); }
-    /* line 222, /Users/young/takkostore/www/css/plant.scss */
+    /* line 248, /Users/young/takkostore/www/css/plant.scss */
     body.cart-show .side-content .side-blur {
       position: absolute;
       left: 0;
@@ -212,7 +243,7 @@ body {
       z-index: 999;
       background-color: transparent;
       display: block; }
-  /* line 233, /Users/young/takkostore/www/css/plant.scss */
+  /* line 259, /Users/young/takkostore/www/css/plant.scss */
   body.cart-show .side-cart {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
@@ -220,13 +251,13 @@ body {
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
 
-/* line 238, /Users/young/takkostore/www/css/plant.scss */
+/* line 264, /Users/young/takkostore/www/css/plant.scss */
 hr {
   margin: 10px 0;
   height: 1px;
   background-color: #898989; }
 
-/* line 243, /Users/young/takkostore/www/css/plant.scss */
+/* line 269, /Users/young/takkostore/www/css/plant.scss */
 .select-group {
   padding: 0;
   margin: 0;
@@ -235,8 +266,8 @@ hr {
   border-radius: 3px;
   overflow: hidden;
   background-color: #fff;
-  background: #fff url("../img/arrowdown.gif") no-repeat 90% 50%; }
-  /* line 252, /Users/young/takkostore/www/css/plant.scss */
+  background: #fff url("/static/img/arrowdown.gif") no-repeat 90% 50%; }
+  /* line 278, /Users/young/takkostore/www/css/plant.scss */
   .select-group select {
     padding: 5px 8px;
     width: 130%;
@@ -249,36 +280,36 @@ hr {
     -o-appearance: none;
     -ms-appearance: none;
     appearance: none; }
-    /* line 264, /Users/young/takkostore/www/css/plant.scss */
+    /* line 290, /Users/young/takkostore/www/css/plant.scss */
     .select-group select:focus {
       outline: none; }
 
-/* line 269, /Users/young/takkostore/www/css/plant.scss */
+/* line 295, /Users/young/takkostore/www/css/plant.scss */
 .side-content {
   z-index: 1;
   position: relative;
   background-color: #f5f5f5;
+  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 274, /Users/young/takkostore/www/css/plant.scss */
+  /* line 300, /Users/young/takkostore/www/css/plant.scss */
   .side-content.side-show {
     -moz-transform: translateX(270px);
     -o-transform: translateX(270px);
     -webkit-transform: translateX(270px);
     -ms-transform: translateX(270px);
     transform: translateX(270px); }
-  /* line 277, /Users/young/takkostore/www/css/plant.scss */
+  /* line 303, /Users/young/takkostore/www/css/plant.scss */
   .side-content .side-blur {
     display: none; }
-  /* line 280, /Users/young/takkostore/www/css/plant.scss */
+  /* line 306, /Users/young/takkostore/www/css/plant.scss */
   .side-content .loadMore {
     margin: 50px auto;
     width: 200px; }
 
-/* line 285, /Users/young/takkostore/www/css/plant.scss */
+/* line 311, /Users/young/takkostore/www/css/plant.scss */
 .side-menu {
   position: fixed;
   z-index: 1;
@@ -287,9 +318,9 @@ hr {
   height: 100%;
   width: 270px;
   overflow-y: scroll;
+  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transform: translateX(-270px);
@@ -297,41 +328,41 @@ hr {
   -webkit-transform: translateX(-270px);
   -ms-transform: translateX(-270px);
   transform: translateX(-270px); }
-  /* line 295, /Users/young/takkostore/www/css/plant.scss */
+  /* line 321, /Users/young/takkostore/www/css/plant.scss */
   .side-menu.side-show {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
-  /* line 298, /Users/young/takkostore/www/css/plant.scss */
+  /* line 324, /Users/young/takkostore/www/css/plant.scss */
   .side-menu hr {
     border: 0;
     border-top: 1px solid #898989;
     margin-right: 20px;
     margin: 30px 45px 20px 46px; }
-  /* line 304, /Users/young/takkostore/www/css/plant.scss */
+  /* line 330, /Users/young/takkostore/www/css/plant.scss */
   .side-menu ul {
     box-sizing: padding-box;
     margin: 50px auto;
     width: 100%;
     padding: 10px; }
-    /* line 309, /Users/young/takkostore/www/css/plant.scss */
+    /* line 335, /Users/young/takkostore/www/css/plant.scss */
     .side-menu ul li {
       margin: 20px 0;
       text-align: center; }
-      /* line 312, /Users/young/takkostore/www/css/plant.scss */
+      /* line 338, /Users/young/takkostore/www/css/plant.scss */
       .side-menu ul li a {
         color: #f5f5f5;
         font-size: 18px;
+        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         letter-spacing: 8px;
         line-height: 45px; }
-        /* line 318, /Users/young/takkostore/www/css/plant.scss */
+        /* line 344, /Users/young/takkostore/www/css/plant.scss */
         .side-menu ul li a:hover {
           color: #fff;
           text-decoration: none;
@@ -341,7 +372,7 @@ hr {
           -ms-transform: scale(1.2) translate3d(0, 0, 0);
           transform: scale(1.2) translate3d(0, 0, 0); }
 
-/* line 327, /Users/young/takkostore/www/css/plant.scss */
+/* line 353, /Users/young/takkostore/www/css/plant.scss */
 .side-cart {
   position: fixed;
   z-index: 1;
@@ -351,9 +382,9 @@ hr {
   width: 270px;
   padding: 0 0 40px 0;
   overflow-y: scroll;
+  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transform: translateX(-270px);
@@ -361,60 +392,60 @@ hr {
   -webkit-transform: translateX(-270px);
   -ms-transform: translateX(-270px);
   transform: translateX(-270px); }
-  /* line 338, /Users/young/takkostore/www/css/plant.scss */
+  /* line 364, /Users/young/takkostore/www/css/plant.scss */
   .side-cart .title {
     color: #f5f5f5;
     margin: 20px 20px;
     font-size: 20px;
     letter-spacing: 5px; }
-  /* line 344, /Users/young/takkostore/www/css/plant.scss */
+  /* line 370, /Users/young/takkostore/www/css/plant.scss */
   .side-cart.side-show {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
-  /* line 347, /Users/young/takkostore/www/css/plant.scss */
+  /* line 373, /Users/young/takkostore/www/css/plant.scss */
   .side-cart hr {
     border: 0;
     border-top: 1px solid #898989;
     margin-right: 20px;
     margin: 30px 45px 20px 46px; }
-  /* line 353, /Users/young/takkostore/www/css/plant.scss */
+  /* line 379, /Users/young/takkostore/www/css/plant.scss */
   .side-cart .total {
     color: #f5f5f5;
     font-size: 18px;
     letter-spacing: 2px;
     text-align: right;
     padding: 0 20px; }
-  /* line 360, /Users/young/takkostore/www/css/plant.scss */
+  /* line 386, /Users/young/takkostore/www/css/plant.scss */
   .side-cart .empty {
     color: #f5f5f5;
     font-size: 16px;
     letter-spacing: 2px;
     text-align: center;
     margin: 50px 0; }
-  /* line 367, /Users/young/takkostore/www/css/plant.scss */
+  /* line 393, /Users/young/takkostore/www/css/plant.scss */
   .side-cart ul {
     box-sizing: padding-box;
     margin: 0px auto;
     width: 100%;
     padding: 0px 10px; }
-    /* line 372, /Users/young/takkostore/www/css/plant.scss */
+    /* line 398, /Users/young/takkostore/www/css/plant.scss */
     .side-cart ul button {
       position: relative;
       display: block;
       width: 90%;
       margin: 30px auto;
       height: 35px; }
-    /* line 379, /Users/young/takkostore/www/css/plant.scss */
+    /* line 405, /Users/young/takkostore/www/css/plant.scss */
     .side-cart ul li {
       cursor: pointer;
       margin: 20px 0;
       text-align: left;
       position: relative;
       padding: 10px 0 5px 70px; }
-      /* line 385, /Users/young/takkostore/www/css/plant.scss */
+      /* line 411, /Users/young/takkostore/www/css/plant.scss */
       .side-cart ul li .thumb {
         position: absolute;
         height: 50px;
@@ -424,27 +455,27 @@ hr {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat; }
-      /* line 395, /Users/young/takkostore/www/css/plant.scss */
+      /* line 421, /Users/young/takkostore/www/css/plant.scss */
       .side-cart ul li a {
         color: #f5f5f5;
         font-size: 1.6rem;
+        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         letter-spacing: 5px;
         line-height: 20px; }
-        /* line 401, /Users/young/takkostore/www/css/plant.scss */
+        /* line 427, /Users/young/takkostore/www/css/plant.scss */
         .side-cart ul li a:hover {
           text-decoration: none; }
-      /* line 405, /Users/young/takkostore/www/css/plant.scss */
+      /* line 431, /Users/young/takkostore/www/css/plant.scss */
       .side-cart ul li p {
         color: #b5b5b6;
         font-size: 1.4rem;
+        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         letter-spacing: 1px;
@@ -454,7 +485,7 @@ hr {
         overflow: hidden;
         text-overflow: ellipsis; }
 
-/* line 420, /Users/young/takkostore/www/css/plant.scss */
+/* line 446, /Users/young/takkostore/www/css/plant.scss */
 .btn {
   height: 35px;
   width: 120px;
@@ -465,72 +496,72 @@ hr {
   margin: 0 auto;
   letter-spacing: 2px;
   line-height: 24px;
+  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative; }
   @media all and (max-width: 480px) {
-    /* line 420, /Users/young/takkostore/www/css/plant.scss */
+    /* line 446, /Users/young/takkostore/www/css/plant.scss */
     .btn {
       width: 100px; } }
-  /* line 437, /Users/young/takkostore/www/css/plant.scss */
+  /* line 463, /Users/young/takkostore/www/css/plant.scss */
   .btn:hover .loading-icon .white-path {
     stroke: #595757; }
-  /* line 442, /Users/young/takkostore/www/css/plant.scss */
+  /* line 468, /Users/young/takkostore/www/css/plant.scss */
   .btn.trans-btn {
     background-color: transparent;
     color: #f5f5f5;
     border: none; }
-    /* line 446, /Users/young/takkostore/www/css/plant.scss */
+    /* line 472, /Users/young/takkostore/www/css/plant.scss */
     .btn.trans-btn:hover {
       border: 1px solid #595757;
       background-color: transparent;
       color: #595757; }
-  /* line 452, /Users/young/takkostore/www/css/plant.scss */
+  /* line 478, /Users/young/takkostore/www/css/plant.scss */
   .btn.gray-btn {
     background-color: #595757;
     color: #f5f5f5;
     border: none; }
-    /* line 456, /Users/young/takkostore/www/css/plant.scss */
+    /* line 482, /Users/young/takkostore/www/css/plant.scss */
     .btn.gray-btn:hover {
       border: 1px solid #595757;
       background-color: #f5f5f5;
       color: #595757; }
-  /* line 462, /Users/young/takkostore/www/css/plant.scss */
+  /* line 488, /Users/young/takkostore/www/css/plant.scss */
   .btn.gray30-btn {
     background-color: #E0E0E0;
     color: #595757;
     border: none; }
-    /* line 466, /Users/young/takkostore/www/css/plant.scss */
+    /* line 492, /Users/young/takkostore/www/css/plant.scss */
     .btn.gray30-btn:hover {
       border: 1px solid #b5b5b6;
       background-color: #f5f5f5;
       color: #595757; }
-  /* line 472, /Users/young/takkostore/www/css/plant.scss */
+  /* line 498, /Users/young/takkostore/www/css/plant.scss */
   .btn.orange-btn {
     background-color: #e2613b;
     color: #f5f5f5; }
-    /* line 475, /Users/young/takkostore/www/css/plant.scss */
+    /* line 501, /Users/young/takkostore/www/css/plant.scss */
     .btn.orange-btn:hover {
       border: 1px solid #e2613b;
       background-color: #f5f5f5;
       color: #e2613b; }
-  /* line 481, /Users/young/takkostore/www/css/plant.scss */
+  /* line 507, /Users/young/takkostore/www/css/plant.scss */
   .btn.white-btn {
     background-color: transparent;
     color: #f5f5f5;
     border: 1px solid #f5f5f5; }
-    /* line 485, /Users/young/takkostore/www/css/plant.scss */
+    /* line 511, /Users/young/takkostore/www/css/plant.scss */
     .btn.white-btn:hover {
       background-color: #f5f5f5;
       color: #000; }
 
-/* line 491, /Users/young/takkostore/www/css/plant.scss */
+/* line 517, /Users/young/takkostore/www/css/plant.scss */
 .jumbotron.jumbotron_plant {
   height: 250px;
-  margin: 0px 0 70px 0;
+  margin: 0 0 0 0;
   padding: 0;
   position: relative;
   z-index: 2;
@@ -538,10 +569,10 @@ hr {
   background-size: cover;
   background-repeat: no-repeat; }
   @media (min-width: 1366px) and (max-height: 768px) {
-    /* line 491, /Users/young/takkostore/www/css/plant.scss */
+    /* line 517, /Users/young/takkostore/www/css/plant.scss */
     .jumbotron.jumbotron_plant {
       height: 150px; } }
-  /* line 503, /Users/young/takkostore/www/css/plant.scss */
+  /* line 529, /Users/young/takkostore/www/css/plant.scss */
   .jumbotron.jumbotron_plant .logo {
     height: 180px;
     width: 180px;
@@ -550,12 +581,12 @@ hr {
     position: relative;
     top: 15%; }
     @media (min-width: 1366px) and (max-height: 768px) {
-      /* line 503, /Users/young/takkostore/www/css/plant.scss */
+      /* line 529, /Users/young/takkostore/www/css/plant.scss */
       .jumbotron.jumbotron_plant .logo {
         height: 100px;
         width: 100px; } }
 
-/* line 516, /Users/young/takkostore/www/css/plant.scss */
+/* line 542, /Users/young/takkostore/www/css/plant.scss */
 .nav-div {
   position: relative;
   height: 70px;
@@ -563,42 +594,42 @@ hr {
   display: block;
   margin-bottom: 20px; }
 
-/* line 523, /Users/young/takkostore/www/css/plant.scss */
+/* line 549, /Users/young/takkostore/www/css/plant.scss */
 .shop {
   width: 90%;
   margin: 0 auto 0 auto;
   padding: 0 0 50px 25px;
   z-index: 1; }
-  /* line 528, /Users/young/takkostore/www/css/plant.scss */
+  /* line 554, /Users/young/takkostore/www/css/plant.scss */
   .shop .isotop {
     display: block; }
   @media all and (min-width: 480px) and (max-width: 768px) {
-    /* line 523, /Users/young/takkostore/www/css/plant.scss */
+    /* line 549, /Users/young/takkostore/www/css/plant.scss */
     .shop {
       width: 100%;
       margin: 0; } }
   @media all and (max-width: 480px) {
-    /* line 523, /Users/young/takkostore/www/css/plant.scss */
+    /* line 549, /Users/young/takkostore/www/css/plant.scss */
     .shop {
       width: 100%;
       padding: 0 0 50px 0px;
       margin: 0; } }
-  /* line 541, /Users/young/takkostore/www/css/plant.scss */
+  /* line 567, /Users/young/takkostore/www/css/plant.scss */
   .shop:after {
     content: ' ';
     display: block;
     clear: both; }
-  /* line 546, /Users/young/takkostore/www/css/plant.scss */
+  /* line 572, /Users/young/takkostore/www/css/plant.scss */
   .shop .item {
     background-color: transparent;
     overflow: hidden;
     cursor: pointer;
     position: relative; }
-    /* line 552, /Users/young/takkostore/www/css/plant.scss */
+    /* line 577, /Users/young/takkostore/www/css/plant.scss */
     .shop .item img {
       display: inline-block;
       width: 100%; }
-    /* line 558, /Users/young/takkostore/www/css/plant.scss */
+    /* line 583, /Users/young/takkostore/www/css/plant.scss */
     .shop .item.ready img,
     .shop .item.ready .text-bar {
       display: block;
@@ -607,48 +638,46 @@ hr {
       -webkit-animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
       -ms-animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
       animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 566, /Users/young/takkostore/www/css/plant.scss */
+    /* line 590, /Users/young/takkostore/www/css/plant.scss */
     .shop .item.loading img,
-    .shop .item.loading .text-bar,
-    .shop .item.error img,
-    .shop .item.error .text-bar {
+    .shop .item.loading .text-bar {
       display: none; }
-    /* line 571, /Users/young/takkostore/www/css/plant.scss */
+    /* line 593, /Users/young/takkostore/www/css/plant.scss */
     .shop .item.loading:before {
       content: '';
       display: block;
       height: 250px;
-      background-image: url("../img/loading.gif");
+      background-image: url("/static/img/loading.gif");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       background-size: 50px 50px !important; }
-    /* line 581, /Users/young/takkostore/www/css/plant.scss */
+    /* line 603, /Users/young/takkostore/www/css/plant.scss */
     .shop .item.error:before {
       content: '';
       display: block;
       height: 250px;
-      background-image: url("../img/notfound.jpg");
+      background-image: url("/static/img/notfound.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
     @media all and (min-width: 1440px) {
-      /* line 546, /Users/young/takkostore/www/css/plant.scss */
+      /* line 572, /Users/young/takkostore/www/css/plant.scss */
       .shop .item {
         width: calc(25% - 50px); } }
     @media all and (min-width: 768px) and (max-width: 1440px) {
-      /* line 546, /Users/young/takkostore/www/css/plant.scss */
+      /* line 572, /Users/young/takkostore/www/css/plant.scss */
       .shop .item {
         width: calc(33.333333339% - 50px); } }
     @media all and (min-width: 480px) and (max-width: 768px) {
-      /* line 546, /Users/young/takkostore/www/css/plant.scss */
+      /* line 572, /Users/young/takkostore/www/css/plant.scss */
       .shop .item {
         width: calc(50% - 50px); } }
     @media all and (max-width: 480px) {
-      /* line 546, /Users/young/takkostore/www/css/plant.scss */
+      /* line 572, /Users/young/takkostore/www/css/plant.scss */
       .shop .item {
         width: 100%; } }
-    /* line 605, /Users/young/takkostore/www/css/plant.scss */
+    /* line 627, /Users/young/takkostore/www/css/plant.scss */
     .shop .item .text-bar {
       z-index: 2;
       display: block;
@@ -657,7 +686,7 @@ hr {
       bottom: 10px;
       background-color: transparent;
       padding: 0 20px; }
-      /* line 613, /Users/young/takkostore/www/css/plant.scss */
+      /* line 635, /Users/young/takkostore/www/css/plant.scss */
       .shop .item .text-bar .title {
         font-size: 18px;
         line-height: 18px;
@@ -667,60 +696,70 @@ hr {
         text-overflow: ellipsis;
         color: #616161; }
 
-/* line 626, /Users/young/takkostore/www/css/plant.scss */
+/* line 648, /Users/young/takkostore/www/css/plant.scss */
 .navbar-plant {
   border-radius: 0px;
   border: none;
-  -moz-transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  -ms-transform: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  -ms-transform: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   box-shadow: 1px 2px 3px #aaa;
   min-height: 70px;
   background-color: #fff; }
-  /* line 635, /Users/young/takkostore/www/css/plant.scss */
+  /* line 656, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant.affix {
     position: fixed;
     width: 100%;
     z-index: 10;
+    top: 0;
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 1px 2px 3px transparent;
-    -webkit-backface-visibility: hidden;
-    top: 0px;
-    left: 0px; }
-    /* line 642, /Users/young/takkostore/www/css/plant.scss */
+    box-shadow: 1px 2px 3px transparent; }
+    /* line 663, /Users/young/takkostore/www/css/plant.scss */
     .navbar-plant.affix .logo {
       display: inline-block !important; }
-      /* line 644, /Users/young/takkostore/www/css/plant.scss */
+      /* line 665, /Users/young/takkostore/www/css/plant.scss */
       .navbar-plant.affix .logo img {
         height: 70px;
         width: 70px;
         opacity: 1;
+        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 652, /Users/young/takkostore/www/css/plant.scss */
+  /* line 673, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant.slideup {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    -ms-transform: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     -moz-transform: translateY(-110%);
     -o-transform: translateY(-110%);
     -webkit-transform: translateY(-110%);
     -ms-transform: translateY(-110%);
     transform: translateY(-110%); }
-  /* line 655, /Users/young/takkostore/www/css/plant.scss */
+  /* line 679, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant.slidedown {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    -ms-transform: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     -moz-transform: translateY(0%);
     -o-transform: translateY(0%);
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
-  /* line 658, /Users/young/takkostore/www/css/plant.scss */
+  /* line 685, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant .logo {
     display: none !important;
     cursor: pointer; }
-    /* line 661, /Users/young/takkostore/www/css/plant.scss */
+    /* line 688, /Users/young/takkostore/www/css/plant.scss */
     .navbar-plant .logo img {
       position: relative;
       height: 0px;
@@ -728,12 +767,12 @@ hr {
       left: 0px;
       margin: 10px 10px;
       opacity: 0;
+      -webkit-transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 672, /Users/young/takkostore/www/css/plant.scss */
+  /* line 699, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant .navbar-header button {
     margin: 15px 10px;
     position: relative;
@@ -747,7 +786,7 @@ hr {
     color: #595757;
     font-size: 16px;
     padding: 5px 8px; }
-  /* line 686, /Users/young/takkostore/www/css/plant.scss */
+  /* line 713, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant .navbar-header .logo-left {
     width: 50px;
     height: 50px;
@@ -756,10 +795,10 @@ hr {
     left: 15px;
     opacity: 0; }
     @media screen and (max-width: 768px) {
-      /* line 686, /Users/young/takkostore/www/css/plant.scss */
+      /* line 713, /Users/young/takkostore/www/css/plant.scss */
       .navbar-plant .navbar-header .logo-left {
         opacity: 1; } }
-  /* line 699, /Users/young/takkostore/www/css/plant.scss */
+  /* line 726, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant .navbar-collapse .cart-btn {
     position: absolute;
     right: 5%;
@@ -769,49 +808,49 @@ hr {
     font-size: 20px;
     line-height: 22px;
     background-color: transparent; }
-    /* line 708, /Users/young/takkostore/www/css/plant.scss */
+    /* line 735, /Users/young/takkostore/www/css/plant.scss */
     .navbar-plant .navbar-collapse .cart-btn p {
       display: inline-block;
       width: 20px;
       padding: 0;
       line-height: 26px;
       font-size: 15px; }
-  /* line 716, /Users/young/takkostore/www/css/plant.scss */
+  /* line 743, /Users/young/takkostore/www/css/plant.scss */
   .navbar-plant .navbar-collapse .navbar-nav {
     width: 100%;
     text-align: center;
     line-height: 70px;
     z-index: 2; }
     @media screen and (max-width: 768px) {
-      /* line 716, /Users/young/takkostore/www/css/plant.scss */
+      /* line 743, /Users/young/takkostore/www/css/plant.scss */
       .navbar-plant .navbar-collapse .navbar-nav {
         float: none;
         width: 100%; } }
-    /* line 725, /Users/young/takkostore/www/css/plant.scss */
+    /* line 752, /Users/young/takkostore/www/css/plant.scss */
     .navbar-plant .navbar-collapse .navbar-nav li {
       float: none;
       display: inline-block; }
       @media screen and (max-width: 768px) {
-        /* line 725, /Users/young/takkostore/www/css/plant.scss */
+        /* line 752, /Users/young/takkostore/www/css/plant.scss */
         .navbar-plant .navbar-collapse .navbar-nav li {
           float: none;
           display: block; } }
-      /* line 732, /Users/young/takkostore/www/css/plant.scss */
+      /* line 759, /Users/young/takkostore/www/css/plant.scss */
       .navbar-plant .navbar-collapse .navbar-nav li a {
         color: #595757;
+        -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        /* line 735, /Users/young/takkostore/www/css/plant.scss */
+        /* line 762, /Users/young/takkostore/www/css/plant.scss */
         .navbar-plant .navbar-collapse .navbar-nav li a:hover {
           -moz-transform: scale(1.2);
           -o-transform: scale(1.2);
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2); }
-      /* line 740, /Users/young/takkostore/www/css/plant.scss */
+      /* line 767, /Users/young/takkostore/www/css/plant.scss */
       .navbar-plant .navbar-collapse .navbar-nav li.active a {
         background-color: transparent;
         -moz-transform: scale(1.2);
@@ -819,39 +858,39 @@ hr {
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2); }
-        /* line 743, /Users/young/takkostore/www/css/plant.scss */
+        /* line 770, /Users/young/takkostore/www/css/plant.scss */
         .navbar-plant .navbar-collapse .navbar-nav li.active a:hover {
           background-color: transparent; }
 
-/* line 753, /Users/young/takkostore/www/css/plant.scss */
+/* line 780, /Users/young/takkostore/www/css/plant.scss */
 .footer-plant {
   width: 100%;
   background-color: #000;
   min-height: 180px;
   margin-top: 50px; }
   @media screen and (max-width: 991px) {
-    /* line 753, /Users/young/takkostore/www/css/plant.scss */
+    /* line 780, /Users/young/takkostore/www/css/plant.scss */
     .footer-plant {
       display: none; } }
-  /* line 761, /Users/young/takkostore/www/css/plant.scss */
+  /* line 788, /Users/young/takkostore/www/css/plant.scss */
   .footer-plant .row {
     padding: 20px 30px; }
-    /* line 763, /Users/young/takkostore/www/css/plant.scss */
+    /* line 790, /Users/young/takkostore/www/css/plant.scss */
     .footer-plant .row .content {
       height: 100%;
       padding-left: 20%; }
-      /* line 766, /Users/young/takkostore/www/css/plant.scss */
+      /* line 793, /Users/young/takkostore/www/css/plant.scss */
       .footer-plant .row .content .icon-list {
         text-align: left;
         width: 100%; }
-        /* line 769, /Users/young/takkostore/www/css/plant.scss */
+        /* line 796, /Users/young/takkostore/www/css/plant.scss */
         .footer-plant .row .content .icon-list .icon {
           height: 25px;
           width: 25px;
           margin: 5px 10px;
           display: inline-block;
           cursor: pointer; }
-      /* line 777, /Users/young/takkostore/www/css/plant.scss */
+      /* line 804, /Users/young/takkostore/www/css/plant.scss */
       .footer-plant .row .content h2 {
         font-size: 24px;
         line-height: 20px;
@@ -859,13 +898,13 @@ hr {
         letter-spacing: 2px;
         margin: 10px 0 20px 0;
         display: inline-block;
+        -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer; }
-      /* line 787, /Users/young/takkostore/www/css/plant.scss */
+      /* line 814, /Users/young/takkostore/www/css/plant.scss */
       .footer-plant .row .content h3 {
         font-weight: 100;
         font-size: 20px;
@@ -875,99 +914,91 @@ hr {
         margin: 10px 0 20px 0;
         display: inline-block;
         cursor: pointer; }
-      /* line 797, /Users/young/takkostore/www/css/plant.scss */
+      /* line 824, /Users/young/takkostore/www/css/plant.scss */
       .footer-plant .row .content p {
         margin: 5px 0;
         font-size: 16px;
         color: #aaa; }
 
-/* line 805, /Users/young/takkostore/www/css/plant.scss */
+/* line 832, /Users/young/takkostore/www/css/plant.scss */
 .plant-carousel {
   padding: 50px 0; }
-  /* line 807, /Users/young/takkostore/www/css/plant.scss */
+  /* line 834, /Users/young/takkostore/www/css/plant.scss */
   .plant-carousel .swiper-slide {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-color: #f5f5f5;
-    -moz-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5s -moz-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -o-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -ms-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
-    -o-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5s -moz-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -o-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -ms-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5s -moz-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -o-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -ms-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
-    -ms-transform: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5s -moz-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -o-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -ms-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
-    transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5s -moz-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -o-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -ms-filter cubic-bezier(0.4, 0, 0.2, 1), 0.5 -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transform: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer; }
-    /* line 818, /Users/young/takkostore/www/css/plant.scss */
+    /* line 841, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .swiper-slide.loading {
-      background-image: url("../img/loading.gif");
+      background-image: url("/static/img/loading.gif");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       background-size: 50px 50px !important; }
-    /* line 823, /Users/young/takkostore/www/css/plant.scss */
+    /* line 846, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .swiper-slide.error {
-      background-image: url("../img/notfound.jpg");
+      background-image: url("/static/img/notfound.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
-  /* line 828, /Users/young/takkostore/www/css/plant.scss */
+  /* line 851, /Users/young/takkostore/www/css/plant.scss */
   .plant-carousel .carousel-top {
     width: 100%;
     height: 400px;
     display: inline-block; }
-    @media all and (min-width: 1200px) {
-      /* line 828, /Users/young/takkostore/www/css/plant.scss */
-      .plant-carousel .carousel-top {
-        width: 600px; } }
-    @media screen and (max-width: 480px) {
-      /* line 828, /Users/young/takkostore/www/css/plant.scss */
-      .plant-carousel .carousel-top {
-        height: 300px; } }
-  /* line 839, /Users/young/takkostore/www/css/plant.scss */
+  /* line 862, /Users/young/takkostore/www/css/plant.scss */
   .plant-carousel .carousel-bottom {
     width: 100%;
     height: 100px;
     display: inline-block;
     margin-top: 10px; }
-    /* line 844, /Users/young/takkostore/www/css/plant.scss */
+    /* line 867, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .carousel-bottom .swiper-slide {
       width: 100px;
       height: 100%;
       opacity: 1;
       background-size: cover;
+      -webkit-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 850, /Users/young/takkostore/www/css/plant.scss */
+      /* line 873, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .carousel-bottom .swiper-slide.active {
         -moz-filter: brightness(0.7);
         -o-filter: brightness(0.7);
         -webkit-filter: brightness(0.7);
         -ms-filter: brightness(0.7);
         filter: brightness(0.7);
+        -webkit-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 856, /Users/young/takkostore/www/css/plant.scss */
+  /* line 879, /Users/young/takkostore/www/css/plant.scss */
   .plant-carousel .plant-detail {
     width: 100%;
     padding: 0 20%; }
     @media screen and (max-width: 991px) {
-      /* line 856, /Users/young/takkostore/www/css/plant.scss */
+      /* line 879, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail {
         padding: 0 30px;
         margin-top: 50px; } }
-    /* line 863, /Users/young/takkostore/www/css/plant.scss */
+    /* line 886, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .title {
       margin: 0 0 20px 0;
       font-size: 26px;
       color: #595757;
       font-weight: 900;
       letter-spacing: 2px; }
-    /* line 870, /Users/young/takkostore/www/css/plant.scss */
+    /* line 893, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .subtitle {
       color: #898989;
       font-size: 20px;
@@ -976,61 +1007,61 @@ hr {
       margin-top: 0;
       margin-bottom: 50px;
       text-align: left; }
-    /* line 879, /Users/young/takkostore/www/css/plant.scss */
+    /* line 902, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .price {
       color: #595757;
       line-height: 16px;
       margin-top: 0;
       text-align: right;
       font-size: 24px; }
-    /* line 886, /Users/young/takkostore/www/css/plant.scss */
+    /* line 909, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail hr {
       background-color: #898989;
       height: 1px;
       margin: 0 -20px; }
-    /* line 891, /Users/young/takkostore/www/css/plant.scss */
+    /* line 914, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .form-group {
       display: block;
       position: relative;
       height: 35px;
       margin: 30px 0; }
-      /* line 896, /Users/young/takkostore/www/css/plant.scss */
+      /* line 919, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail .form-group div[class*='col-'] {
         text-align: left;
         margin: 0;
         padding: 0px; }
-      /* line 901, /Users/young/takkostore/www/css/plant.scss */
+      /* line 924, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail .form-group label {
         font-size: 20px;
         color: #595757;
         display: inline-block; }
-      /* line 906, /Users/young/takkostore/www/css/plant.scss */
+      /* line 929, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail .form-group input {
         display: inline-block;
         width: 100%;
         height: 30px;
         line-height: 16px;
         color: #595757; }
-    /* line 914, /Users/young/takkostore/www/css/plant.scss */
+    /* line 937, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .gray-btn {
       margin: 20px 0 50px 0; }
-    /* line 917, /Users/young/takkostore/www/css/plant.scss */
+    /* line 940, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .share-div {
       margin: 35px 0;
       height: 40px;
       position: relative; }
-      /* line 921, /Users/young/takkostore/www/css/plant.scss */
+      /* line 944, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail .share-div div[class*='col-'] {
         text-align: left;
         margin: 0;
         padding: 0px; }
-      /* line 926, /Users/young/takkostore/www/css/plant.scss */
+      /* line 949, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail .share-div label {
         font-size: 20px;
         color: #595757;
         line-height: 20px;
         margin: 20px 0; }
-      /* line 932, /Users/young/takkostore/www/css/plant.scss */
+      /* line 955, /Users/young/takkostore/www/css/plant.scss */
       .plant-carousel .plant-detail .share-div img {
         height: 40px;
         width: 40px;
@@ -1040,10 +1071,10 @@ hr {
         float: right;
         cursor: pointer; }
         @media screen and (max-width: 991px) {
-          /* line 932, /Users/young/takkostore/www/css/plant.scss */
+          /* line 955, /Users/young/takkostore/www/css/plant.scss */
           .plant-carousel .plant-detail .share-div img {
             margin: 10px 0px 0 10px; } }
-    /* line 945, /Users/young/takkostore/www/css/plant.scss */
+    /* line 968, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail button {
       background-color: #595757;
       border-radius: 0;
@@ -1053,28 +1084,28 @@ hr {
       color: #f5f5f5;
       font-size: 18px;
       letter-spacing: 5px; }
-    /* line 955, /Users/young/takkostore/www/css/plant.scss */
+    /* line 978, /Users/young/takkostore/www/css/plant.scss */
     .plant-carousel .plant-detail .mertrial-group {
       margin-top: 20px; }
 
-/* line 960, /Users/young/takkostore/www/css/plant.scss */
+/* line 983, /Users/young/takkostore/www/css/plant.scss */
 .plant-content {
   margin: 20px 0px;
   padding: 0px 100px; }
   @media screen and (max-width: 991px) {
-    /* line 960, /Users/young/takkostore/www/css/plant.scss */
+    /* line 983, /Users/young/takkostore/www/css/plant.scss */
     .plant-content {
       padding: 0 20px; } }
-  /* line 966, /Users/young/takkostore/www/css/plant.scss */
+  /* line 989, /Users/young/takkostore/www/css/plant.scss */
   .plant-content .plant-card {
     padding: 0px 30px;
     position: relative;
     margin: 20px 0; }
     @media screen and (max-width: 991px) {
-      /* line 966, /Users/young/takkostore/www/css/plant.scss */
+      /* line 989, /Users/young/takkostore/www/css/plant.scss */
       .plant-content .plant-card {
         margin: 0; } }
-  /* line 974, /Users/young/takkostore/www/css/plant.scss */
+  /* line 997, /Users/young/takkostore/www/css/plant.scss */
   .plant-content .feature {
     border-radius: 50%;
     width: 80px;
@@ -1087,7 +1118,7 @@ hr {
     margin: 20px 20px 0 0;
     font-weight: bolder;
     position: relative; }
-    /* line 986, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1009, /Users/young/takkostore/www/css/plant.scss */
     .plant-content .feature p {
       margin: 0 0 10px;
       font-size: 18px;
@@ -1112,120 +1143,120 @@ hr {
       box-pack: center;
       box-align: center; }
     @media screen and (max-width: 991px) {
-      /* line 974, /Users/young/takkostore/www/css/plant.scss */
+      /* line 997, /Users/young/takkostore/www/css/plant.scss */
       .plant-content .feature {
         margin: 10px 5px 0 0; } }
-  /* line 1014, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1037, /Users/young/takkostore/www/css/plant.scss */
   .plant-content .title {
     font-size: 24px;
     color: #595757;
     letter-spacing: 5px;
     margin: 50px 0;
     font-weight: 900; }
-    /* line 1020, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1043, /Users/young/takkostore/www/css/plant.scss */
     .plant-content .title small {
       margin: 0 20px;
       letter-spacing: 2px; }
-  /* line 1025, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1048, /Users/young/takkostore/www/css/plant.scss */
   .plant-content p {
     font-size: 16px;
     color: #595757;
     letter-spacing: 2px;
     font-weight: bolder;
     line-height: 28px; }
-    /* line 1031, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1054, /Users/young/takkostore/www/css/plant.scss */
     .plant-content p sub {
       color: #898989;
       display: block;
       font-size: 14px;
       line-height: 28px;
       letter-spacing: 2px; }
-  /* line 1039, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1062, /Users/young/takkostore/www/css/plant.scss */
   .plant-content ul {
     padding: 0 20px; }
-    /* line 1041, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1064, /Users/young/takkostore/www/css/plant.scss */
     .plant-content ul li {
       margin: 0px;
       color: #595757; }
-      /* line 1043, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1066, /Users/young/takkostore/www/css/plant.scss */
       .plant-content ul li:first-child {
         margin: 0 0 30px 0;
         line-height: 18px; }
-  /* line 1050, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1073, /Users/young/takkostore/www/css/plant.scss */
   .plant-content .care-div {
     margin: 0px; }
-    /* line 1052, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1075, /Users/young/takkostore/www/css/plant.scss */
     .plant-content .care-div div[class*='col-'] {
       text-align: left;
       margin: 0;
       padding: 0px; }
-    /* line 1057, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1080, /Users/young/takkostore/www/css/plant.scss */
     .plant-content .care-div label {
       font-size: 20px;
       color: #595757;
       line-height: 20px;
       margin: 20px 0; }
-      /* line 1062, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1085, /Users/young/takkostore/www/css/plant.scss */
       .plant-content .care-div label.explain {
         font-size: 16px;
         color: #898989;
         margin: 80px 0 0 0; }
-    /* line 1068, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1091, /Users/young/takkostore/www/css/plant.scss */
     .plant-content .care-div img {
       height: 50px;
       width: 50px;
       display: inline-block;
       margin: 10px 2%; }
 
-/* line 1076, /Users/young/takkostore/www/css/plant.scss */
+/* line 1099, /Users/young/takkostore/www/css/plant.scss */
 .plant-browse {
   margin: 60px 0; }
-  /* line 1078, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1101, /Users/young/takkostore/www/css/plant.scss */
   .plant-browse .title {
     font-size: 24px;
     color: #595757;
     letter-spacing: 5px;
     margin: 20px 0;
     font-weight: 900; }
-    /* line 1084, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1107, /Users/young/takkostore/www/css/plant.scss */
     .plant-browse .title small {
       margin: 0 50px;
       letter-spacing: 2px; }
-  /* line 1089, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1112, /Users/young/takkostore/www/css/plant.scss */
   .plant-browse .carousel-browse {
     width: 100%;
     height: 300px;
     display: inline-block; }
-    /* line 1093, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1116, /Users/young/takkostore/www/css/plant.scss */
     .plant-browse .carousel-browse .swiper-slide {
       width: 250px;
       padding: 0 0 50px 0;
       cursor: pointer; }
-      /* line 1097, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1120, /Users/young/takkostore/www/css/plant.scss */
       .plant-browse .carousel-browse .swiper-slide .blur {
         height: 100%;
         width: 100%;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url("/img/loading.gif"); }
-      /* line 1103, /Users/young/takkostore/www/css/plant.scss */
+        background-image: url("/static/img/loading.gif"); }
+      /* line 1126, /Users/young/takkostore/www/css/plant.scss */
       .plant-browse .carousel-browse .swiper-slide .slide-text {
         padding: 2px 5px;
         position: relative;
         height: 50px; }
-        /* line 1107, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1130, /Users/young/takkostore/www/css/plant.scss */
         .plant-browse .carousel-browse .swiper-slide .slide-text .title {
           margin: 0;
           font-size: 18px;
           line-height: 18px; }
-        /* line 1112, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1135, /Users/young/takkostore/www/css/plant.scss */
         .plant-browse .carousel-browse .swiper-slide .slide-text .price {
           color: #595757;
           font-size: 14px;
           line-height: 14px; }
 
-/* line 1121, /Users/young/takkostore/www/css/plant.scss */
+/* line 1144, /Users/young/takkostore/www/css/plant.scss */
 .progressbar {
   margin: 30px auto 30px auto;
   height: 100px;
@@ -1234,7 +1265,7 @@ hr {
   padding: 0;
   width: 70%;
   min-width: 300px; }
-  /* line 1129, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1152, /Users/young/takkostore/www/css/plant.scss */
   .progressbar li {
     list-style-type: none;
     color: #b5b5b6;
@@ -1243,11 +1274,11 @@ hr {
     width: 33.33%;
     float: left;
     position: relative; }
-    /* line 1137, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1160, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li p {
       margin: 35px 0;
       bottom: 0px; }
-    /* line 1141, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1164, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li:before {
       content: '';
       width: 15px;
@@ -1260,12 +1291,12 @@ hr {
       font-size: 30px;
       color: #595757;
       margin: 23px auto 5px auto;
+      -webkit-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 1155, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1178, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li:after {
       content: '';
       width: 100%;
@@ -1275,25 +1306,25 @@ hr {
       left: -50%;
       top: 30px;
       z-index: -1;
+      -webkit-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 1166, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1189, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li:first-child:after {
       content: none; }
-    /* line 1169, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1192, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li.active {
       color: #595757; }
-      /* line 1171, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1194, /Users/young/takkostore/www/css/plant.scss */
       .progressbar li.active p {
         margin: 22px auto; }
-    /* line 1175, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1198, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li.active:before {
       color: #595757;
       overflow: visible;
-      background-image: url("../img/step.svg");
+      background-image: url("/static/img/step.svg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
@@ -1303,49 +1334,49 @@ hr {
       margin-top: 12px;
       height: 40px;
       width: 40px; }
-    /* line 1189, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1212, /Users/young/takkostore/www/css/plant.scss */
     .progressbar li.active:after {
       background-position: -100% 0; }
 
-/* line 1194, /Users/young/takkostore/www/css/plant.scss */
+/* line 1217, /Users/young/takkostore/www/css/plant.scss */
 .rwd-table {
   min-width: 300px; }
-  /* line 1197, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1220, /Users/young/takkostore/www/css/plant.scss */
   .rwd-table tr td {
     display: block; }
-    /* line 1199, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1222, /Users/young/takkostore/www/css/plant.scss */
     .rwd-table tr td:before {
       content: attr(data-th);
       font-weight: bold;
       width: 6.5em;
       display: inline-block; }
       @media (min-width: 991px) {
-        /* line 1199, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1222, /Users/young/takkostore/www/css/plant.scss */
         .rwd-table tr td:before {
           display: none; } }
     @media (min-width: 991px) {
-      /* line 1209, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1232, /Users/young/takkostore/www/css/plant.scss */
       .rwd-table tr td h2 {
         display: inline-block; } }
-  /* line 1214, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1237, /Users/young/takkostore/www/css/plant.scss */
   .rwd-table tr th {
     display: none; }
-  /* line 1218, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1241, /Users/young/takkostore/www/css/plant.scss */
   .rwd-table tr th,
   .rwd-table tr td {
     text-align: left; }
     @media (min-width: 991px) {
-      /* line 1218, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1241, /Users/young/takkostore/www/css/plant.scss */
       .rwd-table tr th,
       .rwd-table tr td {
         display: table-cell; } }
     @media screen and (max-width: 991px) {
-      /* line 1223, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1246, /Users/young/takkostore/www/css/plant.scss */
       .rwd-table tr th p,
       .rwd-table tr td p {
         display: inline-block; } }
 
-/* line 1231, /Users/young/takkostore/www/css/plant.scss */
+/* line 1254, /Users/young/takkostore/www/css/plant.scss */
 .cart-table {
   width: 100%;
   border: 1px solid #aaa;
@@ -1354,11 +1385,11 @@ hr {
   display: relative;
   background-color: #fff; }
   @media (max-width: 480px) {
-    /* line 1231, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1254, /Users/young/takkostore/www/css/plant.scss */
     .cart-table {
       padding: 0 0 30px 0px;
       border: none; } }
-  /* line 1242, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1265, /Users/young/takkostore/www/css/plant.scss */
   .cart-table .rwd-table {
     background-color: transparent;
     color: #595757;
@@ -1370,24 +1401,24 @@ hr {
     text-align: left;
     position: relative;
     text-align: left; }
-    /* line 1252, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1275, /Users/young/takkostore/www/css/plant.scss */
     .cart-table .rwd-table .product {
       width: 100px; }
-    /* line 1256, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1279, /Users/young/takkostore/www/css/plant.scss */
     .cart-table .rwd-table .dropdown .btn {
       width: 120px; }
-    /* line 1260, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1283, /Users/young/takkostore/www/css/plant.scss */
     .cart-table .rwd-table tr {
       border-bottom: 2px solid #E0E0E0;
       width: 100%; }
-      /* line 1263, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1286, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table tr:last-child {
         border-bottom: none; }
       @media (max-width: 480px) {
-        /* line 1260, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1283, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table tr {
           border: 1px solid #E0E0E0; } }
-    /* line 1272, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1295, /Users/young/takkostore/www/css/plant.scss */
     .cart-table .rwd-table th,
     .cart-table .rwd-table td {
       vertical-align: middle;
@@ -1395,27 +1426,27 @@ hr {
       margin: 10px;
       text-align: left;
       color: #595757; }
-      /* line 1278, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1301, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th:last-child,
       .cart-table .rwd-table td:last-child {
         width: 80px; }
       @media (max-width: 480px) {
-        /* line 1272, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1295, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th,
         .cart-table .rwd-table td {
           padding: 5px 10px; }
-          /* line 1283, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1306, /Users/young/takkostore/www/css/plant.scss */
           .cart-table .rwd-table th:last-child,
           .cart-table .rwd-table td:last-child {
             width: 100%; } }
-      /* line 1287, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1310, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th input,
       .cart-table .rwd-table td input {
         width: 80px;
         display: inline-block;
         position: relative;
         top: -5px; }
-        /* line 1292, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1315, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th input:before,
         .cart-table .rwd-table td input:before {
           height: 10px;
@@ -1423,7 +1454,7 @@ hr {
           background-color: #595757;
           position: absolute;
           top: 0; }
-      /* line 1300, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1323, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th .thumb,
       .cart-table .rwd-table td .thumb {
         cursor: pointer;
@@ -1437,39 +1468,39 @@ hr {
         display: inline-block;
         vertical-align: middle; }
         @media (max-width: 480px) {
-          /* line 1311, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1334, /Users/young/takkostore/www/css/plant.scss */
           .cart-table .rwd-table th .thumb.fake,
           .cart-table .rwd-table td .thumb.fake {
             display: none; } }
-      /* line 1317, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1340, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th .sendWay,
       .cart-table .rwd-table td .sendWay {
         display: inline-block; }
-        /* line 1319, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1342, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th .sendWay .dropdown,
         .cart-table .rwd-table td .sendWay .dropdown {
           width: 100px;
           margin: 0; }
-          /* line 1322, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1345, /Users/young/takkostore/www/css/plant.scss */
           .cart-table .rwd-table th .sendWay .dropdown button,
           .cart-table .rwd-table td .sendWay .dropdown button {
             width: 100%; }
-      /* line 1327, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1350, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th .cancel,
       .cart-table .rwd-table td .cancel {
         width: 100px;
         text-align: center; }
-      /* line 1331, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1354, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th .remove,
       .cart-table .rwd-table td .remove {
         color: #b5b5b6;
         cursor: pointer;
+        -webkit-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
         -moz-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
         -o-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
-        -webkit-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 1336, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1359, /Users/young/takkostore/www/css/plant.scss */
       .cart-table .rwd-table th p,
       .cart-table .rwd-table td p {
         vertical-align: middle;
@@ -1477,11 +1508,11 @@ hr {
         text-align: left;
         font-size: 18px; }
         @media (max-width: 768px) {
-          /* line 1336, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1359, /Users/young/takkostore/www/css/plant.scss */
           .cart-table .rwd-table th p,
           .cart-table .rwd-table td p {
             padding: 8px 0 0 0; } }
-        /* line 1344, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1367, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th p.title,
         .cart-table .rwd-table td p.title {
           cursor: pointer;
@@ -1489,54 +1520,54 @@ hr {
           margin: 25px 0 0px 0px;
           text-align: left; }
           @media (max-width: 768px) {
-            /* line 1344, /Users/young/takkostore/www/css/plant.scss */
+            /* line 1367, /Users/young/takkostore/www/css/plant.scss */
             .cart-table .rwd-table th p.title,
             .cart-table .rwd-table td p.title {
               margin: -10px 0 0 0; } }
-        /* line 1353, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1376, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th p.subtitle,
         .cart-table .rwd-table td p.subtitle {
           cursor: pointer;
           font-size: 14px;
           color: #898989; }
           @media (max-width: 768px) {
-            /* line 1353, /Users/young/takkostore/www/css/plant.scss */
+            /* line 1376, /Users/young/takkostore/www/css/plant.scss */
             .cart-table .rwd-table th p.subtitle,
             .cart-table .rwd-table td p.subtitle {
               padding: 0 0 0 100px; } }
-        /* line 1361, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1384, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th p.price,
         .cart-table .rwd-table td p.price {
           text-align: left; }
-          /* line 1363, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1386, /Users/young/takkostore/www/css/plant.scss */
           .cart-table .rwd-table th p.price:before,
           .cart-table .rwd-table td p.price:before {
             content: 'NT$ '; }
             @media (max-width: 768px) {
-              /* line 1363, /Users/young/takkostore/www/css/plant.scss */
+              /* line 1386, /Users/young/takkostore/www/css/plant.scss */
               .cart-table .rwd-table th p.price:before,
               .cart-table .rwd-table td p.price:before {
                 content: ''; } }
-        /* line 1370, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1393, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th p.price-hide,
         .cart-table .rwd-table td p.price-hide {
           text-align: left; }
-          /* line 1372, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1395, /Users/young/takkostore/www/css/plant.scss */
           .cart-table .rwd-table th p.price-hide:before,
           .cart-table .rwd-table td p.price-hide:before {
             content: 'NT$   '; }
-        /* line 1376, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1399, /Users/young/takkostore/www/css/plant.scss */
         .cart-table .rwd-table th p.total,
         .cart-table .rwd-table td p.total {
           display: block;
           text-align: right;
           padding: 0px 80px 0 0; }
 
-/* line 1385, /Users/young/takkostore/www/css/plant.scss */
+/* line 1408, /Users/young/takkostore/www/css/plant.scss */
 .next-step {
   margin: 50px 5px 0px 0px; }
 
-/* line 1388, /Users/young/takkostore/www/css/plant.scss */
+/* line 1411, /Users/young/takkostore/www/css/plant.scss */
 .profile-table {
   margin: 0 auto;
   width: 100%;
@@ -1545,125 +1576,125 @@ hr {
   padding: 80px 150px;
   background-color: #fff; }
   @media (max-width: 991px) {
-    /* line 1388, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1411, /Users/young/takkostore/www/css/plant.scss */
     .profile-table {
       padding: 50px 0px; } }
-  /* line 1398, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1421, /Users/young/takkostore/www/css/plant.scss */
   .profile-table h5 {
     color: #595757;
     font-weight: bolder;
     margin: 2px 5px;
     font-size: 18px;
     letter-spacing: 1px; }
-  /* line 1405, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1428, /Users/young/takkostore/www/css/plant.scss */
   .profile-table h4 {
     color: #595757;
     font-weight: bolder;
     margin: 0 0px;
     font-size: 22px;
     letter-spacing: 2px; }
-  /* line 1412, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1435, /Users/young/takkostore/www/css/plant.scss */
   .profile-table div[class*='col-'] {
     padding: 0 50px; }
     @media (max-width: 991px) {
-      /* line 1412, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1435, /Users/young/takkostore/www/css/plant.scss */
       .profile-table div[class*='col-'] {
         padding: 10px 30px; } }
-  /* line 1418, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1441, /Users/young/takkostore/www/css/plant.scss */
   .profile-table .mertrial-group {
     width: 100%; }
-  /* line 1421, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1444, /Users/young/takkostore/www/css/plant.scss */
   .profile-table .half-title {
     display: inline-block; }
-  /* line 1424, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1447, /Users/young/takkostore/www/css/plant.scss */
   .profile-table .row {
     padding: 10px 10px 10px 10px;
     margin: 30px 0;
     width: 100%;
     text-align: left; }
     @media (max-width: 991px) {
-      /* line 1424, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1447, /Users/young/takkostore/www/css/plant.scss */
       .profile-table .row {
         margin: 10px 0; } }
-  /* line 1433, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1456, /Users/young/takkostore/www/css/plant.scss */
   .profile-table .checkbox-inline {
     display: inline-block;
     float: right; }
-  /* line 1437, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1460, /Users/young/takkostore/www/css/plant.scss */
   .profile-table .radio-inline {
     margin-left: 5px; }
     @media (max-width: 991px) {
-      /* line 1437, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1460, /Users/young/takkostore/www/css/plant.scss */
       .profile-table .radio-inline {
         margin-top: 20px; } }
-  /* line 1443, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1466, /Users/young/takkostore/www/css/plant.scss */
   .profile-table .error-div {
     margin: -20px 0;
     text-align: center; }
-    /* line 1446, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1469, /Users/young/takkostore/www/css/plant.scss */
     .profile-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1452, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1475, /Users/young/takkostore/www/css/plant.scss */
       .profile-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
 
-/* line 1460, /Users/young/takkostore/www/css/plant.scss */
+/* line 1483, /Users/young/takkostore/www/css/plant.scss */
 .success-table {
   border: 1px solid #aaa;
   border-radius: 5px;
   padding: 100px 20px;
   background-color: #fff; }
-  /* line 1465, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1488, /Users/young/takkostore/www/css/plant.scss */
   .success-table .logo {
     display: block;
     margin: 0 auto;
     height: 150px;
     width: 150px; }
-  /* line 1471, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1494, /Users/young/takkostore/www/css/plant.scss */
   .success-table .title {
     font-size: 26px;
     text-align: center;
     margin: 30px 0 80px 0;
     font-weight: 900; }
     @media (max-width: 480px) {
-      /* line 1471, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1494, /Users/young/takkostore/www/css/plant.scss */
       .success-table .title {
         margin: 0px 0 40px 0; } }
-  /* line 1480, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1503, /Users/young/takkostore/www/css/plant.scss */
   .success-table .subtitle {
     font-size: 20px;
     text-align: center;
     margin: 100px 0 100px 0; }
     @media (max-width: 480px) {
-      /* line 1480, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1503, /Users/young/takkostore/www/css/plant.scss */
       .success-table .subtitle {
         margin: 50px 0 50px 0; } }
-  /* line 1488, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1511, /Users/young/takkostore/www/css/plant.scss */
   .success-table .row {
     height: 35px;
     padding: 0;
     margin: 5px auto;
     width: 300px; }
-    /* line 1493, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1516, /Users/young/takkostore/www/css/plant.scss */
     .success-table .row div[class*='col-'] {
       text-align: left;
       margin: 0;
       padding: 0px 10px; }
-      /* line 1497, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1520, /Users/young/takkostore/www/css/plant.scss */
       .success-table .row div[class*='col-']:first-child {
         text-align: right; }
-  /* line 1502, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1525, /Users/young/takkostore/www/css/plant.scss */
   .success-table h4 {
     color: #595757;
     letter-spacing: 2px; }
 
-/* line 1507, /Users/young/takkostore/www/css/plant.scss */
+/* line 1530, /Users/young/takkostore/www/css/plant.scss */
 .contact-table {
   width: 80%;
   background-color: #fff;
@@ -1673,36 +1704,36 @@ hr {
   padding: 30px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 1507, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1530, /Users/young/takkostore/www/css/plant.scss */
     .contact-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 1507, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1530, /Users/young/takkostore/www/css/plant.scss */
     .contact-table {
       margin: 20px auto 0px auto; } }
-  /* line 1521, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1544, /Users/young/takkostore/www/css/plant.scss */
   .contact-table .error-div {
     margin: 20px 0;
     text-align: center; }
-    /* line 1524, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1547, /Users/young/takkostore/www/css/plant.scss */
     .contact-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1530, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1553, /Users/young/takkostore/www/css/plant.scss */
       .contact-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
-  /* line 1537, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1560, /Users/young/takkostore/www/css/plant.scss */
   .contact-table h1 {
     text-align: center;
     color: #595757;
     font-size: 26px;
     letter-spacing: 2px; }
-  /* line 1543, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1566, /Users/young/takkostore/www/css/plant.scss */
   .contact-table .blur {
     position: absolute;
     height: 100%;
@@ -1719,19 +1750,19 @@ hr {
     -webkit-animation: fadeInUpD 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-animation: fadeInUpD 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInUpD 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 1555, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1578, /Users/young/takkostore/www/css/plant.scss */
     .contact-table .blur h2 {
       margin: 5px auto;
       color: #f5f5f5;
       font-size: 42px;
       letter-spacing: 2px; }
-    /* line 1561, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1584, /Users/young/takkostore/www/css/plant.scss */
     .contact-table .blur p {
       margin: 10px auto;
       font-size: 24px;
       color: #595757;
       letter-spacing: 5px; }
-    /* line 1567, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1590, /Users/young/takkostore/www/css/plant.scss */
     .contact-table .blur .logo {
       width: 150px;
       height: 150px;
@@ -1739,7 +1770,7 @@ hr {
       display: block;
       margin: 0 auto;
       margin: 15% auto 20px auto; }
-      /* line 1574, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1597, /Users/young/takkostore/www/css/plant.scss */
       .contact-table .blur .logo img {
         position: absolute;
         left: 0;
@@ -1750,7 +1781,7 @@ hr {
         -webkit-animation: rot60 4s infinite linear;
         -ms-animation: rot60 4s infinite linear;
         animation: rot60 4s infinite linear; }
-      /* line 1581, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1604, /Users/young/takkostore/www/css/plant.scss */
       .contact-table .blur .logo .water {
         width: 8px;
         height: 8px;
@@ -1759,7 +1790,7 @@ hr {
         background-color: #2196F3;
         z-index: 999;
         left: 10px; }
-        /* line 1589, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1612, /Users/young/takkostore/www/css/plant.scss */
         .contact-table .blur .logo .water:before {
           content: '';
           position: absolute;
@@ -1770,7 +1801,7 @@ hr {
           border-style: solid;
           border-width: 0 4px 8px 4px;
           border-color: transparent transparent #2196F3 transparent; }
-        /* line 1600, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1623, /Users/young/takkostore/www/css/plant.scss */
         .contact-table .blur .logo .water.w1 {
           left: 5px;
           top: 65%;
@@ -1779,7 +1810,7 @@ hr {
           -webkit-animation: drop 2s infinite linear;
           -ms-animation: drop 2s infinite linear;
           animation: drop 2s infinite linear; }
-        /* line 1605, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1628, /Users/young/takkostore/www/css/plant.scss */
         .contact-table .blur .logo .water.w2 {
           left: 13px;
           top: 73%;
@@ -1788,7 +1819,7 @@ hr {
           -webkit-animation: drop 2s infinite linear;
           -ms-animation: drop 2s infinite linear;
           animation: drop 2s infinite linear; }
-        /* line 1610, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1633, /Users/young/takkostore/www/css/plant.scss */
         .contact-table .blur .logo .water.w3 {
           left: 20px;
           top: 60%;
@@ -1797,37 +1828,37 @@ hr {
           -webkit-animation: drop 2s infinite linear;
           -ms-animation: drop 2s infinite linear;
           animation: drop 2s infinite linear; }
-  /* line 1618, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1641, /Users/young/takkostore/www/css/plant.scss */
   .contact-table .radio-inline {
     margin: 10px 10px;
     color: #595757;
     font-weight: bolder;
     font-size: 1.6rem;
     line-height: 24px; }
-  /* line 1625, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1648, /Users/young/takkostore/www/css/plant.scss */
   .contact-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 1625, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1648, /Users/young/takkostore/www/css/plant.scss */
       .contact-table .row {
         margin: 10px 0; } }
-  /* line 1632, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1655, /Users/young/takkostore/www/css/plant.scss */
   .contact-table table {
     width: 100%;
     color: #595757;
     font-size: 18px;
     border: 1px solid #aaa; }
-    /* line 1637, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1660, /Users/young/takkostore/www/css/plant.scss */
     .contact-table table tr {
       text-align: center; }
-      /* line 1640, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1663, /Users/young/takkostore/www/css/plant.scss */
       .contact-table table tr td,
       .contact-table table tr th {
         text-align: center;
         border: 1px solid #aaa; }
 
-/* line 1647, /Users/young/takkostore/www/css/plant.scss */
+/* line 1670, /Users/young/takkostore/www/css/plant.scss */
 .search-table {
   width: 80%;
   background-color: #fff;
@@ -1837,14 +1868,14 @@ hr {
   padding: 30px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 1647, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1670, /Users/young/takkostore/www/css/plant.scss */
     .search-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 1647, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1670, /Users/young/takkostore/www/css/plant.scss */
     .search-table {
       margin: 20px auto 0px auto; } }
-  /* line 1661, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1684, /Users/young/takkostore/www/css/plant.scss */
   .search-table .blur {
     position: absolute;
     display: inline-block;
@@ -1856,20 +1887,20 @@ hr {
     left: 0;
     padding: 50px; }
     @media (max-width: 991px) {
-      /* line 1661, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1684, /Users/young/takkostore/www/css/plant.scss */
       .search-table .blur {
         padding: 0; } }
-    /* line 1674, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1697, /Users/young/takkostore/www/css/plant.scss */
     .search-table .blur .logo {
       margin: 20px auto;
       position: relative;
       display: block;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1674, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1697, /Users/young/takkostore/www/css/plant.scss */
         .search-table .blur .logo {
           margin: 20px auto 5px auto; } }
-    /* line 1683, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1706, /Users/young/takkostore/www/css/plant.scss */
     .search-table .blur .title {
       display: block;
       position: relative;
@@ -1879,10 +1910,10 @@ hr {
       color: #595757;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1683, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1706, /Users/young/takkostore/www/css/plant.scss */
         .search-table .blur .title {
           font-size: 28px; } }
-    /* line 1695, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1718, /Users/young/takkostore/www/css/plant.scss */
     .search-table .blur .subtitle {
       display: block;
       position: relative;
@@ -1891,41 +1922,41 @@ hr {
       color: #E57373;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1695, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1718, /Users/young/takkostore/www/css/plant.scss */
         .search-table .blur .subtitle {
           font-size: 16px; } }
-  /* line 1707, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1730, /Users/young/takkostore/www/css/plant.scss */
   .search-table .error-div {
     margin: 20px 0;
     text-align: center; }
-    /* line 1710, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1733, /Users/young/takkostore/www/css/plant.scss */
     .search-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1716, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1739, /Users/young/takkostore/www/css/plant.scss */
       .search-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
-  /* line 1723, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1746, /Users/young/takkostore/www/css/plant.scss */
   .search-table h1 {
     text-align: center;
     color: #595757;
     font-size: 26px;
     letter-spacing: 2px; }
-  /* line 1729, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1752, /Users/young/takkostore/www/css/plant.scss */
   .search-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 1729, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1752, /Users/young/takkostore/www/css/plant.scss */
       .search-table .row {
         margin: 10px 0; } }
 
-/* line 1737, /Users/young/takkostore/www/css/plant.scss */
+/* line 1760, /Users/young/takkostore/www/css/plant.scss */
 .paid-table {
   width: 80%;
   background-color: #fff;
@@ -1935,14 +1966,14 @@ hr {
   padding: 30px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 1737, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1760, /Users/young/takkostore/www/css/plant.scss */
     .paid-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 1737, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1760, /Users/young/takkostore/www/css/plant.scss */
     .paid-table {
       margin: 20px auto 0px auto; } }
-  /* line 1751, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1774, /Users/young/takkostore/www/css/plant.scss */
   .paid-table .blur {
     position: absolute;
     display: inline-block;
@@ -1954,20 +1985,20 @@ hr {
     left: 0;
     padding: 100px 50px; }
     @media (max-width: 991px) {
-      /* line 1751, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1774, /Users/young/takkostore/www/css/plant.scss */
       .paid-table .blur {
         padding: 30px; } }
-    /* line 1764, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1787, /Users/young/takkostore/www/css/plant.scss */
     .paid-table .blur .logo {
       margin: 20px auto;
       position: relative;
       display: block;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1764, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1787, /Users/young/takkostore/www/css/plant.scss */
         .paid-table .blur .logo {
           margin: 20px auto 5px auto; } }
-    /* line 1773, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1796, /Users/young/takkostore/www/css/plant.scss */
     .paid-table .blur .title {
       display: block;
       position: relative;
@@ -1977,10 +2008,10 @@ hr {
       color: #595757;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1773, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1796, /Users/young/takkostore/www/css/plant.scss */
         .paid-table .blur .title {
           font-size: 28px; } }
-    /* line 1785, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1808, /Users/young/takkostore/www/css/plant.scss */
     .paid-table .blur .subtitle {
       display: block;
       position: relative;
@@ -1990,41 +2021,41 @@ hr {
       text-align: center;
       margin: 10px 0 50px 0; }
       @media (max-width: 991px) {
-        /* line 1785, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1808, /Users/young/takkostore/www/css/plant.scss */
         .paid-table .blur .subtitle {
           font-size: 16px; } }
-  /* line 1798, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1821, /Users/young/takkostore/www/css/plant.scss */
   .paid-table .error-div {
     margin: 20px 0;
     text-align: center; }
-    /* line 1801, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1824, /Users/young/takkostore/www/css/plant.scss */
     .paid-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1807, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1830, /Users/young/takkostore/www/css/plant.scss */
       .paid-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
-  /* line 1814, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1837, /Users/young/takkostore/www/css/plant.scss */
   .paid-table h1 {
     text-align: center;
     color: #595757;
     font-size: 26px;
     letter-spacing: 2px; }
-  /* line 1820, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1843, /Users/young/takkostore/www/css/plant.scss */
   .paid-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 1820, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1843, /Users/young/takkostore/www/css/plant.scss */
       .paid-table .row {
         margin: 10px 0; } }
 
-/* line 1828, /Users/young/takkostore/www/css/plant.scss */
+/* line 1851, /Users/young/takkostore/www/css/plant.scss */
 .result-table {
   padding: 80px 100px;
   margin: 50px 0;
@@ -2032,48 +2063,48 @@ hr {
   border-radius: 10px;
   background-color: #fff; }
   @media (max-width: 991px) {
-    /* line 1828, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1851, /Users/young/takkostore/www/css/plant.scss */
     .result-table {
       padding: 80px 10px; } }
-  /* line 1837, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1860, /Users/young/takkostore/www/css/plant.scss */
   .result-table h1 {
     color: #595757;
     text-align: center;
     margin: 20px 0px 80px 0px;
     font-weight: 900; }
-  /* line 1843, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1866, /Users/young/takkostore/www/css/plant.scss */
   .result-table table {
     width: 100%;
     color: #595757;
     font-size: 18px;
     border: none;
     text-align: center; }
-    /* line 1849, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1872, /Users/young/takkostore/www/css/plant.scss */
     .result-table table p {
       margin: 0px; }
-      /* line 1851, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1874, /Users/young/takkostore/www/css/plant.scss */
       .result-table table p.sub {
         margin: 30px 0 0 0; }
-    /* line 1855, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1878, /Users/young/takkostore/www/css/plant.scss */
     .result-table table tr {
       border: none; }
-      /* line 1858, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1881, /Users/young/takkostore/www/css/plant.scss */
       .result-table table tr td,
       .result-table table tr th {
         border: 0px;
         border-bottom: 1px solid #aaa;
         padding: 20px 15px;
         vertical-align: middle; }
-    /* line 1865, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1888, /Users/young/takkostore/www/css/plant.scss */
     .result-table table .table-inner {
       width: 100%;
       color: #595757;
       font-size: 18px;
       border: none; }
-      /* line 1870, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1893, /Users/young/takkostore/www/css/plant.scss */
       .result-table table .table-inner tr {
         border: none; }
-        /* line 1873, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1896, /Users/young/takkostore/www/css/plant.scss */
         .result-table table .table-inner tr td,
         .result-table table .table-inner tr th {
           border: 0px;
@@ -2081,31 +2112,32 @@ hr {
           border-bottom: none;
           vertical-align: middle; }
 
-/* line 1883, /Users/young/takkostore/www/css/plant.scss */
+/* line 1906, /Users/young/takkostore/www/css/plant.scss */
 .check-btns {
   margin: 20px 0; }
-  /* line 1885, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1908, /Users/young/takkostore/www/css/plant.scss */
   .check-btns .gray-btn {
     float: left;
     width: 30%; }
-  /* line 1889, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1912, /Users/young/takkostore/www/css/plant.scss */
   .check-btns .orange-btn {
     float: right;
     width: 30%; }
 
-/* line 1894, /Users/young/takkostore/www/css/plant.scss */
+/* line 1917, /Users/young/takkostore/www/css/plant.scss */
 .check-div {
   position: relative;
   width: 100%;
   margin: 50px 0; }
-  /* line 1899, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1922, /Users/young/takkostore/www/css/plant.scss */
   .check-div.ng-enter,
   .check-div.ng-leave {
-    -webkit-transition: 0.8s ease all;
-    -moz-transition: 0.8s ease all;
-    -o-transition: 0.8s ease all;
-    transition: 0.8s ease all; }
-  /* line 1906, /Users/young/takkostore/www/css/plant.scss */
+    -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transform: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  /* line 1926, /Users/young/takkostore/www/css/plant.scss */
   .check-div.next.ng-enter {
     opacity: 1;
     -moz-transform: translateX(100%) scale(1.2);
@@ -2113,15 +2145,15 @@ hr {
     -webkit-transform: translateX(100%) scale(1.2);
     -ms-transform: translateX(100%) scale(1.2);
     transform: translateX(100%) scale(1.2); }
-    /* line 1909, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1929, /Users/young/takkostore/www/css/plant.scss */
     .check-div.next.ng-enter.ng-enter-active {
       opacity: 1;
-      -moz-transform: translateX(100%) scale(1.2);
-      -o-transform: translateX(100%) scale(1.2);
-      -webkit-transform: translateX(100%) scale(1.2);
-      -ms-transform: translateX(100%) scale(1.2);
-      transform: translateX(100%) scale(1.2); }
-  /* line 1914, /Users/young/takkostore/www/css/plant.scss */
+      -moz-transform: translateX(0%) scale(1);
+      -o-transform: translateX(0%) scale(1);
+      -webkit-transform: translateX(0%) scale(1);
+      -ms-transform: translateX(0%) scale(1);
+      transform: translateX(0%) scale(1); }
+  /* line 1934, /Users/young/takkostore/www/css/plant.scss */
   .check-div.next.ng-leave {
     position: absolute;
     display: inline-block;
@@ -2132,7 +2164,7 @@ hr {
     -webkit-transform: translateX(0%) scale(1);
     -ms-transform: translateX(0%) scale(1);
     transform: translateX(0%) scale(1); }
-    /* line 1920, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1940, /Users/young/takkostore/www/css/plant.scss */
     .check-div.next.ng-leave.ng-leave-active {
       opacity: 0;
       -moz-transform: translateX(-100%) scale(0.8);
@@ -2140,7 +2172,7 @@ hr {
       -webkit-transform: translateX(-100%) scale(0.8);
       -ms-transform: translateX(-100%) scale(0.8);
       transform: translateX(-100%) scale(0.8); }
-  /* line 1927, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1947, /Users/young/takkostore/www/css/plant.scss */
   .check-div.prev.ng-enter {
     opacity: 1;
     -moz-transform: translateX(-100%) scale(1.2);
@@ -2148,7 +2180,7 @@ hr {
     -webkit-transform: translateX(-100%) scale(1.2);
     -ms-transform: translateX(-100%) scale(1.2);
     transform: translateX(-100%) scale(1.2); }
-    /* line 1930, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1950, /Users/young/takkostore/www/css/plant.scss */
     .check-div.prev.ng-enter.ng-enter-active {
       opacity: 1;
       -moz-transform: translateX(0%) scale(1);
@@ -2156,7 +2188,7 @@ hr {
       -webkit-transform: translateX(0%) scale(1);
       -ms-transform: translateX(0%) scale(1);
       transform: translateX(0%) scale(1); }
-  /* line 1935, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1955, /Users/young/takkostore/www/css/plant.scss */
   .check-div.prev.ng-leave {
     position: absolute;
     display: inline-block;
@@ -2167,7 +2199,7 @@ hr {
     -webkit-transform: translateX(0%) scale(1);
     -ms-transform: translateX(0%) scale(1);
     transform: translateX(0%) scale(1); }
-    /* line 1941, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1961, /Users/young/takkostore/www/css/plant.scss */
     .check-div.prev.ng-leave.ng-leave-active {
       opacity: 0;
       -moz-transform: translateX(100%) scale(0.8);
@@ -2176,7 +2208,7 @@ hr {
       -ms-transform: translateX(100%) scale(0.8);
       transform: translateX(100%) scale(0.8); }
 
-/* line 1950, /Users/young/takkostore/www/css/plant.scss */
+/* line 1970, /Users/young/takkostore/www/css/plant.scss */
 .teach-tabs ul.tabs {
   width: 100%;
   height: 80px;
@@ -2185,12 +2217,12 @@ hr {
   overflow: hidden;
   padding: 0;
   display: block; }
-  /* line 1958, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1978, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs ul.tabs li {
     float: left;
     width: 25%;
     cursor: pointer; }
-    /* line 1962, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1982, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs ul.tabs li a {
       position: relative;
       display: block;
@@ -2205,21 +2237,21 @@ hr {
       color: #f5f5f5;
       background: #898989;
       border: 0px solid #000000;
+      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 1977, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1997, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs ul.tabs li a .title {
         font-size: 2rem;
         margin: 0px; }
         @media (max-width: 768px) {
-          /* line 1977, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1997, /Users/young/takkostore/www/css/plant.scss */
           .teach-tabs ul.tabs li a .title {
             font-size: 0.8rem;
             padding: 0px 15px; } }
-      /* line 1985, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2005, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs ul.tabs li a:hover {
         border-radius: 5px 5px 0 0;
         -moz-transform: translateY(-1%);
@@ -2227,7 +2259,7 @@ hr {
         -webkit-transform: translateY(-1%);
         -ms-transform: translateY(-1%);
         transform: translateY(-1%); }
-      /* line 1989, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2009, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs ul.tabs li a.active {
         margin: 30px 0 0 0;
         padding: 10px 0 10px 0;
@@ -2238,16 +2270,16 @@ hr {
         color: #595757;
         z-index: 4;
         outline: none; }
-    /* line 2002, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2022, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs ul.tabs li:first-child a {
       z-index: 3;
       -webkit-border-top-left-radius: 8px;
       -moz-border-radius-topleft: 8px;
       border-top-left-radius: 8px; }
-    /* line 2010, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2030, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs ul.tabs li:nth-child(2) a {
       z-index: 2; }
-    /* line 2015, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2035, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs ul.tabs li:last-child a {
       z-index: 2;
       -webkit-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
@@ -2257,14 +2289,14 @@ hr {
       -moz-border-radius-topright: 8px;
       border-top-right-radius: 8px; }
 
-/* line 2030, /Users/young/takkostore/www/css/plant.scss */
+/* line 2050, /Users/young/takkostore/www/css/plant.scss */
 .teach-tabs .group:before,
 .teach-tabs .group:after {
   content: " ";
   display: table;
   clear: both; }
 
-/* line 2036, /Users/young/takkostore/www/css/plant.scss */
+/* line 2056, /Users/young/takkostore/www/css/plant.scss */
 .teach-tabs .tab-content {
   width: 100%;
   margin: 0 auto;
@@ -2277,23 +2309,23 @@ hr {
   padding: 10px 10px 10px 50px;
   min-height: 600px; }
   @media (max-width: 768px) {
-    /* line 2036, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2056, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content {
       padding: 10px 10px 10px 10px; } }
-  /* line 2050, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2070, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content div[class*='col-'] {
     margin-bottom: 35px; }
-  /* line 2053, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2073, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content .teach-table {
     border: 1px solid #aaa;
     max-width: 600px;
     margin: 25px auto 50px auto;
     border-radius: 5px; }
     @media (max-width: 768px) {
-      /* line 2053, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2073, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs .tab-content .teach-table {
         margin: 0px; } }
-    /* line 2062, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2082, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content .teach-table tr td:first-child {
       width: 50%;
       text-align: center;
@@ -2301,7 +2333,7 @@ hr {
       color: #595757;
       font-size: 18px;
       vertical-align: middle; }
-    /* line 2070, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2090, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content .teach-table tr td {
       width: 25%;
       text-align: center;
@@ -2312,45 +2344,45 @@ hr {
       letter-spacing: 2px;
       line-height: 40px;
       height: 70px; }
-      /* line 2080, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2100, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs .tab-content .teach-table tr td sub {
         display: block;
         letter-spacing: 2px;
         margin-top: -16px;
         line-height: 30px; }
-  /* line 2089, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2109, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content .steps-div {
     margin: 40px 75px 10px 50px; }
     @media (max-width: 768px) {
-      /* line 2089, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2109, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs .tab-content .steps-div {
         margin: 0px; } }
-    /* line 2094, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2114, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content .steps-div .step {
-      background-image: url("../img/photos/1-0.jpg");
+      background-image: url("/static/img/photos/1-0.jpg");
       height: 300px;
       width: 100%;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
-  /* line 2103, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2123, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content ol {
     padding: 25px 65px 20px 65px; }
     @media (max-width: 768px) {
-      /* line 2103, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2123, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs .tab-content ol {
         padding: 10px 10px 20px 25px; } }
-    /* line 2108, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2128, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content ol.sub {
       padding: 5px 65px 20px 65px; }
       @media (max-width: 768px) {
-        /* line 2108, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2128, /Users/young/takkostore/www/css/plant.scss */
         .teach-tabs .tab-content ol.sub {
           padding: 10px 10px 20px 25px; } }
-    /* line 2114, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2134, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content ol li {
       margin: 10px 0 10px 20px; }
-  /* line 2118, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2138, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content p {
     position: relative;
     color: #595757;
@@ -2358,13 +2390,13 @@ hr {
     font-size: 16px;
     letter-spacing: 3px;
     margin: 0; }
-    /* line 2125, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2145, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content p sp {
       padding: 0px 0px 0px 30px;
       position: relative;
       display: block;
       margin: -30px 0; }
-  /* line 2132, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2152, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content h2 {
     padding: 20px 0 0px 40px;
     color: #595757;
@@ -2372,17 +2404,17 @@ hr {
     font-size: 20px;
     font-weight: 900; }
     @media (max-width: 768px) {
-      /* line 2132, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2152, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs .tab-content h2 {
         padding: 20px 0 0px 0px; } }
-    /* line 2141, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2161, /Users/young/takkostore/www/css/plant.scss */
     .teach-tabs .tab-content h2:first-child {
       padding: 50px 0 0px 40px; }
       @media (max-width: 480px) {
-        /* line 2141, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2161, /Users/young/takkostore/www/css/plant.scss */
         .teach-tabs .tab-content h2:first-child {
           padding: 20px 0 0px 0px; } }
-  /* line 2148, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2168, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content h3 {
     padding: 20px 0 0px 65px;
     color: #595757;
@@ -2390,15 +2422,15 @@ hr {
     font-size: 18px;
     font-weight: 800; }
     @media (max-width: 768px) {
-      /* line 2148, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2168, /Users/young/takkostore/www/css/plant.scss */
       .teach-tabs .tab-content h3 {
         padding: 20px 0 0px 25px; } }
-  /* line 2159, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2179, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content.ng-enter,
   .teach-tabs .tab-content.ng-leave {
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transform: translateY(-2%);
@@ -2406,7 +2438,7 @@ hr {
     -webkit-transform: translateY(-2%);
     -ms-transform: translateY(-2%);
     transform: translateY(-2%); }
-  /* line 2164, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2184, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content.ng-enter.ng-enter-active,
   .teach-tabs .tab-content.ng-leave {
     opacity: 1;
@@ -2415,12 +2447,12 @@ hr {
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
-  /* line 2169, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2189, /Users/young/takkostore/www/css/plant.scss */
   .teach-tabs .tab-content.ng-leave.ng-leave-active,
   .teach-tabs .tab-content.ng-enter {
     opacity: 0; }
 
-/* line 2174, /Users/young/takkostore/www/css/plant.scss */
+/* line 2194, /Users/young/takkostore/www/css/plant.scss */
 .mertrial-group {
   position: relative;
   padding-top: 5px;
@@ -2430,12 +2462,24 @@ hr {
   -webkit-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
-  /* line 2182, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2202, /Users/young/takkostore/www/css/plant.scss */
   .mertrial-group.valid label:before {
     content: '＊ ';
     color: #e2613b;
     font-weight: 900; }
-  /* line 2188, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2209, /Users/young/takkostore/www/css/plant.scss */
+  .mertrial-group.active label {
+    -moz-transform: translate(-3px, -35px) scale(0.8);
+    -o-transform: translate(-3px, -35px) scale(0.8);
+    -webkit-transform: translate(-3px, -35px) scale(0.8);
+    -ms-transform: translate(-3px, -35px) scale(0.8);
+    transform: translate(-3px, -35px) scale(0.8);
+    color: #b5b5b6; }
+  /* line 2216, /Users/young/takkostore/www/css/plant.scss */
+  .mertrial-group.active .text-bar:before,
+  .mertrial-group.active .text-bar:after {
+    width: 50%; }
+  /* line 2221, /Users/young/takkostore/www/css/plant.scss */
   .mertrial-group input {
     box-shadow: none;
     font-size: 20px;
@@ -2448,13 +2492,13 @@ hr {
     color: #595757;
     background-color: transparent;
     font-size: 1.9rem;
-    line-height: 1rem;
+    line-height: 33px;
     border-bottom: 1px solid #aaa;
     margin: 0; }
-    /* line 2203, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2236, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group input:focus {
       outline: none; }
-    /* line 2207, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2240, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group input:focus ~ label,
     .mertrial-group input:valid ~ label {
       -moz-transform: translate(-3px, -35px) scale(0.8);
@@ -2463,11 +2507,11 @@ hr {
       -ms-transform: translate(-3px, -35px) scale(0.8);
       transform: translate(-3px, -35px) scale(0.8);
       color: #b5b5b6; }
-    /* line 2214, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2247, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group input:focus ~ .text-bar:before,
     .mertrial-group input:focus ~ .text-bar:after {
       width: 50%; }
-  /* line 2219, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2252, /Users/young/takkostore/www/css/plant.scss */
   .mertrial-group textarea {
     box-shadow: none;
     font-size: 20px;
@@ -2485,24 +2529,24 @@ hr {
     height: 200px;
     border-radius: 5px;
     border: 1px solid #aaa;
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     resize: none;
     margin-top: -3px; }
-    /* line 2239, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2272, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group textarea.simple {
       padding: 10px 10px 5px 5px;
       height: 30px;
       border: none;
       border-bottom: 1px solid #aaa;
       border-radius: 0; }
-    /* line 2246, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2279, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group textarea:focus {
       outline: none; }
-    /* line 2250, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2283, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group textarea:focus ~ label,
     .mertrial-group textarea:valid ~ label {
       -moz-transform: translate(-3px, -35px) scale(0.8);
@@ -2511,11 +2555,11 @@ hr {
       -ms-transform: translate(-3px, -35px) scale(0.8);
       transform: translate(-3px, -35px) scale(0.8);
       color: #b5b5b6; }
-    /* line 2257, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2290, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group textarea:focus ~ .text-bar:before,
     .mertrial-group textarea:focus ~ .text-bar:after {
       width: 50%; }
-  /* line 2262, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2295, /Users/young/takkostore/www/css/plant.scss */
   .mertrial-group label {
     color: #898989;
     font-size: 18px;
@@ -2530,17 +2574,17 @@ hr {
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 2274, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2307, /Users/young/takkostore/www/css/plant.scss */
   .mertrial-group .text-bar {
     position: relative;
     display: block;
     width: 100%; }
-    /* line 2279, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2312, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group .text-bar:before,
     .mertrial-group .text-bar:after {
       content: '';
@@ -2549,19 +2593,19 @@ hr {
       bottom: 1px;
       position: absolute;
       background: #3e575f;
+      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 2288, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2321, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group .text-bar:before {
       left: 50%; }
-    /* line 2291, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2324, /Users/young/takkostore/www/css/plant.scss */
     .mertrial-group .text-bar:after {
       right: 50%; }
 
-/* line 2296, /Users/young/takkostore/www/css/plant.scss */
+/* line 2329, /Users/young/takkostore/www/css/plant.scss */
 .error-table {
   width: 80%;
   text-align: center;
@@ -2572,40 +2616,40 @@ hr {
   padding: 120px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 2296, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2329, /Users/young/takkostore/www/css/plant.scss */
     .error-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 2296, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2329, /Users/young/takkostore/www/css/plant.scss */
     .error-table {
       margin: 20px auto 0px auto; } }
-  /* line 2311, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2344, /Users/young/takkostore/www/css/plant.scss */
   .error-table h2 {
     text-align: center;
     color: #595757;
     font-size: 36px;
     font-weight: 900;
     letter-spacing: 2px; }
-  /* line 2318, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2351, /Users/young/takkostore/www/css/plant.scss */
   .error-table h3 {
     text-align: center;
     color: #595757;
     font-size: 18px; }
-  /* line 2323, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2356, /Users/young/takkostore/www/css/plant.scss */
   .error-table .btn {
     margin: 50px auto 0 auto; }
-  /* line 2326, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2359, /Users/young/takkostore/www/css/plant.scss */
   .error-table .error-logo {
     position: relative;
     display: block;
     height: 150px;
     width: 150px;
     margin: 0px auto 60px auto; }
-    /* line 2332, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2365, /Users/young/takkostore/www/css/plant.scss */
     .error-table .error-logo .plant {
       width: 100%;
       height: 100%; }
-    /* line 2336, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2369, /Users/young/takkostore/www/css/plant.scss */
     .error-table .error-logo .sun {
       position: absolute;
       top: 10px;
@@ -2617,16 +2661,16 @@ hr {
       -webkit-animation: rot 4s infinite linear;
       -ms-animation: rot 4s infinite linear;
       animation: rot 4s infinite linear; }
-  /* line 2345, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2378, /Users/young/takkostore/www/css/plant.scss */
   .error-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 2345, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2378, /Users/young/takkostore/www/css/plant.scss */
       .error-table .row {
         margin: 10px 0; } }
 
-/* line 2355, /Users/young/takkostore/www/css/plant.scss */
+/* line 2388, /Users/young/takkostore/www/css/plant.scss */
 .about-tabs ul.tabs {
   width: 100%;
   height: 80px;
@@ -2635,12 +2679,12 @@ hr {
   overflow: hidden;
   padding: 0;
   display: block; }
-  /* line 2363, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2396, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs ul.tabs li {
     float: left;
     width: 33.33333%;
     cursor: pointer; }
-    /* line 2367, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2400, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs ul.tabs li a {
       position: relative;
       display: block;
@@ -2655,21 +2699,21 @@ hr {
       color: #f5f5f5;
       background: #898989;
       border: 0px solid #000000;
+      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 2382, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2415, /Users/young/takkostore/www/css/plant.scss */
       .about-tabs ul.tabs li a .title {
         font-size: 2rem;
         margin: 0px; }
         @media (max-width: 768px) {
-          /* line 2382, /Users/young/takkostore/www/css/plant.scss */
+          /* line 2415, /Users/young/takkostore/www/css/plant.scss */
           .about-tabs ul.tabs li a .title {
-            font-size: 1.4rem;
+            font-size: 0.8rem;
             padding: 0px 15px; } }
-      /* line 2390, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2423, /Users/young/takkostore/www/css/plant.scss */
       .about-tabs ul.tabs li a:hover {
         border-radius: 5px 5px 0 0;
         -moz-transform: translateY(-1%);
@@ -2677,7 +2721,7 @@ hr {
         -webkit-transform: translateY(-1%);
         -ms-transform: translateY(-1%);
         transform: translateY(-1%); }
-      /* line 2394, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2427, /Users/young/takkostore/www/css/plant.scss */
       .about-tabs ul.tabs li a.active {
         margin: 30px 0 0 0;
         padding: 10px 0 10px 0;
@@ -2688,33 +2732,33 @@ hr {
         color: #595757;
         z-index: 4;
         outline: none; }
-    /* line 2407, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2440, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs ul.tabs li:first-child a {
       z-index: 3;
       -webkit-border-top-left-radius: 8px;
       -moz-border-radius-topleft: 8px;
       border-top-left-radius: 8px; }
-    /* line 2415, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2448, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs ul.tabs li:nth-child(2) a {
       z-index: 2; }
-    /* line 2420, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2453, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs ul.tabs li:last-child a {
       z-index: 2;
       -webkit-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
-      box-shadow: 2px 545f 60 8px 25px -2px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
       -webkit-border-top-right-radius: 8px;
       -moz-border-radius-topright: 8px;
       border-top-right-radius: 8px; }
 
-/* line 2435, /Users/young/takkostore/www/css/plant.scss */
+/* line 2468, /Users/young/takkostore/www/css/plant.scss */
 .about-tabs .group:before,
 .about-tabs .group:after {
   content: " ";
   display: table;
   clear: both; }
 
-/* line 2441, /Users/young/takkostore/www/css/plant.scss */
+/* line 2474, /Users/young/takkostore/www/css/plant.scss */
 .about-tabs .tab-content {
   width: 100%;
   margin: 0 auto;
@@ -2727,30 +2771,30 @@ hr {
   padding: 10px 10px 10px 50px;
   min-height: 600px; }
   @media (max-width: 768px) {
-    /* line 2441, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2474, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs .tab-content {
       padding: 10px 10px 10px 10px; } }
-  /* line 2455, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2488, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content div[class*='col-'] {
     margin-bottom: 35px; }
-  /* line 2458, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2491, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content ol {
     padding: 25px 65px 20px 65px; }
     @media (max-width: 768px) {
-      /* line 2458, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2491, /Users/young/takkostore/www/css/plant.scss */
       .about-tabs .tab-content ol {
         padding: 10px 10px 20px 25px; } }
-    /* line 2463, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2496, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs .tab-content ol.sub {
       padding: 5px 65px 20px 65px; }
       @media (max-width: 768px) {
-        /* line 2463, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2496, /Users/young/takkostore/www/css/plant.scss */
         .about-tabs .tab-content ol.sub {
           padding: 10px 10px 20px 25px; } }
-    /* line 2469, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2502, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs .tab-content ol li {
       margin: 10px 0 10px 20px; }
-  /* line 2473, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2506, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content p {
     position: relative;
     color: #595757;
@@ -2758,13 +2802,13 @@ hr {
     font-size: 16px;
     letter-spacing: 3px;
     margin: 0; }
-    /* line 2480, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2513, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs .tab-content p sp {
       padding: 0px 0px 0px 30px;
       position: relative;
       display: block;
       margin: -30px 0; }
-  /* line 2487, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2520, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content h2 {
     padding: 20px 0 0px 40px;
     color: #595757;
@@ -2772,17 +2816,17 @@ hr {
     font-size: 20px;
     font-weight: 900; }
     @media (max-width: 768px) {
-      /* line 2487, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2520, /Users/young/takkostore/www/css/plant.scss */
       .about-tabs .tab-content h2 {
         padding: 20px 0 0px 0px; } }
-    /* line 2496, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2529, /Users/young/takkostore/www/css/plant.scss */
     .about-tabs .tab-content h2:first-child {
       padding: 50px 0 0px 40px; }
       @media (max-width: 480px) {
-        /* line 2496, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2529, /Users/young/takkostore/www/css/plant.scss */
         .about-tabs .tab-content h2:first-child {
           padding: 20px 0 0px 0px; } }
-  /* line 2503, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2536, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content h3 {
     padding: 20px 0 0px 65px;
     color: #595757;
@@ -2790,15 +2834,15 @@ hr {
     font-size: 18px;
     font-weight: 800; }
     @media (max-width: 768px) {
-      /* line 2503, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2536, /Users/young/takkostore/www/css/plant.scss */
       .about-tabs .tab-content h3 {
         padding: 20px 0 0px 25px; } }
-  /* line 2514, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2547, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content.ng-enter,
   .about-tabs .tab-content.ng-leave {
+    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -moz-transform: translateY(-2%);
@@ -2806,7 +2850,7 @@ hr {
     -webkit-transform: translateY(-2%);
     -ms-transform: translateY(-2%);
     transform: translateY(-2%); }
-  /* line 2519, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2552, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content.ng-enter.ng-enter-active,
   .about-tabs .tab-content.ng-leave {
     opacity: 1;
@@ -2815,38 +2859,38 @@ hr {
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
-  /* line 2524, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2557, /Users/young/takkostore/www/css/plant.scss */
   .about-tabs .tab-content.ng-leave.ng-leave-active,
   .about-tabs .tab-content.ng-enter {
     opacity: 0; }
 
 @media (max-width: 768px) {
-  /* line 2531, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2564, /Users/young/takkostore/www/css/plant.scss */
   .navbar-header {
     float: none; }
-  /* line 2534, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2567, /Users/young/takkostore/www/css/plant.scss */
   .navbar-toggle {
     display: block; }
-  /* line 2537, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2570, /Users/young/takkostore/www/css/plant.scss */
   .navbar-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
-  /* line 2541, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2574, /Users/young/takkostore/www/css/plant.scss */
   .navbar-collapse.collapse {
     display: none !important; }
-  /* line 2544, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2577, /Users/young/takkostore/www/css/plant.scss */
   .navbar-nav {
     float: none !important;
     margin: 7.5px -15px; }
-  /* line 2548, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2581, /Users/young/takkostore/www/css/plant.scss */
   .navbar-nav > li {
     float: none; }
-  /* line 2551, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2584, /Users/young/takkostore/www/css/plant.scss */
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px; } }
 
-/* line 2559, /Users/young/takkostore/www/css/plant.scss */
+/* line 2592, /Users/young/takkostore/www/css/plant.scss */
 .loading-icon {
   position: relative;
   display: inline-block;
@@ -2857,7 +2901,7 @@ hr {
   -webkit-animation: rotator 1.5s linear infinite;
   -ms-animation: rotator 1.5s linear infinite;
   animation: rotator 1.5s linear infinite; }
-  /* line 2565, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2598, /Users/young/takkostore/www/css/plant.scss */
   .loading-icon .path {
     stroke-dasharray: 187;
     stroke-dashoffset: 0;
@@ -2870,7 +2914,7 @@ hr {
     -webkit-animation: dash 1.5s ease-in-out infinite;
     -ms-animation: dash 1.5s ease-in-out infinite;
     animation: dash 1.5s ease-in-out infinite; }
-  /* line 2574, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2607, /Users/young/takkostore/www/css/plant.scss */
   .loading-icon .white-path {
     stroke-dasharray: 187;
     stroke-dashoffset: 0;
@@ -2885,121 +2929,103 @@ hr {
     -ms-animation: dash 1.5s ease-in-out infinite;
     animation: dash 1.5s ease-in-out infinite; }
 
-/* line 2585, /Users/young/takkostore/www/css/plant.scss */
-.ui-datepicker {
-  background-color: #f5f5f5; }
-  /* line 2587, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-header {
-    height: 50px;
-    line-height: 50px;
-    color: #b0aead;
-    background: #e9e5e3;
-    margin-bottom: 10px; }
-  /* line 2595, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-prev,
-  .ui-datepicker .ui-datepicker-next {
-    width: 20px;
-    height: 20px;
-    text-indent: 9999px;
-    border: 2px solid #b0aead;
-    border-radius: 100%;
-    cursor: pointer;
-    overflow: hidden;
-    margin-top: 12px;
-    color: #595757; }
-  /* line 2606, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-prev {
-    float: left;
-    margin-left: 12px; }
-    /* line 2609, /Users/young/takkostore/www/css/plant.scss */
-    .ui-datepicker .ui-datepicker-prev:after {
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      margin: -44px 0px 0px 6px; }
-  /* line 2614, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-next {
-    float: right;
-    margin-right: 12px; }
-    /* line 2617, /Users/young/takkostore/www/css/plant.scss */
-    .ui-datepicker .ui-datepicker-next:after {
-      -moz-transform: rotate(-135deg);
-      -o-transform: rotate(-135deg);
-      -webkit-transform: rotate(-135deg);
-      -ms-transform: rotate(-135deg);
-      transform: rotate(-135deg);
-      margin: -44px 0px 0px 6px; }
-  /* line 2623, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-prev:after,
-  .ui-datepicker .ui-datepicker-next:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 4px;
-    height: 4px;
-    border-left: 2px solid #b0aead;
-    border-bottom: 2px solid #b0aead; }
-  /* line 2635, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-prev:hover,
-  .ui-datepicker .ui-datepicker-next:hover,
-  .ui-datepicker .ui-datepicker-prev:hover:after,
-  .ui-datepicker .ui-datepicker-next:hover:after {
-    border-color: #66848f; }
-  /* line 2638, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-title {
-    text-align: center; }
-  /* line 2641, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-calendar {
-    width: 100%;
-    text-align: center; }
-    /* line 2644, /Users/young/takkostore/www/css/plant.scss */
-    .ui-datepicker .ui-datepicker-calendar thead tr th span {
-      text-align: center;
+/* line 2618, /Users/young/takkostore/www/css/plant.scss */
+.tabs {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: table;
+  width: 100%;
+  margin: 0 0 10px 0; }
+  /* line 2626, /Users/young/takkostore/www/css/plant.scss */
+  .tabs .tab {
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    position: relative;
+    background-color: #eee;
+    display: table-cell;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transform: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd; }
+    /* line 2638, /Users/young/takkostore/www/css/plant.scss */
+    .tabs .tab:first-child {
+      border-top-left-radius: 5px;
+      border-left: none; }
+    /* line 2642, /Users/young/takkostore/www/css/plant.scss */
+    .tabs .tab:last-child {
+      border-top-right-radius: 5px;
+      border-right: none; }
+    /* line 2646, /Users/young/takkostore/www/css/plant.scss */
+    .tabs .tab:after {
+      -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      -moz-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      -ms-transform: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      content: '';
+      position: relative;
       display: block;
-      width: 40px;
-      color: #66848f;
-      margin-bottom: 5px;
-      font-size: 13px; }
-  /* line 2653, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-state-default {
-    display: block;
-    text-decoration: none;
-    color: #898989;
-    line-height: 40px;
-    font-weight: 900;
-    font-size: 12px; }
-    /* line 2660, /Users/young/takkostore/www/css/plant.scss */
-    .ui-datepicker .ui-state-default:hover {
-      background: rgba(0, 0, 0, 0.02); }
-  /* line 2664, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-state-highlight {
-    color: #66848f; }
-  /* line 2667, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-state-active {
-    color: #e57e5b; }
-  /* line 2670, /Users/young/takkostore/www/css/plant.scss */
-  .ui-datepicker .ui-datepicker-unselectable .ui-state-default {
-    color: #eee;
-    border: 2px solid transparent; }
+      background-color: #595757;
+      width: 0%;
+      height: 2px;
+      bottom: 0px;
+      left: 0px;
+      margin: 0 auto; }
+    /* line 2658, /Users/young/takkostore/www/css/plant.scss */
+    .tabs .tab a {
+      cursor: pointer;
+      position: relative;
+      display: block;
+      padding: 15px 20px;
+      color: #595757;
+      text-decoration: none;
+      z-index: 1; }
+    /* line 2668, /Users/young/takkostore/www/css/plant.scss */
+    .tabs .tab:hover,
+    .tabs .tab.active {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background-color: #fff;
+      box-shadow: 1px 2px 3px #aaa;
+      height: calc(100% + 20px); }
+      /* line 2674, /Users/young/takkostore/www/css/plant.scss */
+      .tabs .tab:hover:after,
+      .tabs .tab.active:after {
+        width: 100%; }
 
-/* line 2676, /Users/young/takkostore/www/css/plant.scss */
-input,
-textarea {
-  box-shadow: none !important; }
-  /* line 2678, /Users/young/takkostore/www/css/plant.scss */
-  input:invalid,
-  textarea:invalid {
-    box-shadow: none; }
-  /* line 2681, /Users/young/takkostore/www/css/plant.scss */
-  input:-moz-submit-invalid,
-  textarea:-moz-submit-invalid {
-    box-shadow: none; }
-  /* line 2684, /Users/young/takkostore/www/css/plant.scss */
-  input:-moz-ui-invalid,
-  textarea:-moz-ui-invalid {
-    box-shadow: none; }
+/* line 2680, /Users/young/takkostore/www/css/plant.scss */
+.product-empty {
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 50px 10px;
+  margin: 10%;
+  background-color: #fff; }
+  /* line 2687, /Users/young/takkostore/www/css/plant.scss */
+  .product-empty img {
+    height: 180px;
+    width: 180px;
+    margin: 0 auto; }
+  /* line 2692, /Users/young/takkostore/www/css/plant.scss */
+  .product-empty p {
+    margin-top: 24px;
+    font-weight: lighter;
+    font-size: 46px;
+    color: #595757;
+    letter-spacing: 4px; }
+  /* line 2699, /Users/young/takkostore/www/css/plant.scss */
+  .product-empty span {
+    font-size: 24px;
+    letter-spacing: 8px;
+    color: #898989; }
 
 @keyframes rot {
   0% {
@@ -3260,69 +3286,5 @@ textarea {
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px); } }
-
-@-webkit-keyframes fadeInUpModal {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%); }
-  to {
-    opacity: 1;
-    -moz-transform: translateY(0px);
-    -o-transform: translateY(0px);
-    -webkit-transform: translateY(0px);
-    -ms-transform: translateY(0px);
-    transform: translateY(0px); } }
-
-@keyframes fadeInUpModal {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%); }
-  to {
-    opacity: 1;
-    -moz-transform: translateY(0px);
-    -o-transform: translateY(0px);
-    -webkit-transform: translateY(0px);
-    -ms-transform: translateY(0px);
-    transform: translateY(0px); } }
-
-@-webkit-keyframes fadeInDowbModal {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%); }
-  to {
-    opacity: 1;
-    -moz-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%); } }
-
-@keyframes fadeInDowbModal {
-  from {
-    opacity: 0;
-    -moz-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%); }
-  to {
-    opacity: 1;
-    -moz-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%); } }
 
 /*# sourceMappingURL=plant.css.map */

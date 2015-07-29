@@ -3,19 +3,22 @@ plant
         $interpolateProvider.startSymbol('{[{');
         $interpolateProvider.endSymbol('}]}');
     })
-    .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $location, $interval, plantService, cartService, service_utility) {
+    .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $interval, $location, plantService, cartService) {
         //初始化變數
-
         $scope.menuShow = false; //menu開關
         $scope.cartShow = false; //cart開關
+        $scope.plants; //產品列表
+        $scope.pots;
+
         $scope.plantsPage; //目前頁面上的產品列表
         $scope.cart; //購物車列表
-        $rootScope.redirect = false;
         $scope.pictureModal = false;
+        $rootScope.redirect = false;
         //目前第幾頁
         $scope.page = 1;
         $scope.totalPage;
         //一頁最多顯示幾個
+        $scope.total = 10;
         //取得目前頁數的data
         $scope.progress = 0;
         $scope.statusData = {
@@ -25,27 +28,45 @@ plant
             3: '發送失敗'
         };
 
+        //打開圖片預覽Modal
+        $scope.openPictureModal = function (url) {
+            $scope.pictureModal = true;
+            $scope.picture = url;
+        };
+        //關閉圖片預覽Modal
+        $scope.closePictureModal = function () {
+            $scope.pictureModal = false;
+            $rootScope.$broadcast('destroyPicture');
+        };
+
+
+        //取得下一頁
+        $scope.nextPage = function () {
+            $scope.total += 10;
+        };
+
         //切換state時
         $rootScope.$on('$stateChangeSuccess',
             function (e, toState, toParams, fromState, fromParams) {
                 function scrollTo(value) {
                     $timeout(function () {
+                        console.log('scrollTo');
                         window.scrollTo(0, value);
-                    }, 500);
+                    }, 100);
                 }
                 if (fromState.name === 'domain' || fromState.name === 'products') {
                     $rootScope.memoryTop = $(window).scrollTop();
                 }
                 if (toState.name === 'domain' || toState.name === 'products') {
                     scrollTo($rootScope.memoryTop);
-                    console.log('scrollto', $rootScope.memoryTop);
                 } else {
                     scrollTo(0);
                 }
                 //跳轉頁面時關閉side-menu
                 $scope.hideSide();
                 $scope.watchLoaded();
-            });
+            }
+        );
 
         //重新導向回首頁
         $scope.reload = function () {
@@ -58,38 +79,31 @@ plant
 
 
         //取得首頁產品列表
-        $scope.initPlants = function () {
+        $scope.initProducts = function () {
             //檢查有沒有付款成功的參數：
-            $scope.plants = plantService.plant;
-            $timeout(function () {
-                navigator.splashscreen.hide();
-            }, 1000);
-            var promise = plantService.initPlants();
-            promise.then(function (data) {
-                if (data) {
-                    $scope.plants = plantService.plants;
-                    $rootScope.$broadcast('initPlantsComplete');
-                    //初始化產品列表後才去抓購物車比對資料
-                    $scope.initCart();
-                } else {
-                    $state.go('error');
-                }
+            var promise = plantService.initProducts();
+            promise.then(function () {
+                $timeout(function () {
+                    navigator.splashscreen.hide();
+                }, 1000)
+
+                $scope.products = plantService.products;
+                $scope.plants = plantService.plants;
+                $scope.pots = plantService.pots;
+                $rootScope.$broadcast('initProductsComplete');
+                //初始化產品列表後才去抓購物車比對資料
+                $scope.initCart();
             });
+
         };
 
-        //圖片下載好之後會更新圖片
-        $scope.$on('plantsUpdate', function (event, data) {
+        $rootScope.$on('plantsUpdate', function () {
+            $scope.products = plantService.products;
             $scope.plants = plantService.plants;
+            $scope.pots = plantService.pots;
         });
 
 
-        $scope.getImagesPath = function (plant) {
-            if (plant.images_local) {
-                return plant.images_local;
-            } else {
-                return plant.images;
-            }
-        };
         //初始化首頁排序
         $scope.initIsotop = function () {
             var option = {
@@ -100,6 +114,7 @@ plant
                 }
             };
             $scope.iso = $('.isotop').isotope(option);
+
             //初始化檢查爐片load狀態
             $scope.imgLoad = imagesLoaded($scope.iso);
             //圖片全部load完之後排列
@@ -126,21 +141,16 @@ plant
                 }
             });
         };
-
-
-        $scope.openPictureModal = function (url) {
-            $scope.pictureModal = true;
-            $scope.picture = url;
-        };
-        $scope.closePictureModal = function () {
-            $scope.pictureModal = false;
-            $rootScope.$broadcast('destroyPicture');
+        //用id找植物名字
+        $scope.findProductById = function (id) {
+            var plant = plantService.findProductById(id);
+            return plant;
         };
         //取得購物車列表
         $scope.initCart = function () {
             var promise = cartService.initCart();
-            promise.then(function (data) {
-                $scope.cart = data;
+            promise.then(function () {
+                $scope.cart = cartService.cart;
             });
         };
         //加入購物車
@@ -148,11 +158,13 @@ plant
             //加入購物車：回傳新的cart之後更新
             if (id && !isNaN(quantity)) {
                 var promise = cartService.addCart(id, quantity);
-                promise.then(function (data) {
-                    $scope.cart = data;
+                promise.then(function () {
+                    $scope.cart = cartService.cart;
                 });
             }
         };
+
+
 
         //取得目前總價
         $scope.getTotal = function () {
@@ -170,16 +182,15 @@ plant
         $scope.removeCart = function (id) {
             //加入購物車：回傳新的cart之後更新
             var promise = cartService.removeCart(id);
-            promise.then(function (data) {
-                $scope.cart = data;
+            promise.then(function () {
+                $scope.cart = cartService.cart;
             });
         };
-        //清空購物車
         $scope.removeAllCart = function (id) {
             //加入購物車：回傳新的cart之後更新
             var promise = cartService.removeAll();
-            promise.then(function (data) {
-                $scope.cart = data;
+            promise.then(function () {
+                $scope.cart = cartService.cart;
             });
         };
 
@@ -192,23 +203,34 @@ plant
                 $scope.cartShow = true;
             }
         };
-        //找id找到植物
-        $scope.findPlant = function (id) {
-            return plantService.findPlant(id);
-        }
+
+        //打開產品內頁
+        $scope.openDetail = function (product) {
+            switch (product.category) {
+                case 0:
+                    $state.go('pot-detail', {
+                        productName: product.name
+                    });
+                    break;
+                default:
+                    $state.go('detail', {
+                        productName: product.name
+                    });
+                    break;
+            }
+
+        };
 
         //打開側邊選單
         $scope.openMenu = function () {
             $scope.menuShow = true;
             $scope.cartShow = false;
         };
-
         //打開購物車
         $scope.openCart = function () {
             $scope.menuShow = false;
             $scope.cartShow = true;
         };
-
         //關閉側邊視窗:當點擊blur時
         $scope.hideSide = function () {
             $scope.menuShow = false;
@@ -293,7 +315,7 @@ plant
             };
             return false;
         };
-        $scope.initPlants();
+        $scope.initProducts();
         window.plantScope = $scope;
 
     })
@@ -310,8 +332,7 @@ plant
         $scope.sunPoint;
         //到貨請通知我的顯示
         $scope.showEmail = false;
-        //相關產品
-        $scope.suggestions = [];
+
 
         //toggle email的欄位
         $scope.toggleEmail = function () {
@@ -336,21 +357,16 @@ plant
         //初始化detail:用id從產品列表找產品
         $scope.initDetail = function () {
             //用一開始取得的產品列表比對
-            $scope.detail = plantService.findPlantName($stateParams.plantName);
+            $scope.detail = plantService.findProductByName($stateParams.productName);
+            if (!$scope.detail) {
+                $scope.goState('products')
+            }
         };
         //如果他是reload畫面的話，等到初始化產品列表後再init
-        $rootScope.$on('initPlantsComplete', function (event) {
-            var temp = $scope.initDetail();
-            if (!temp) {
-                $state.go('products');
-            }
+        $rootScope.$on('initProductsComplete', function (event) {
+            console.log('初始化detail');
+            $scope.initDetail();
         });
-
-        //判斷水滴，太陽的數量
-        $scope.getNumber = function (num) {
-            return getNumber(num);
-        };
-
 
         //初始化carousel
         $scope.initSwiper = function () {
@@ -569,9 +585,9 @@ plant
         $scope.payment_method = 0;
         //根據目前步驟載入不同樣板
         $scope.steps = {
-            0: 'template/check/cart.html',
-            1: 'template/check/profile.html',
-            2: 'template/check/success.html'
+            0: 'static/template/check/cart.html',
+            1: 'static/template/check/profile.html',
+            2: 'static/template/check/success.html'
         };
         //初始化步驟:0
         $scope.step = $scope.steps[0];
@@ -645,7 +661,7 @@ plant
                         window.location = data.approval_url;
                     } else {
                         //如果沒有就視為ATM轉帳直到下一頁
-                        $scope.order = data;
+                        $scope.order = checkoutService.order;
                         $scope.nextStep();
                     }
                 } else {
@@ -677,10 +693,10 @@ plant
                 $rootScope.redirect = true;
                 //回報給server告訴他訂單已完成結帳
                 var promise = plantService.orderComplete($stateParams);
-                promise.then(function (data) {
-                    if (data) {
-                        //取得訂單成功，跳到結帳第三頁
-                        $scope.order = data;
+                promise.then(function () {
+                    //取得訂單成功，跳到結帳第三頁
+                    $scope.order = plantService.order;
+                    if ($scope.order) {
                         $scope.step = $scope.steps[2];
                         $scope.stepCount = 2;
                         //移除在service的訂單
@@ -688,7 +704,6 @@ plant
                         //把loading關掉
                         $rootScope.redirect = false;
                     } else {
-                        $rootScope.redirect = false;
                         $state.go('error');
                     }
                 });
@@ -702,10 +717,10 @@ plant
     .controller('TeachController', function ($scope, $state, $stateParams) {
         //教學三個tab的樣板
         $scope.pages = {
-            '新手指南': 'template/teach/teach.html',
-            '常見問題': 'template/teach/question.html',
-            '購物須知': 'template/teach/notice.html',
-            '售後說明': 'template/teach/service.html'
+            '新手指南': 'static/template/teach/teach.html',
+            '常見問題': 'static/template/teach/question.html',
+            '購物須知': 'static/template/teach/notice.html',
+            '售後說明': 'static/template/teach/service.html'
         };
 
         $scope.page = $stateParams.tabName ? $scope.pages[$stateParams.tabName] : $scope.pages['新手指南'];
@@ -722,9 +737,9 @@ plant
     .controller('AboutController', function ($scope, $state, $stateParams) {
         //教學三個tab的樣板
         $scope.pages = {
-            '關於我們': 'template/about/brand.html',
-            '品質宣言': 'template/about/declaration.html',
-            '精選盆器': 'template/about/quality.html'
+            '關於我們': 'static/template/about/brand.html',
+            '品質宣言': 'static/template/about/declaration.html',
+            '精選盆器': 'static/template/about/quality.html'
         };
 
         $scope.page = $stateParams.tabName ? $scope.pages[$stateParams.tabName] : $scope.pages['關於我們'];

@@ -137,7 +137,7 @@
         <h2 class="title">相關產品</h2>
         <div class="swiper-container carousel-browse">
             <div class="swiper-wrapper">
-                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" repeat-done="initSwiper()" ng-init="sug = findPlant(id)" ng-click="openDetail(sug)">
+                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" ng-init="sug = findProductById(id)" ng-click="openDetail(sug)" repeat-done="initSwiper()">
                     <div class="blur loading" rn-lazy-loading-class="loading" rn-Lazy-Background="sug.images_local[0] || sug.images[0]"></div>
                     <div class="slide-text">
                         <p class="title" ng-bind="sug.name"></p>

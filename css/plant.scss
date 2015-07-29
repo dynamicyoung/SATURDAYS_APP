@@ -17,9 +17,9 @@ $mac:1440px;
 $collapse-point: $sm;
 $cubic:cubic-bezier(0.4, 0, 0.2, 1);
 @mixin transition($transition...) {
+    -webkit-transition: $transition;
     -moz-transition: $transition;
     -o-transition: $transition;
-    -webkit-transition: $transition;
     -ms-transform: $transition;
     transition: $transition;
 }
@@ -54,17 +54,25 @@ $cubic:cubic-bezier(0.4, 0, 0.2, 1);
     background-size: contain;
     background-repeat: no-repeat;
 }
-@mixin fixed() {
-    -webkit-backface-visibility: hidden;
-    top: 0px;
-    left: 0px;
-}
 //消除閃爍bug
 li {
     @include transform(translate3d(0, 0, 0));
 }
+input,
+textarea {
+    box-shadow: none !important;
+    &:invalid {
+        box-shadow: none;
+    }
+    &:-moz-submit-invalid {
+        box-shadow: none;
+    }
+    &:-moz-ui-invalid {
+        box-shadow: none;
+    }
+}
 .container {
-    padding-bottom: 60px;
+    margin-bottom: 50px;
 }
 //網頁跳轉的modal
 .loading-modal {
@@ -74,7 +82,6 @@ li {
     height: 100%;
     z-index: 9969;
     display: none;
-    @include fixed();
     &.show {
         display: block;
     }
@@ -110,15 +117,13 @@ li {
         }
     }
 }
-//網頁跳轉的modal
 .picture-modal {
     position: fixed;
     background-color: #000;
     width: 100%;
     height: 100%;
     z-index: 9969;
-    display: none;
-    @include fixed();
+    display: block;
     &.ng-hide-remove {
         @include transition(0.3s $cubic all);
         opacity: 0;
@@ -133,12 +138,25 @@ li {
     &.ng-hide-add-active {
         opacity: 0;
     }
-    >.remove {
+    .remove {
         position: absolute;
         right: 10px;
         top: 10px;
         width: 40px;
+        font-size: 28px;
         z-index: 2;
+    }
+    .actions {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        width: 100px;
+        z-index: 2;
+        >.btn {
+            display: inline-block;
+            width: 45%;
+            font-size: 28px;
+        }
     }
     >.pinch {
         position: absolute;
@@ -156,7 +174,12 @@ li {
             height: 100%;
             background-color: #000;
             z-index: 1;
-            @include backgroundContain();
+            background-position: center;
+            background-size: 600px auto;
+            background-repeat: no-repeat;
+            @media all and (max-width: $sm) {
+                background-size: 320px auto;
+            }
         }
     }
 }
@@ -178,7 +201,8 @@ li {
 }
 html,
 body {
-    width: 100%;
+    position: relative;
+    height: 100%;
     @include transition(1s all $cubic);
 }
 .hidden {
@@ -198,6 +222,8 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
     &.menu-show {
         .side-content {
             @include transform(translateX(270px) translate3d(0, 0, 0));
@@ -248,7 +274,7 @@ hr {
     border-radius: 3px;
     overflow: hidden;
     background-color: #fff;
-    background: #fff url('../img/arrowdown.gif') no-repeat 90% 50%;
+    background: #fff url('/static/img/arrowdown.gif') no-repeat 90% 50%;
     select {
         padding: 5px 8px;
         width: 130%;
@@ -490,7 +516,7 @@ hr {
 }
 .jumbotron.jumbotron_plant {
     height: 250px;
-    margin: 0px 0 70px 0;
+    margin: 0 0 0 0;
     padding: 0;
     position: relative;
     z-index: 2;
@@ -548,7 +574,6 @@ hr {
         overflow: hidden;
         cursor: pointer;
         position: relative;
-        //        @include transition(all 0.3s $cubic);
         img {
             display: inline-block;
             width: 100%;
@@ -560,19 +585,16 @@ hr {
                 @include animation(1s fadeInUpD $cubic);
             }
         }
-        &.loading,
-        &.error {
+        &.loading {
             img,
             .text-bar {
                 display: none;
             }
-        }
-        &.loading {
             &:before {
                 content: '';
                 display: block;
                 height: 250px;
-                background-image: url('../img/loading.gif');
+                background-image: url('/static/img/loading.gif');
                 @include backgroundCover();
                 background-size: 50px 50px !important;
             }
@@ -582,7 +604,7 @@ hr {
                 content: '';
                 display: block;
                 height: 250px;
-                background-image: url('../img/notfound.jpg');
+                background-image: url('/static/img/notfound.jpg');
                 @include backgroundCover();
             }
         }
@@ -626,9 +648,8 @@ hr {
 .navbar-plant {
     border-radius: 0px;
     border: none;
-    @include transition(opacity 0.6s $cubic,
-    transform 0.6s $cubic,
-    -webkit-transform 0.6s $cubic);
+    @include transition(opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out);
     box-shadow: 1px 2px 3px #aaa;
     min-height: 70px;
     background-color: #fff;
@@ -636,9 +657,9 @@ hr {
         position: fixed;
         width: 100%;
         z-index: 10;
+        top: 0;
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 1px 2px 3px transparent;
-        @include fixed();
         .logo {
             display: inline-block !important;
             img {
@@ -650,9 +671,15 @@ hr {
         }
     }
     &.slideup {
+        opacity: 0;
+        @include transition(opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out);
         @include transform(translateY(-110%));
     }
     &.slidedown {
+        opacity: 1;
+        @include transition(opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out);
         @include transform(translateY(0%));
     }
     .logo {
@@ -809,19 +836,15 @@ hr {
         background-size: contain;
         background-repeat: no-repeat;
         background-color: $gray20;
-        @include transition(0.5s -webkit-filter $cubic,
-        0.5s -moz-filter $cubic,
-        0.5 -o-filter $cubic,
-        0.5 -ms-filter $cubic,
-        0.5 -webkit-filter $cubic);
+        @include transition(0.5 filter $cubic);
         cursor: pointer;
         &.loading {
-            background-image: url('../img/loading.gif');
+            background-image: url('/static/img/loading.gif');
             @include backgroundCover();
             background-size: 50px 50px !important;
         }
         &.error {
-            background-image: url('../img/notfound.jpg');
+            background-image: url('/static/img/notfound.jpg');
             @include backgroundCover();
         }
     }
@@ -829,12 +852,12 @@ hr {
         width: 100%;
         height: 400px;
         display: inline-block;
-        @media all and (min-width: $lg) {
-            width: 600px;
-        }
-        @media screen and (max-width: $xs) {
-            height: 300px;
-        }
+        //        @media all and (min-width: $lg) {
+        //            width: 600px;
+        //        }
+        //        @media screen and (max-width: $xs) {
+        //            height: 300px;
+        //        }
     }
     .carousel-bottom {
         width: 100%;
@@ -1098,7 +1121,7 @@ hr {
                 height: 100%;
                 width: 100%;
                 @include backgroundCover();
-                background-image: url('/img/loading.gif');
+                background-image: url('/static/img/loading.gif');
             }
             .slide-text {
                 padding: 2px 5px;
@@ -1175,7 +1198,7 @@ hr {
         &.active:before {
             color: $gray80;
             overflow: visible;
-            background-image: url('../img/step.svg');
+            background-image: url('/static/img/step.svg');
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -1897,10 +1920,7 @@ hr {
     margin: 50px 0;
     &.ng-enter,
     &.ng-leave {
-        -webkit-transition: 0.8s ease all;
-        -moz-transition: 0.8s ease all;
-        -o-transition: 0.8s ease all;
-        transition: 0.8s ease all;
+        @include transition(all 0.6s $cubic);
     }
     &.next {
         &.ng-enter {
@@ -1908,7 +1928,7 @@ hr {
             @include transform(translateX(100%) scale(1.2));
             &.ng-enter-active {
                 opacity: 1;
-                @include transform(translateX(100%) scale(1.2));
+                @include transform(translateX(0%) scale(1));
             }
         }
         &.ng-leave {
@@ -2092,7 +2112,7 @@ hr {
                 margin: 0px;
             }
             .step {
-                background-image: url('../img/photos/1-0.jpg');
+                background-image: url('/static/img/photos/1-0.jpg');
                 height: 300px;
                 width: 100%;
                 background-position: center;
@@ -2185,6 +2205,19 @@ hr {
             font-weight: 900;
         }
     }
+    &.active {
+        label {
+            @include transform(translate(-3px,
+            -35px) scale(0.8));
+            color: $gray40;
+        }
+        .text-bar {
+            &:before,
+            &:after {
+                width: 50%;
+            }
+        }
+    }
     input {
         box-shadow: none;
         font-size: 20px;
@@ -2197,7 +2230,7 @@ hr {
         color: $gray80;
         background-color: transparent;
         font-size: 1.9rem;
-        line-height: 1rem;
+        line-height: 33px;
         border-bottom: 1px solid #aaa;
         margin: 0;
         &:focus {
@@ -2383,7 +2416,7 @@ hr {
                         font-size: 2rem;
                         margin: 0px;
                         @media (max-width: $sm) {
-                            font-size: 1.4rem;
+                            font-size: 0.8rem;
                             padding: 0px 15px;
                         }
                     }
@@ -2421,7 +2454,7 @@ hr {
                         z-index: 2;
                         -webkit-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
                         -moz-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
-                        box-shadow: 2px545f60 8px 25px -2px rgba(0, 0, 0, 0.3);
+                        box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
                         -webkit-border-top-right-radius: 8px;
                         -moz-border-radius-topright: 8px;
                         border-top-right-radius: 8px;
@@ -2582,107 +2615,91 @@ $duration: 1.5s;
         @include animation(dash $duration ease-in-out infinite);
     }
 }
-.ui-datepicker {
-    background-color: $gray20;
-    .ui-datepicker-header {
-        height: 50px;
-        line-height: 50px;
-        color: #b0aead;
-        background: #e9e5e3;
-        margin-bottom: 10px;
-    }
-    .ui-datepicker-prev,
-    .ui-datepicker-next {
-        width: 20px;
-        height: 20px;
-        text-indent: 9999px;
-        border: 2px solid #b0aead;
-        border-radius: 100%;
-        cursor: pointer;
-        overflow: hidden;
-        margin-top: 12px;
-        color: $gray80;
-    }
-    .ui-datepicker-prev {
-        float: left;
-        margin-left: 12px;
-        &:after {
-            @include transform(rotate(45deg));
-            margin: -44px 0px 0px 6px;
-        }
-    }
-    .ui-datepicker-next {
-        float: right;
-        margin-right: 12px;
-        &:after {
-            @include transform(rotate(-135deg));
-            margin: -44px 0px 0px 6px;
-        }
-    }
-    .ui-datepicker-prev:after,
-    .ui-datepicker-next:after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 4px;
-        height: 4px;
-        border-left: 2px solid #b0aead;
-        border-bottom: 2px solid #b0aead;
-    }
-    .ui-datepicker-prev:hover,
-    .ui-datepicker-next:hover,
-    .ui-datepicker-prev:hover:after,
-    .ui-datepicker-next:hover:after {
-        border-color: $blue60;
-    }
-    .ui-datepicker-title {
+.tabs {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: table;
+    width: 100%;
+    margin: 0 0 10px 0;
+    .tab {
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: lighter;
+        position: relative;
+        background-color: #eee;
+        display: table-cell;
+        text-transform: uppercase;
         text-align: center;
-    }
-    .ui-datepicker-calendar {
-        width: 100%;
-        text-align: center;
-        thead tr th span {
-            text-align: center;
+        @include transition(all 0.6s $cubic);
+        border-left: solid 1px #ddd;
+        border-right: solid 1px #ddd;
+        &:first-child {
+            border-top-left-radius: 5px;
+            border-left: none;
+        }
+        &:last-child {
+            border-top-right-radius: 5px;
+            border-right: none;
+        }
+        &:after {
+            @include transition(all 0.6s $cubic);
+            content: '';
+            position: relative;
             display: block;
-            width: 40px;
-            color: $blue60;
-            margin-bottom: 5px;
-            font-size: 13px;
+            background-color: $gray80;
+            width: 0%;
+            height: 2px;
+            bottom: 0px;
+            left: 0px;
+            margin: 0 auto;
         }
-    }
-    .ui-state-default {
-        display: block;
-        text-decoration: none;
-        color: $gray60;
-        line-height: 40px;
-        font-weight: 900;
-        font-size: 12px;
-        &:hover {
-            background: rgba(0, 0, 0, 0.02);
+        a {
+            cursor: pointer;
+            position: relative;
+            display: block;
+            padding: 15px 20px;
+            color: $gray80;
+            text-decoration: none;
+            z-index: 1;
         }
-    }
-    .ui-state-highlight {
-        color: $blue60;
-    }
-    .ui-state-active {
-        color: $orange60;
-    }
-    .ui-datepicker-unselectable .ui-state-default {
-        color: #eee;
-        border: 2px solid transparent;
+        &:hover,
+        &.active {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: #fff;
+            box-shadow: 1px 2px 3px #aaa;
+            height: calc(100% + 20px);
+            &:after {
+                width: 100%;
+            }
+        }
     }
 }
-input,
-textarea {
-    box-shadow: none !important;
-    &:invalid {
-        box-shadow: none;
+.product-empty {
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 50px 10px;
+    margin: 10%;
+    background-color: #fff;
+    img {
+        height: 180px;
+        width: 180px;
+        margin: 0 auto;
     }
-    &:-moz-submit-invalid {
-        box-shadow: none;
+    p {
+        margin-top: 24px;
+        font-weight: lighter;
+        font-size: 46px;
+        color: $gray80;
+        letter-spacing: 4px;
     }
-    &:-moz-ui-invalid {
-        box-shadow: none;
+    span {
+        font-size: 24px;
+        letter-spacing: 8px;
+        color: $gray60;
     }
 }
 //animation
@@ -2844,45 +2861,5 @@ $duration: 1.4s;
     to {
         opacity: 1;
         @include transform(translateY(0px));
-    }
-}
-@-webkit-keyframes fadeInUpModal {
-    from {
-        opacity: 0;
-        @include transform(translateY(100%));
-    }
-    to {
-        opacity: 1;
-        @include transform(translateY(0px));
-    }
-}
-@keyframes fadeInUpModal {
-    from {
-        opacity: 0;
-        @include transform(translateY(100%));
-    }
-    to {
-        opacity: 1;
-        @include transform(translateY(0px));
-    }
-}
-@-webkit-keyframes fadeInDowbModal {
-    from {
-        opacity: 0;
-        @include transform(translateY(0%));
-    }
-    to {
-        opacity: 1;
-        @include transform(translateY(100%));
-    }
-}
-@keyframes fadeInDowbModal {
-    from {
-        opacity: 0;
-        @include transform(translateY(0%));
-    }
-    to {
-        opacity: 1;
-        @include transform(translateY(100%));
     }
 }

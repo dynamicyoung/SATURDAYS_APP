@@ -1,0 +1,12 @@
+<!--植物列表-->
+<div class="container shop">
+    <div class="isotop">
+        <div class="item loading" ng-repeat="plant in plants | limitTo:total track by $index" repeat-Done="initIsotop()" ng-click="openDetail(plant)" ng-show="plant.category === 2">
+            <img ng-src="{[{plant.images[0]}]}">
+            <div class="text-bar">
+                <h3 class="title" ng-bind="plant.name"></h3>
+            </div>
+        </div>
+    </div>
+    <button class="btn gray-btn loadMore" ng-click="nextPage()" ng-hide="total > plants.length">瀏覽更多</button>
+</div>

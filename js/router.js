@@ -1,7 +1,6 @@
 var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSanitize'])
     //ui-router設定
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-        //$locationProvider.html5Mode(true);
         $stateProvider
             .state('domain', {
                 url: "/",
@@ -11,8 +10,26 @@ var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSan
                 url: "/products",
                 templateUrl: "template/shop.html"
             })
+            .state('pots', {
+                url: "/pots",
+                templateUrl: "template/pots.html"
+            })
+            .state('seed', {
+                url: "/seed",
+                templateUrl: "template/seed.html"
+            })
+            .state('pot-detail', {
+                url: "/pots/:productName",
+                templateUrl: "template/detail.html",
+                controller: 'DetailController',
+            })
+            .state('seed-detail', {
+                url: "/seed/:productName",
+                templateUrl: "template/detail.html",
+                controller: 'DetailController',
+            })
             .state('detail', {
-                url: "/products/:plantName",
+                url: "/products/:productName",
                 templateUrl: "template/detail.html",
                 controller: 'DetailController',
             })
@@ -60,5 +77,7 @@ var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSan
                 url: "/error",
                 templateUrl: "template/error.html"
             });
+
         $urlRouterProvider.otherwise("/products");
+
     });
