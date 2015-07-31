@@ -97,7 +97,7 @@ plant.service('service_utility', function ($q, $http) {
         //取得檔案的 file entry
         function FileEntry(entry) {
 
-            var path = MakeFilePath();
+            var path = service_utility.MakeFilePath();
 
             //取得即將要複製到的地方的 directory entry
             window.resolveLocalFileSystemURL(path, storeDir, err);
@@ -171,7 +171,7 @@ plant.service('service_utility', function ($q, $http) {
             deferred.reject();
         }
         //根據裝置的不同產生不同的檔案路徑
-        var path = MakeFilePath();
+        var path = service_utility.MakeFilePath();
         //取得檔案根目錄路徑，開始下載圖片
         window.resolveLocalFileSystemURL(path, getStorage, DownloadAvatarError);
 
@@ -332,7 +332,7 @@ plant.service('service_utility', function ($q, $http) {
 
     //====================================================
 
-    function MakeFilePath(filepath) {
+    this.MakeFilePath = function (filepath) {
         var path;
         switch (device.platform.toLowerCase()) {
             case 'ios':
@@ -368,7 +368,6 @@ plant.service('service_utility', function ($q, $http) {
 
     //指向 global
     this.makeid = makeid;
-    this.MakeFilePath = MakeFilePath;
 
     window.service_utility = this;
 });

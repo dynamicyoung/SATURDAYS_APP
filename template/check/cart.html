@@ -2,40 +2,40 @@
     <table class="rwd-table">
         <tr>
             <th class="product"></th>
-            <th class="title">商品</th>
-            <th class="price">單價</th>
-            <th class="amount">數量</th>
-            <th class="total">小計</th>
+            <th class="title" ng-bind="'cart_product'|translate"></th>
+            <th class="price" ng-bind="'cart_price'|translate"></th>
+            <th class="amount" ng-bind="'cart_amount'|translate"></th>
+            <th class="total" ng-bind="'cart_total'|translate"></th>
             <th class="cancel"></th>
         </tr>
         <tr ng-repeat="item in cart track by $index">
-            <td data-th="商品">
-                <div class="thumb" rn-lazy-background="item.images[0]|| '/img/notfound.jpg'" ng-tap="openDetail(item)"></div>
+            <td data-th="{{'cart_product'|translate}}">
+                <div class="thumb" rn-lazy-background="makeImagesPath(item)[0]" ng-tap="openDetail(item)"></div>
             </td>
-            <td data-th="名稱">
+            <td data-th="{{'cart_name'|translate}}">
                 <p class="title" ng-bind="item.name" ng-tap="openDetail(item)"></p>
                 <p class="subtitle" ng-bind="item.subtitle" ng-tap="openDetail(item)"></p>
             </td>
-            <td data-th="單價">
+            <td data-th="{{'cart_price'|translate}}">
                 <p class="price" ng-bind="item.price"></p>
             </td>
-            <td data-th="數量">
-                <input class="form-control" type="number" value="1" ng-model="item.quantity" watch-Value ngMin='1' ngMax='{[{item.stock}]}' ng-blur="addCart(item.id, item.quantity)">
+            <td data-th="{{'cart_amount'|translate}}">
+                <input class="form-control" type="number" value="1" ng-model="item.quantity" watch-Value ngMin='1' ngMax='{{item.stock}}' ng-blur="addCart(item.id, item.quantity)">
             </td>
-            <td data-th="小計">
+            <td data-th="{{'cart_total'|translate}}">
                 <p ng-bind="getSubtotal(item.price , item.quantity)"></p>
             </td>
             <td>
-                <p class="remove" ng-tap="removeCart(item.id)">取消</p>
+                <p class="remove" ng-tap="removeCart(item.id)" ng-bind="'cancel'|translate"></p>
             </td>
         </tr>
         <tr>
             <td colspan="1" class="hidden-xs">
                 <div class="thumb fake"></div>
             </td>
-            <td colspan="3" data-th="寄送方式">
+            <td colspan="3" data-th="{{'cart_sendway'|translate}}">
                 <div class="sendWay">
-                    <p class="hidden-xs">寄送方式</p>
+                    <p class="hidden-xs" ng-bind="'cart_sendway'|translate"></p>
                     <div class="select-group">
                         <select ng-model="$parent.shipping_area" ng-options="opt as opt.label for opt in options"></select>
                     </div>
@@ -47,25 +47,26 @@
         </tr>
         <tr>
             <td colspan="4" class="hidden-xs">
-                <p class="total">總計</p>
+                <p class="total" ng-bind="'cart_total'|translate"></p>
             </td>
-            <td colspan="2" data-th="總金額">
+            <td colspan="2" data-th="{{'cart_total'|translate}}">
                 <p class="price-hide" ng-bind="getTotal() + shipping_area.price"></p>
             </td>
         </tr>
     </table>
     <div class="row next-step">
         <div class="col-xs-6">
-            <button class="btn gray30-btn left" ui-sref="products">
-                繼續購物
+            <button class="btn gray30-btn left" ui-sref="products" ng-bind="'cart_continue'|translate">
             </button>
         </div>
         <div class="col-xs-6">
             <button class="btn gray-btn right" ng-tap="comfirm()" ng-show="cart.length > 0" ng-disabled="status === 1">
-                <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewBox="0 0 66 66">
+                <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewbox="0 0 66 66">
                     <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
                 </svg>
-                {[{ (status === 0)?'下一步':'處理中' }]}</button>
+                <span ng-bind="'next'|translate" ng-if="status === 0"></span>
+                <span ng-bind="'cart_processing'|translate" ng-if="status !== 0"></span>
+            </button>
         </div>
     </div>
 </div>

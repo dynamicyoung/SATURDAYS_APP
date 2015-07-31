@@ -1,15 +1,11 @@
 plant
-    .config(function ($interpolateProvider) {
-        $interpolateProvider.startSymbol('{[{');
-        $interpolateProvider.endSymbol('}]}');
-    })
-    .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $interval, $location, plantService, cartService) {
+    .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $interval, $location, $translate, $document, plantService, cartService, service_utility) {
         //初始化變數
         $scope.menuShow = false; //menu開關
         $scope.cartShow = false; //cart開關
+        $scope.language = $translate.preferredLanguage();
         $scope.plants; //產品列表
         $scope.pots;
-
         $scope.plantsPage; //目前頁面上的產品列表
         $scope.cart; //購物車列表
         $scope.pictureModal = false;
@@ -18,14 +14,14 @@ plant
         $scope.page = 1;
         $scope.totalPage;
         //一頁最多顯示幾個
-        $scope.total = 10;
+
         //取得目前頁數的data
         $scope.progress = 0;
         $scope.statusData = {
-            0: '送出',
-            1: '處理中',
-            2: '已送出',
-            3: '發送失敗'
+            0: $translate.instant('submit'),
+            1: $translate.instant('submit_loading'),
+            2: $translate.instant('submit_success'),
+            3: $translate.instant('submit_fail')
         };
 
         //打開圖片預覽Modal
@@ -39,11 +35,18 @@ plant
             $rootScope.$broadcast('destroyPicture');
         };
 
+        $rootScope.$on('plantsUpdate', function () {
+            $scope.products = plantService.products;
+            $scope.plants = plantService.plants;
+            $scope.pots = plantService.pots;
+        });
 
-        //取得下一頁
-        $scope.nextPage = function () {
-            $scope.total += 10;
-        };
+        //等到整個cordova好之後 才初始化
+        $document.bind('deviceready', function (event) {
+            $timeout(function () {
+                $scope.initProducts();
+            }, 1000)
+        })
 
         //切換state時
         $rootScope.$on('$stateChangeSuccess',
@@ -77,6 +80,23 @@ plant
             $state.go(state, data);
         };
 
+        $scope.makeImagesPath = function (product) {
+            if (product.images_local) {
+                var images_local = [];
+                angular.forEach(product.images_local, function (image, key) {
+                    var filePath = service_utility.MakeFilePath(image);
+                    if (filePath) {
+                        images_local.push(filePath);
+                    } else {
+                        return product.images;
+                    }
+                });
+                return images_local;
+            } else {
+                return product.images;
+            }
+        };
+
 
         //取得首頁產品列表
         $scope.initProducts = function () {
@@ -86,7 +106,6 @@ plant
                 $timeout(function () {
                     navigator.splashscreen.hide();
                 }, 1000)
-
                 $scope.products = plantService.products;
                 $scope.plants = plantService.plants;
                 $scope.pots = plantService.pots;
@@ -96,12 +115,6 @@ plant
             });
 
         };
-
-        $rootScope.$on('plantsUpdate', function () {
-            $scope.products = plantService.products;
-            $scope.plants = plantService.plants;
-            $scope.pots = plantService.pots;
-        });
 
 
         //初始化首頁排序
@@ -143,9 +156,9 @@ plant
         };
         //用id找植物名字
         $scope.findProductById = function (id) {
-            var plant = plantService.findProductById(id);
-            return plant;
+            return plantService.findProductById(id);
         };
+
         //取得購物車列表
         $scope.initCart = function () {
             var promise = cartService.initCart();
@@ -182,7 +195,7 @@ plant
         $scope.removeCart = function (id) {
             //加入購物車：回傳新的cart之後更新
             var promise = cartService.removeCart(id);
-            promise.then(function () {
+            promise.then(function (data) {
                 $scope.cart = cartService.cart;
             });
         };
@@ -315,7 +328,7 @@ plant
             };
             return false;
         };
-        $scope.initProducts();
+        //        $scope.initProducts();
         window.plantScope = $scope;
 
     })
@@ -332,7 +345,8 @@ plant
         $scope.sunPoint;
         //到貨請通知我的顯示
         $scope.showEmail = false;
-
+        //相關產品
+        $scope.suggestions = [];
 
         //toggle email的欄位
         $scope.toggleEmail = function () {
@@ -358,15 +372,15 @@ plant
         $scope.initDetail = function () {
             //用一開始取得的產品列表比對
             $scope.detail = plantService.findProductByName($stateParams.productName);
-            if (!$scope.detail) {
-                $scope.goState('products')
-            }
         };
         //如果他是reload畫面的話，等到初始化產品列表後再init
         $rootScope.$on('initProductsComplete', function (event) {
             console.log('初始化detail');
             $scope.initDetail();
         });
+
+
+
 
         //初始化carousel
         $scope.initSwiper = function () {
@@ -451,7 +465,7 @@ plant
 
     })
     //結帳流程Controller
-    .controller('CheckoutController', function ($scope, $rootScope, $stateParams, $state, $location, checkoutService, cartService, plantService) {
+    .controller('CheckoutController', function ($scope, $rootScope, $stateParams, $state, $location, $translate, checkoutService, cartService, plantService) {
 
         //animation:目前步驟的方向(左/右)
         $scope.stepWay;
@@ -462,12 +476,12 @@ plant
         //寄送方式：ng-option
         $scope.options = [
             {
-                label: '本島寄送',
+                label: $translate.instant('deliver_taiwan'),
                 value: 0,
                 price: 65
             },
             {
-                label: '離島寄送',
+                label: $translate.instant('deliver_foreign'),
                 value: 1,
                 price: 180
             }
@@ -495,37 +509,37 @@ plant
                 'title': 'addressee',
                 'valid': '', //收件人：姓名
                 'info': '',
-                'role': '收件人'
+                'role': $translate.instant('receiver')
                 },
             {
                 'title': 'addressee_mobile',
                 'valid': '', //收件人：電話
                 'info': '',
-                'role': '收件人'
+                'role': $translate.instant('receiver')
                 },
             {
                 'title': 'address',
                 'valid': '', //收件人：地址
                 'info': '',
-                'role': '收件人'
+                'role': $translate.instant('receiver')
                 },
             {
                 'title': 'name',
                 'valid': '', //購買人：姓名
                 'info': '',
-                'role': '購買人'
+                'role': $translate.instant('purchaser')
                 },
             {
                 'title': 'mobile',
                 'valid': '', //購買人：電話
                 'info': '',
-                'role': '購買人'
+                'role': $translate.instant('purchaser')
                 },
             {
                 'title': 'email',
                 'valid': '', //購買人：地址
                 'info': '',
-                'role': '購買人'
+                'role': $translate.instant('purchaser')
                 }
             ];
         //改變驗證狀態
@@ -585,9 +599,9 @@ plant
         $scope.payment_method = 0;
         //根據目前步驟載入不同樣板
         $scope.steps = {
-            0: 'static/template/check/cart.html',
-            1: 'static/template/check/profile.html',
-            2: 'static/template/check/success.html'
+            0: 'template/check/cart.html',
+            1: 'template/check/profile.html',
+            2: 'template/check/success.html'
         };
         //初始化步驟:0
         $scope.step = $scope.steps[0];
@@ -598,9 +612,9 @@ plant
             if (regexp.test(email)) {
                 $scope.change_check(title, true, '');
             } else if (isEmpty(email)) {
-                $scope.change_check(title, false, '電子信箱不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_email_empty'));
             } else {
-                $scope.change_check(title, false, '電子信箱格式錯誤');
+                $scope.change_check(title, false, $translate.instant('validation_email_type'));
             }
         };
         //姓名驗證
@@ -609,9 +623,9 @@ plant
             if (regexp.test(name)) {
                 $scope.change_check(title, true, '');
             } else if (isEmpty(name)) {
-                $scope.change_check(title, false, '姓名不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_name_empty'));
             } else {
-                $scope.change_check(title, false, '姓名格式錯誤');
+                $scope.change_check(title, false, $translate.instant('validation_name_type'));
             }
         };
         //電話驗證
@@ -620,9 +634,9 @@ plant
             if (regexp.test(phone)) {
                 $scope.change_check(title, true, '');
             } else if (isEmpty(phone)) {
-                $scope.change_check(title, false, '電話不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_phone_empty'));
             } else {
-                $scope.change_check(title, false, '電話格式錯誤');
+                $scope.change_check(title, false, $translate.instant('validation_phone_type'));
             }
         };
         //地址驗證
@@ -630,7 +644,7 @@ plant
             if (isEmpty(address)) {
                 $scope.change_check(title, true, '');
             } else {
-                $scope.change_check(title, false, '地址不得為空');
+                $scope.change_check(title, false, $translate.instant('address_error_type'));
             }
         };
 
@@ -717,10 +731,10 @@ plant
     .controller('TeachController', function ($scope, $state, $stateParams) {
         //教學三個tab的樣板
         $scope.pages = {
-            '新手指南': 'static/template/teach/teach.html',
-            '常見問題': 'static/template/teach/question.html',
-            '購物須知': 'static/template/teach/notice.html',
-            '售後說明': 'static/template/teach/service.html'
+            '新手指南': 'template/teach/teach.html',
+            '常見問題': 'template/teach/question.html',
+            '購物須知': 'template/teach/notice.html',
+            '售後說明': 'template/teach/service.html'
         };
 
         $scope.page = $stateParams.tabName ? $scope.pages[$stateParams.tabName] : $scope.pages['新手指南'];
@@ -734,25 +748,33 @@ plant
 
     })
     //產品內頁Controller
-    .controller('AboutController', function ($scope, $state, $stateParams) {
+    .controller('AboutController', function ($scope, $state, $stateParams, $rootScope) {
         //教學三個tab的樣板
         $scope.pages = {
-            '關於我們': 'static/template/about/brand.html',
-            '品質宣言': 'static/template/about/declaration.html',
-            '精選盆器': 'static/template/about/quality.html'
+            'zh-tw': {
+                'brand': 'template/about/brand.html',
+                'declaration': 'template/about/declaration.html',
+                'quality': 'template/about/quality.html'
+            },
+            'en': {
+                'brand': 'template/about/brand_en.html',
+                'declaration': 'template/about/declaration_en.html',
+                'quality': 'template/about/quality_en.html'
+            }
         };
-
-        $scope.page = $stateParams.tabName ? $scope.pages[$stateParams.tabName] : $scope.pages['關於我們'];
-        $scope.pageIndex = $stateParams.tabName ? $stateParams.tabName : '關於我們';
+        $scope.page = $stateParams.tabName ? $scope.pages[$scope.language][$stateParams.tabName] : $scope.pages[$scope.language]['brand'];
+        $scope.pageIndex = $stateParams.tabName ? $stateParams.tabName : 'brand';
+        //改變目前page
         $scope.changePage = function (index) {
             $scope.pageIndex = index;
-            $scope.page = $scope.pages[index];
+            $scope.page = $scope.pages[$scope.language][index];
         };
+
 
         window.teachScope = $scope;
 
     })
-    .controller('ContactController', function ($scope, contactService) {
+    .controller('ContactController', function ($scope, $translate, contactService) {
         $scope.status = 0; //０:未傳送 // １：傳送中 //２：傳送成功
         $scope.sex = "male";
         $scope.data = {
@@ -821,9 +843,9 @@ plant
             if (regexp.test(email)) {
                 $scope.change_check(title, true, '');
             } else if (isEmpty(email)) {
-                $scope.change_check(title, false, '電子信箱不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_email_empty'));
             } else {
-                $scope.change_check(title, false, '電子信箱格式錯誤');
+                $scope.change_check(title, false, $translate.instant('validation_email_type'));
             }
         };
         //姓名驗證
@@ -832,9 +854,9 @@ plant
             if (regexp.test(name)) {
                 $scope.change_check(title, true, '');
             } else if (isEmpty(name)) {
-                $scope.change_check(title, false, '姓名不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_name_empty'));
             } else {
-                $scope.change_check(title, false, '姓名格式錯誤');
+                $scope.change_check(title, false, $translate.instant('validation_name_type'));
             }
         };
         //內容驗證
@@ -842,7 +864,7 @@ plant
             if (isEmpty(content)) {
                 $scope.change_check(title, true, '');
             } else {
-                $scope.change_check(title, false, '內容字數不足');
+                $scope.change_check(title, false, $translate.instant('validation _content_empty'));
             }
         };
         //傳送資訊
@@ -866,7 +888,7 @@ plant
 
         window.plantContact = $scope;
     })
-    .controller('SearchController', function ($scope, $state, searchService) {
+    .controller('SearchController', function ($scope, $state, $translate, searchService) {
         $scope.notfound = false;
         $scope.data = {
             'mobile': $scope.name,
@@ -929,9 +951,9 @@ plant
             if (regexp.test(phone)) {
                 $scope.change_check(title, true, '');
             } else if (isEmpty(phone)) {
-                $scope.change_check(title, false, '電話不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_phone_empty'));
             } else {
-                $scope.change_check(title, false, '電話格式錯誤');
+                $scope.change_check(title, false, $translate.instant('validation_phone_type'));
             }
         };
         //內容驗證
@@ -939,7 +961,7 @@ plant
             if (isEmpty(content)) {
                 $scope.change_check(title, true, '');
             } else {
-                $scope.change_check(title, false, '訂單編號不得為空');
+                $scope.change_check(title, false, $translate.instant('validation_ordernumber_empty'));
             }
         };
         //傳送資訊
@@ -965,7 +987,7 @@ plant
         };
         window.searchScope = $scope;
     })
-    .controller('ResultController', function ($scope, $state, $stateParams, searchService) {
+    .controller('ResultController', function ($scope, $state, $stateParams, $translate, searchService) {
         $scope.result = [];
         //取得查詢結果:空的話則導回搜尋
         $scope.initResult = function () {
@@ -975,32 +997,32 @@ plant
         //輸入數字：取得付款方式文字
         $scope.getPayment = function (payment) {
             var method = {
-                '0': '線上刷卡',
-                '1': 'PayPal',
-                '2': 'ATM轉帳'
+                '0': $translate.instant('profile_credit'),
+                '1': $translate.instant('profile_paypal'),
+                '2': $translate.instant('profile_atm')
             };
             return method[payment];
         };
 
         $scope.getPaid = function (paid) {
             var method = {
-                'true': '已付款',
-                'false': '未付款'
+                'true': $translate.instant('paid'),
+                'false': $translate.instant('unpaid')
             };
             return method[paid];
         };
 
         $scope.getShipped = function (shipped) {
             var method = {
-                'true': '已出貨',
-                'false': '未出貨'
+                'true': $translate.instant('delivered'),
+                'false': $translate.instant('undelivered')
             };
             return method[shipped];
         };
         $scope.initResult();
         window.resultScope = $scope;
     })
-    .controller('PaidController', function ($scope, $timeout, $state, paidService) {
+    .controller('PaidController', function ($scope, $timeout, $state, $translate, paidService) {
         $scope.status = 0;
         $scope.data = {
             'order_number': $scope.order_number,
@@ -1074,9 +1096,9 @@ plant
             if (regexp.test(amount)) {
                 $scope.changeCheck(title, true, '');
             } else if (isEmpty(amount)) {
-                $scope.changeCheck(title, false, '匯款金額不得為空');
+                $scope.changeCheck(title, false, $translate.instant('validation_price_empty'));
             } else {
-                $scope.changeCheck(title, false, '匯款金額格式錯誤');
+                $scope.changeCheck(title, false, $translate.instant('validation_price_type'));
             }
         };
         //匯款後五碼驗證
@@ -1084,7 +1106,7 @@ plant
             if (isEmpty(content, 5, 5)) {
                 $scope.changeCheck(title, true, '');
             } else {
-                $scope.changeCheck(title, false, '匯款後五碼須為五個數字');
+                $scope.changeCheck(title, false, $translate.instant('validation_account_type'));
             }
         };
         //訂單號碼
@@ -1092,7 +1114,7 @@ plant
             if (isEmpty(content)) {
                 $scope.changeCheck(title, true, '');
             } else {
-                $scope.changeCheck(title, false, '訂單編號不得為空');
+                $scope.changeCheck(title, false, $translate.instant('validation_ordernumber_empty'));
             }
         };
         //匯款時間
@@ -1101,7 +1123,7 @@ plant
             if (isEmpty(date)) {
                 $scope.changeCheck(title, true, '');
             } else {
-                $scope.changeCheck(title, false, '匯款日期錯誤');
+                $scope.changeCheck(title, false, $translate.instant('validation_date_empty'));
             }
 
         };
@@ -1128,18 +1150,18 @@ plant
             $scope.status = 0;
         };
         //初始化頁面
-        $scope.initPaid = function () {
-            $("#datepicker").datepicker({
-                firstDay: 1,
-                minDate: -30,
-                onSelect: function (dateText, inst) {
-                    var date = $(this).val();
-                    $scope.checkDate('date', date);
-                    $scope.date = date;
-                }
-            });
-        };
-        //$scope.initPaid();
+        //        $scope.initPaid = function () {
+        //            $("#datepicker").datepicker({
+        //                firstDay: 1,
+        //                minDate: -30,
+        //                onSelect: function (dateText, inst) {
+        //                    var date = $(this).val();
+        //                    $scope.checkDate('date', date);
+        //                    $scope.date = date;
+        //                }
+        //            });
+        //        };
+        //        $scope.initPaid();
         window.paidScope = $scope;
 
     });

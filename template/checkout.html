@@ -1,13 +1,13 @@
 <div class="container">
     <ul class="progressbar">
         <li ng-class="{'active':stepCount === 0}">
-            <p>1.訂單明細</p>
+            <p ng-bind="'checkout_orderdetail'|translate">1.訂單明細</p>
         </li>
         <li ng-class="{'active':stepCount === 1}">
-            <p>2.填寫資料</p>
+            <p ng-bind="'checkout_fillinfo'|translate">2.填寫資料</p>
         </li>
         <li ng-class="{'active':stepCount === 2}">
-            <p>3.購物完成</p>
+            <p ng-bind="'checkout_finish'|translate">3.購物完成</p>
         </li>
     </ul>
     <div class="check-div" ng-include="step" ng-class="{'next' : stepWay === true,'prev' : stepWay === false}"></div>

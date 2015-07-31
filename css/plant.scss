@@ -123,20 +123,9 @@ textarea {
     width: 100%;
     height: 100%;
     z-index: 9969;
-    display: block;
-    &.ng-hide-remove {
-        @include transition(0.3s $cubic all);
-        opacity: 0;
-    }
-    &.ng-hide-remove-active {
-        opacity: 1;
-    }
-    &.ng-hide-add {
-        @include transition(0.3s $cubic all);
-        opacity: 1;
-    }
-    &.ng-hide-add-active {
-        opacity: 0;
+    display: none;
+    &.active {
+        display: block;
     }
     .remove {
         position: absolute;
@@ -274,7 +263,7 @@ hr {
     border-radius: 3px;
     overflow: hidden;
     background-color: #fff;
-    background: #fff url('/static/img/arrowdown.gif') no-repeat 90% 50%;
+    background: #fff url('../img/arrowdown.gif') no-repeat 90% 50%;
     select {
         padding: 5px 8px;
         width: 130%;
@@ -594,7 +583,7 @@ hr {
                 content: '';
                 display: block;
                 height: 250px;
-                background-image: url('/static/img/loading.gif');
+                background-image: url('../img/loading.gif');
                 @include backgroundCover();
                 background-size: 50px 50px !important;
             }
@@ -604,7 +593,7 @@ hr {
                 content: '';
                 display: block;
                 height: 250px;
-                background-image: url('/static/img/notfound.jpg');
+                background-image: url('../img/notfound.jpg');
                 @include backgroundCover();
             }
         }
@@ -839,12 +828,12 @@ hr {
         @include transition(0.5 filter $cubic);
         cursor: pointer;
         &.loading {
-            background-image: url('/static/img/loading.gif');
+            background-image: url('../img/loading.gif');
             @include backgroundCover();
             background-size: 50px 50px !important;
         }
         &.error {
-            background-image: url('/static/img/notfound.jpg');
+            background-image: url('../img/notfound.jpg');
             @include backgroundCover();
         }
     }
@@ -1121,7 +1110,7 @@ hr {
                 height: 100%;
                 width: 100%;
                 @include backgroundCover();
-                background-image: url('/static/img/loading.gif');
+                background-image: url('../img/loading.gif');
             }
             .slide-text {
                 padding: 2px 5px;
@@ -1198,7 +1187,7 @@ hr {
         &.active:before {
             color: $gray80;
             overflow: visible;
-            background-image: url('/static/img/step.svg');
+            background-image: url('../img/step.svg');
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -2112,7 +2101,7 @@ hr {
                 margin: 0px;
             }
             .step {
-                background-image: url('/static/img/photos/1-0.jpg');
+                background-image: url('../img/photos/1-0.jpg');
                 height: 300px;
                 width: 100%;
                 background-position: center;
@@ -2219,6 +2208,7 @@ hr {
         }
     }
     input {
+        border-radius: 0px;
         box-shadow: none;
         font-size: 20px;
         padding: 10px 10px 5px 5px;

@@ -1,11 +1,17 @@
 <!--植物列表-->
 <div class="container shop">
     <div class="isotop">
-        <div class="item loading" ng-repeat="plant in plants track by $index" repeat-Done="initIsotop()" ng-click="openDetail(plant)">
-            <img ng-src="{[{plant.images_local[0] || plant.images[0]}]}">
+        <div class="item loading" ng-repeat="plant in plants track by $index" repeat-done="initIsotop()" ng-click="openDetail(plant)">
+            <img ng-src="{{makeImagesPath(plant)[0]}}">
             <div class="text-bar">
                 <h3 class="title" ng-bind="plant.name"></h3>
             </div>
         </div>
     </div>
+    <div class="product-empty" ng-show="plants.length === 0">
+        <img src="img/shovel.png">
+        <p ng-bind="'page_error'|translate"></p>
+        <span ng-bind="'coming_soon'|translate"></span>
+    </div>
+
 </div>

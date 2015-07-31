@@ -2,13 +2,13 @@
     <div class="teach-tabs">
         <ul class="tabs group">
             <li>
-                <a ng-tap="changePage(0)" ng-class="{'active':pageIndex === 0}">新手指南</a>
+                <a ng-tap="changePage(0)" ng-class="{'active':pageIndex === 0}" ng-bind="'menu_gettingstart'|translate"></a>
             </li>
             <li>
-                <a ng-tap="changePage(1)" ng-class="{'active':pageIndex === 1}">購物須知</a>
+                <a ng-tap="changePage(1)" ng-class="{'active':pageIndex === 1}" ng-bind="'menu_shopnotice'|translate"></a>
             </li>
             <li>
-                <a ng-tap="changePage(2)" ng-class="{'active':pageIndex === 2}">售後說明</a>
+                <a ng-tap="changePage(2)" ng-class="{'active':pageIndex === 2}" ng-bind="'menu_returnservice'|translate"></a>
             </li>
         </ul>
         <div class="tab-content" ng-include="page">

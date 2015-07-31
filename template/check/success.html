@@ -1,8 +1,8 @@
 <div class="success-table">
-    <h4 class="title">感謝您的訂購</h4>
+    <h4 class="title" ng-bind="'success_thanks'|translate">感謝您的訂購</h4>
     <div class="row">
         <div class="col-xs-5">
-            <h4>訂單編號</h4>
+            <h4 ng-bind="'success_ordernumber'|translate">訂單編號</h4>
         </div>
         <div class="col-xs-7">
             <h4 ng-bind="order.order_number"></h4>
@@ -11,7 +11,7 @@
     <div ng-if="order.swift_code && order.account">
         <div class="row">
             <div class="col-xs-5">
-                <h4>銀行代號</h4>
+                <h4 ng-bind="'success_bankid'|translate">銀行代號</h4>
             </div>
             <div class="col-xs-7">
                 <h4 ng-bind="order.swift_code"></h4>
@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-xs-5">
-                <h4>匯款帳號</h4>
+                <h4 ng-bind="'success_backaccount'|translate">匯款帳號</h4>
             </div>
             <div class="col-xs-7">
                 <h4 ng-bind="order.account"></h4>
@@ -28,13 +28,13 @@
     </div>
     <div class="row">
         <div class="col-xs-5">
-            <h4>結帳金額</h4>
+            <h4 ng-bind="'success_total'|translate">結帳金額</h4>
         </div>
         <div class="col-xs-7">
             <h4 ng-bind="'NT'+ order.balance"></h4>
         </div>
     </div>
-    <h4 class="subtitle" ng-if="order.swift_code && order.account">請於三日內完成匯款。</h4>
-    <h4 class="subtitle" ng-if="!order.swift_code && !order.account">希望您喜歡我們的產品。</h4>
-    <botton class="btn gray-btn" ng-tap="reload()">回到首頁</botton>
+    <h4 class="subtitle" ng-if="order.swift_code && order.account" ng-bind="'success_notice'|translate">請於三日內完成匯款。</h4>
+    <h4 class="subtitle" ng-if="!order.swift_code && !order.account" ng-bind="'success_hopelike'|translate">希望您喜歡我們的產品。</h4>
+    <botton class="btn gray-btn" ng-tap="reload()" ng-bind="'gohome'|translate">回到首頁</botton>
 </div>
