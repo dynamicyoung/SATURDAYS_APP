@@ -1,7 +1,7 @@
 var serverurl = 'https://saturdays.takko.me';
 //var serverurl = 'http://192.168.1.196:8000';
 plant
-    .service('plantService', function ($http, $q, $rootScope, service_utility) {
+    .service('plantService', function ($http, $q, $rootScope, $timeout, service_utility) {
         var plantService = this;
 
         this.products = [];
@@ -18,9 +18,8 @@ plant
                 console.log('從LoaclStorage讀取中');
                 plantService.products = localProducts;
                 plantService.standardizationProducts();
-                plantService.checkUpdate();
                 deferred.resolve();
-
+                plantService.checkUpdate();
             } else {
                 console.log('從Server下載列表中');
                 $http.get(serverurl + '/api-products/').
@@ -58,11 +57,11 @@ plant
                 }
                 //把商品分類
                 switch (product.category) {
-                    case 0:
-                        plantService.pots.push(product);
-                        break;
-                    default:
-                        plantService.plants.push(product);
+                case 0:
+                    plantService.pots.push(product);
+                    break;
+                default:
+                    plantService.plants.push(product);
                 }
                 products.push(product);
             });
@@ -83,15 +82,11 @@ plant
                 var localProducts = plantService.products;
                 angular.forEach(newProducts, function (product, index) {
                     var localProduct = plantService.findProductById(product.id);
-                    //var newDate = new Date(product.updated);
-                    var newDate = new Date();
+                    var newDate = new Date(product.updated);
                     var oldDate = new Date(localProduct.updated);
                     if (newDate - oldDate > 0) {
-                        console.log('NEW UPDATE:', product.name);
                         plantService.products[index] = product;
                         plantService.downloadImages(product, index);
-                    } else {
-                        console.log('IS LATEST:', product.name);
                     }
                 });
             }
@@ -115,37 +110,40 @@ plant
         //下載植物的所有圖片
         this.downloadImages = function (product, index) {
             var promises = [];
-            var oldProduct;
             if (product.images_local) {
                 plantService.removeImages(product);
             }
-            product.images_local = [];
+
             angular.forEach(product.images, function (image, key) {
-                var promise = service_utility.downloadFile(image, 'products')
+                var deffered = $q.defer();
+                service_utility.downloadFile(image, 'products')
                     .then(function (filePath) {
-                        console.log('downLoadImage:', filePath, plantService.imageCount++);
+                        if (!product.images_local) {
+                            product.images_local = [];
+                        }
                         product.images_local[key] = filePath;
                         plantService.products[index] = product;
+                        plantService.standardizationProducts();
+                        deffered.resolve();
                     });
-                promises.push(promise);
+                promises.push(deffered);
             });
 
             $q.all(promises).then(function () {
-                plantService.standardizationProducts();
                 $rootScope.$broadcast('plantsUpdate');
             });
         }
 
         //下載植物裡面的所有圖片
         this.downloadAllImages = function () {
-            plantService.imageCount = 0;
             angular.forEach(plantService.products, function (product, index) {
                 plantService.downloadImages(product, index);
             });
         };
         //把plants存入localStorage
         this.saveProducts = function () {
-            localStorage.setItem('products', JSON.stringify(plantService.products));
+            var products = JSON.stringify(plantService.products)
+            localStorage.setItem('products', products);
         };
         //取得目前lacalStorage的Plants
         this.getProductsFromLocal = function () {

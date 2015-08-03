@@ -34,14 +34,6 @@
         <button class="btn trans-btn remove" ng-click="closePictureModal()">
             <i class="glyphicon glyphicon-remove"></i>
         </button>
-        <div class="actions">
-            <button class="btn trans-btn zoomin">
-                <i class="glyphicon glyphicon-zoom-in"></i>
-            </button>
-            <button class="btn trans-btn zoomout">
-                <i class="glyphicon glyphicon-zoom-out"></i>
-            </button>
-        </div>>
         <div class="wrapper">
             <div class="picture" rn-lazy-background="picture" pan-Zoom> </div>
         </div>
@@ -112,7 +104,7 @@
             <img class="logo" ui-sref="products" src='img/plant_logo_w.svg'>
         </div>
         <div class="nav-div">
-            <nav class="navbar navbar-default navbar-plant">
+            <nav class="navbar navbar-default navbar-plant affix">
                 <div class="navbar-header">
                     <img class="logo-left" src="img/plant_logo.svg" ui-sref="products">
                     <button type="button" class="navbar-toggle side-toggle" data-toggle="collapse" ng-tap="openMenu()">

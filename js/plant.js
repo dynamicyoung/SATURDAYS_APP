@@ -45,7 +45,7 @@ function getCookie(c_name) {
 
 //affix
 $(document).ready(function () {
-    window.open = cordova.InAppBrowser.open;
+
     var affix = {
         initial: function () {
             this.$nav_div = $('.nav-div');
@@ -168,23 +168,27 @@ function getNowUrl() {
 
 //SHARE
 function shareTwitter() {
+    window.open = cordova.InAppBrowser.open;
     var url = 'http://twitter.com/home/?status=' + getNowUrl();
     window.open(url, '_system', 'location=yes');
 }
 
 function shareGoogle() {
+    window.open = cordova.InAppBrowser.open;
     var url = 'https://plus.google.com/share?url=' + getNowUrl();
     window.open(url, '_system', 'location=yes');
     return false;
 };
 
 function shareFacebook() {
+    window.open = cordova.InAppBrowser.open;
     var url = 'http://www.facebook.com/share.php?u=' + getNowUrl();
     window.open(url, '_system', 'location=yes');
     return false;
 };
 
 function shareWeibo() {
+    window.open = cordova.InAppBrowser.open;
     var url = 'http://v.t.sina.com.cn/share/share.php?title=' + 'SATURDAYS' + '&url=' + getNowUrl();
     window.open(url, '_system', 'location=yes');
     return false;

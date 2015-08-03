@@ -98,8 +98,8 @@ plant.config(['$translateProvider', function ($translateProvider) {
         //YOUNG
         'deliver_foreign': 'Foreign',
         'deliver_taiwan': 'Taiwan',
-        'receiver ': 'Receiver',
-        'purchaser ': 'Purchaser',
+        'receiver': 'Receiver',
+        'purchaser': 'Purchaser',
         'page_redirect': 'Page Redirecting...',
         'validation_name_type': 'Name is invalid.',
         'validation_name_empty': 'Name is empty.',
@@ -227,8 +227,8 @@ plant.config(['$translateProvider', function ($translateProvider) {
         //YOUNG
         'deliver_foreign': '離島寄送',
         'deliver_taiwan': '本島寄送',
-        'receiver ': '收件人',
-        'purchaser ': '購買人',
+        'receiver': '收件人',
+        'purchaser': '購買人',
         'page_redirect': '頁面重新導向中...',
         'validation_name_type': '姓名格式錯誤',
         'validation_name_empty': '姓名不得為空',

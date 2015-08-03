@@ -136,7 +136,7 @@ plant.service('service_utility', function ($q, $http) {
         var defer = $q.defer();
 
         //先把 file uri parse 到正確的路徑過去
-        var file_url = MakeFilePath(file_uri_short);
+        var file_url = service_utility.MakeFilePath(file_uri_short);
 
         //解開路徑取得檔案的 entry
         window.resolveLocalFileSystemURL(file_url, resolveSuccess, resolveerror);

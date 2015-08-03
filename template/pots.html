@@ -1,7 +1,7 @@
 <!--植物列表-->
 <div class="container shop">
     <div class="isotop">
-        <div class="item loading" ng-repeat="pot in pots track by $index" repeat-Done="initIsotop()" ng-click="openDetail(plant)">
+        <div class="item loading" ng-repeat="pot in pots track by $index" repeat-Done="initIsotop()" ng-click="openDetail(pot)">
             <img ng-src="{{makeImagesPath(pot)[0]}}">
             <div class="text-bar">
                 <h3 class="title" ng-bind="pot.name"></h3>

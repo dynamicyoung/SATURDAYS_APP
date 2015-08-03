@@ -39,6 +39,7 @@ plant
             $scope.products = plantService.products;
             $scope.plants = plantService.plants;
             $scope.pots = plantService.pots;
+            $scope.initIsotop();
         });
 
         //等到整個cordova好之後 才初始化
@@ -57,10 +58,10 @@ plant
                         window.scrollTo(0, value);
                     }, 100);
                 }
-                if (fromState.name === 'domain' || fromState.name === 'products') {
+                if (fromState.name === 'domain' || fromState.name === 'products' || fromState.name === 'pots') {
                     $rootScope.memoryTop = $(window).scrollTop();
                 }
-                if (toState.name === 'domain' || toState.name === 'products') {
+                if (toState.name === 'domain' || toState.name === 'products' || toState.name === 'pots') {
                     scrollTo($rootScope.memoryTop);
                 } else {
                     scrollTo(0);
@@ -81,19 +82,21 @@ plant
         };
 
         $scope.makeImagesPath = function (product) {
-            if (product.images_local) {
-                var images_local = [];
-                angular.forEach(product.images_local, function (image, key) {
-                    var filePath = service_utility.MakeFilePath(image);
-                    if (filePath) {
-                        images_local.push(filePath);
-                    } else {
-                        return product.images;
-                    }
-                });
-                return images_local;
-            } else {
-                return product.images;
+            if (product) {
+                if (product.images_local) {
+                    var images_local = [];
+                    angular.forEach(product.images_local, function (image, key) {
+                        var filePath = service_utility.MakeFilePath(image);
+                        if (filePath) {
+                            images_local.push(filePath);
+                        } else {
+                            return product.images;
+                        }
+                    });
+                    return images_local;
+                } else {
+                    return product.images;
+                }
             }
         };
 
@@ -103,9 +106,7 @@ plant
             //檢查有沒有付款成功的參數：
             var promise = plantService.initProducts();
             promise.then(function () {
-                $timeout(function () {
-                    navigator.splashscreen.hide();
-                }, 1000)
+                navigator.splashscreen.hide();
                 $scope.products = plantService.products;
                 $scope.plants = plantService.plants;
                 $scope.pots = plantService.pots;
@@ -140,7 +141,7 @@ plant
                 var $item = $(image.img.parentNode);
                 $item.removeClass('loading');
                 if (result === 'loaded') {
-                    $item.addClass('ready');
+                    $item.removeClass('error').addClass('ready');
                     $scope.iso.isotope(option).isotope('reloadItems');
                     $scope.imgLoadedCount++;
                     if (instance.images.length > 0) {
@@ -149,7 +150,7 @@ plant
                     }
                 } else {
                     //如果有圖片破圖則印出來
-                    $item.addClass('error');
+                    $item.removeClass('ready').addClass('error');
                     $scope.iso.isotope(option).isotope('reloadItems');
                 }
             });
@@ -220,16 +221,16 @@ plant
         //打開產品內頁
         $scope.openDetail = function (product) {
             switch (product.category) {
-                case 0:
-                    $state.go('pot-detail', {
-                        productName: product.name
-                    });
-                    break;
-                default:
-                    $state.go('detail', {
-                        productName: product.name
-                    });
-                    break;
+            case 0:
+                $state.go('pot-detail', {
+                    productName: product.name
+                });
+                break;
+            default:
+                $state.go('detail', {
+                    productName: product.name
+                });
+                break;
             }
 
         };
@@ -258,31 +259,31 @@ plant
             var progress = $('.progress-bar');
             var bar = $('.progress-bar .bar');
             switch (value) {
-                case 100:
-                    $timeout(function () {
-                        progress.hide();
-                        bar.css({
-                            width: '0px',
-                            transition: 'all 0s ease-in-out',
-                            '-webkit-transition': 'all 3s ease-in-out'
-                        });
-                    }, 3000);
-                    break;
-                case 0:
+            case 100:
+                $timeout(function () {
                     progress.hide();
                     bar.css({
                         width: '0px',
                         transition: 'all 0s ease-in-out',
-                        '-webkit-transition': 'all 0s ease-in-out'
-                    });
-                    break;
-                default:
-                    progress.show();
-                    bar.css({
-                        width: value + '%',
-                        transition: 'all 0.5s ease-in-out',
                         '-webkit-transition': 'all 3s ease-in-out'
                     });
+                }, 3000);
+                break;
+            case 0:
+                progress.hide();
+                bar.css({
+                    width: '0px',
+                    transition: 'all 0s ease-in-out',
+                    '-webkit-transition': 'all 0s ease-in-out'
+                });
+                break;
+            default:
+                progress.show();
+                bar.css({
+                    width: value + '%',
+                    transition: 'all 0.5s ease-in-out',
+                    '-webkit-transition': 'all 3s ease-in-out'
+                });
             }
         };
         //檢查頁面上的圖片loaded進度
@@ -313,18 +314,18 @@ plant
         //分享按鈕的事件
         $scope.share = function (name) {
             switch (name) {
-                case 'facebook':
-                    shareFacebook()
-                    break;
-                case 'google':
-                    shareGoogle();
-                    break;
-                case 'twitter':
-                    shareTwitter();
-                    break;
-                case 'weibo':
-                    shareWeibo();
-                    break;
+            case 'facebook':
+                shareFacebook()
+                break;
+            case 'google':
+                shareGoogle();
+                break;
+            case 'twitter':
+                shareTwitter();
+                break;
+            case 'weibo':
+                shareWeibo();
+                break;
             };
             return false;
         };
@@ -431,16 +432,16 @@ plant
                 $slides.removeClass('active');
                 $slide.addClass('active');
                 switch (compareIndex(swiper.activeIndex)) {
-                    case 'next':
-                        if (swiper.activeIndex >= calcCount(100)) {
-                            galleryBottom.slideNext();
-                        }
-                        break;
-                    case 'prev':
-                        if (swiper.activeIndex < calcCount(100)) {
-                            galleryBottom.slidePrev();
-                        }
-                        break;
+                case 'next':
+                    if (swiper.activeIndex >= calcCount(100)) {
+                        galleryBottom.slideNext();
+                    }
+                    break;
+                case 'prev':
+                    if (swiper.activeIndex < calcCount(100)) {
+                        galleryBottom.slidePrev();
+                    }
+                    break;
                 }
             };
             galleryBottom.params.onClick = function (swiper, e) {
