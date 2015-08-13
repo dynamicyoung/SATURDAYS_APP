@@ -2,9 +2,95 @@ plant
     .directive('repeatDone', function ($timeout) {
         return function (scope, element, attrs) {
             if (scope.$last) { // all are rendered
-                var timer = $timeout(function () {
-                    scope.$eval(attrs.repeatDone);
-                }, 50);
+                scope.$eval(attrs.repeatDone);
+            }
+        };
+    })
+    .directive('carouselTop', function ($timeout, $rootScope) {
+        return function (scope, element, attrs) {
+            if (scope.$last) { // all are rendered
+                scope.container = element.parents('.swiper-container');
+                $rootScope.galleryTop = new Swiper(scope.container, {
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    spaceBetween: 50,
+                    preventClicks: true,
+                    lazyLoading: true
+                });
+            }
+        };
+    })
+    .directive('carouselBottom', function ($timeout, $rootScope) {
+        return function (scope, element, attrs) {
+            if (scope.$last) { // all are rendered
+                scope.container = element.parents('.swiper-container');
+                $rootScope.galleryBottom = new Swiper(scope.container, {
+                    spaceBetween: 20,
+                    direction: 'horizontal',
+                    slidesPerView: 'auto',
+                    preventClicks: true,
+                    lazyLoading: true
+                });
+                var calcCount = function (width) {
+                    //目前carousel的高度 / （slide寬度 ＋間距） 最小正整數
+                    return (Math.floor($rootScope.galleryBottom.size / ($rootScope.galleryBottom.params.spaceBetween + width)));
+                };
+                var firstSlide = $($rootScope.galleryBottom.slides[0]).addClass('active');
+                //用index來比較他是向左滑向右滑
+                var compareIndex = function (index) {
+                    var direction = 'next';
+                    if (scope.prevIndex) {
+                        if (index > scope.prevIndex) {
+                            direction = 'next';
+                        } else if (index < scope.prevIndex) {
+                            direction = 'prev';
+                        } else {
+                            direction = undefined;
+                        }
+                    }
+                    scope.prevIndex = index;
+                    return direction;
+                };
+
+                //兩個carousel做關聯
+                $rootScope.galleryTop.params.onSlideChangeEnd = function (swiper) {
+                    var $slides = $($rootScope.galleryBottom.slides);
+                    var $slide = $($rootScope.galleryBottom.slides[swiper.activeIndex]);
+                    $slides.removeClass('active');
+                    $slide.addClass('active');
+                    switch (compareIndex(swiper.activeIndex)) {
+                        case 'next':
+                            if (swiper.activeIndex >= calcCount(100)) {
+                                $rootScope.galleryBottom.slideNext();
+                            }
+                            break;
+                        case 'prev':
+                            if (swiper.activeIndex < calcCount(100)) {
+                                $rootScope.galleryBottom.slidePrev();
+                            }
+                            break;
+                    }
+                };
+                $rootScope.galleryBottom.params.onClick = function (swiper, e) {
+                    e.preventDefault();
+                    $rootScope.galleryTop.slideTo(swiper.clickedIndex);
+                };
+            }
+        };
+    })
+    .directive('carouselBrowse', function ($timeout, $rootScope) {
+        return function (scope, element, attrs) {
+            if (scope.$last) { // all are rendered
+                scope.container = element.parents('.swiper-container');
+                $rootScope.galleryBrowse = new Swiper(scope.container, {
+                    nextButton: '.swiper-button-next-browse',
+                    prevButton: '.swiper-button-prev-browse',
+                    spaceBetween: 20,
+                    direction: 'horizontal',
+                    slidesPerView: 'auto',
+                    touchRatio: 1,
+                    slideToClickedSlide: true,
+                });
             }
         };
     })
@@ -302,4 +388,61 @@ plant
                 element.removeClass('activated');
             });
         }
+    }])
+    .directive('imagesLoaded', ['$timeout', 'imagesLoaded',
+    function ($timeout, imagesLoaded) {
+            'use strict';
+            return {
+                restrict: 'AC',
+                link: function (scope, element, attrs) {
+                    var events = scope.$eval(attrs.imagesLoaded) || scope.$eval(attrs.imagesLoadedEvents),
+                        className = attrs.imagesLoadedClass || 'images-loaded',
+                        classUsed = element.hasClass(className);
+
+                    var init = function () {
+                        $timeout(function () {
+                            scope.$imagesLoaded = false;
+
+                            scope.$emit('imagesLoaded:started', {
+                                scope: scope,
+                                element: element
+                            });
+
+                            if (classUsed) {
+                                element.addClass(className);
+                            }
+
+                            var imgLoad = imagesLoaded(element[0], function () {
+                                scope.$imagesLoaded = true;
+
+                                scope.$emit('imagesLoaded:loaded', {
+                                    scope: scope,
+                                    element: element
+                                });
+
+                                element.removeClass(className + ' images-loaded: ' + attrs.imagesLoaded + ';');
+
+                                if (!scope.$$phase) {
+                                    scope.$apply();
+                                }
+                            });
+
+                            if (typeof (events) !== undefined) {
+                                angular.forEach(events, function (fn, eventName) {
+                                    imgLoad.on(eventName, fn);
+                                });
+                            }
+                        });
+                    };
+
+                    if (attrs.imagesLoadedWatch) {
+                        scope.$watch(attrs.imagesLoadedWatch, function (n) {
+                            init();
+                        });
+
+                    } else {
+                        init();
+                    }
+                }
+            };
     }])

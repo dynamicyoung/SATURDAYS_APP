@@ -35,26 +35,11 @@ plant
             $rootScope.$broadcast('destroyPicture');
         };
 
-        $rootScope.$on('plantsUpdate', function () {
-            $scope.products = plantService.products;
-            $scope.plants = plantService.plants;
-            $scope.pots = plantService.pots;
-            $scope.initIsotop();
-        });
-
-        //等到整個cordova好之後 才初始化
-        $document.bind('deviceready', function (event) {
-            $timeout(function () {
-                $scope.initProducts();
-            }, 1000)
-        })
-
         //切換state時
         $rootScope.$on('$stateChangeSuccess',
             function (e, toState, toParams, fromState, fromParams) {
                 function scrollTo(value) {
                     $timeout(function () {
-                        console.log('scrollTo');
                         window.scrollTo(0, value);
                     }, 100);
                 }
@@ -100,11 +85,14 @@ plant
             }
         };
 
-
+        //等到整個cordova好之後 才初始化
+        $document.bind('deviceready', function (event) {
+            $scope.initProducts();
+        });
         //取得首頁產品列表
         $scope.initProducts = function () {
             //檢查有沒有付款成功的參數：
-            var promise = plantService.initProducts();
+            var promise = plantService.initial.init();
             promise.then(function () {
                 navigator.splashscreen.hide();
                 $scope.products = plantService.products;
@@ -114,46 +102,50 @@ plant
                 //初始化產品列表後才去抓購物車比對資料
                 $scope.initCart();
             });
-
         };
 
+        $scope.$watch(
+            function () {
+                return plantService.products
+            },
+            function (newVal) {
+                $scope.products = plantService.products;
+                $scope.plants = plantService.plants;
+                $scope.pots = plantService.pots;
+            }
+        )
 
+        //iso
+        $scope.isoOptions = {
+            "itemSelector": ".item",
+            "transitionDuration": 0,
+            "masonry": {
+                "gutter": 50
+            }
+        };
+
+        $scope.imgLoadedEvents = {
+            always: function (instance) {
+                $scope.$broadcast('iso-option', $scope.isoOptions);
+            },
+            done: function (instance) {
+                var parent = angular.element(instance.elements[0]);
+                parent.removeClass('loading').addClass('ready');
+                $timeout.cancel($scope.timer);
+                $scope.timer = $timeout(function () {
+                    plantService.initial.start()
+                }, 1000)
+            },
+            fail: function (instance) {
+                var parent = angular.element(instance.elements[0]);
+                parent.removeClass('loading').addClass('error');
+                $timeout.cancel($scope.timer);
+            }
+
+        };
         //初始化首頁排序
         $scope.initIsotop = function () {
-            var option = {
-                "itemSelector": ".item",
-                "transitionDuration": 0,
-                "masonry": {
-                    "gutter": 50
-                }
-            };
-            $scope.iso = $('.isotop').isotope(option);
-
-            //初始化檢查爐片load狀態
-            $scope.imgLoad = imagesLoaded($scope.iso);
-            //圖片全部load完之後排列
-            $scope.imgLoad.on('done', function (instance) {
-                $scope.iso.isotope(option).isotope('reloadItems');
-            });
-            //圖片load玩一張之後排列，才不會排版錯誤
-            $scope.imgLoad.on('progress', function (instance, image) {
-                var result = image.isLoaded ? 'loaded' : 'broken';
-                var $item = $(image.img.parentNode);
-                $item.removeClass('loading');
-                if (result === 'loaded') {
-                    $item.removeClass('error').addClass('ready');
-                    $scope.iso.isotope(option).isotope('reloadItems');
-                    $scope.imgLoadedCount++;
-                    if (instance.images.length > 0) {
-                        $scope.progress = Math.floor(($scope.imgLoadedCount / instance.images.length) * 100);
-                        $scope.plusProgress($scope.progress);
-                    }
-                } else {
-                    //如果有圖片破圖則印出來
-                    $item.removeClass('ready').addClass('error');
-                    $scope.iso.isotope(option).isotope('reloadItems');
-                }
-            });
+            $scope.$broadcast('iso-option', $scope.isoOptions);
         };
         //用id找植物名字
         $scope.findProductById = function (id) {
@@ -221,16 +213,16 @@ plant
         //打開產品內頁
         $scope.openDetail = function (product) {
             switch (product.category) {
-            case 0:
-                $state.go('pot-detail', {
-                    productName: product.name
-                });
-                break;
-            default:
-                $state.go('detail', {
-                    productName: product.name
-                });
-                break;
+                case 0:
+                    $state.go('pot-detail', {
+                        productName: product.name
+                    });
+                    break;
+                default:
+                    $state.go('detail', {
+                        productName: product.name
+                    });
+                    break;
             }
 
         };
@@ -259,31 +251,31 @@ plant
             var progress = $('.progress-bar');
             var bar = $('.progress-bar .bar');
             switch (value) {
-            case 100:
-                $timeout(function () {
+                case 100:
+                    $timeout(function () {
+                        progress.hide();
+                        bar.css({
+                            width: '0px',
+                            transition: 'all 0s ease-in-out',
+                            '-webkit-transition': 'all 3s ease-in-out'
+                        });
+                    }, 3000);
+                    break;
+                case 0:
                     progress.hide();
                     bar.css({
                         width: '0px',
                         transition: 'all 0s ease-in-out',
+                        '-webkit-transition': 'all 0s ease-in-out'
+                    });
+                    break;
+                default:
+                    progress.show();
+                    bar.css({
+                        width: value + '%',
+                        transition: 'all 0.5s ease-in-out',
                         '-webkit-transition': 'all 3s ease-in-out'
                     });
-                }, 3000);
-                break;
-            case 0:
-                progress.hide();
-                bar.css({
-                    width: '0px',
-                    transition: 'all 0s ease-in-out',
-                    '-webkit-transition': 'all 0s ease-in-out'
-                });
-                break;
-            default:
-                progress.show();
-                bar.css({
-                    width: value + '%',
-                    transition: 'all 0.5s ease-in-out',
-                    '-webkit-transition': 'all 3s ease-in-out'
-                });
             }
         };
         //檢查頁面上的圖片loaded進度
@@ -314,18 +306,18 @@ plant
         //分享按鈕的事件
         $scope.share = function (name) {
             switch (name) {
-            case 'facebook':
-                shareFacebook()
-                break;
-            case 'google':
-                shareGoogle();
-                break;
-            case 'twitter':
-                shareTwitter();
-                break;
-            case 'weibo':
-                shareWeibo();
-                break;
+                case 'facebook':
+                    shareFacebook()
+                    break;
+                case 'google':
+                    shareGoogle();
+                    break;
+                case 'twitter':
+                    shareTwitter();
+                    break;
+                case 'weibo':
+                    shareWeibo();
+                    break;
             };
             return false;
         };
@@ -369,98 +361,41 @@ plant
                 }
             });
         };
+
+        $scope.makeDetailPath = function (product) {
+            var images = [];
+            if (product.images_local) {
+                var images_local = [];
+                angular.forEach(product.images_local, function (image, key) {
+                    var filePath = service_utility.MakeFilePath(image);
+                    if (filePath) {
+                        images_local.push(filePath);
+                    }
+                });
+                images = images_local;
+            } else {
+                images = product.images;
+            }
+            if (images.length > 1) {
+                images.splice(0, 1);
+            } else if (images.length === 1) {
+                images.splice(0, 0);
+            } else {
+                images.push('img/notfound.jpg');
+            }
+            return images;
+        };
         //初始化detail:用id從產品列表找產品
         $scope.initDetail = function () {
             //用一開始取得的產品列表比對
             $scope.detail = plantService.findProductByName($stateParams.productName);
         };
+
         //如果他是reload畫面的話，等到初始化產品列表後再init
         $rootScope.$on('initProductsComplete', function (event) {
             console.log('初始化detail');
             $scope.initDetail();
         });
-
-
-
-
-        //初始化carousel
-        $scope.initSwiper = function () {
-            $scope.prevIndex = 0;
-            $scope.activeIndex;
-            //上方的carousel
-            var galleryTop = new Swiper('.carousel-top', {
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-                spaceBetween: 50,
-                preventClicks: true,
-                lazyLoading: true
-            });
-            //下方的carousel縮圖
-            var galleryBottom = new Swiper('.carousel-bottom', {
-                spaceBetween: 20,
-                direction: 'horizontal',
-                slidesPerView: 'auto',
-                preventClicks: true,
-                lazyLoading: true
-            });
-            //計算現在畫面塞得下幾個slide -> 如果超過就切換到下一頁
-            var calcCount = function (width) {
-                //目前carousel的高度 / （slide寬度 ＋間距） 最小正整數
-                return (Math.floor(galleryBottom.size / (galleryBottom.params.spaceBetween + width)));
-            };
-            var firstSlide = $(galleryBottom.slides[0]).addClass('active');
-            //用index來比較他是向左滑向右滑
-            var compareIndex = function (index) {
-                var direction = 'next';
-                if ($scope.prevIndex) {
-                    if (index > $scope.prevIndex) {
-                        direction = 'next';
-                    } else if (index < $scope.prevIndex) {
-                        direction = 'prev';
-                    } else {
-                        direction = undefined;
-                    }
-                }
-                $scope.prevIndex = index;
-                return direction;
-            };
-
-            //兩個carousel做關聯
-            galleryTop.params.onSlideChangeEnd = function (swiper) {
-                var $slides = $(galleryBottom.slides);
-                var $slide = $(galleryBottom.slides[swiper.activeIndex]);
-                $slides.removeClass('active');
-                $slide.addClass('active');
-                switch (compareIndex(swiper.activeIndex)) {
-                case 'next':
-                    if (swiper.activeIndex >= calcCount(100)) {
-                        galleryBottom.slideNext();
-                    }
-                    break;
-                case 'prev':
-                    if (swiper.activeIndex < calcCount(100)) {
-                        galleryBottom.slidePrev();
-                    }
-                    break;
-                }
-            };
-            galleryBottom.params.onClick = function (swiper, e) {
-                e.preventDefault();
-                galleryTop.slideTo(swiper.clickedIndex);
-            };
-
-
-            var browse = new Swiper('.carousel-browse', {
-                nextButton: '.swiper-button-next-browse',
-                prevButton: '.swiper-button-prev-browse',
-                spaceBetween: 20,
-                direction: 'horizontal',
-                slidesPerView: 'auto',
-                touchRatio: 1,
-                slideToClickedSlide: true,
-            });
-
-        };
         $scope.initDetail();
         window.plantDetail = $scope;
 

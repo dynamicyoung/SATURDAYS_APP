@@ -1,16 +1,17 @@
 <!--植物列表-->
 <div class="container shop">
-    <div class="isotop">
-        <div class="item loading" ng-repeat="pot in pots track by $index" repeat-Done="initIsotop()" ng-click="openDetail(pot)">
+    <div class="isotop" isotope-container>
+        <div class="item loading" ng-repeat="pot in pots track by $index" isotope-item images-loaded="imgLoadedEvents" ui-sref="pot-detail({'productName': pot.name})">
             <img ng-src="{{makeImagesPath(pot)[0]}}">
             <div class="text-bar">
                 <h3 class="title" ng-bind="pot.name"></h3>
             </div>
         </div>
     </div>
-    <div class="product-empty" ng-show="plants.length === 0">
+    <div class="product-empty" ng-show="pot.length === 0">
         <img src="img/shovel.png">
-        <p ng-bind="'page_error'|translate">施工中...</p>
-        <span ng-bind="'coming_soon'|translate">敬請期待</span>
+        <p ng-bind="'page_error'|translate"></p>
+        <span ng-bind="'coming_soon'|translate"></span>
     </div>
+
 </div>

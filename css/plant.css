@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* line 58, /Users/young/takkostore/www/css/plant.scss */
+/* line 58, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 li {
   -moz-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
@@ -7,28 +7,28 @@ li {
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
 
-/* line 62, /Users/young/takkostore/www/css/plant.scss */
+/* line 62, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 input,
 textarea {
   box-shadow: none !important; }
-  /* line 64, /Users/young/takkostore/www/css/plant.scss */
+  /* line 64, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   input:invalid,
   textarea:invalid {
     box-shadow: none; }
-  /* line 67, /Users/young/takkostore/www/css/plant.scss */
+  /* line 67, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   input:-moz-submit-invalid,
   textarea:-moz-submit-invalid {
     box-shadow: none; }
-  /* line 70, /Users/young/takkostore/www/css/plant.scss */
+  /* line 70, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   input:-moz-ui-invalid,
   textarea:-moz-ui-invalid {
     box-shadow: none; }
 
-/* line 74, /Users/young/takkostore/www/css/plant.scss */
+/* line 74, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .container {
   margin-bottom: 50px; }
 
-/* line 78, /Users/young/takkostore/www/css/plant.scss */
+/* line 78, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .loading-modal {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.6);
@@ -36,10 +36,10 @@ textarea {
   height: 100%;
   z-index: 9969;
   display: none; }
-  /* line 85, /Users/young/takkostore/www/css/plant.scss */
+  /* line 85, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .loading-modal.show {
     display: block; }
-  /* line 88, /Users/young/takkostore/www/css/plant.scss */
+  /* line 88, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .loading-modal .content {
     vertical-align: middle;
     z-index: 100;
@@ -55,33 +55,33 @@ textarea {
     padding: 30px 10px;
     text-align: center;
     opacity: 0.9; }
-    /* line 103, /Users/young/takkostore/www/css/plant.scss */
+    /* line 103, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .loading-modal .content .logo {
       width: 100px;
       height: 100px;
       margin: 20px; }
-    /* line 108, /Users/young/takkostore/www/css/plant.scss */
+    /* line 108, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .loading-modal .content p {
       color: #595757;
       font-size: 20px;
       letter-spacing: 2px; }
-    /* line 113, /Users/young/takkostore/www/css/plant.scss */
+    /* line 113, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .loading-modal .content .loading-icon {
       position: relative;
       height: 30px;
       width: 30px; }
 
-/* line 120, /Users/young/takkostore/www/css/plant.scss */
+/* line 120, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .picture-modal {
   position: fixed;
   background-color: #000;
   width: 100%;
   height: 100%;
   z-index: 9969; }
-  /* line 127, /Users/young/takkostore/www/css/plant.scss */
+  /* line 127, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .picture-modal.active {
     display: block; }
-  /* line 130, /Users/young/takkostore/www/css/plant.scss */
+  /* line 130, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .picture-modal .remove {
     position: absolute;
     right: 10px;
@@ -89,19 +89,19 @@ textarea {
     width: 40px;
     font-size: 28px;
     z-index: 2; }
-  /* line 138, /Users/young/takkostore/www/css/plant.scss */
+  /* line 138, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .picture-modal .actions {
     position: absolute;
     left: 10px;
     bottom: 10px;
     width: 100px;
     z-index: 2; }
-    /* line 144, /Users/young/takkostore/www/css/plant.scss */
+    /* line 144, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .picture-modal .actions > .btn {
       display: inline-block;
       width: 45%;
       font-size: 28px; }
-  /* line 150, /Users/young/takkostore/www/css/plant.scss */
+  /* line 150, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .picture-modal > .pinch {
     position: absolute;
     right: 0%;
@@ -109,11 +109,11 @@ textarea {
     z-index: 2;
     height: 100px;
     width: 100px; }
-  /* line 158, /Users/young/takkostore/www/css/plant.scss */
+  /* line 158, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .picture-modal .wrapper {
     width: 100%;
     height: 100%; }
-    /* line 161, /Users/young/takkostore/www/css/plant.scss */
+    /* line 161, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .picture-modal .wrapper .picture {
       width: 100%;
       height: 100%;
@@ -123,11 +123,11 @@ textarea {
       background-size: 600px auto;
       background-repeat: no-repeat; }
       @media all and (max-width: 768px) {
-        /* line 161, /Users/young/takkostore/www/css/plant.scss */
+        /* line 161, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .picture-modal .wrapper .picture {
           background-size: 320px auto; } }
 
-/* line 175, /Users/young/takkostore/www/css/plant.scss */
+/* line 175, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .progress-bar {
   position: fixed;
   width: 100%;
@@ -136,7 +136,7 @@ textarea {
   background-color: #f5f5f5;
   z-index: 999;
   display: none; }
-  /* line 183, /Users/young/takkostore/www/css/plant.scss */
+  /* line 183, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .progress-bar .bar {
     height: 100%;
     width: 0%;
@@ -148,7 +148,7 @@ textarea {
     -ms-transform: 3s all cubic-bezier(0.4, 0, 0.2, 1);
     transition: 3s all cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* line 192, /Users/young/takkostore/www/css/plant.scss */
+/* line 192, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 html,
 body {
   position: relative;
@@ -159,19 +159,19 @@ body {
   -ms-transform: 1s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 1s all cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* line 197, /Users/young/takkostore/www/css/plant.scss */
+/* line 197, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .hidden {
   visibility: hidden; }
 
-/* line 200, /Users/young/takkostore/www/css/plant.scss */
+/* line 200, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .left {
   float: left; }
 
-/* line 203, /Users/young/takkostore/www/css/plant.scss */
+/* line 203, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .right {
   float: right; }
 
-/* line 206, /Users/young/takkostore/www/css/plant.scss */
+/* line 206, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 body {
   background-color: #fff;
   font-family: Microsoft JhengHei, Helvetica Neue, Arial, sans-serif;
@@ -182,14 +182,14 @@ body {
   position: relative;
   overflow-x: hidden;
   overflow-y: auto; }
-  /* line 217, /Users/young/takkostore/www/css/plant.scss */
+  /* line 217, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   body.menu-show .side-content {
     -moz-transform: translateX(270px) translate3d(0, 0, 0);
     -o-transform: translateX(270px) translate3d(0, 0, 0);
     -webkit-transform: translateX(270px) translate3d(0, 0, 0);
     -ms-transform: translateX(270px) translate3d(0, 0, 0);
     transform: translateX(270px) translate3d(0, 0, 0); }
-    /* line 219, /Users/young/takkostore/www/css/plant.scss */
+    /* line 219, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     body.menu-show .side-content .side-blur {
       position: absolute;
       left: 0;
@@ -199,21 +199,21 @@ body {
       z-index: 999;
       background-color: transparent;
       display: block; }
-  /* line 230, /Users/young/takkostore/www/css/plant.scss */
+  /* line 230, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   body.menu-show .side-menu {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
-  /* line 235, /Users/young/takkostore/www/css/plant.scss */
+  /* line 235, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   body.cart-show .side-content {
     -moz-transform: translateX(270px);
     -o-transform: translateX(270px);
     -webkit-transform: translateX(270px);
     -ms-transform: translateX(270px);
     transform: translateX(270px); }
-    /* line 237, /Users/young/takkostore/www/css/plant.scss */
+    /* line 237, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     body.cart-show .side-content .side-blur {
       position: absolute;
       left: 0;
@@ -223,7 +223,7 @@ body {
       z-index: 999;
       background-color: transparent;
       display: block; }
-  /* line 248, /Users/young/takkostore/www/css/plant.scss */
+  /* line 248, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   body.cart-show .side-cart {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
@@ -231,13 +231,13 @@ body {
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
 
-/* line 253, /Users/young/takkostore/www/css/plant.scss */
+/* line 253, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 hr {
   margin: 10px 0;
   height: 1px;
   background-color: #898989; }
 
-/* line 258, /Users/young/takkostore/www/css/plant.scss */
+/* line 258, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .select-group {
   padding: 0;
   margin: 0;
@@ -247,7 +247,7 @@ hr {
   overflow: hidden;
   background-color: #fff;
   background: #fff url("../img/arrowdown.gif") no-repeat 90% 50%; }
-  /* line 267, /Users/young/takkostore/www/css/plant.scss */
+  /* line 267, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .select-group select {
     padding: 5px 8px;
     width: 130%;
@@ -260,11 +260,11 @@ hr {
     -o-appearance: none;
     -ms-appearance: none;
     appearance: none; }
-    /* line 279, /Users/young/takkostore/www/css/plant.scss */
+    /* line 279, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .select-group select:focus {
       outline: none; }
 
-/* line 284, /Users/young/takkostore/www/css/plant.scss */
+/* line 284, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .side-content {
   z-index: 1;
   position: relative;
@@ -274,22 +274,22 @@ hr {
   -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 289, /Users/young/takkostore/www/css/plant.scss */
+  /* line 289, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-content.side-show {
     -moz-transform: translateX(270px);
     -o-transform: translateX(270px);
     -webkit-transform: translateX(270px);
     -ms-transform: translateX(270px);
     transform: translateX(270px); }
-  /* line 292, /Users/young/takkostore/www/css/plant.scss */
+  /* line 292, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-content .side-blur {
     display: none; }
-  /* line 295, /Users/young/takkostore/www/css/plant.scss */
+  /* line 295, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-content .loadMore {
     margin: 50px auto;
     width: 200px; }
 
-/* line 300, /Users/young/takkostore/www/css/plant.scss */
+/* line 300, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .side-menu {
   position: fixed;
   z-index: 1;
@@ -308,30 +308,30 @@ hr {
   -webkit-transform: translateX(-270px);
   -ms-transform: translateX(-270px);
   transform: translateX(-270px); }
-  /* line 310, /Users/young/takkostore/www/css/plant.scss */
+  /* line 310, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-menu.side-show {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
-  /* line 313, /Users/young/takkostore/www/css/plant.scss */
+  /* line 313, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-menu hr {
     border: 0;
     border-top: 1px solid #898989;
     margin-right: 20px;
     margin: 30px 45px 20px 46px; }
-  /* line 319, /Users/young/takkostore/www/css/plant.scss */
+  /* line 319, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-menu ul {
     box-sizing: padding-box;
     margin: 50px auto;
     width: 100%;
     padding: 10px; }
-    /* line 324, /Users/young/takkostore/www/css/plant.scss */
+    /* line 324, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .side-menu ul li {
       margin: 20px 0;
       text-align: center; }
-      /* line 327, /Users/young/takkostore/www/css/plant.scss */
+      /* line 327, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .side-menu ul li a {
         color: #f5f5f5;
         font-size: 18px;
@@ -342,7 +342,7 @@ hr {
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         letter-spacing: 8px;
         line-height: 45px; }
-        /* line 333, /Users/young/takkostore/www/css/plant.scss */
+        /* line 333, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .side-menu ul li a:hover {
           color: #fff;
           text-decoration: none;
@@ -352,7 +352,7 @@ hr {
           -ms-transform: scale(1.2) translate3d(0, 0, 0);
           transform: scale(1.2) translate3d(0, 0, 0); }
 
-/* line 342, /Users/young/takkostore/www/css/plant.scss */
+/* line 342, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .side-cart {
   position: fixed;
   z-index: 1;
@@ -372,60 +372,60 @@ hr {
   -webkit-transform: translateX(-270px);
   -ms-transform: translateX(-270px);
   transform: translateX(-270px); }
-  /* line 353, /Users/young/takkostore/www/css/plant.scss */
+  /* line 353, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-cart .title {
     color: #f5f5f5;
     margin: 20px 20px;
     font-size: 20px;
     letter-spacing: 5px; }
-  /* line 359, /Users/young/takkostore/www/css/plant.scss */
+  /* line 359, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-cart.side-show {
     -moz-transform: translateX(0px);
     -o-transform: translateX(0px);
     -webkit-transform: translateX(0px);
     -ms-transform: translateX(0px);
     transform: translateX(0px); }
-  /* line 362, /Users/young/takkostore/www/css/plant.scss */
+  /* line 362, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-cart hr {
     border: 0;
     border-top: 1px solid #898989;
     margin-right: 20px;
     margin: 30px 45px 20px 46px; }
-  /* line 368, /Users/young/takkostore/www/css/plant.scss */
+  /* line 368, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-cart .total {
     color: #f5f5f5;
     font-size: 18px;
     letter-spacing: 2px;
     text-align: right;
     padding: 0 20px; }
-  /* line 375, /Users/young/takkostore/www/css/plant.scss */
+  /* line 375, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-cart .empty {
     color: #f5f5f5;
     font-size: 16px;
     letter-spacing: 2px;
     text-align: center;
     margin: 50px 0; }
-  /* line 382, /Users/young/takkostore/www/css/plant.scss */
+  /* line 382, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .side-cart ul {
     box-sizing: padding-box;
     margin: 0px auto;
     width: 100%;
     padding: 0px 10px; }
-    /* line 387, /Users/young/takkostore/www/css/plant.scss */
+    /* line 387, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .side-cart ul button {
       position: relative;
       display: block;
       width: 90%;
       margin: 30px auto;
       height: 35px; }
-    /* line 394, /Users/young/takkostore/www/css/plant.scss */
+    /* line 394, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .side-cart ul li {
       cursor: pointer;
       margin: 20px 0;
       text-align: left;
       position: relative;
       padding: 10px 0 5px 70px; }
-      /* line 400, /Users/young/takkostore/www/css/plant.scss */
+      /* line 400, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .side-cart ul li .thumb {
         position: absolute;
         height: 50px;
@@ -435,7 +435,7 @@ hr {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat; }
-      /* line 410, /Users/young/takkostore/www/css/plant.scss */
+      /* line 410, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .side-cart ul li a {
         color: #f5f5f5;
         font-size: 1.6rem;
@@ -446,10 +446,10 @@ hr {
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         letter-spacing: 5px;
         line-height: 20px; }
-        /* line 416, /Users/young/takkostore/www/css/plant.scss */
+        /* line 416, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .side-cart ul li a:hover {
           text-decoration: none; }
-      /* line 420, /Users/young/takkostore/www/css/plant.scss */
+      /* line 420, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .side-cart ul li p {
         color: #b5b5b6;
         font-size: 1.4rem;
@@ -465,7 +465,7 @@ hr {
         overflow: hidden;
         text-overflow: ellipsis; }
 
-/* line 435, /Users/young/takkostore/www/css/plant.scss */
+/* line 435, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .btn {
   height: 35px;
   width: 120px;
@@ -483,62 +483,62 @@ hr {
   transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
   position: relative; }
   @media all and (max-width: 480px) {
-    /* line 435, /Users/young/takkostore/www/css/plant.scss */
+    /* line 435, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .btn {
       width: 100px; } }
-  /* line 452, /Users/young/takkostore/www/css/plant.scss */
+  /* line 452, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .btn:hover .loading-icon .white-path {
     stroke: #595757; }
-  /* line 457, /Users/young/takkostore/www/css/plant.scss */
+  /* line 457, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .btn.trans-btn {
     background-color: transparent;
     color: #f5f5f5;
     border: none; }
-    /* line 461, /Users/young/takkostore/www/css/plant.scss */
+    /* line 461, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .btn.trans-btn:hover {
       border: 1px solid #595757;
       background-color: transparent;
       color: #595757; }
-  /* line 467, /Users/young/takkostore/www/css/plant.scss */
+  /* line 467, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .btn.gray-btn {
     background-color: #595757;
     color: #f5f5f5;
     border: none; }
-    /* line 471, /Users/young/takkostore/www/css/plant.scss */
+    /* line 471, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .btn.gray-btn:hover {
       border: 1px solid #595757;
       background-color: #f5f5f5;
       color: #595757; }
-  /* line 477, /Users/young/takkostore/www/css/plant.scss */
+  /* line 477, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .btn.gray30-btn {
     background-color: #E0E0E0;
     color: #595757;
     border: none; }
-    /* line 481, /Users/young/takkostore/www/css/plant.scss */
+    /* line 481, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .btn.gray30-btn:hover {
       border: 1px solid #b5b5b6;
       background-color: #f5f5f5;
       color: #595757; }
-  /* line 487, /Users/young/takkostore/www/css/plant.scss */
+  /* line 487, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .btn.orange-btn {
     background-color: #e2613b;
     color: #f5f5f5; }
-    /* line 490, /Users/young/takkostore/www/css/plant.scss */
+    /* line 490, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .btn.orange-btn:hover {
       border: 1px solid #e2613b;
       background-color: #f5f5f5;
       color: #e2613b; }
-  /* line 496, /Users/young/takkostore/www/css/plant.scss */
+  /* line 496, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .btn.white-btn {
     background-color: transparent;
     color: #f5f5f5;
     border: 1px solid #f5f5f5; }
-    /* line 500, /Users/young/takkostore/www/css/plant.scss */
+    /* line 500, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .btn.white-btn:hover {
       background-color: #f5f5f5;
       color: #000; }
 
-/* line 506, /Users/young/takkostore/www/css/plant.scss */
+/* line 506, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .jumbotron.jumbotron_plant {
   height: 250px;
   margin: 0 0 0 0;
@@ -549,10 +549,10 @@ hr {
   background-size: cover;
   background-repeat: no-repeat; }
   @media (min-width: 1366px) and (max-height: 768px) {
-    /* line 506, /Users/young/takkostore/www/css/plant.scss */
+    /* line 506, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .jumbotron.jumbotron_plant {
       height: 150px; } }
-  /* line 518, /Users/young/takkostore/www/css/plant.scss */
+  /* line 518, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .jumbotron.jumbotron_plant .logo {
     height: 180px;
     width: 180px;
@@ -561,12 +561,12 @@ hr {
     position: relative;
     top: 15%; }
     @media (min-width: 1366px) and (max-height: 768px) {
-      /* line 518, /Users/young/takkostore/www/css/plant.scss */
+      /* line 518, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .jumbotron.jumbotron_plant .logo {
         height: 100px;
         width: 100px; } }
 
-/* line 531, /Users/young/takkostore/www/css/plant.scss */
+/* line 531, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .nav-div {
   position: relative;
   height: 70px;
@@ -574,55 +574,50 @@ hr {
   display: block;
   margin-bottom: 20px; }
 
-/* line 538, /Users/young/takkostore/www/css/plant.scss */
+/* line 538, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .shop {
   width: 90%;
   margin: 0 auto 0 auto;
   padding: 0 0 50px 25px;
   z-index: 1; }
-  /* line 543, /Users/young/takkostore/www/css/plant.scss */
+  /* line 543, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .shop .isotop {
     display: block; }
   @media all and (min-width: 480px) and (max-width: 768px) {
-    /* line 538, /Users/young/takkostore/www/css/plant.scss */
+    /* line 538, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop {
       width: 100%;
       margin: 0; } }
   @media all and (max-width: 480px) {
-    /* line 538, /Users/young/takkostore/www/css/plant.scss */
+    /* line 538, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop {
       width: 100%;
       padding: 0 0 50px 0px;
       margin: 0; } }
-  /* line 556, /Users/young/takkostore/www/css/plant.scss */
+  /* line 556, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .shop:after {
     content: ' ';
     display: block;
     clear: both; }
-  /* line 561, /Users/young/takkostore/www/css/plant.scss */
+  /* line 561, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .shop .item {
     background-color: transparent;
     overflow: hidden;
     cursor: pointer;
     position: relative; }
-    /* line 566, /Users/young/takkostore/www/css/plant.scss */
+    /* line 566, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item img {
       display: inline-block;
       width: 100%; }
-    /* line 572, /Users/young/takkostore/www/css/plant.scss */
+    /* line 572, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.ready img,
     .shop .item.ready .text-bar {
-      display: block;
-      -moz-animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      -o-animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      -ms-animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      animation: 1s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 579, /Users/young/takkostore/www/css/plant.scss */
+      display: block; }
+    /* line 579, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.loading img,
     .shop .item.loading .text-bar {
       display: none; }
-    /* line 582, /Users/young/takkostore/www/css/plant.scss */
+    /* line 582, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.loading:before {
       content: '';
       display: block;
@@ -632,32 +627,32 @@ hr {
       background-size: cover;
       background-repeat: no-repeat;
       background-size: 50px 50px !important; }
-    /* line 592, /Users/young/takkostore/www/css/plant.scss */
+    /* line 592, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.error:before {
       content: '';
       display: block;
-      height: 250px;
+      height: 400px;
       background-image: url("../img/notfound.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
     @media all and (min-width: 1440px) {
-      /* line 561, /Users/young/takkostore/www/css/plant.scss */
+      /* line 561, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .shop .item {
         width: calc(25% - 50px); } }
     @media all and (min-width: 768px) and (max-width: 1440px) {
-      /* line 561, /Users/young/takkostore/www/css/plant.scss */
+      /* line 561, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .shop .item {
         width: calc(33.333333339% - 50px); } }
     @media all and (min-width: 480px) and (max-width: 768px) {
-      /* line 561, /Users/young/takkostore/www/css/plant.scss */
+      /* line 561, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .shop .item {
         width: calc(50% - 50px); } }
     @media all and (max-width: 480px) {
-      /* line 561, /Users/young/takkostore/www/css/plant.scss */
+      /* line 561, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .shop .item {
         width: 100%; } }
-    /* line 616, /Users/young/takkostore/www/css/plant.scss */
+    /* line 616, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item .text-bar {
       z-index: 2;
       display: block;
@@ -666,7 +661,7 @@ hr {
       bottom: 10px;
       background-color: transparent;
       padding: 0 20px; }
-      /* line 624, /Users/young/takkostore/www/css/plant.scss */
+      /* line 624, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .shop .item .text-bar .title {
         font-size: 18px;
         line-height: 18px;
@@ -676,7 +671,7 @@ hr {
         text-overflow: ellipsis;
         color: #616161; }
 
-/* line 637, /Users/young/takkostore/www/css/plant.scss */
+/* line 637, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .navbar-plant {
   border-radius: 0px;
   border: none;
@@ -688,7 +683,7 @@ hr {
   box-shadow: 1px 2px 3px #aaa;
   min-height: 70px;
   background-color: #fff; }
-  /* line 645, /Users/young/takkostore/www/css/plant.scss */
+  /* line 645, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant.affix {
     position: fixed;
     width: 100%;
@@ -696,10 +691,10 @@ hr {
     top: 0;
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 1px 2px 3px transparent; }
-    /* line 652, /Users/young/takkostore/www/css/plant.scss */
+    /* line 652, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .navbar-plant.affix .logo {
       display: inline-block !important; }
-      /* line 654, /Users/young/takkostore/www/css/plant.scss */
+      /* line 654, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .navbar-plant.affix .logo img {
         height: 70px;
         width: 70px;
@@ -709,7 +704,7 @@ hr {
         -o-transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.4s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.4s all cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 662, /Users/young/takkostore/www/css/plant.scss */
+  /* line 662, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant.slideup {
     opacity: 0;
     -webkit-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -722,7 +717,7 @@ hr {
     -webkit-transform: translateY(-110%);
     -ms-transform: translateY(-110%);
     transform: translateY(-110%); }
-  /* line 668, /Users/young/takkostore/www/css/plant.scss */
+  /* line 668, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant.slidedown {
     opacity: 1;
     -webkit-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -735,11 +730,11 @@ hr {
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
-  /* line 674, /Users/young/takkostore/www/css/plant.scss */
+  /* line 674, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant .logo {
     display: none !important;
     cursor: pointer; }
-    /* line 677, /Users/young/takkostore/www/css/plant.scss */
+    /* line 677, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .navbar-plant .logo img {
       position: relative;
       height: 0px;
@@ -752,7 +747,7 @@ hr {
       -o-transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.3s all cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.3s all cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 688, /Users/young/takkostore/www/css/plant.scss */
+  /* line 688, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant .navbar-header button {
     margin: 15px 10px;
     position: relative;
@@ -766,7 +761,7 @@ hr {
     color: #595757;
     font-size: 16px;
     padding: 5px 8px; }
-  /* line 702, /Users/young/takkostore/www/css/plant.scss */
+  /* line 702, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant .navbar-header .logo-left {
     width: 50px;
     height: 50px;
@@ -775,10 +770,10 @@ hr {
     left: 15px;
     opacity: 0; }
     @media screen and (max-width: 768px) {
-      /* line 702, /Users/young/takkostore/www/css/plant.scss */
+      /* line 702, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .navbar-plant .navbar-header .logo-left {
         opacity: 1; } }
-  /* line 715, /Users/young/takkostore/www/css/plant.scss */
+  /* line 715, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant .navbar-collapse .cart-btn {
     position: absolute;
     right: 5%;
@@ -788,34 +783,34 @@ hr {
     font-size: 20px;
     line-height: 22px;
     background-color: transparent; }
-    /* line 724, /Users/young/takkostore/www/css/plant.scss */
+    /* line 724, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .navbar-plant .navbar-collapse .cart-btn p {
       display: inline-block;
       width: 20px;
       padding: 0;
       line-height: 26px;
       font-size: 15px; }
-  /* line 732, /Users/young/takkostore/www/css/plant.scss */
+  /* line 732, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-plant .navbar-collapse .navbar-nav {
     width: 100%;
     text-align: center;
     line-height: 70px;
     z-index: 2; }
     @media screen and (max-width: 768px) {
-      /* line 732, /Users/young/takkostore/www/css/plant.scss */
+      /* line 732, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .navbar-plant .navbar-collapse .navbar-nav {
         float: none;
         width: 100%; } }
-    /* line 741, /Users/young/takkostore/www/css/plant.scss */
+    /* line 741, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .navbar-plant .navbar-collapse .navbar-nav li {
       float: none;
       display: inline-block; }
       @media screen and (max-width: 768px) {
-        /* line 741, /Users/young/takkostore/www/css/plant.scss */
+        /* line 741, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .navbar-plant .navbar-collapse .navbar-nav li {
           float: none;
           display: block; } }
-      /* line 748, /Users/young/takkostore/www/css/plant.scss */
+      /* line 748, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .navbar-plant .navbar-collapse .navbar-nav li a {
         color: #595757;
         -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -823,14 +818,14 @@ hr {
         -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        /* line 751, /Users/young/takkostore/www/css/plant.scss */
+        /* line 751, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .navbar-plant .navbar-collapse .navbar-nav li a:hover {
           -moz-transform: scale(1.2);
           -o-transform: scale(1.2);
           -webkit-transform: scale(1.2);
           -ms-transform: scale(1.2);
           transform: scale(1.2); }
-      /* line 756, /Users/young/takkostore/www/css/plant.scss */
+      /* line 756, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .navbar-plant .navbar-collapse .navbar-nav li.active a {
         background-color: transparent;
         -moz-transform: scale(1.2);
@@ -838,39 +833,39 @@ hr {
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2); }
-        /* line 759, /Users/young/takkostore/www/css/plant.scss */
+        /* line 759, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .navbar-plant .navbar-collapse .navbar-nav li.active a:hover {
           background-color: transparent; }
 
-/* line 769, /Users/young/takkostore/www/css/plant.scss */
+/* line 769, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .footer-plant {
   width: 100%;
   background-color: #000;
   min-height: 180px;
   margin-top: 50px; }
   @media screen and (max-width: 991px) {
-    /* line 769, /Users/young/takkostore/www/css/plant.scss */
+    /* line 769, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .footer-plant {
       display: none; } }
-  /* line 777, /Users/young/takkostore/www/css/plant.scss */
+  /* line 777, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .footer-plant .row {
     padding: 20px 30px; }
-    /* line 779, /Users/young/takkostore/www/css/plant.scss */
+    /* line 779, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .footer-plant .row .content {
       height: 100%;
       padding-left: 20%; }
-      /* line 782, /Users/young/takkostore/www/css/plant.scss */
+      /* line 782, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .footer-plant .row .content .icon-list {
         text-align: left;
         width: 100%; }
-        /* line 785, /Users/young/takkostore/www/css/plant.scss */
+        /* line 785, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .footer-plant .row .content .icon-list .icon {
           height: 25px;
           width: 25px;
           margin: 5px 10px;
           display: inline-block;
           cursor: pointer; }
-      /* line 793, /Users/young/takkostore/www/css/plant.scss */
+      /* line 793, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .footer-plant .row .content h2 {
         font-size: 24px;
         line-height: 20px;
@@ -884,7 +879,7 @@ hr {
         -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer; }
-      /* line 803, /Users/young/takkostore/www/css/plant.scss */
+      /* line 803, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .footer-plant .row .content h3 {
         font-weight: 100;
         font-size: 20px;
@@ -894,16 +889,16 @@ hr {
         margin: 10px 0 20px 0;
         display: inline-block;
         cursor: pointer; }
-      /* line 813, /Users/young/takkostore/www/css/plant.scss */
+      /* line 813, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .footer-plant .row .content p {
         margin: 5px 0;
         font-size: 16px;
         color: #aaa; }
 
-/* line 821, /Users/young/takkostore/www/css/plant.scss */
+/* line 821, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .plant-carousel {
   padding: 50px 0; }
-  /* line 823, /Users/young/takkostore/www/css/plant.scss */
+  /* line 823, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-carousel .swiper-slide {
     background-position: center;
     background-size: contain;
@@ -915,31 +910,31 @@ hr {
     -ms-transform: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
     transition: 0.5 filter cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer; }
-    /* line 830, /Users/young/takkostore/www/css/plant.scss */
+    /* line 830, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .swiper-slide.loading {
       background-image: url("../img/loading.gif");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       background-size: 50px 50px !important; }
-    /* line 835, /Users/young/takkostore/www/css/plant.scss */
+    /* line 835, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .swiper-slide.error {
       background-image: url("../img/notfound.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
-  /* line 840, /Users/young/takkostore/www/css/plant.scss */
+  /* line 840, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-carousel .carousel-top {
     width: 100%;
     height: 400px;
     display: inline-block; }
-  /* line 851, /Users/young/takkostore/www/css/plant.scss */
+  /* line 851, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-carousel .carousel-bottom {
     width: 100%;
     height: 100px;
     display: inline-block;
     margin-top: 10px; }
-    /* line 856, /Users/young/takkostore/www/css/plant.scss */
+    /* line 856, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .carousel-bottom .swiper-slide {
       width: 100px;
       height: 100%;
@@ -950,7 +945,7 @@ hr {
       -o-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 862, /Users/young/takkostore/www/css/plant.scss */
+      /* line 862, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .carousel-bottom .swiper-slide.active {
         -moz-filter: brightness(0.7);
         -o-filter: brightness(0.7);
@@ -962,23 +957,23 @@ hr {
         -o-transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.5s -webkit-filter cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 868, /Users/young/takkostore/www/css/plant.scss */
+  /* line 868, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-carousel .plant-detail {
     width: 100%;
     padding: 0 20%; }
     @media screen and (max-width: 991px) {
-      /* line 868, /Users/young/takkostore/www/css/plant.scss */
+      /* line 868, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail {
         padding: 0 30px;
         margin-top: 50px; } }
-    /* line 875, /Users/young/takkostore/www/css/plant.scss */
+    /* line 875, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .title {
       margin: 0 0 20px 0;
       font-size: 26px;
       color: #595757;
       font-weight: 900;
       letter-spacing: 2px; }
-    /* line 882, /Users/young/takkostore/www/css/plant.scss */
+    /* line 882, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .subtitle {
       color: #898989;
       font-size: 20px;
@@ -987,61 +982,61 @@ hr {
       margin-top: 0;
       margin-bottom: 50px;
       text-align: left; }
-    /* line 891, /Users/young/takkostore/www/css/plant.scss */
+    /* line 891, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .price {
       color: #595757;
       line-height: 16px;
       margin-top: 0;
       text-align: right;
       font-size: 24px; }
-    /* line 898, /Users/young/takkostore/www/css/plant.scss */
+    /* line 898, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail hr {
       background-color: #898989;
       height: 1px;
       margin: 0 -20px; }
-    /* line 903, /Users/young/takkostore/www/css/plant.scss */
+    /* line 903, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .form-group {
       display: block;
       position: relative;
       height: 35px;
       margin: 30px 0; }
-      /* line 908, /Users/young/takkostore/www/css/plant.scss */
+      /* line 908, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail .form-group div[class*='col-'] {
         text-align: left;
         margin: 0;
         padding: 0px; }
-      /* line 913, /Users/young/takkostore/www/css/plant.scss */
+      /* line 913, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail .form-group label {
         font-size: 20px;
         color: #595757;
         display: inline-block; }
-      /* line 918, /Users/young/takkostore/www/css/plant.scss */
+      /* line 918, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail .form-group input {
         display: inline-block;
         width: 100%;
         height: 30px;
         line-height: 16px;
         color: #595757; }
-    /* line 926, /Users/young/takkostore/www/css/plant.scss */
+    /* line 926, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .gray-btn {
       margin: 20px 0 50px 0; }
-    /* line 929, /Users/young/takkostore/www/css/plant.scss */
+    /* line 929, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .share-div {
       margin: 35px 0;
       height: 40px;
       position: relative; }
-      /* line 933, /Users/young/takkostore/www/css/plant.scss */
+      /* line 933, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail .share-div div[class*='col-'] {
         text-align: left;
         margin: 0;
         padding: 0px; }
-      /* line 938, /Users/young/takkostore/www/css/plant.scss */
+      /* line 938, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail .share-div label {
         font-size: 20px;
         color: #595757;
         line-height: 20px;
         margin: 20px 0; }
-      /* line 944, /Users/young/takkostore/www/css/plant.scss */
+      /* line 944, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-carousel .plant-detail .share-div img {
         height: 40px;
         width: 40px;
@@ -1051,10 +1046,10 @@ hr {
         float: right;
         cursor: pointer; }
         @media screen and (max-width: 991px) {
-          /* line 944, /Users/young/takkostore/www/css/plant.scss */
+          /* line 944, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .plant-carousel .plant-detail .share-div img {
             margin: 10px 0px 0 10px; } }
-    /* line 957, /Users/young/takkostore/www/css/plant.scss */
+    /* line 957, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail button {
       background-color: #595757;
       border-radius: 0;
@@ -1064,28 +1059,28 @@ hr {
       color: #f5f5f5;
       font-size: 18px;
       letter-spacing: 5px; }
-    /* line 967, /Users/young/takkostore/www/css/plant.scss */
+    /* line 967, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-carousel .plant-detail .mertrial-group {
       margin-top: 20px; }
 
-/* line 972, /Users/young/takkostore/www/css/plant.scss */
+/* line 972, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .plant-content {
   margin: 20px 0px;
   padding: 0px 100px; }
   @media screen and (max-width: 991px) {
-    /* line 972, /Users/young/takkostore/www/css/plant.scss */
+    /* line 972, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content {
       padding: 0 20px; } }
-  /* line 978, /Users/young/takkostore/www/css/plant.scss */
+  /* line 978, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-content .plant-card {
     padding: 0px 30px;
     position: relative;
     margin: 20px 0; }
     @media screen and (max-width: 991px) {
-      /* line 978, /Users/young/takkostore/www/css/plant.scss */
+      /* line 978, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-content .plant-card {
         margin: 0; } }
-  /* line 986, /Users/young/takkostore/www/css/plant.scss */
+  /* line 986, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-content .feature {
     border-radius: 50%;
     width: 80px;
@@ -1098,7 +1093,7 @@ hr {
     margin: 20px 20px 0 0;
     font-weight: bolder;
     position: relative; }
-    /* line 998, /Users/young/takkostore/www/css/plant.scss */
+    /* line 998, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content .feature p {
       margin: 0 0 10px;
       font-size: 18px;
@@ -1123,96 +1118,96 @@ hr {
       box-pack: center;
       box-align: center; }
     @media screen and (max-width: 991px) {
-      /* line 986, /Users/young/takkostore/www/css/plant.scss */
+      /* line 986, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-content .feature {
         margin: 10px 5px 0 0; } }
-  /* line 1026, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1026, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-content .title {
     font-size: 24px;
     color: #595757;
     letter-spacing: 5px;
     margin: 50px 0;
     font-weight: 900; }
-    /* line 1032, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1032, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content .title small {
       margin: 0 20px;
       letter-spacing: 2px; }
-  /* line 1037, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1037, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-content p {
     font-size: 16px;
     color: #595757;
     letter-spacing: 2px;
     font-weight: bolder;
     line-height: 28px; }
-    /* line 1043, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1043, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content p sub {
       color: #898989;
       display: block;
       font-size: 14px;
       line-height: 28px;
       letter-spacing: 2px; }
-  /* line 1051, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1051, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-content ul {
     padding: 0 20px; }
-    /* line 1053, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1053, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content ul li {
       margin: 0px;
       color: #595757; }
-      /* line 1055, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1055, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-content ul li:first-child {
         margin: 0 0 30px 0;
         line-height: 18px; }
-  /* line 1062, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1062, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-content .care-div {
     margin: 0px; }
-    /* line 1064, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1064, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content .care-div div[class*='col-'] {
       text-align: left;
       margin: 0;
       padding: 0px; }
-    /* line 1069, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1069, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content .care-div label {
       font-size: 20px;
       color: #595757;
       line-height: 20px;
       margin: 20px 0; }
-      /* line 1074, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1074, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-content .care-div label.explain {
         font-size: 16px;
         color: #898989;
         margin: 80px 0 0 0; }
-    /* line 1080, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1080, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-content .care-div img {
       height: 50px;
       width: 50px;
       display: inline-block;
       margin: 10px 2%; }
 
-/* line 1088, /Users/young/takkostore/www/css/plant.scss */
+/* line 1088, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .plant-browse {
   margin: 60px 0; }
-  /* line 1090, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1090, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-browse .title {
     font-size: 24px;
     color: #595757;
     letter-spacing: 5px;
     margin: 20px 0;
     font-weight: 900; }
-    /* line 1096, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1096, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-browse .title small {
       margin: 0 50px;
       letter-spacing: 2px; }
-  /* line 1101, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1101, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .plant-browse .carousel-browse {
     width: 100%;
     height: 300px;
     display: inline-block; }
-    /* line 1105, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1105, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .plant-browse .carousel-browse .swiper-slide {
       width: 250px;
       padding: 0 0 50px 0;
       cursor: pointer; }
-      /* line 1109, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1109, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-browse .carousel-browse .swiper-slide .blur {
         height: 100%;
         width: 100%;
@@ -1220,23 +1215,23 @@ hr {
         background-size: cover;
         background-repeat: no-repeat;
         background-image: url("../img/loading.gif"); }
-      /* line 1115, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1115, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .plant-browse .carousel-browse .swiper-slide .slide-text {
         padding: 2px 5px;
         position: relative;
         height: 50px; }
-        /* line 1119, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1119, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .plant-browse .carousel-browse .swiper-slide .slide-text .title {
           margin: 0;
           font-size: 18px;
           line-height: 18px; }
-        /* line 1124, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1124, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .plant-browse .carousel-browse .swiper-slide .slide-text .price {
           color: #595757;
           font-size: 14px;
           line-height: 14px; }
 
-/* line 1133, /Users/young/takkostore/www/css/plant.scss */
+/* line 1133, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .progressbar {
   margin: 30px auto 30px auto;
   height: 100px;
@@ -1245,7 +1240,7 @@ hr {
   padding: 0;
   width: 70%;
   min-width: 300px; }
-  /* line 1141, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1141, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .progressbar li {
     list-style-type: none;
     color: #b5b5b6;
@@ -1254,11 +1249,11 @@ hr {
     width: 33.33%;
     float: left;
     position: relative; }
-    /* line 1149, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1149, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li p {
       margin: 35px 0;
       bottom: 0px; }
-    /* line 1153, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1153, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li:before {
       content: '';
       width: 15px;
@@ -1276,7 +1271,7 @@ hr {
       -o-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 1167, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1167, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li:after {
       content: '';
       width: 100%;
@@ -1291,16 +1286,16 @@ hr {
       -o-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
       transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 1178, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1178, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li:first-child:after {
       content: none; }
-    /* line 1181, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1181, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li.active {
       color: #595757; }
-      /* line 1183, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1183, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .progressbar li.active p {
         margin: 22px auto; }
-    /* line 1187, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1187, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li.active:before {
       color: #595757;
       overflow: visible;
@@ -1314,50 +1309,50 @@ hr {
       margin-top: 12px;
       height: 40px;
       width: 40px; }
-    /* line 1201, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1201, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .progressbar li.active:after {
       background-position: -100% 0; }
 
-/* line 1206, /Users/young/takkostore/www/css/plant.scss */
+/* line 1206, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .rwd-table {
   min-width: 300px; }
-  /* line 1209, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1209, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .rwd-table tr td {
     display: block;
     position: relative; }
-    /* line 1212, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1212, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .rwd-table tr td:before {
       content: attr(data-th);
       font-weight: bold;
       width: 6.5em;
       display: inline-block; }
       @media (min-width: 991px) {
-        /* line 1212, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1212, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .rwd-table tr td:before {
           display: none; } }
     @media (min-width: 991px) {
-      /* line 1222, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1222, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .rwd-table tr td h2 {
         display: inline-block; } }
-  /* line 1227, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1227, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .rwd-table tr th {
     display: none; }
-  /* line 1231, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1231, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .rwd-table tr th,
   .rwd-table tr td {
     text-align: left; }
     @media (min-width: 991px) {
-      /* line 1231, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1231, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .rwd-table tr th,
       .rwd-table tr td {
         display: table-cell; } }
     @media screen and (max-width: 991px) {
-      /* line 1236, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1236, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .rwd-table tr th p,
       .rwd-table tr td p {
         display: inline-block; } }
 
-/* line 1244, /Users/young/takkostore/www/css/plant.scss */
+/* line 1244, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .cart-table {
   width: 100%;
   border: 1px solid #aaa;
@@ -1366,11 +1361,11 @@ hr {
   display: relative;
   background-color: #fff; }
   @media (max-width: 480px) {
-    /* line 1244, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1244, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .cart-table {
       padding: 0 0 30px 0px;
       border: none; } }
-  /* line 1255, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1255, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .cart-table .rwd-table {
     background-color: transparent;
     color: #595757;
@@ -1382,24 +1377,24 @@ hr {
     text-align: left;
     position: relative;
     text-align: left; }
-    /* line 1265, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1265, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .cart-table .rwd-table .product {
       width: 100px; }
-    /* line 1269, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1269, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .cart-table .rwd-table .dropdown .btn {
       width: 120px; }
-    /* line 1273, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1273, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .cart-table .rwd-table tr {
       border-bottom: 2px solid #E0E0E0;
       width: 100%; }
-      /* line 1276, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1276, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table tr:last-child {
         border-bottom: none; }
       @media (max-width: 480px) {
-        /* line 1273, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1273, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table tr {
           border: 1px solid #E0E0E0; } }
-    /* line 1285, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1285, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .cart-table .rwd-table th,
     .cart-table .rwd-table td {
       vertical-align: middle;
@@ -1407,27 +1402,27 @@ hr {
       margin: 10px;
       text-align: left;
       color: #595757; }
-      /* line 1291, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1291, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th:last-child,
       .cart-table .rwd-table td:last-child {
         width: 80px; }
       @media (max-width: 480px) {
-        /* line 1285, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1285, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th,
         .cart-table .rwd-table td {
           padding: 5px 10px; }
-          /* line 1296, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1296, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .cart-table .rwd-table th:last-child,
           .cart-table .rwd-table td:last-child {
             width: 100%; } }
-      /* line 1300, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1300, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th input,
       .cart-table .rwd-table td input {
         width: 80px;
         display: inline-block;
         position: relative;
         top: -5px; }
-        /* line 1305, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1305, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th input:before,
         .cart-table .rwd-table td input:before {
           height: 10px;
@@ -1435,7 +1430,7 @@ hr {
           background-color: #595757;
           position: absolute;
           top: 0; }
-      /* line 1313, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1313, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th .thumb,
       .cart-table .rwd-table td .thumb {
         cursor: pointer;
@@ -1449,29 +1444,29 @@ hr {
         display: inline-block;
         vertical-align: middle; }
         @media (max-width: 480px) {
-          /* line 1324, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1324, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .cart-table .rwd-table th .thumb.fake,
           .cart-table .rwd-table td .thumb.fake {
             display: none; } }
-      /* line 1330, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1330, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th .sendWay,
       .cart-table .rwd-table td .sendWay {
         display: inline-block; }
-        /* line 1332, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1332, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th .sendWay .dropdown,
         .cart-table .rwd-table td .sendWay .dropdown {
           width: 100px;
           margin: 0; }
-          /* line 1335, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1335, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .cart-table .rwd-table th .sendWay .dropdown button,
           .cart-table .rwd-table td .sendWay .dropdown button {
             width: 100%; }
-      /* line 1340, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1340, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th .cancel,
       .cart-table .rwd-table td .cancel {
         width: 100px;
         text-align: center; }
-      /* line 1344, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1344, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th .remove,
       .cart-table .rwd-table td .remove {
         color: #b5b5b6;
@@ -1481,7 +1476,7 @@ hr {
         -o-transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
         -ms-transform: 0.5s all cubic-bezier(0.4, 0, 0.2, 1);
         transition: 0.5s all cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 1349, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1349, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .cart-table .rwd-table th p,
       .cart-table .rwd-table td p {
         vertical-align: middle;
@@ -1489,11 +1484,11 @@ hr {
         text-align: left;
         font-size: 18px; }
         @media (max-width: 768px) {
-          /* line 1349, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1349, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .cart-table .rwd-table th p,
           .cart-table .rwd-table td p {
             padding: 8px 0 0 0; } }
-        /* line 1357, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1357, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th p.title,
         .cart-table .rwd-table td p.title {
           cursor: pointer;
@@ -1501,54 +1496,54 @@ hr {
           margin: 25px 0 0px 0px;
           text-align: left; }
           @media (max-width: 768px) {
-            /* line 1357, /Users/young/takkostore/www/css/plant.scss */
+            /* line 1357, /Users/young/SATURDAYS_APP/www/css/plant.scss */
             .cart-table .rwd-table th p.title,
             .cart-table .rwd-table td p.title {
               margin: -10px 0 0 0; } }
-        /* line 1366, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1366, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th p.subtitle,
         .cart-table .rwd-table td p.subtitle {
           cursor: pointer;
           font-size: 14px;
           color: #898989; }
           @media (max-width: 768px) {
-            /* line 1366, /Users/young/takkostore/www/css/plant.scss */
+            /* line 1366, /Users/young/SATURDAYS_APP/www/css/plant.scss */
             .cart-table .rwd-table th p.subtitle,
             .cart-table .rwd-table td p.subtitle {
               padding: 0 0 0 100px; } }
-        /* line 1374, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1374, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th p.price,
         .cart-table .rwd-table td p.price {
           text-align: left; }
-          /* line 1376, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1376, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .cart-table .rwd-table th p.price:before,
           .cart-table .rwd-table td p.price:before {
             content: 'NT$ '; }
             @media (max-width: 768px) {
-              /* line 1376, /Users/young/takkostore/www/css/plant.scss */
+              /* line 1376, /Users/young/SATURDAYS_APP/www/css/plant.scss */
               .cart-table .rwd-table th p.price:before,
               .cart-table .rwd-table td p.price:before {
                 content: ''; } }
-        /* line 1383, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1383, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th p.price-hide,
         .cart-table .rwd-table td p.price-hide {
           text-align: left; }
-          /* line 1385, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1385, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .cart-table .rwd-table th p.price-hide:before,
           .cart-table .rwd-table td p.price-hide:before {
             content: 'NT$   '; }
-        /* line 1389, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1389, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .cart-table .rwd-table th p.total,
         .cart-table .rwd-table td p.total {
           display: block;
           text-align: right;
           padding: 0px 80px 0 0; }
 
-/* line 1398, /Users/young/takkostore/www/css/plant.scss */
+/* line 1398, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .next-step {
   margin: 50px 5px 0px 0px; }
 
-/* line 1401, /Users/young/takkostore/www/css/plant.scss */
+/* line 1401, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .profile-table {
   margin: 0 auto;
   width: 100%;
@@ -1557,125 +1552,125 @@ hr {
   padding: 80px 150px;
   background-color: #fff; }
   @media (max-width: 991px) {
-    /* line 1401, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1401, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .profile-table {
       padding: 50px 0px; } }
-  /* line 1411, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1411, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table h5 {
     color: #595757;
     font-weight: bolder;
     margin: 2px 5px;
     font-size: 18px;
     letter-spacing: 1px; }
-  /* line 1418, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1418, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table h4 {
     color: #595757;
     font-weight: bolder;
     margin: 0 0px;
     font-size: 22px;
     letter-spacing: 2px; }
-  /* line 1425, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1425, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table div[class*='col-'] {
     padding: 0 50px; }
     @media (max-width: 991px) {
-      /* line 1425, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1425, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .profile-table div[class*='col-'] {
         padding: 10px 30px; } }
-  /* line 1431, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1431, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table .mertrial-group {
     width: 100%; }
-  /* line 1434, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1434, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table .half-title {
     display: inline-block; }
-  /* line 1437, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1437, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table .row {
     padding: 10px 10px 10px 10px;
     margin: 30px 0;
     width: 100%;
     text-align: left; }
     @media (max-width: 991px) {
-      /* line 1437, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1437, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .profile-table .row {
         margin: 10px 0; } }
-  /* line 1446, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1446, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table .checkbox-inline {
     display: inline-block;
     float: right; }
-  /* line 1450, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1450, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table .radio-inline {
     margin-left: 5px; }
     @media (max-width: 991px) {
-      /* line 1450, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1450, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .profile-table .radio-inline {
         margin-top: 20px; } }
-  /* line 1456, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1456, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .profile-table .error-div {
     margin: -20px 0;
     text-align: center; }
-    /* line 1459, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1459, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .profile-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1465, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1465, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .profile-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
 
-/* line 1473, /Users/young/takkostore/www/css/plant.scss */
+/* line 1473, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .success-table {
   border: 1px solid #aaa;
   border-radius: 5px;
   padding: 100px 20px;
   background-color: #fff; }
-  /* line 1478, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1478, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .success-table .logo {
     display: block;
     margin: 0 auto;
     height: 150px;
     width: 150px; }
-  /* line 1484, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1484, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .success-table .title {
     font-size: 26px;
     text-align: center;
     margin: 30px 0 80px 0;
     font-weight: 900; }
     @media (max-width: 480px) {
-      /* line 1484, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1484, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .success-table .title {
         margin: 0px 0 40px 0; } }
-  /* line 1493, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1493, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .success-table .subtitle {
     font-size: 20px;
     text-align: center;
     margin: 100px 0 100px 0; }
     @media (max-width: 480px) {
-      /* line 1493, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1493, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .success-table .subtitle {
         margin: 50px 0 50px 0; } }
-  /* line 1501, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1501, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .success-table .row {
     height: 35px;
     padding: 0;
     margin: 5px auto;
     width: 300px; }
-    /* line 1506, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1506, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .success-table .row div[class*='col-'] {
       text-align: left;
       margin: 0;
       padding: 0px 10px; }
-      /* line 1510, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1510, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .success-table .row div[class*='col-']:first-child {
         text-align: right; }
-  /* line 1515, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1515, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .success-table h4 {
     color: #595757;
     letter-spacing: 2px; }
 
-/* line 1520, /Users/young/takkostore/www/css/plant.scss */
+/* line 1520, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .contact-table {
   width: 80%;
   background-color: #fff;
@@ -1685,36 +1680,36 @@ hr {
   padding: 30px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 1520, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1520, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 1520, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1520, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table {
       margin: 20px auto 0px auto; } }
-  /* line 1534, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1534, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .contact-table .error-div {
     margin: 20px 0;
     text-align: center; }
-    /* line 1537, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1537, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1543, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1543, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .contact-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
-  /* line 1550, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1550, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .contact-table h1 {
     text-align: center;
     color: #595757;
     font-size: 26px;
     letter-spacing: 2px; }
-  /* line 1556, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1556, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .contact-table .blur {
     position: absolute;
     height: 100%;
@@ -1731,19 +1726,19 @@ hr {
     -webkit-animation: fadeInUpD 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-animation: fadeInUpD 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInUpD 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 1568, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1568, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table .blur h2 {
       margin: 5px auto;
       color: #f5f5f5;
       font-size: 42px;
       letter-spacing: 2px; }
-    /* line 1574, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1574, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table .blur p {
       margin: 10px auto;
       font-size: 24px;
       color: #595757;
       letter-spacing: 5px; }
-    /* line 1580, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1580, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table .blur .logo {
       width: 150px;
       height: 150px;
@@ -1751,7 +1746,7 @@ hr {
       display: block;
       margin: 0 auto;
       margin: 15% auto 20px auto; }
-      /* line 1587, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1587, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .contact-table .blur .logo img {
         position: absolute;
         left: 0;
@@ -1762,7 +1757,7 @@ hr {
         -webkit-animation: rot60 4s infinite linear;
         -ms-animation: rot60 4s infinite linear;
         animation: rot60 4s infinite linear; }
-      /* line 1594, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1594, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .contact-table .blur .logo .water {
         width: 8px;
         height: 8px;
@@ -1771,7 +1766,7 @@ hr {
         background-color: #2196F3;
         z-index: 999;
         left: 10px; }
-        /* line 1602, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1602, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .contact-table .blur .logo .water:before {
           content: '';
           position: absolute;
@@ -1782,7 +1777,7 @@ hr {
           border-style: solid;
           border-width: 0 4px 8px 4px;
           border-color: transparent transparent #2196F3 transparent; }
-        /* line 1613, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1613, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .contact-table .blur .logo .water.w1 {
           left: 5px;
           top: 65%;
@@ -1791,7 +1786,7 @@ hr {
           -webkit-animation: drop 2s infinite linear;
           -ms-animation: drop 2s infinite linear;
           animation: drop 2s infinite linear; }
-        /* line 1618, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1618, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .contact-table .blur .logo .water.w2 {
           left: 13px;
           top: 73%;
@@ -1800,7 +1795,7 @@ hr {
           -webkit-animation: drop 2s infinite linear;
           -ms-animation: drop 2s infinite linear;
           animation: drop 2s infinite linear; }
-        /* line 1623, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1623, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .contact-table .blur .logo .water.w3 {
           left: 20px;
           top: 60%;
@@ -1809,37 +1804,37 @@ hr {
           -webkit-animation: drop 2s infinite linear;
           -ms-animation: drop 2s infinite linear;
           animation: drop 2s infinite linear; }
-  /* line 1631, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1631, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .contact-table .radio-inline {
     margin: 10px 10px;
     color: #595757;
     font-weight: bolder;
     font-size: 1.6rem;
     line-height: 24px; }
-  /* line 1638, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1638, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .contact-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 1638, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1638, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .contact-table .row {
         margin: 10px 0; } }
-  /* line 1645, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1645, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .contact-table table {
     width: 100%;
     color: #595757;
     font-size: 18px;
     border: 1px solid #aaa; }
-    /* line 1650, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1650, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .contact-table table tr {
       text-align: center; }
-      /* line 1653, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1653, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .contact-table table tr td,
       .contact-table table tr th {
         text-align: center;
         border: 1px solid #aaa; }
 
-/* line 1660, /Users/young/takkostore/www/css/plant.scss */
+/* line 1660, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .search-table {
   width: 80%;
   background-color: #fff;
@@ -1849,14 +1844,14 @@ hr {
   padding: 30px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 1660, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1660, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .search-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 1660, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1660, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .search-table {
       margin: 20px auto 0px auto; } }
-  /* line 1674, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1674, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .search-table .blur {
     position: absolute;
     display: inline-block;
@@ -1868,20 +1863,20 @@ hr {
     left: 0;
     padding: 50px; }
     @media (max-width: 991px) {
-      /* line 1674, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1674, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .search-table .blur {
         padding: 0; } }
-    /* line 1687, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1687, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .search-table .blur .logo {
       margin: 20px auto;
       position: relative;
       display: block;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1687, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1687, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .search-table .blur .logo {
           margin: 20px auto 5px auto; } }
-    /* line 1696, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1696, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .search-table .blur .title {
       display: block;
       position: relative;
@@ -1891,10 +1886,10 @@ hr {
       color: #595757;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1696, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1696, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .search-table .blur .title {
           font-size: 28px; } }
-    /* line 1708, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1708, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .search-table .blur .subtitle {
       display: block;
       position: relative;
@@ -1903,41 +1898,41 @@ hr {
       color: #E57373;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1708, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1708, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .search-table .blur .subtitle {
           font-size: 16px; } }
-  /* line 1720, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1720, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .search-table .error-div {
     margin: 20px 0;
     text-align: center; }
-    /* line 1723, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1723, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .search-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1729, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1729, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .search-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
-  /* line 1736, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1736, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .search-table h1 {
     text-align: center;
     color: #595757;
     font-size: 26px;
     letter-spacing: 2px; }
-  /* line 1742, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1742, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .search-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 1742, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1742, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .search-table .row {
         margin: 10px 0; } }
 
-/* line 1750, /Users/young/takkostore/www/css/plant.scss */
+/* line 1750, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .paid-table {
   width: 80%;
   background-color: #fff;
@@ -1947,14 +1942,14 @@ hr {
   padding: 30px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 1750, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1750, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .paid-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 1750, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1750, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .paid-table {
       margin: 20px auto 0px auto; } }
-  /* line 1764, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1764, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .paid-table .blur {
     position: absolute;
     display: inline-block;
@@ -1966,20 +1961,20 @@ hr {
     left: 0;
     padding: 100px 50px; }
     @media (max-width: 991px) {
-      /* line 1764, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1764, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .paid-table .blur {
         padding: 30px; } }
-    /* line 1777, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1777, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .paid-table .blur .logo {
       margin: 20px auto;
       position: relative;
       display: block;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1777, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1777, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .paid-table .blur .logo {
           margin: 20px auto 5px auto; } }
-    /* line 1786, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1786, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .paid-table .blur .title {
       display: block;
       position: relative;
@@ -1989,10 +1984,10 @@ hr {
       color: #595757;
       text-align: center; }
       @media (max-width: 991px) {
-        /* line 1786, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1786, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .paid-table .blur .title {
           font-size: 28px; } }
-    /* line 1798, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1798, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .paid-table .blur .subtitle {
       display: block;
       position: relative;
@@ -2002,41 +1997,41 @@ hr {
       text-align: center;
       margin: 10px 0 50px 0; }
       @media (max-width: 991px) {
-        /* line 1798, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1798, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .paid-table .blur .subtitle {
           font-size: 16px; } }
-  /* line 1811, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1811, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .paid-table .error-div {
     margin: 20px 0;
     text-align: center; }
-    /* line 1814, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1814, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .paid-table .error-div p {
       color: #e2613b;
       font-size: 14px;
       display: block;
       letter-spacing: 2px;
       line-height: 10px; }
-      /* line 1820, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1820, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .paid-table .error-div p:before {
         content: '・';
         font-size: 18px;
         font-weight: 900; }
-  /* line 1827, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1827, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .paid-table h1 {
     text-align: center;
     color: #595757;
     font-size: 26px;
     letter-spacing: 2px; }
-  /* line 1833, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1833, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .paid-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 1833, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1833, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .paid-table .row {
         margin: 10px 0; } }
 
-/* line 1841, /Users/young/takkostore/www/css/plant.scss */
+/* line 1841, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .result-table {
   padding: 80px 100px;
   margin: 50px 0;
@@ -2044,48 +2039,48 @@ hr {
   border-radius: 10px;
   background-color: #fff; }
   @media (max-width: 991px) {
-    /* line 1841, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1841, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .result-table {
       padding: 80px 10px; } }
-  /* line 1850, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1850, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .result-table h1 {
     color: #595757;
     text-align: center;
     margin: 20px 0px 80px 0px;
     font-weight: 900; }
-  /* line 1856, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1856, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .result-table table {
     width: 100%;
     color: #595757;
     font-size: 18px;
     border: none;
     text-align: center; }
-    /* line 1862, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1862, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .result-table table p {
       margin: 0px; }
-      /* line 1864, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1864, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .result-table table p.sub {
         margin: 30px 0 0 0; }
-    /* line 1868, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1868, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .result-table table tr {
       border: none; }
-      /* line 1871, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1871, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .result-table table tr td,
       .result-table table tr th {
         border: 0px;
         border-bottom: 1px solid #aaa;
         padding: 20px 15px;
         vertical-align: middle; }
-    /* line 1878, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1878, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .result-table table .table-inner {
       width: 100%;
       color: #595757;
       font-size: 18px;
       border: none; }
-      /* line 1883, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1883, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .result-table table .table-inner tr {
         border: none; }
-        /* line 1886, /Users/young/takkostore/www/css/plant.scss */
+        /* line 1886, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .result-table table .table-inner tr td,
         .result-table table .table-inner tr th {
           border: 0px;
@@ -2093,24 +2088,24 @@ hr {
           border-bottom: none;
           vertical-align: middle; }
 
-/* line 1896, /Users/young/takkostore/www/css/plant.scss */
+/* line 1896, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .check-btns {
   margin: 20px 0; }
-  /* line 1898, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1898, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-btns .gray-btn {
     float: left;
     width: 30%; }
-  /* line 1902, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1902, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-btns .orange-btn {
     float: right;
     width: 30%; }
 
-/* line 1907, /Users/young/takkostore/www/css/plant.scss */
+/* line 1907, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .check-div {
   position: relative;
   width: 100%;
   margin: 50px 0; }
-  /* line 1912, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1912, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-div.ng-enter,
   .check-div.ng-leave {
     -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2118,7 +2113,7 @@ hr {
     -o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 1916, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1916, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-div.next.ng-enter {
     opacity: 1;
     -moz-transform: translateX(100%) scale(1.2);
@@ -2126,7 +2121,7 @@ hr {
     -webkit-transform: translateX(100%) scale(1.2);
     -ms-transform: translateX(100%) scale(1.2);
     transform: translateX(100%) scale(1.2); }
-    /* line 1919, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1919, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .check-div.next.ng-enter.ng-enter-active {
       opacity: 1;
       -moz-transform: translateX(0%) scale(1);
@@ -2134,7 +2129,7 @@ hr {
       -webkit-transform: translateX(0%) scale(1);
       -ms-transform: translateX(0%) scale(1);
       transform: translateX(0%) scale(1); }
-  /* line 1924, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1924, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-div.next.ng-leave {
     position: absolute;
     display: inline-block;
@@ -2145,7 +2140,7 @@ hr {
     -webkit-transform: translateX(0%) scale(1);
     -ms-transform: translateX(0%) scale(1);
     transform: translateX(0%) scale(1); }
-    /* line 1930, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1930, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .check-div.next.ng-leave.ng-leave-active {
       opacity: 0;
       -moz-transform: translateX(-100%) scale(0.8);
@@ -2153,7 +2148,7 @@ hr {
       -webkit-transform: translateX(-100%) scale(0.8);
       -ms-transform: translateX(-100%) scale(0.8);
       transform: translateX(-100%) scale(0.8); }
-  /* line 1937, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1937, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-div.prev.ng-enter {
     opacity: 1;
     -moz-transform: translateX(-100%) scale(1.2);
@@ -2161,7 +2156,7 @@ hr {
     -webkit-transform: translateX(-100%) scale(1.2);
     -ms-transform: translateX(-100%) scale(1.2);
     transform: translateX(-100%) scale(1.2); }
-    /* line 1940, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1940, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .check-div.prev.ng-enter.ng-enter-active {
       opacity: 1;
       -moz-transform: translateX(0%) scale(1);
@@ -2169,7 +2164,7 @@ hr {
       -webkit-transform: translateX(0%) scale(1);
       -ms-transform: translateX(0%) scale(1);
       transform: translateX(0%) scale(1); }
-  /* line 1945, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1945, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .check-div.prev.ng-leave {
     position: absolute;
     display: inline-block;
@@ -2180,7 +2175,7 @@ hr {
     -webkit-transform: translateX(0%) scale(1);
     -ms-transform: translateX(0%) scale(1);
     transform: translateX(0%) scale(1); }
-    /* line 1951, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1951, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .check-div.prev.ng-leave.ng-leave-active {
       opacity: 0;
       -moz-transform: translateX(100%) scale(0.8);
@@ -2189,7 +2184,7 @@ hr {
       -ms-transform: translateX(100%) scale(0.8);
       transform: translateX(100%) scale(0.8); }
 
-/* line 1960, /Users/young/takkostore/www/css/plant.scss */
+/* line 1960, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .teach-tabs ul.tabs {
   width: 100%;
   height: 80px;
@@ -2198,12 +2193,12 @@ hr {
   overflow: hidden;
   padding: 0;
   display: block; }
-  /* line 1968, /Users/young/takkostore/www/css/plant.scss */
+  /* line 1968, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs ul.tabs li {
     float: left;
     width: 25%;
     cursor: pointer; }
-    /* line 1972, /Users/young/takkostore/www/css/plant.scss */
+    /* line 1972, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs ul.tabs li a {
       position: relative;
       display: block;
@@ -2223,16 +2218,16 @@ hr {
       -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 1987, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1987, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs ul.tabs li a .title {
         font-size: 2rem;
         margin: 0px; }
         @media (max-width: 768px) {
-          /* line 1987, /Users/young/takkostore/www/css/plant.scss */
+          /* line 1987, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .teach-tabs ul.tabs li a .title {
             font-size: 0.8rem;
             padding: 0px 15px; } }
-      /* line 1995, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1995, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs ul.tabs li a:hover {
         border-radius: 5px 5px 0 0;
         -moz-transform: translateY(-1%);
@@ -2240,7 +2235,7 @@ hr {
         -webkit-transform: translateY(-1%);
         -ms-transform: translateY(-1%);
         transform: translateY(-1%); }
-      /* line 1999, /Users/young/takkostore/www/css/plant.scss */
+      /* line 1999, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs ul.tabs li a.active {
         margin: 30px 0 0 0;
         padding: 10px 0 10px 0;
@@ -2251,16 +2246,16 @@ hr {
         color: #595757;
         z-index: 4;
         outline: none; }
-    /* line 2012, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2012, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs ul.tabs li:first-child a {
       z-index: 3;
       -webkit-border-top-left-radius: 8px;
       -moz-border-radius-topleft: 8px;
       border-top-left-radius: 8px; }
-    /* line 2020, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2020, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs ul.tabs li:nth-child(2) a {
       z-index: 2; }
-    /* line 2025, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2025, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs ul.tabs li:last-child a {
       z-index: 2;
       -webkit-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
@@ -2270,14 +2265,14 @@ hr {
       -moz-border-radius-topright: 8px;
       border-top-right-radius: 8px; }
 
-/* line 2040, /Users/young/takkostore/www/css/plant.scss */
+/* line 2040, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .teach-tabs .group:before,
 .teach-tabs .group:after {
   content: " ";
   display: table;
   clear: both; }
 
-/* line 2046, /Users/young/takkostore/www/css/plant.scss */
+/* line 2046, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .teach-tabs .tab-content {
   width: 100%;
   margin: 0 auto;
@@ -2290,23 +2285,23 @@ hr {
   padding: 10px 10px 10px 50px;
   min-height: 600px; }
   @media (max-width: 768px) {
-    /* line 2046, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2046, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content {
       padding: 10px 10px 10px 10px; } }
-  /* line 2060, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2060, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content div[class*='col-'] {
     margin-bottom: 35px; }
-  /* line 2063, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2063, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content .teach-table {
     border: 1px solid #aaa;
     max-width: 600px;
     margin: 25px auto 50px auto;
     border-radius: 5px; }
     @media (max-width: 768px) {
-      /* line 2063, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2063, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs .tab-content .teach-table {
         margin: 0px; } }
-    /* line 2072, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2072, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content .teach-table tr td:first-child {
       width: 50%;
       text-align: center;
@@ -2314,7 +2309,7 @@ hr {
       color: #595757;
       font-size: 18px;
       vertical-align: middle; }
-    /* line 2080, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2080, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content .teach-table tr td {
       width: 25%;
       text-align: center;
@@ -2325,20 +2320,20 @@ hr {
       letter-spacing: 2px;
       line-height: 40px;
       height: 70px; }
-      /* line 2090, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2090, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs .tab-content .teach-table tr td sub {
         display: block;
         letter-spacing: 2px;
         margin-top: -16px;
         line-height: 30px; }
-  /* line 2099, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2099, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content .steps-div {
     margin: 40px 75px 10px 50px; }
     @media (max-width: 768px) {
-      /* line 2099, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2099, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs .tab-content .steps-div {
         margin: 0px; } }
-    /* line 2104, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2104, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content .steps-div .step {
       background-image: url("../img/photos/1-0.jpg");
       height: 300px;
@@ -2346,24 +2341,24 @@ hr {
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
-  /* line 2113, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2113, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content ol {
     padding: 25px 65px 20px 65px; }
     @media (max-width: 768px) {
-      /* line 2113, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2113, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs .tab-content ol {
         padding: 10px 10px 20px 25px; } }
-    /* line 2118, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2118, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content ol.sub {
       padding: 5px 65px 20px 65px; }
       @media (max-width: 768px) {
-        /* line 2118, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2118, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .teach-tabs .tab-content ol.sub {
           padding: 10px 10px 20px 25px; } }
-    /* line 2124, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2124, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content ol li {
       margin: 10px 0 10px 20px; }
-  /* line 2128, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2128, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content p {
     position: relative;
     color: #595757;
@@ -2371,13 +2366,13 @@ hr {
     font-size: 16px;
     letter-spacing: 3px;
     margin: 0; }
-    /* line 2135, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2135, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content p sp {
       padding: 0px 0px 0px 30px;
       position: relative;
       display: block;
       margin: -30px 0; }
-  /* line 2142, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2142, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content h2 {
     padding: 20px 0 0px 40px;
     color: #595757;
@@ -2385,17 +2380,17 @@ hr {
     font-size: 20px;
     font-weight: 900; }
     @media (max-width: 768px) {
-      /* line 2142, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2142, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs .tab-content h2 {
         padding: 20px 0 0px 0px; } }
-    /* line 2151, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2151, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .teach-tabs .tab-content h2:first-child {
       padding: 50px 0 0px 40px; }
       @media (max-width: 480px) {
-        /* line 2151, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2151, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .teach-tabs .tab-content h2:first-child {
           padding: 20px 0 0px 0px; } }
-  /* line 2158, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2158, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content h3 {
     padding: 20px 0 0px 65px;
     color: #595757;
@@ -2403,10 +2398,10 @@ hr {
     font-size: 18px;
     font-weight: 800; }
     @media (max-width: 768px) {
-      /* line 2158, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2158, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .teach-tabs .tab-content h3 {
         padding: 20px 0 0px 25px; } }
-  /* line 2169, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2169, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content.ng-enter,
   .teach-tabs .tab-content.ng-leave {
     -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2419,7 +2414,7 @@ hr {
     -webkit-transform: translateY(-2%);
     -ms-transform: translateY(-2%);
     transform: translateY(-2%); }
-  /* line 2174, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2174, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content.ng-enter.ng-enter-active,
   .teach-tabs .tab-content.ng-leave {
     opacity: 1;
@@ -2428,12 +2423,12 @@ hr {
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
-  /* line 2179, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2179, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .teach-tabs .tab-content.ng-leave.ng-leave-active,
   .teach-tabs .tab-content.ng-enter {
     opacity: 0; }
 
-/* line 2184, /Users/young/takkostore/www/css/plant.scss */
+/* line 2184, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .mertrial-group {
   position: relative;
   padding-top: 5px;
@@ -2443,12 +2438,12 @@ hr {
   -webkit-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
-  /* line 2192, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2192, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group.valid label:before {
     content: '＊ ';
     color: #e2613b;
     font-weight: 900; }
-  /* line 2199, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2199, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group.active label {
     -moz-transform: translate(-3px, -35px) scale(0.8);
     -o-transform: translate(-3px, -35px) scale(0.8);
@@ -2456,11 +2451,11 @@ hr {
     -ms-transform: translate(-3px, -35px) scale(0.8);
     transform: translate(-3px, -35px) scale(0.8);
     color: #b5b5b6; }
-  /* line 2206, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2206, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group.active .text-bar:before,
   .mertrial-group.active .text-bar:after {
     width: 50%; }
-  /* line 2211, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2211, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group input {
     border-radius: 0px;
     box-shadow: none;
@@ -2477,10 +2472,10 @@ hr {
     line-height: 33px;
     border-bottom: 1px solid #aaa;
     margin: 0; }
-    /* line 2227, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2227, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group input:focus {
       outline: none; }
-    /* line 2231, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2231, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group input:focus ~ label,
     .mertrial-group input:valid ~ label {
       -moz-transform: translate(-3px, -35px) scale(0.8);
@@ -2489,11 +2484,11 @@ hr {
       -ms-transform: translate(-3px, -35px) scale(0.8);
       transform: translate(-3px, -35px) scale(0.8);
       color: #b5b5b6; }
-    /* line 2238, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2238, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group input:focus ~ .text-bar:before,
     .mertrial-group input:focus ~ .text-bar:after {
       width: 50%; }
-  /* line 2243, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2243, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group textarea {
     box-shadow: none;
     font-size: 20px;
@@ -2518,17 +2513,17 @@ hr {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     resize: none;
     margin-top: -3px; }
-    /* line 2263, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2263, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group textarea.simple {
       padding: 10px 10px 5px 5px;
       height: 30px;
       border: none;
       border-bottom: 1px solid #aaa;
       border-radius: 0; }
-    /* line 2270, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2270, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group textarea:focus {
       outline: none; }
-    /* line 2274, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2274, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group textarea:focus ~ label,
     .mertrial-group textarea:valid ~ label {
       -moz-transform: translate(-3px, -35px) scale(0.8);
@@ -2537,11 +2532,11 @@ hr {
       -ms-transform: translate(-3px, -35px) scale(0.8);
       transform: translate(-3px, -35px) scale(0.8);
       color: #b5b5b6; }
-    /* line 2281, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2281, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group textarea:focus ~ .text-bar:before,
     .mertrial-group textarea:focus ~ .text-bar:after {
       width: 50%; }
-  /* line 2286, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2286, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group label {
     color: #898989;
     font-size: 18px;
@@ -2561,12 +2556,12 @@ hr {
     -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-  /* line 2298, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2298, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .mertrial-group .text-bar {
     position: relative;
     display: block;
     width: 100%; }
-    /* line 2303, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2303, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group .text-bar:before,
     .mertrial-group .text-bar:after {
       content: '';
@@ -2580,14 +2575,14 @@ hr {
       -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-    /* line 2312, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2312, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group .text-bar:before {
       left: 50%; }
-    /* line 2315, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2315, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .mertrial-group .text-bar:after {
       right: 50%; }
 
-/* line 2320, /Users/young/takkostore/www/css/plant.scss */
+/* line 2320, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .error-table {
   width: 80%;
   text-align: center;
@@ -2598,40 +2593,40 @@ hr {
   padding: 120px 10%;
   margin: 80px auto 60px auto; }
   @media (max-width: 991px) {
-    /* line 2320, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2320, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .error-table {
       width: 100%; } }
   @media (max-width: 991px) {
-    /* line 2320, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2320, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .error-table {
       margin: 20px auto 0px auto; } }
-  /* line 2335, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2335, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .error-table h2 {
     text-align: center;
     color: #595757;
     font-size: 36px;
     font-weight: 900;
     letter-spacing: 2px; }
-  /* line 2342, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2342, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .error-table h3 {
     text-align: center;
     color: #595757;
     font-size: 18px; }
-  /* line 2347, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2347, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .error-table .btn {
     margin: 50px auto 0 auto; }
-  /* line 2350, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2350, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .error-table .error-logo {
     position: relative;
     display: block;
     height: 150px;
     width: 150px;
     margin: 0px auto 60px auto; }
-    /* line 2356, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2356, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .error-table .error-logo .plant {
       width: 100%;
       height: 100%; }
-    /* line 2360, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2360, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .error-table .error-logo .sun {
       position: absolute;
       top: 10px;
@@ -2643,16 +2638,16 @@ hr {
       -webkit-animation: rot 4s infinite linear;
       -ms-animation: rot 4s infinite linear;
       animation: rot 4s infinite linear; }
-  /* line 2369, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2369, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .error-table .row {
     margin: 40px 0;
     padding: 5px 0; }
     @media (max-width: 991px) {
-      /* line 2369, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2369, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .error-table .row {
         margin: 10px 0; } }
 
-/* line 2379, /Users/young/takkostore/www/css/plant.scss */
+/* line 2379, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .about-tabs ul.tabs {
   width: 100%;
   height: 80px;
@@ -2661,12 +2656,12 @@ hr {
   overflow: hidden;
   padding: 0;
   display: block; }
-  /* line 2387, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2387, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs ul.tabs li {
     float: left;
     width: 33.33333%;
     cursor: pointer; }
-    /* line 2391, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2391, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs ul.tabs li a {
       position: relative;
       display: block;
@@ -2686,16 +2681,16 @@ hr {
       -o-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       -ms-transform: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-      /* line 2406, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2406, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .about-tabs ul.tabs li a .title {
         font-size: 2rem;
         margin: 0px; }
         @media (max-width: 768px) {
-          /* line 2406, /Users/young/takkostore/www/css/plant.scss */
+          /* line 2406, /Users/young/SATURDAYS_APP/www/css/plant.scss */
           .about-tabs ul.tabs li a .title {
             font-size: 0.8rem;
             padding: 0px 15px; } }
-      /* line 2414, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2414, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .about-tabs ul.tabs li a:hover {
         border-radius: 5px 5px 0 0;
         -moz-transform: translateY(-1%);
@@ -2703,7 +2698,7 @@ hr {
         -webkit-transform: translateY(-1%);
         -ms-transform: translateY(-1%);
         transform: translateY(-1%); }
-      /* line 2418, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2418, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .about-tabs ul.tabs li a.active {
         margin: 30px 0 0 0;
         padding: 10px 0 10px 0;
@@ -2714,16 +2709,16 @@ hr {
         color: #595757;
         z-index: 4;
         outline: none; }
-    /* line 2431, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2431, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs ul.tabs li:first-child a {
       z-index: 3;
       -webkit-border-top-left-radius: 8px;
       -moz-border-radius-topleft: 8px;
       border-top-left-radius: 8px; }
-    /* line 2439, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2439, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs ul.tabs li:nth-child(2) a {
       z-index: 2; }
-    /* line 2444, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2444, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs ul.tabs li:last-child a {
       z-index: 2;
       -webkit-box-shadow: 2px 8px 25px -2px rgba(0, 0, 0, 0.3);
@@ -2733,14 +2728,14 @@ hr {
       -moz-border-radius-topright: 8px;
       border-top-right-radius: 8px; }
 
-/* line 2459, /Users/young/takkostore/www/css/plant.scss */
+/* line 2459, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .about-tabs .group:before,
 .about-tabs .group:after {
   content: " ";
   display: table;
   clear: both; }
 
-/* line 2465, /Users/young/takkostore/www/css/plant.scss */
+/* line 2465, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .about-tabs .tab-content {
   width: 100%;
   margin: 0 auto;
@@ -2753,30 +2748,30 @@ hr {
   padding: 10px 10px 10px 50px;
   min-height: 600px; }
   @media (max-width: 768px) {
-    /* line 2465, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2465, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs .tab-content {
       padding: 10px 10px 10px 10px; } }
-  /* line 2479, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2479, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content div[class*='col-'] {
     margin-bottom: 35px; }
-  /* line 2482, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2482, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content ol {
     padding: 25px 65px 20px 65px; }
     @media (max-width: 768px) {
-      /* line 2482, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2482, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .about-tabs .tab-content ol {
         padding: 10px 10px 20px 25px; } }
-    /* line 2487, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2487, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs .tab-content ol.sub {
       padding: 5px 65px 20px 65px; }
       @media (max-width: 768px) {
-        /* line 2487, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2487, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .about-tabs .tab-content ol.sub {
           padding: 10px 10px 20px 25px; } }
-    /* line 2493, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2493, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs .tab-content ol li {
       margin: 10px 0 10px 20px; }
-  /* line 2497, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2497, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content p {
     position: relative;
     color: #595757;
@@ -2784,13 +2779,13 @@ hr {
     font-size: 16px;
     letter-spacing: 3px;
     margin: 0; }
-    /* line 2504, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2504, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs .tab-content p sp {
       padding: 0px 0px 0px 30px;
       position: relative;
       display: block;
       margin: -30px 0; }
-  /* line 2511, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2511, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content h2 {
     padding: 20px 0 0px 40px;
     color: #595757;
@@ -2798,17 +2793,17 @@ hr {
     font-size: 20px;
     font-weight: 900; }
     @media (max-width: 768px) {
-      /* line 2511, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2511, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .about-tabs .tab-content h2 {
         padding: 20px 0 0px 0px; } }
-    /* line 2520, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2520, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .about-tabs .tab-content h2:first-child {
       padding: 50px 0 0px 40px; }
       @media (max-width: 480px) {
-        /* line 2520, /Users/young/takkostore/www/css/plant.scss */
+        /* line 2520, /Users/young/SATURDAYS_APP/www/css/plant.scss */
         .about-tabs .tab-content h2:first-child {
           padding: 20px 0 0px 0px; } }
-  /* line 2527, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2527, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content h3 {
     padding: 20px 0 0px 65px;
     color: #595757;
@@ -2816,10 +2811,10 @@ hr {
     font-size: 18px;
     font-weight: 800; }
     @media (max-width: 768px) {
-      /* line 2527, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2527, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .about-tabs .tab-content h3 {
         padding: 20px 0 0px 25px; } }
-  /* line 2538, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2538, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content.ng-enter,
   .about-tabs .tab-content.ng-leave {
     -webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2832,7 +2827,7 @@ hr {
     -webkit-transform: translateY(-2%);
     -ms-transform: translateY(-2%);
     transform: translateY(-2%); }
-  /* line 2543, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2543, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content.ng-enter.ng-enter-active,
   .about-tabs .tab-content.ng-leave {
     opacity: 1;
@@ -2841,38 +2836,38 @@ hr {
     -webkit-transform: translateY(0%);
     -ms-transform: translateY(0%);
     transform: translateY(0%); }
-  /* line 2548, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2548, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .about-tabs .tab-content.ng-leave.ng-leave-active,
   .about-tabs .tab-content.ng-enter {
     opacity: 0; }
 
 @media (max-width: 768px) {
-  /* line 2555, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2555, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-header {
     float: none; }
-  /* line 2558, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2558, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-toggle {
     display: block; }
-  /* line 2561, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2561, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-collapse {
     border-top: 1px solid transparent;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1); }
-  /* line 2565, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2565, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-collapse.collapse {
     display: none !important; }
-  /* line 2568, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2568, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-nav {
     float: none !important;
     margin: 7.5px -15px; }
-  /* line 2572, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2572, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-nav > li {
     float: none; }
-  /* line 2575, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2575, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px; } }
 
-/* line 2583, /Users/young/takkostore/www/css/plant.scss */
+/* line 2583, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .loading-icon {
   position: relative;
   display: inline-block;
@@ -2883,7 +2878,7 @@ hr {
   -webkit-animation: rotator 1.5s linear infinite;
   -ms-animation: rotator 1.5s linear infinite;
   animation: rotator 1.5s linear infinite; }
-  /* line 2589, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2589, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .loading-icon .path {
     stroke-dasharray: 187;
     stroke-dashoffset: 0;
@@ -2896,7 +2891,7 @@ hr {
     -webkit-animation: dash 1.5s ease-in-out infinite;
     -ms-animation: dash 1.5s ease-in-out infinite;
     animation: dash 1.5s ease-in-out infinite; }
-  /* line 2598, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2598, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .loading-icon .white-path {
     stroke-dasharray: 187;
     stroke-dashoffset: 0;
@@ -2911,7 +2906,7 @@ hr {
     -ms-animation: dash 1.5s ease-in-out infinite;
     animation: dash 1.5s ease-in-out infinite; }
 
-/* line 2609, /Users/young/takkostore/www/css/plant.scss */
+/* line 2609, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .tabs {
   position: relative;
   margin: 0;
@@ -2920,7 +2915,7 @@ hr {
   display: table;
   width: 100%;
   margin: 0 0 10px 0; }
-  /* line 2617, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2617, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .tabs .tab {
     font-size: 20px;
     letter-spacing: 2px;
@@ -2937,15 +2932,15 @@ hr {
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     border-left: solid 1px #ddd;
     border-right: solid 1px #ddd; }
-    /* line 2629, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2629, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .tabs .tab:first-child {
       border-top-left-radius: 5px;
       border-left: none; }
-    /* line 2633, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2633, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .tabs .tab:last-child {
       border-top-right-radius: 5px;
       border-right: none; }
-    /* line 2637, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2637, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .tabs .tab:after {
       -webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       -moz-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2961,7 +2956,7 @@ hr {
       bottom: 0px;
       left: 0px;
       margin: 0 auto; }
-    /* line 2649, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2649, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .tabs .tab a {
       cursor: pointer;
       position: relative;
@@ -2970,7 +2965,7 @@ hr {
       color: #595757;
       text-decoration: none;
       z-index: 1; }
-    /* line 2659, /Users/young/takkostore/www/css/plant.scss */
+    /* line 2659, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .tabs .tab:hover,
     .tabs .tab.active {
       border-top-left-radius: 5px;
@@ -2978,12 +2973,12 @@ hr {
       background-color: #fff;
       box-shadow: 1px 2px 3px #aaa;
       height: calc(100% + 20px); }
-      /* line 2665, /Users/young/takkostore/www/css/plant.scss */
+      /* line 2665, /Users/young/SATURDAYS_APP/www/css/plant.scss */
       .tabs .tab:hover:after,
       .tabs .tab.active:after {
         width: 100%; }
 
-/* line 2671, /Users/young/takkostore/www/css/plant.scss */
+/* line 2671, /Users/young/SATURDAYS_APP/www/css/plant.scss */
 .product-empty {
   border-radius: 5px;
   text-align: center;
@@ -2991,19 +2986,19 @@ hr {
   padding: 50px 10px;
   margin: 10%;
   background-color: #fff; }
-  /* line 2678, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2678, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .product-empty img {
     height: 180px;
     width: 180px;
     margin: 0 auto; }
-  /* line 2683, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2683, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .product-empty p {
     margin-top: 24px;
     font-weight: lighter;
     font-size: 46px;
     color: #595757;
     letter-spacing: 4px; }
-  /* line 2690, /Users/young/takkostore/www/css/plant.scss */
+  /* line 2690, /Users/young/SATURDAYS_APP/www/css/plant.scss */
   .product-empty span {
     font-size: 24px;
     letter-spacing: 8px;

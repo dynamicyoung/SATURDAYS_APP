@@ -571,7 +571,7 @@ hr {
             img,
             .text-bar {
                 display: block;
-                @include animation(1s fadeInUpD $cubic);
+                //@include animation(1s fadeInUpD $cubic);
             }
         }
         &.loading {
@@ -592,7 +592,7 @@ hr {
             &:before {
                 content: '';
                 display: block;
-                height: 250px;
+                height: 400px;
                 background-image: url('../img/notfound.jpg');
                 @include backgroundCover();
             }
