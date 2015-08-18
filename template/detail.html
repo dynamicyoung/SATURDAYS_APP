@@ -138,7 +138,7 @@
         <div class="swiper-container carousel-browse" ng-class="{'empty': detail.suggestions <= 1}">
             <div class="swiper-wrapper">
                 <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" ng-init="sug = findProductById(id)" ng-click="openDetail(sug)" carousel-Browse>
-                    <div class="blur loading" rn-lazy-loading-class="loading" rn-Lazy-Background="makeImagesPath(sug)[0]"></div>
+                    <div class="blur loading" rn-lazy-loading-class="loading" rn-Lazy-Background="makeImagesPath(sug)"></div>
 
                     <div class="slide-text">
                         <p class="title" ng-bind="sug.name"></p>

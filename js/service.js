@@ -7,7 +7,6 @@ plant
         this.products = [];
         this.plants = [];
         this.pots = [];
-        this.imageCount = 0;
 
         this.initial = {
             init: function () {
@@ -31,18 +30,22 @@ plant
                 return deferred.promise;
             },
             start: function () {
-                plantService.products = this.getProductsFromLocal();
+                plantService.startUpdate = true;
                 if (plantService.firstEnter) {
                     console.log('DOWNLOAD:第一次進入APP, 開始進行下載');
-                    this.getProducts().then(function (data) {
-                        plantService.initial.downloadAllImages();
-                    })
+                    plantService.initial.downloadAllImages().then(success);
                 } else {
                     console.log('UPDATE:檢查是否更新圖片');
-                    plantService.initial.checkUpdate().then(function () {
-                        console.log('全部更新完畢')
-                    });
+                    plantService.initial.checkUpdate().then(success);
                 }
+
+                function success() {
+                    console.log('全部更新完畢')
+                    plantService.initial.refreshPage();
+                }
+            },
+            refreshPage: function () {
+                $rootScope.$broadcast('refreshPage');
             },
             getProducts: function () {
                 var deferred = $q.defer();
@@ -61,8 +64,8 @@ plant
                 plantService.initial.getProducts().then(success)
 
                 function check(localProduct, newProduct) {
-                    var newDate = new Date(newProduct.updated);
-                    //                    var newDate = new Date();
+                    //var newDate = new Date(newProduct.updated);
+                    var newDate = new Date();
                     var oldDate = new Date(localProduct.updated);
                     if (!localProduct.downloaded || newDate - oldDate > 0) {
                         return true;
@@ -70,19 +73,19 @@ plant
                 }
 
                 function updateProducts(localProduct, newProduct, index) {
-                    var deferred = $q.defer();
+                    var deferred_updateProducts = $q.defer();
                     var promises = [];
-                    var promise_remove = plantService.initial.removeImages(localProduct);
+                    //                    var promise_remove = plantService.initial.removeImages(localProduct);
                     var promise_download = plantService.initial.downloadImages(newProduct, index);
 
-                    promises.push(promise_remove);
+                    //                    promises.push(promise_remove);
                     promises.push(promise_download);
+
                     $q.all(promises).then(function () {
                         console.log(newProduct.name + '更新完成');
-                        plantService.initial.saveProducts();
-                        deferred.resolve();
+                        deferred_updateProducts.resolve();
                     });
-                    return deferred.promise;
+                    return deferred_updateProducts.promise;
                 }
 
                 function success(data, status, headers, config) {
@@ -97,7 +100,6 @@ plant
                         }
                     });
                     $q.all(promises).then(function () {
-                        console.log(promises.length);
                         console.log('所有圖片更新完畢, 總共更新：', promises.length + '個商品');
                         plantService.initial.standardizationProducts();
                         deferred.resolve();
@@ -126,11 +128,11 @@ plant
                     }
                     //把商品分類
                     switch (product.category) {
-                        case 0:
-                            plantService.pots.push(product);
-                            break;
-                        default:
-                            plantService.plants.push(product);
+                    case 0:
+                        plantService.pots.push(product);
+                        break;
+                    default:
+                        plantService.plants.push(product);
                     }
                     products.push(product);
                 });
@@ -164,6 +166,7 @@ plant
                         .then(function (filePath) {
                             product.images_local[key] = filePath;
                             plantService.products[index] = product;
+                            console.log('下載' + filePath + '成功');
                         });
                     promises.push(promise);
                 });
@@ -178,24 +181,29 @@ plant
 
             //下載植物裡面的所有圖片
             downloadAllImages: function () {
+                var deferred = $q.defer();
                 var promises = [];
-                var count = 0;
                 angular.forEach(plantService.products, function (product, index) {
-                    var promise = plantService.initial.downloadImages(product, index)
-                        .then(function () {
-                            console.log('下載第' + count++ + '個');
-                            if (count % 5 === 0 || count === plantService.products) {
-                                console.log('更新畫面');
-                                plantService.initial.standardizationProducts();
-                            }
-                        })
+                    var promise = plantService.initial.downloadImages(product, index);
                     promises.push(promise);
                 });
+                $q.all(promises).then(function () {
+                    plantService.initial.standardizationProducts();
+                    deferred.resolve();
+                });
+                return deferred.promise;
             },
             removeAllImages: function () {
+                var deferred = $q.defer();
+                var promises = [];
                 angular.forEach(plantService.products, function (product, index) {
-                    plantService.initial.removeImages(product);
+                    var promise = plantService.initial.removeImages(product);
+                    promises.push(promise);
                 });
+                $q.all(promises).then(function () {
+                    deferred.resolve();
+                });
+                return deferred.promise;
             },
             //把plants存入localStorage
             saveProducts: function () {
@@ -207,8 +215,10 @@ plant
                 return JSON.parse(localStorage.getItem('products'));
             },
             clearAll: function () {
-                localStorage.clear();
-                plantService.initial.removeAllImages();
+                plantService.initial.removeAllImages().then(function () {
+                    localStorage.clear();
+                    window.location.reload();
+                });
             }
         };
         //初始化植物列表

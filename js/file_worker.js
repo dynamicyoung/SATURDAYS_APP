@@ -1,6 +1,6 @@
 self.window = this;
 self.window.document = this;
-importScripts('../cordova.js');
+//importScripts('../cordova.js');
 
 postMessage("I\'m working before postMessage(\'ali\').");
 

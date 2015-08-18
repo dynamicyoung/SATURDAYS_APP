@@ -335,17 +335,17 @@ plant.service('service_utility', function ($q, $http) {
     this.MakeFilePath = function (filepath) {
         var path;
         switch (device.platform.toLowerCase()) {
-            case 'ios':
-                path = cordova.file.documentsDirectory;
-                break;
-            case 'android':
-                //如果有 filepath 表示要串網址的所以要拿出root directory
-                if (filepath) {
-                    path = cordova.file.externalRootDirectory;
-                } else {
-                    path = cordova.file.externalApplicationStorageDirectory;
-                }
-                break;
+        case 'ios':
+            path = cordova.file.documentsDirectory;
+            break;
+        case 'android':
+            //如果有 filepath 表示要串網址的所以要拿出root directory
+            if (filepath) {
+                path = cordova.file.externalRootDirectory;
+            } else {
+                path = cordova.file.externalApplicationStorageDirectory;
+            }
+            break;
         }
 
         if (filepath) {

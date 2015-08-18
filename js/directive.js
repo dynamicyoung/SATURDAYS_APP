@@ -6,6 +6,37 @@ plant
             }
         };
     })
+    .directive('progressBar', function () {
+        return {
+            //attribute
+            restrict: 'AE',
+            //覆蓋
+            replace: 'true',
+
+            scope: {
+                progressValue: '@'
+            },
+            //功能
+            link: function ($scope, $ele, $attrs) {
+                $scope.$watch(function () {
+                    return $attrs.progressValue
+                }, function (value) {
+                    //這裡輸入觸發$watch之後，欲觸發的行為  
+                    console.log(value, '123');
+                });
+                $scope.getStyle = function (value) {
+                    var style = {
+                        'width': value + '%',
+                        'transitition': '1s ease-in-out all',
+                        '-webkit-transitition': '1s ease-in-out all'
+                    }
+                    return style;
+                }
+            },
+            //顯示
+            template: '<div class="progress-bar"></div>'
+        };
+    })
     .directive('carouselTop', function ($timeout, $rootScope) {
         return function (scope, element, attrs) {
             if (scope.$last) { // all are rendered
@@ -59,16 +90,16 @@ plant
                     $slides.removeClass('active');
                     $slide.addClass('active');
                     switch (compareIndex(swiper.activeIndex)) {
-                        case 'next':
-                            if (swiper.activeIndex >= calcCount(100)) {
-                                $rootScope.galleryBottom.slideNext();
-                            }
-                            break;
-                        case 'prev':
-                            if (swiper.activeIndex < calcCount(100)) {
-                                $rootScope.galleryBottom.slidePrev();
-                            }
-                            break;
+                    case 'next':
+                        if (swiper.activeIndex >= calcCount(100)) {
+                            $rootScope.galleryBottom.slideNext();
+                        }
+                        break;
+                    case 'prev':
+                        if (swiper.activeIndex < calcCount(100)) {
+                            $rootScope.galleryBottom.slidePrev();
+                        }
+                        break;
                     }
                 };
                 $rootScope.galleryBottom.params.onClick = function (swiper, e) {
@@ -330,44 +361,44 @@ plant
                     var max = parseInt(attrs.ngmax);
                     var min = parseInt(attrs.ngmin);
                     switch (max) {
-                        case 0:
-                            element.val(0);
-                            ngModel.$setViewValue(0);
+                    case 0:
+                        element.val(0);
+                        ngModel.$setViewValue(0);
+                        element.tooltip({
+                            placement: 'top',
+                            title: '已達庫存量'
+                        });
+                        element.tooltip('show');
+                        break;
+                    case 1:
+                        element.val(1);
+                        ngModel.$setViewValue(1);
+                        element.tooltip({
+                            placement: 'top',
+                            title: '最後一個'
+                        });
+                        element.tooltip('show');
+                        break;
+                    default:
+                        if (ngModel.$modelValue >= max) {
+                            //如果超過庫存上限
+                            element.val(max);
+                            ngModel.$setViewValue(max);
                             element.tooltip({
                                 placement: 'top',
                                 title: '已達庫存量'
                             });
                             element.tooltip('show');
-                            break;
-                        case 1:
-                            element.val(1);
-                            ngModel.$setViewValue(1);
-                            element.tooltip({
-                                placement: 'top',
-                                title: '最後一個'
-                            });
-                            element.tooltip('show');
-                            break;
-                        default:
-                            if (ngModel.$modelValue >= max) {
-                                //如果超過庫存上限
-                                element.val(max);
-                                ngModel.$setViewValue(max);
-                                element.tooltip({
-                                    placement: 'top',
-                                    title: '已達庫存量'
-                                });
-                                element.tooltip('show');
-                            } else if (ngModel.$modelValue < 0) {
-                                //如果輸入的數字小於０：把它變成最小
-                                element.val(min);
-                                ngModel.$setViewValue(min);
-                            } else if (ngModel.$modelValue >= min && ngModel.$modelValue < max) {
-                                //輸入數字介於之間
-                                element.tooltip('destroy');
-                            } else {
-                                ngModel.$setViewValue(min);
-                            }
+                        } else if (ngModel.$modelValue < 0) {
+                            //如果輸入的數字小於０：把它變成最小
+                            element.val(min);
+                            ngModel.$setViewValue(min);
+                        } else if (ngModel.$modelValue >= min && ngModel.$modelValue < max) {
+                            //輸入數字介於之間
+                            element.tooltip('destroy');
+                        } else {
+                            ngModel.$setViewValue(min);
+                        }
                     }
                 });
             }

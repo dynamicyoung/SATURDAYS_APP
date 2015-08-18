@@ -1,11 +1,11 @@
 <!--植物列表-->
-<div class="container shop">
+<div class="container shop" images-loaded="isotopLoadedEvents">
     <div class="isotop" isotope-container>
-        <div class="item loading" ng-repeat="plant in plants track by $index" isotope-item images-loaded="imgLoadedEvents" ui-sref="detail({'productName': plant.name})">
-            <img ng-src="{{makeImagesPath(plant)[0]}}">
+        <div class="item" ng-repeat="plant in plants track by $index" isotope-item images-loaded="imgLoadedEvents" ui-sref="detail({'productName': plant.name})">
+            <img ng-src="{{makeImagesPath(plant)}}">
             <div class="text-bar">
                 <h3 class="title" ng-bind="plant.name"></h3>
-            </div>
+</div>
         </div>
     </div>
     <div class="product-empty" ng-show="plants.length === 0">

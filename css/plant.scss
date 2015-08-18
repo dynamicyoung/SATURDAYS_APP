@@ -6,6 +6,7 @@ $gray60:#898989;
 $gray40:#b5b5b6;
 $gray30:#E0E0E0;
 $gray20:#f5f5f5;
+$gray10:#FAFAFA;
 $blue80:#3e575f;
 $blue60:#66848f;
 $textbar: 40px;
@@ -23,6 +24,7 @@ $cubic:cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: $transition;
     transition: $transition;
 }
+
 @mixin transform($transform...) {
     -moz-transform: $transform;
     -o-transform: $transform;
@@ -30,6 +32,7 @@ $cubic:cubic-bezier(0.4, 0, 0.2, 1);
     -ms-transform: $transform;
     transform: $transform;
 }
+
 @mixin animation($animation...) {
     -moz-animation: $animation;
     -o-animation: $animation;
@@ -37,6 +40,7 @@ $cubic:cubic-bezier(0.4, 0, 0.2, 1);
     -ms-animation: $animation;
     animation: $animation;
 }
+
 @mixin filter($filter...) {
     -moz-filter: $filter;
     -o-filter: $filter;
@@ -44,20 +48,24 @@ $cubic:cubic-bezier(0.4, 0, 0.2, 1);
     -ms-filter: $filter;
     filter: $filter;
 }
+
 @mixin backgroundCover() {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 @mixin backgroundContain() {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 //消除閃爍bug
 li {
     @include transform(translate3d(0, 0, 0));
 }
+
 input,
 textarea {
     box-shadow: none !important;
@@ -71,9 +79,11 @@ textarea {
         box-shadow: none;
     }
 }
+
 .container {
     margin-bottom: 50px;
 }
+
 //網頁跳轉的modal
 .loading-modal {
     position: fixed;
@@ -117,6 +127,7 @@ textarea {
         }
     }
 }
+
 .picture-modal {
     position: fixed;
     background-color: #000;
@@ -172,39 +183,57 @@ textarea {
         }
     }
 }
-.progress-bar {
-    position: fixed;
-    width: 100%;
-    height: 10px;
-    opacity: 0.6;
-    background-color: $gray20;
-    z-index: 999;
-    display: none;
-    .bar {
-        height: 100%;
-        width: 0%;
-        opacity: 0.8;
-        background-color: $gray80;
-        @include transition(3s all $cubic);
-    }
+
+
+/* blue theme, like iOS 7 progress bar */
+
+.progressjs-inner {
+    width: 0;
 }
+
+.progressjs-progress {
+    z-index: 9999999;
+}
+
+
+/* blue theme, like iOS 7 progress bar */
+
+.progressjs-theme-blue .progressjs-inner {
+    height: 5px;
+    @include transition(1.6s $cubic all);
+    background-color: $gray80;
+}
+
+.progressjs-theme-blue.progressjs-end {
+    @include transition(1.2s $cubic all);
+}
+
+.progressjs-theme-blue .progressjs-percent {
+    display: none;
+}
+
 html,
 body {
     position: relative;
     height: 100%;
     @include transition(1s all $cubic);
+    background-color: $gray10;
 }
+
 .hidden {
     visibility: hidden;
 }
+
 .left {
     float: left;
 }
+
 .right {
     float: right;
 }
+
 body {
-    background-color: #fff;
+    background-color: $gray10;
     font-family: Microsoft JhengHei, Helvetica Neue, Arial, sans-serif;
     font-size: 14px;
     color: #000;
@@ -250,11 +279,13 @@ body {
         }
     }
 }
+
 hr {
     margin: 10px 0;
     height: 1px;
     background-color: $gray60;
 }
+
 .select-group {
     padding: 0;
     margin: 0;
@@ -281,6 +312,7 @@ hr {
         }
     }
 }
+
 .side-content {
     z-index: 1;
     position: relative;
@@ -297,6 +329,7 @@ hr {
         width: 200px;
     }
 }
+
 .side-menu {
     position: fixed;
     z-index: 1;
@@ -339,6 +372,7 @@ hr {
         }
     }
 }
+
 .side-cart {
     position: fixed;
     z-index: 1;
@@ -431,6 +465,7 @@ hr {
         }
     }
 }
+
 //各種按扭
 .btn {
     height: 35px;
@@ -503,6 +538,7 @@ hr {
         }
     }
 }
+
 .jumbotron.jumbotron_plant {
     height: 250px;
     margin: 0 0 0 0;
@@ -528,6 +564,7 @@ hr {
         }
     }
 }
+
 .nav-div {
     position: relative;
     height: 70px;
@@ -535,6 +572,7 @@ hr {
     display: block;
     margin-bottom: 20px;
 }
+
 .shop {
     width: 90%;
     margin: 0 auto 0 auto;
@@ -563,6 +601,7 @@ hr {
         overflow: hidden;
         cursor: pointer;
         position: relative;
+        visibility: hidden;
         img {
             display: inline-block;
             width: 100%;
@@ -570,26 +609,30 @@ hr {
         &.ready {
             img,
             .text-bar {
-                display: block;
-                //@include animation(1s fadeInUpD $cubic);
+                visibility: visible;
+                @include animation(0.3s fadeInUpD $cubic);
             }
         }
         &.loading {
             img,
             .text-bar {
-                display: none;
+                visibility: hidden;
             }
-            &:before {
-                content: '';
-                display: block;
-                height: 250px;
-                background-image: url('../img/loading.gif');
-                @include backgroundCover();
-                background-size: 50px 50px !important;
-            }
+            //            &:before {
+            //                content: '';
+            //                display: block;
+            //                height: 400px;
+            //                background-image: url('../img/loading.gif');
+            //                @include backgroundCover();
+            //                background-size: 50px 50px !important;
+            //            }
         }
         &.error {
-            &:before {
+            img,
+            .text-bar {
+                visibility: hidden;
+            }
+            v &:before {
                 content: '';
                 display: block;
                 height: 400px;
@@ -633,6 +676,7 @@ hr {
         }
     }
 }
+
 //上方導引列
 .navbar-plant {
     border-radius: 0px;
@@ -765,6 +809,7 @@ hr {
         }
     }
 }
+
 //底下Footer
 .footer-plant {
     width: 100%;
@@ -818,6 +863,7 @@ hr {
         }
     }
 }
+
 .plant-carousel {
     padding: 50px 0;
     .swiper-slide {
@@ -969,6 +1015,7 @@ hr {
         }
     }
 }
+
 .plant-content {
     margin: 20px 0px;
     padding: 0px 100px;
@@ -1085,6 +1132,7 @@ hr {
         }
     }
 }
+
 .plant-browse {
     margin: 60px 0;
     .title {
@@ -1130,6 +1178,7 @@ hr {
         }
     }
 }
+
 .progressbar {
     margin: 30px auto 30px auto;
     height: 100px;
@@ -1203,6 +1252,7 @@ hr {
         }
     }
 }
+
 .rwd-table {
     min-width: 300px;
     tr {
@@ -1241,6 +1291,7 @@ hr {
         }
     }
 }
+
 .cart-table {
     width: 100%;
     border: 1px solid #aaa;
@@ -1395,9 +1446,11 @@ hr {
         }
     }
 }
+
 .next-step {
     margin: 50px 5px 0px 0px;
 }
+
 .profile-table {
     margin: 0 auto;
     width: 100%;
@@ -1470,6 +1523,7 @@ hr {
         }
     }
 }
+
 .success-table {
     border: 1px solid #aaa;
     border-radius: 5px;
@@ -1517,6 +1571,7 @@ hr {
         letter-spacing: 2px;
     }
 }
+
 .contact-table {
     width: 80%;
     background-color: #fff;
@@ -1657,6 +1712,7 @@ hr {
         }
     }
 }
+
 .search-table {
     width: 80%;
     background-color: #fff;
@@ -1747,6 +1803,7 @@ hr {
         }
     }
 }
+
 .paid-table {
     width: 80%;
     background-color: #fff;
@@ -1838,6 +1895,7 @@ hr {
         }
     }
 }
+
 .result-table {
     padding: 80px 100px;
     margin: 50px 0;
@@ -1893,6 +1951,7 @@ hr {
         }
     }
 }
+
 .check-btns {
     margin: 20px 0;
     .gray-btn {
@@ -1904,6 +1963,7 @@ hr {
         width: 30%;
     }
 }
+
 .check-div {
     position: relative;
     width: 100%;
@@ -1955,6 +2015,7 @@ hr {
         }
     }
 }
+
 .teach-tabs {
     ul {
         &.tabs {
@@ -2181,6 +2242,7 @@ hr {
         }
     }
 }
+
 .mertrial-group {
     position: relative;
     padding-top: 5px;
@@ -2317,6 +2379,7 @@ hr {
         }
     }
 }
+
 .error-table {
     width: 80%;
     text-align: center;
@@ -2374,6 +2437,7 @@ hr {
         }
     }
 }
+
 .about-tabs {
     ul {
         &.tabs {
@@ -2550,6 +2614,7 @@ hr {
         }
     }
 }
+
 //navbar collapse point
 @media (max-width: $collapse-point) {
     .navbar-header {
@@ -2577,6 +2642,7 @@ hr {
         padding-bottom: 10px;
     }
 }
+
 //loading-icon
 $offset: 187;
 $duration: 1.5s;
@@ -2606,6 +2672,7 @@ $duration: 1.5s;
         @include animation(dash $duration ease-in-out infinite);
     }
 }
+
 .tabs {
     position: relative;
     margin: 0;
@@ -2668,6 +2735,7 @@ $duration: 1.5s;
         }
     }
 }
+
 .product-empty {
     border-radius: 5px;
     text-align: center;
@@ -2693,6 +2761,7 @@ $duration: 1.5s;
         color: $gray60;
     }
 }
+
 //animation
 @keyframes rot {
     0% {
@@ -2711,6 +2780,7 @@ $duration: 1.5s;
         @include transform(rotate(-360deg));
     }
 }
+
 @-webkit-keyframes rot {
     0% {
         @include transform(rotate(0deg));
@@ -2728,6 +2798,7 @@ $duration: 1.5s;
         @include transform(rotate(-360deg));
     }
 }
+
 @keyframes drop {
     0% {
         @include transform(translateY(0));
@@ -2742,6 +2813,7 @@ $duration: 1.5s;
         opacity: 0;
     }
 }
+
 @-webkit-keyframes drop {
     0% {
         @include transform(translateY(0));
@@ -2756,6 +2828,7 @@ $duration: 1.5s;
         opacity: 0;
     }
 }
+
 @keyframes rot60 {
     0% {
         @include transform(rotate(0));
@@ -2773,6 +2846,7 @@ $duration: 1.5s;
         @include transform(rotate(0));
     }
 }
+
 @-webkit-keyframes rot60 {
     0% {
         @include transform(rotate(0));
@@ -2790,6 +2864,7 @@ $duration: 1.5s;
         @include transform(rotate(0));
     }
 }
+
 $offset: 187;
 $duration: 1.4s;
 @keyframes rotator {
@@ -2800,6 +2875,7 @@ $duration: 1.4s;
         @include transform(rotate(270deg));
     }
 }
+
 @-webkit-keyframes rotator {
     0% {
         @include transform(rotate(0));
@@ -2808,6 +2884,7 @@ $duration: 1.4s;
         @include transform(rotate(270deg));
     }
 }
+
 @keyframes dash {
     0% {
         stroke-dashoffset: $offset;
@@ -2821,6 +2898,7 @@ $duration: 1.4s;
         @include transform(rotate(450deg));
     }
 }
+
 @-webkit-keyframes dash {
     0% {
         stroke-dashoffset: $offset;
@@ -2834,6 +2912,7 @@ $duration: 1.4s;
         @include transform(rotate(450deg));
     }
 }
+
 @-webkit-keyframes fadeInUpD {
     from {
         opacity: 0;
@@ -2844,6 +2923,7 @@ $duration: 1.4s;
         @include transform(translateY(0px));
     }
 }
+
 @keyframes fadeInUpD {
     from {
         opacity: 0;

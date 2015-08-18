@@ -38,10 +38,6 @@
             <div class="picture" rn-lazy-background="picture" pan-Zoom> </div>
         </div>
     </div>
-    <!--最上方的進度條-->
-    <div class="progress-bar">
-        <div class="bar"></div>
-    </div>
     <!--側邊menu-->
     <div class="side-menu side-hide">
         <ul class="">
@@ -152,7 +148,7 @@
             </nav>
         </div>
         <!--ui-view-->
-        <div ui-view class="view"></div>
+        <div ui-view class="view" images-loaded="viewLoadedEvents"></div>
         <!---->
         <footer class="footer-plant">
             <div class="row">
@@ -219,6 +215,8 @@
     <script src="lib/imagesloaded.pkgd.min.js"></script>
     <script src="lib/jquery.panzoom.min.js"></script>
     <script src="lib/angular-images-loaded.js"></script>
+    <script src="lib/progress.js"></script>
+    <script src="lib/fastclick.js"></script>
 
     <!--JS-->
     <script src="js/plant.js"></script>

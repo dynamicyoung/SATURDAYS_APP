@@ -1,6 +1,7 @@
 plant
     .controller('PlantController', function ($scope, $rootScope, $timeout, $state, $http, $interval, $location, $translate, $document, plantService, cartService, service_utility) {
         //初始化變數
+
         $scope.menuShow = false; //menu開關
         $scope.cartShow = false; //cart開關
         $scope.language = $translate.preferredLanguage();
@@ -17,6 +18,7 @@ plant
 
         //取得目前頁數的data
         $scope.progress = 0;
+
         $scope.statusData = {
             0: $translate.instant('submit'),
             1: $translate.instant('submit_loading'),
@@ -53,7 +55,6 @@ plant
                 }
                 //跳轉頁面時關閉side-menu
                 $scope.hideSide();
-                $scope.watchLoaded();
             }
         );
 
@@ -67,21 +68,34 @@ plant
         };
 
         $scope.makeImagesPath = function (product) {
+            if (product.hasOwnProperty('images_local')) {
+                return service_utility.MakeFilePath(product.images_local[0]);
+            } else if (product.hasOwnProperty('images')) {
+                return product.images[0];
+            } else {
+                return 'img/notfound.jpg';
+            }
+        };
+
+        $scope.makeDetailPath = function (product) {
             if (product) {
-                if (product.images_local) {
+                var images = [];
+                if (product.hasOwnProperty('images_local')) {
                     var images_local = [];
                     angular.forEach(product.images_local, function (image, key) {
-                        var filePath = service_utility.MakeFilePath(image);
-                        if (filePath) {
-                            images_local.push(filePath);
-                        } else {
-                            return product.images;
-                        }
+                        images_local.push(service_utility.MakeFilePath(image));
                     });
-                    return images_local;
+                    images = images_local;
                 } else {
-                    return product.images;
+                    images = product.images;
                 }
+
+                if (images.length > 1) {
+                    images = images.slice(1, images.length);
+                } else if (images.length === 0) {
+                    images.push('img/notfound.jpg');
+                }
+                return images;
             }
         };
 
@@ -89,31 +103,36 @@ plant
         $document.bind('deviceready', function (event) {
             $scope.initProducts();
         });
+
         //取得首頁產品列表
         $scope.initProducts = function () {
             //檢查有沒有付款成功的參數：
             var promise = plantService.initial.init();
             promise.then(function () {
-                navigator.splashscreen.hide();
                 $scope.products = plantService.products;
                 $scope.plants = plantService.plants;
                 $scope.pots = plantService.pots;
                 $rootScope.$broadcast('initProductsComplete');
+                navigator.splashscreen.hide();
                 //初始化產品列表後才去抓購物車比對資料
                 $scope.initCart();
             });
         };
 
-        $scope.$watch(
-            function () {
-                return plantService.products
-            },
-            function (newVal) {
-                $scope.products = plantService.products;
-                $scope.plants = plantService.plants;
-                $scope.pots = plantService.pots;
-            }
-        )
+
+        $scope.$on('refreshPage', function () {
+            console.log('更新畫面');
+            $scope.products = plantService.products;
+            $scope.plants = plantService.plants;
+            $scope.pots = plantService.pots;
+        });
+
+
+        $scope.updateProducts = function () {
+            $scope.products = plantService.products;
+            $scope.plants = plantService.plants;
+            $scope.pots = plantService.pots;
+        }
 
         //iso
         $scope.isoOptions = {
@@ -131,22 +150,48 @@ plant
             done: function (instance) {
                 var parent = angular.element(instance.elements[0]);
                 parent.removeClass('loading').addClass('ready');
-                $timeout.cancel($scope.timer);
-                $scope.timer = $timeout(function () {
-                    plantService.initial.start()
-                }, 1000)
             },
             fail: function (instance) {
                 var parent = angular.element(instance.elements[0]);
                 parent.removeClass('loading').addClass('error');
-                $timeout.cancel($scope.timer);
             }
 
         };
-        //初始化首頁排序
-        $scope.initIsotop = function () {
-            $scope.$broadcast('iso-option', $scope.isoOptions);
+        //首頁isotop區塊
+        $scope.isotopLoadedEvents = {
+            always: function (instance) {
+                if (plantService.startDownload !== true) {
+                    console.log('準備開始下載');
+                    //plantService.initial.start();
+                }
+            },
+            done: function (instance) {
+                console.log('畫面Loading完畢');
+
+            },
+            fail: function (instance) {
+                console.log('讀取圖片時出現錯誤');
+            }
         };
+
+        $scope.viewLoadedEvents = {
+            always: function (instance) {},
+            done: function (instance) {
+                $scope.imgLoadedCount = 0;
+                progressJs().end();
+            },
+            fail: function (instance) {},
+            progress: function (instance, image) {
+                if (instance.images.length > 0) {
+                    if (image.isLoaded) {
+                        $scope.imgLoadedCount++;
+                        var progress = Math.floor(($scope.imgLoadedCount / instance.images.length) * 100);
+                        progressJs().start().set(progress);
+                    }
+                }
+            }
+        };
+
         //用id找植物名字
         $scope.findProductById = function (id) {
             return plantService.findProductById(id);
@@ -210,23 +255,6 @@ plant
             }
         };
 
-        //打開產品內頁
-        $scope.openDetail = function (product) {
-            switch (product.category) {
-                case 0:
-                    $state.go('pot-detail', {
-                        productName: product.name
-                    });
-                    break;
-                default:
-                    $state.go('detail', {
-                        productName: product.name
-                    });
-                    break;
-            }
-
-        };
-
         //打開側邊選單
         $scope.openMenu = function () {
             $scope.menuShow = true;
@@ -246,78 +274,23 @@ plant
         $rootScope.$on('removeAllCart', function () {
             $scope.removeAllCart();
         });
-        //讓進度條變寬
-        $scope.plusProgress = function (value) {
-            var progress = $('.progress-bar');
-            var bar = $('.progress-bar .bar');
-            switch (value) {
-                case 100:
-                    $timeout(function () {
-                        progress.hide();
-                        bar.css({
-                            width: '0px',
-                            transition: 'all 0s ease-in-out',
-                            '-webkit-transition': 'all 3s ease-in-out'
-                        });
-                    }, 3000);
-                    break;
-                case 0:
-                    progress.hide();
-                    bar.css({
-                        width: '0px',
-                        transition: 'all 0s ease-in-out',
-                        '-webkit-transition': 'all 0s ease-in-out'
-                    });
-                    break;
-                default:
-                    progress.show();
-                    bar.css({
-                        width: value + '%',
-                        transition: 'all 0.5s ease-in-out',
-                        '-webkit-transition': 'all 3s ease-in-out'
-                    });
-            }
-        };
-        //檢查頁面上的圖片loaded進度
-        $scope.watchLoaded = function () {
-            $scope.imgLoadedCount = 0;
-            $scope.progress = 0;
-            $scope.plusProgress(0);
-            $scope.imagesLoadedView = $('.view').imagesLoaded();
-            $scope.imagesLoadedView
-                .done(function (instance) {
-                    $scope.progress = 0;
-                    $scope.imagesLoadedView.delete;
-                })
-                .fail(function () {
-                    console.log('imgLoaded-Fail');
-                })
-                .progress(function (instance, image) {
-                    if (image.isLoaded) {
-                        $scope.imgLoadedCount++;
-                    }
-                    //頁面上圖片大於０時才顯示進度條
-                    if (instance.images.length > 0) {
-                        $scope.progress = Math.floor(($scope.imgLoadedCount / instance.images.length) * 100);
-                        $scope.plusProgress($scope.progress);
-                    }
-                });
-        };
+
+
         //分享按鈕的事件
         $scope.share = function (name) {
             switch (name) {
-                case 'facebook':
-                    shareFacebook()
-                    break;
-                case 'google':
-                    shareGoogle();
-                    break;
-                case 'twitter':
-                    shareTwitter();
-                    break;
-                case 'weibo':
-                    shareWeibo();
-                    break;
+            case 'facebook':
+                shareFacebook()
+                break;
+            case 'google':
+                shareGoogle();
+                break;
+            case 'twitter':
+                shareTwitter();
+                break;
+            case 'weibo':
+                shareWeibo();
+                break;
             };
             return false;
         };
@@ -362,29 +335,7 @@ plant
             });
         };
 
-        $scope.makeDetailPath = function (product) {
-            var images = [];
-            if (product.images_local) {
-                var images_local = [];
-                angular.forEach(product.images_local, function (image, key) {
-                    var filePath = service_utility.MakeFilePath(image);
-                    if (filePath) {
-                        images_local.push(filePath);
-                    }
-                });
-                images = images_local;
-            } else {
-                images = product.images;
-            }
-            if (images.length > 1) {
-                images.splice(0, 1);
-            } else if (images.length === 1) {
-                images.splice(0, 0);
-            } else {
-                images.push('img/notfound.jpg');
-            }
-            return images;
-        };
+
         //初始化detail:用id從產品列表找產品
         $scope.initDetail = function () {
             //用一開始取得的產品列表比對

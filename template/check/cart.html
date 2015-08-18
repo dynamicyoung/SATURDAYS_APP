@@ -10,7 +10,7 @@
         </tr>
         <tr ng-repeat="item in cart track by $index">
             <td data-th="{{'cart_product'|translate}}">
-                <div class="thumb" rn-lazy-background="makeImagesPath(item)[0]" ng-tap="openDetail(item)"></div>
+                <div class="thumb" rn-lazy-background="makeImagesPath(item)" ng-tap="openDetail(item)"></div>
             </td>
             <td data-th="{{'cart_name'|translate}}">
                 <p class="title" ng-bind="item.name" ng-tap="openDetail(item)"></p>
