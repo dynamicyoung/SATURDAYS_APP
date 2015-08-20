@@ -1,4 +1,4 @@
-plant.service('service_utility', function ($q, $http) {
+plant.service('service_utility', function ($q, $http, $timeout) {
 
     var service_utility = this;
     /**
@@ -210,6 +210,82 @@ plant.service('service_utility', function ($q, $http) {
                 },
                 DownloadAvatarError,
                 true);
+        }
+        return deferred.promise;
+    };
+
+
+    this.downloadFileList = function (files, folder_name) {
+        //檢查是否下載完成的promiss
+        var deferred = $q.defer();
+        var path_list = [];
+        var file_list = files.map(function (url) {
+            var fileName = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.'))
+            var data = {
+                fileName: encodeURI(fileName),
+                url: encodeURI(url)
+            }
+            return data;
+        });
+
+        if (!file_list || !folder_name) {
+            deferred.reject();
+        }
+        //根據裝置的不同產生不同的檔案路徑
+        var path = service_utility.MakeFilePath();
+        //取得檔案根目錄路徑，開始下載圖片
+        window.resolveLocalFileSystemURL(path, getStorage, DownloadAvatarError);
+
+        //定義錯誤的 function 
+        function DownloadAvatarError(e) {
+            //console.log('下載圖片流程失敗', e);
+            deferred.reject(e);
+        }
+
+        //取得資料夾權限
+        function getStorage(dir) {
+            //console.log('取得根目錄 dir entry');
+            dir.getDirectory(folder_name, {
+                create: true,
+                exclusive: false
+            }, getFileDir, DownloadAvatarError);
+        }
+
+        //檢查需不需要移除檔案若沒有指定移除的檔案就直接下載
+        function getFileDir(dir) {
+            startDownload(dir);
+        }
+
+        function downloadFile(dir, file) {
+            var deferred = $q.defer();
+            var uri = file.url;
+            var fileName = file.fileName;
+            var fileTransfer = new FileTransfer();
+            $timeout(function () {
+                fileTransfer.download(
+                    uri,
+                    dir.nativeURL + fileName,
+                    function (entry) {
+                        path_list.push(entry.fullPath);
+                        deferred.resolve();
+                    },
+                    DownloadAvatarError,
+                    true);
+            }, 10000)
+            return deferred.promise;
+        }
+
+        //下載檔案
+        function startDownload(dir) {
+            var fileTransfer = new FileTransfer();
+            var promises = [];
+            angular.forEach(file_list, function (file, index) {
+                var promise = downloadFile(dir, file);
+                promises.push(promise);
+            });
+            $q.all(promises).then(function () {
+                deferred.resolve(path_list);
+            });
         }
         return deferred.promise;
     };

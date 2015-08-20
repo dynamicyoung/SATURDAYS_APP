@@ -40,6 +40,8 @@ plant
         //切換state時
         $rootScope.$on('$stateChangeSuccess',
             function (e, toState, toParams, fromState, fromParams) {
+                progressJs().end();
+
                 function scrollTo(value) {
                     $timeout(function () {
                         window.scrollTo(0, value);
@@ -155,28 +157,27 @@ plant
                 var parent = angular.element(instance.elements[0]);
                 parent.removeClass('loading').addClass('error');
             }
-
         };
-        //首頁isotop區塊
-        $scope.isotopLoadedEvents = {
-            always: function (instance) {
-                if (plantService.startDownload !== true) {
-                    console.log('準備開始下載');
-                    //plantService.initial.start();
-                }
-            },
-            done: function (instance) {
-                console.log('畫面Loading完畢');
-
-            },
-            fail: function (instance) {
-                console.log('讀取圖片時出現錯誤');
-            }
-        };
+        //首頁isotop區塊 
+        //        $scope.isotopLoadedEvents = {
+        //            always: function (instance) {
+        //                //                if (plantService.startUpdate !== true) {
+        //                //                    plantService.initial.start();
+        //                //                }
+        //            },
+        //            done: function (instance) {
+        //                console.log('畫面Loading完畢');
+        //
+        //            },
+        //            fail: function (instance) {
+        //                console.log('讀取圖片時出現錯誤');
+        //            }
+        //        };
 
         $scope.viewLoadedEvents = {
             always: function (instance) {},
             done: function (instance) {
+                //畫面LOADING結束
                 $scope.imgLoadedCount = 0;
                 progressJs().end();
             },
@@ -194,6 +195,10 @@ plant
 
         //用id找植物名字
         $scope.findProductById = function (id) {
+            return plantService.findProductById(id);
+        };
+
+        $scope.findProduct = function (id) {
             return plantService.findProductById(id);
         };
 

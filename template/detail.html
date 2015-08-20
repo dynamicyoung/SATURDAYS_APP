@@ -137,7 +137,7 @@
         <h2 class="title" ng-bind="'detail_relation_product'|translate">相關產品</h2>
         <div class="swiper-container carousel-browse" ng-class="{'empty': detail.suggestions <= 1}">
             <div class="swiper-wrapper">
-                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" ng-init="sug = findProductById(id)" ng-click="openDetail(sug)" carousel-Browse>
+                <div class="swiper-slide " ng-repeat="id in detail.suggestions track by $index" ng-init="sug = findProductById(id)" ng-tap="openDetail(sug)" carousel-Browse>
                     <div class="blur loading" rn-lazy-loading-class="loading" rn-Lazy-Background="makeImagesPath(sug)"></div>
 
                     <div class="slide-text">

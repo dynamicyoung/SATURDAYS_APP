@@ -36,11 +36,11 @@ plant
                     plantService.initial.downloadAllImages().then(success);
                 } else {
                     console.log('UPDATE:檢查是否更新圖片');
-                    plantService.initial.checkUpdate().then(success);
+                    plantService.initial.downloadAllImages().then(success);
+                    //plantService.initial.checkUpdate().then(success);
                 }
 
                 function success() {
-                    console.log('全部更新完畢')
                     plantService.initial.refreshPage();
                 }
             },
@@ -51,10 +51,10 @@ plant
                 var deferred = $q.defer();
                 $http.get(serverurl + '/api-products/').
                 success(function (data, status, headers, config) {
-                    console.log('api-products:success:' + status);
+                    console.log('GET_PRODUCTS:SUCCESS:' + status);
                     deferred.resolve(data);
                 }).error(function (data, status, headers, config) {
-                    console.log('api-products:error:' + status);
+                    console.log('GET_PRODUCTS:ERROR:' + status);
                 });
                 return deferred.promise;
             },
@@ -73,22 +73,15 @@ plant
                 }
 
                 function updateProducts(localProduct, newProduct, index) {
-                    var deferred_updateProducts = $q.defer();
-                    var promises = [];
-                    //                    var promise_remove = plantService.initial.removeImages(localProduct);
-                    var promise_download = plantService.initial.downloadImages(newProduct, index);
-
-                    //                    promises.push(promise_remove);
-                    promises.push(promise_download);
-
-                    $q.all(promises).then(function () {
-                        console.log(newProduct.name + '更新完成');
-                        deferred_updateProducts.resolve();
+                    var deffer = $q.defer();
+                    plantService.initial.downloadImages(newProduct, index).then(function () {
+                        deffer.resolve();
                     });
-                    return deferred_updateProducts.promise;
+                    return deffer.promise;
                 }
 
                 function success(data, status, headers, config) {
+                    console.log('CheckUpdate');
                     var newProducts = data;
                     var localProducts = plantService.products;
                     var promises = [];
@@ -100,7 +93,7 @@ plant
                         }
                     });
                     $q.all(promises).then(function () {
-                        console.log('所有圖片更新完畢, 總共更新：', promises.length + '個商品');
+                        console.log('CheckUpdate_Complete：', promises.length + 'products');
                         plantService.initial.standardizationProducts();
                         deferred.resolve();
                     });
@@ -139,48 +132,21 @@ plant
                 plantService.products = products;
                 plantService.initial.saveProducts();
             },
-
-
-            //下載植物的所有圖片
-            removeImages: function (product) {
-                var deferred = $q.defer();
-                if (product.images_local) {
-                    angular.forEach(product.images_local, function (image, key) {
-                        service_utility.deleteFile(image).then(function () {
-                            deferred.resolve();
-                        });
-                    });
-                }
-                return deferred.promise;
-            },
-
             //下載植物的所有圖片
             downloadImages: function (product, index) {
                 var deferred = $q.defer();
-                var promises = [];
-                if (!product.images_local) {
-                    product.images_local = [];
-                }
-                angular.forEach(product.images, function (image, key) {
-                    var promise = service_utility.downloadFile(image, 'products')
-                        .then(function (filePath) {
-                            product.images_local[key] = filePath;
-                            plantService.products[index] = product;
-                            console.log('下載' + filePath + '成功');
-                        });
-                    promises.push(promise);
-                });
-
-                //下載完成後加入下載完成的標記
-                $q.all(promises).then(function () {
-                    plantService.products[index].downloaded = true;
-                    deferred.resolve();
-                });
+                service_utility.downloadFileList(product.images, 'products')
+                    .then(function (path_list) {
+                        product.images_local = path_list;
+                        product.downloaded = true;
+                        plantService.products[index] = product;
+                        deferred.resolve();
+                    });
                 return deferred.promise;
             },
-
             //下載植物裡面的所有圖片
             downloadAllImages: function () {
+                console.time('downloadAllImages');
                 var deferred = $q.defer();
                 var promises = [];
                 angular.forEach(plantService.products, function (product, index) {
@@ -189,18 +155,7 @@ plant
                 });
                 $q.all(promises).then(function () {
                     plantService.initial.standardizationProducts();
-                    deferred.resolve();
-                });
-                return deferred.promise;
-            },
-            removeAllImages: function () {
-                var deferred = $q.defer();
-                var promises = [];
-                angular.forEach(plantService.products, function (product, index) {
-                    var promise = plantService.initial.removeImages(product);
-                    promises.push(promise);
-                });
-                $q.all(promises).then(function () {
+                    console.timeEnd('downloadAllImages');
                     deferred.resolve();
                 });
                 return deferred.promise;

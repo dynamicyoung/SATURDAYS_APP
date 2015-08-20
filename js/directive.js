@@ -409,6 +409,7 @@ plant
         return function (scope, element, attrs) {
             element.bind("touchstart click", function (e) {
                 e.preventDefault();
+                e.stopPropagation();
                 element.addClass('activated');
                 scope.$apply(attrs["ngTap"], element);
             });

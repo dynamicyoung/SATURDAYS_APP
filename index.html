@@ -115,28 +115,28 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a ui-sref="about" ng-bind="'menu_aboutus'|translate"></a>
+                        <li ui-sref="about">
+                            <a ng-bind="'menu_aboutus'|translate"></a>
                         </li>
-                        <li>
-                            <a ui-sref="products" ng-bind="'menu_plant'|translate"></a>
+                        <li ui-sref="products">
+                            <a ng-bind="'menu_plant'|translate"></a>
                         </li>
-                        <li>
-                            <a ui-sref="pots" ng-bind="'menu_pots'|translate"></a>
+                        <li ui-sref="pots">
+                            <a ng-bind="'menu_pots'|translate"></a>
                         </li>
-                        <li class="logo">
+                        <li class="logo" ui-sref="products">
                             <h1>
-                            <img src="img/plant_logo.svg" ui-sref="products">
+                            <img src="img/plant_logo.svg" >
                             </h1>
                         </li>
-                        <li>
-                            <a ui-sref="tutorial({tabName:'常見問題'})" ng-bind="'menu_problem'|translate"></a>
+                        <li ui-sref="tutorial({tabName:'常見問題'})">
+                            <a ng-bind="'menu_problem'|translate"></a>
                         </li>
-                        <li>
-                            <a ui-sref="contact" ng-bind="'menu_contact'|translate"></a>
+                        <li ui-sref="contact">
+                            <a ng-bind="'menu_contact'|translate"></a>
                         </li>
-                        <li>
-                            <a ui-sref="search" ng-bind="'menu_ordersearch'|translate"></a>
+                        <li ui-sref="search">
+                            <a ng-bind="'menu_ordersearch'|translate"></a>
                         </li>
                     </ul>
                     <button type="button" class="btn cart-btn" ng-tap="openCart()">
@@ -216,7 +216,7 @@
     <script src="lib/jquery.panzoom.min.js"></script>
     <script src="lib/angular-images-loaded.js"></script>
     <script src="lib/progress.js"></script>
-    <script src="lib/fastclick.js"></script>
+    <!--    <script src="lib/fastclick.js"></script>-->
 
     <!--JS-->
     <script src="js/plant.js"></script>
