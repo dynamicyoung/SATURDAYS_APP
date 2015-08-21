@@ -86,8 +86,8 @@
         </div>
     </div>
     <div class="col-xs-12 next-step">
-        <button class="btn gray30-btn left " ng-tap="prevStep()" ng-bind="'previous'|translate"></button>
-        <button class="btn gray-btn right" ng-tap="payment()" ng-disabled="status > 0 " ng-show="checkComplete()">
+        <button class="btn gray30-btn left " ng-click="prevStep()" ng-bind="'previous'|translate"></button>
+        <button class="btn gray-btn right" ng-click="payment()" ng-disabled="status > 0 " ng-show="checkComplete()">
             <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewbox="0 0 66 66">
                 <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
             </svg>

@@ -5,7 +5,7 @@
             <img class="logo" src="img/flower.png">
             <p class="title" ng-bind="'search_error_title'|translate">Sorry..找不到訂單</p>
             <p class="subtitle" ng-bind="'search_error_des'|translate">請檢查訂單編號跟手機號碼是否錯誤</p>
-            <button class="btn gray-btn" ng-tap="refound()">再試一次</button>
+            <button class="btn gray-btn" ng-click="refound()">再試一次</button>
         </div>
         <!--錯誤訊息-->
         <div class="error-div">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <button class="btn gray-btn" ng-show="checkComplete()" ng-tap="search()">
+            <button class="btn gray-btn" ng-show="checkComplete()" ng-click="search()">
                 <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewbox="0 0 66 66">
                     <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
                 </svg>

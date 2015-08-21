@@ -13,7 +13,7 @@
             <img class="logo" src="img/error.png">
             <p class="title" ng-bind="'paid_error_title'|translate">Sorry..找不到您的訂單</p>
             <p class="subtitle" ng-bind="'paid_error_des'|translate">請核對您的訂單資訊是否有誤，如有其他問題，歡迎聯絡我們。</p>
-            <button class="btn gray-btn" ng-tap="refound()" ng-bind="'again'|translate">再試一次</button>
+            <button class="btn gray-btn" ng-click="refound()" ng-bind="'again'|translate">再試一次</button>
         </div>
 
         <!--錯誤訊息-->
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="row">
-            <button class="btn gray-btn" ng-show="checkComplete()" ng-tap="send()">
+            <button class="btn gray-btn" ng-show="checkComplete()" ng-click="send()">
                 <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewbox="0 0 66 66">
                     <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
                 </svg>

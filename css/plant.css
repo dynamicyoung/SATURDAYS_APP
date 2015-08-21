@@ -625,22 +625,27 @@ hr {
     /* line 611, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.ready img,
     .shop .item.ready .text-bar {
-      visibility: visible;
-      -moz-animation: 0.3s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      -o-animation: 0.3s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      -webkit-animation: 0.3s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      -ms-animation: 0.3s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1);
-      animation: 0.3s fadeInUpD cubic-bezier(0.4, 0, 0.2, 1); }
+      visibility: visible; }
     /* line 618, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.loading img,
     .shop .item.loading .text-bar {
       visibility: hidden; }
+    /* line 621, /Users/young/SATURDAYS_APP/www/css/plant.scss */
+    .shop .item.loading:before {
+      content: '';
+      display: block;
+      height: 250px;
+      background-image: url("../img/loading.gif");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-size: 50px 50px !important; }
     /* line 632, /Users/young/SATURDAYS_APP/www/css/plant.scss */
     .shop .item.error img,
     .shop .item.error .text-bar {
       visibility: hidden; }
     /* line 635, /Users/young/SATURDAYS_APP/www/css/plant.scss */
-    v .shop .item.error:before {
+    .shop .item.error:before {
       content: '';
       display: block;
       height: 400px;

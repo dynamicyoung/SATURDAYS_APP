@@ -10,11 +10,11 @@
         </tr>
         <tr ng-repeat="item in cart track by $index">
             <td data-th="{{'cart_product'|translate}}">
-                <div class="thumb" rn-lazy-background="makeImagesPath(item)" ng-tap="openDetail(item)"></div>
+                <div class="thumb" rn-lazy-background="makeImagesPath(item)" ng-click="openDetail(item)"></div>
             </td>
             <td data-th="{{'cart_name'|translate}}">
-                <p class="title" ng-bind="item.name" ng-tap="openDetail(item)"></p>
-                <p class="subtitle" ng-bind="item.subtitle" ng-tap="openDetail(item)"></p>
+                <p class="title" ng-bind="item.name" ng-click="openDetail(item)"></p>
+                <p class="subtitle" ng-bind="item.subtitle" ng-click="openDetail(item)"></p>
             </td>
             <td data-th="{{'cart_price'|translate}}">
                 <p class="price" ng-bind="item.price"></p>
@@ -26,7 +26,7 @@
                 <p ng-bind="getSubtotal(item.price , item.quantity)"></p>
             </td>
             <td>
-                <p class="remove" ng-tap="removeCart(item.id)" ng-bind="'cancel'|translate"></p>
+                <p class="remove" ng-click="removeCart(item.id)" ng-bind="'cancel'|translate"></p>
             </td>
         </tr>
         <tr>
@@ -60,7 +60,7 @@
             </button>
         </div>
         <div class="col-xs-6">
-            <button class="btn gray-btn right" ng-tap="comfirm()" ng-show="cart.length > 0" ng-disabled="status === 1">
+            <button class="btn gray-btn right" ng-click="comfirm()" ng-show="cart.length > 0" ng-disabled="status === 1">
                 <svg ng-show="status === 1" class="loading-icon" width="30px" height="30px" viewbox="0 0 66 66">
                     <circle class="white-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
                 </svg>

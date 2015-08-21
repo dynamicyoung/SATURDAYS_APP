@@ -36,5 +36,5 @@
     </div>
     <h4 class="subtitle" ng-if="order.swift_code && order.account" ng-bind="'success_notice'|translate">請於三日內完成匯款。</h4>
     <h4 class="subtitle" ng-if="!order.swift_code && !order.account" ng-bind="'success_hopelike'|translate">希望您喜歡我們的產品。</h4>
-    <botton class="btn gray-btn" ng-tap="reload()" ng-bind="'gohome'|translate">回到首頁</botton>
+    <botton class="btn gray-btn" ng-click="reload()" ng-bind="'gohome'|translate">回到首頁</botton>
 </div>

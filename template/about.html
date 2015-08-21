@@ -2,17 +2,17 @@
     <div class="about-tabs">
         <ul class="tabs group">
             <li>
-                <a ng-tap="changePage('brand')" ng-class="{'active':pageIndex === 'brand'}">
+                <a ng-click="changePage('brand')" ng-class="{'active':pageIndex === 'brand'}">
                     <h1 class="title" ng-bind="'menu_aboutus'|translate"></h1>
                 </a>
             </li>
             <li>
-                <a ng-tap="changePage('declaration')" ng-class="{'active':pageIndex === 'declaration'}">
+                <a ng-click="changePage('declaration')" ng-class="{'active':pageIndex === 'declaration'}">
                     <h1 class="title" ng-bind="'menu_qualitydeclaration'|translate"></h1>
                 </a>
             </li>
             <li>
-                <a ng-tap="changePage('quality')" ng-class="{'active':pageIndex === 'quality'}">
+                <a ng-click="changePage('quality')" ng-class="{'active':pageIndex === 'quality'}">
                     <h1 class="title" ng-bind="'menu_potcollection'|translate"></h1>
                 </a>
             </li>

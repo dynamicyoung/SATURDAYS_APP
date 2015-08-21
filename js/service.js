@@ -7,11 +7,14 @@ plant
         this.products = [];
         this.plants = [];
         this.pots = [];
+        this.downloadLimit = 2;
+        this.downloadTimeout = 3000;
 
         this.initial = {
             init: function () {
                 var deferred = $q.defer();
                 var localData = this.getProductsFromLocal();
+
                 if (!localData) {
                     //第一次進入
                     plantService.firstEnter = true;
@@ -19,6 +22,7 @@ plant
                         plantService.products = data;
                         plantService.initial.standardizationProducts();
                         deferred.resolve();
+                        plantService.initial.start();
                     })
                 } else {
                     //第N次進入
@@ -26,6 +30,7 @@ plant
                     plantService.products = localData
                     plantService.initial.standardizationProducts();
                     deferred.resolve();
+                    plantService.initial.start();
                 }
                 return deferred.promise;
             },
@@ -36,8 +41,7 @@ plant
                     plantService.initial.downloadAllImages().then(success);
                 } else {
                     console.log('UPDATE:檢查是否更新圖片');
-                    plantService.initial.downloadAllImages().then(success);
-                    //plantService.initial.checkUpdate().then(success);
+                    plantService.initial.checkUpdate().then(success);
                 }
 
                 function success() {
@@ -45,6 +49,7 @@ plant
                 }
             },
             refreshPage: function () {
+                plantService.initial.standardizationProducts();
                 $rootScope.$broadcast('refreshPage');
             },
             getProducts: function () {
@@ -62,41 +67,70 @@ plant
                 //取得所有列表一一比對最後更新時間，查看是否有圖片需要重新下載
                 var deferred = $q.defer();
                 plantService.initial.getProducts().then(success)
+                console.time('checkUpdate');
+                var update_list = [];
+                var count = 0;
+                var limit = plantService.downloadLimit;
 
                 function check(localProduct, newProduct) {
-                    //var newDate = new Date(newProduct.updated);
-                    var newDate = new Date();
+                    if (!localProduct.updated || !localProduct.downloaded) {
+                        return true;
+                    }
+                    var newDate = new Date(newProduct.updated);
+                    //var newDate = new Date();
                     var oldDate = new Date(localProduct.updated);
-                    if (!localProduct.downloaded || newDate - oldDate > 0) {
+                    if (newDate - oldDate > 0) {
                         return true;
                     }
                 }
 
-                function updateProducts(localProduct, newProduct, index) {
-                    var deffer = $q.defer();
-                    plantService.initial.downloadImages(newProduct, index).then(function () {
-                        deffer.resolve();
+                function updateThread() {
+                    console.log('從第', count, '更新');
+                    var promises = [];
+                    var length = update_list.length;
+                    var updates = update_list.slice(count, count + limit);
+                    angular.forEach(updates, function (update, index) {
+                        promises.push(plantService.initial
+                            .downloadImages(update.product, update.index));
                     });
-                    return deffer.promise;
+                    $q.all(promises).then(function () {
+                        console.log('每' + plantService.downloadLimit + '個更新完成');
+                        count = count + limit;
+                        if (count < length) {
+                            $timeout(function () {
+                                updateThread();
+                            }, plantService.downloadTimeout)
+
+                        } else {
+                            console.timeEnd('checkUpdate');
+                            deferred.resolve();
+                        }
+                    });
                 }
 
                 function success(data, status, headers, config) {
                     console.log('CheckUpdate');
                     var newProducts = data;
                     var localProducts = plantService.products;
-                    var promises = [];
+
                     angular.forEach(newProducts, function (newProduct, index) {
                         var localProduct = plantService.findProductById(newProduct.id);
-                        if (check(localProduct, newProduct)) {
-                            var promise = updateProducts(localProduct, newProduct, index);
-                            promises.push(promise);
+                        if (!localProduct) {
+                            plantService.products.push(newProduct);
+                        } else {
+                            if (check(localProduct, newProduct)) {
+                                var update = {
+                                    product: newProduct,
+                                    index: index
+                                }
+                                update_list.push(update);
+                            }
                         }
                     });
-                    $q.all(promises).then(function () {
-                        console.log('CheckUpdate_Complete：', promises.length + 'products');
-                        plantService.initial.standardizationProducts();
-                        deferred.resolve();
-                    });
+                    console.log(update_list.length, '需要更新');
+                    if (update_list.length > 0) {
+                        updateThread();
+                    }
                 }
                 return deferred.promise;
             },
@@ -137,27 +171,55 @@ plant
                 var deferred = $q.defer();
                 service_utility.downloadFileList(product.images, 'products')
                     .then(function (path_list) {
+                        console.log('Download:', product.name, 'Complete.');
                         product.images_local = path_list;
                         product.downloaded = true;
                         plantService.products[index] = product;
+                        plantService.initial.standardizationProducts();
                         deferred.resolve();
                     });
                 return deferred.promise;
             },
             //下載植物裡面的所有圖片
             downloadAllImages: function () {
-                console.time('downloadAllImages');
+                console.time('DownloadAllImages');
                 var deferred = $q.defer();
-                var promises = [];
-                angular.forEach(plantService.products, function (product, index) {
-                    var promise = plantService.initial.downloadImages(product, index);
-                    promises.push(promise);
-                });
-                $q.all(promises).then(function () {
-                    plantService.initial.standardizationProducts();
-                    console.timeEnd('downloadAllImages');
-                    deferred.resolve();
-                });
+                var count = 0;
+                var limit = plantService.downloadLimit;
+
+                function download(product, index) {
+                    var defer = $q.defer()
+                    var promise = plantService.initial.downloadImages(product, index)
+                        .then(function () {
+                            defer.resolve();
+                        });
+                    return defer.promise;
+                }
+
+                function downloadThread() {
+                    console.log('從第', count, '下載');
+                    var promises = [];
+                    var length = plantService.products.length;
+                    var products = plantService.products.slice(count, count + limit);
+                    angular.forEach(products, function (product, index) {
+                        promises.push(download(product, index));
+                    });
+
+                    $q.all(promises).then(function () {
+                        console.log('每' + plantService.downloadLimit + '個下載完成');
+                        count = count + limit;
+                        if (count < length) {
+                            $timeout(function () {
+                                downloadThread();
+                            }, plantService.downloadTimeout)
+                        } else {
+                            console.timeEnd('DownloadAllImages:COMPLETE');
+                            deferred.resolve();
+                        }
+                    });
+                }
+                downloadThread();
+
                 return deferred.promise;
             },
             //把plants存入localStorage

@@ -78,8 +78,8 @@
     <div class="side-cart">
         <p class="title" ng-bind="'menu_cart'|translate"></p>
         <ul>
-            <li ng-repeat="item in cart track by $index" ng-tap="openDetail(item)">
-                <div class="thumb" rn-Lazy-Background="makeImagesPath(item)[0]"></div>
+            <li ng-repeat="item in cart track by $index" ng-click="openDetail(item)">
+                <div class="thumb" rn-Lazy-Background="makeImagesPath(item)"></div>
                 <a href="#" ng-bind="item.name"></a>
                 <p ng-bind="item.subtitle"></p>
                 <p ng-bind="item.quantity + 'X NT$' + item.price"></p>
@@ -95,7 +95,7 @@
     </div>
     <!--右邊主內容-->
     <div class="side-content">
-        <div class="side-blur" ng-tap="hideSide()"></div>
+        <div class="side-blur" ng-click="hideSide()"></div>
         <div class="jumbotron jumbotron_plant" rn-Lazy-Background="'img/plant_BG.jpg'">
             <img class="logo" ui-sref="products" src='img/plant_logo_w.svg'>
         </div>
@@ -103,12 +103,12 @@
             <nav class="navbar navbar-default navbar-plant affix">
                 <div class="navbar-header">
                     <img class="logo-left" src="img/plant_logo.svg" ui-sref="products">
-                    <button type="button" class="navbar-toggle side-toggle" data-toggle="collapse" ng-tap="openMenu()">
+                    <button type="button" class="navbar-toggle side-toggle" data-toggle="collapse" ng-click="openMenu()">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <button type="button" class="navbar-toggle cart-btn" data-toggle="collapse" ng-tap="openCart()">
+                    <button type="button" class="navbar-toggle cart-btn" data-toggle="collapse" ng-click="openCart()">
                         <span class="glyphicon glyphicon-shopping-cart">
                     </span>
                     </button>
@@ -139,7 +139,7 @@
                             <a ng-bind="'menu_ordersearch'|translate"></a>
                         </li>
                     </ul>
-                    <button type="button" class="btn cart-btn" ng-tap="openCart()">
+                    <button type="button" class="btn cart-btn" ng-click="openCart()">
                         <span class="glyphicon glyphicon-shopping-cart">
                     </span>
                         <p ng-bind="cart.length"></p>
@@ -204,7 +204,8 @@
     <script src="lib/swiper.min.js"></script>
 
     <!--Angular-->
-    <script src="lib/angular.min.js"></script>
+    <!--    <script src="lib/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
     <script src="lib/angular-sanitize.min.js"></script>
     <script src="lib/angular-animate.min.js"></script>
@@ -216,7 +217,7 @@
     <script src="lib/jquery.panzoom.min.js"></script>
     <script src="lib/angular-images-loaded.js"></script>
     <script src="lib/progress.js"></script>
-    <!--    <script src="lib/fastclick.js"></script>-->
+    <script src="lib/ng-fastclick.min.js"></script>
 
     <!--JS-->
     <script src="js/plant.js"></script>

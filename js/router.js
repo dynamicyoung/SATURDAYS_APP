@@ -1,4 +1,4 @@
-var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSanitize', 'pascalprecht.translate', 'iso.directives', 'angular-images-loaded'])
+var plant = angular.module('plant', ['ui.router', 'ngAnimate', 'rn-lazy', 'ngSanitize', 'pascalprecht.translate', 'iso.directives', 'angular-images-loaded', 'ng-fastclick'])
     //ui-router設定
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {

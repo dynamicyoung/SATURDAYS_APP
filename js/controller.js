@@ -124,6 +124,7 @@ plant
 
         $scope.$on('refreshPage', function () {
             console.log('更新畫面');
+            $scope.$broadcast('iso-option', $scope.isoOptions);
             $scope.products = plantService.products;
             $scope.plants = plantService.plants;
             $scope.pots = plantService.pots;
@@ -156,28 +157,19 @@ plant
             fail: function (instance) {
                 var parent = angular.element(instance.elements[0]);
                 parent.removeClass('loading').addClass('error');
+            },
+            progress: function (instance, image) {
+                var parent = angular.element(instance.elements[0]);
+                parent.addClass('loading');
             }
         };
-        //首頁isotop區塊 
-        //        $scope.isotopLoadedEvents = {
-        //            always: function (instance) {
-        //                //                if (plantService.startUpdate !== true) {
-        //                //                    plantService.initial.start();
-        //                //                }
-        //            },
-        //            done: function (instance) {
-        //                console.log('畫面Loading完畢');
-        //
-        //            },
-        //            fail: function (instance) {
-        //                console.log('讀取圖片時出現錯誤');
-        //            }
-        //        };
+
 
         $scope.viewLoadedEvents = {
             always: function (instance) {},
             done: function (instance) {
                 //畫面LOADING結束
+                console.log('畫面Loading完畢');
                 $scope.imgLoadedCount = 0;
                 progressJs().end();
             },

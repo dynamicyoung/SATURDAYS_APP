@@ -610,7 +610,7 @@ hr {
             img,
             .text-bar {
                 visibility: visible;
-                @include animation(0.3s fadeInUpD $cubic);
+                //@include animation(0.3s fadeInUpD $cubic);
             }
         }
         &.loading {
@@ -618,21 +618,21 @@ hr {
             .text-bar {
                 visibility: hidden;
             }
-            //            &:before {
-            //                content: '';
-            //                display: block;
-            //                height: 400px;
-            //                background-image: url('../img/loading.gif');
-            //                @include backgroundCover();
-            //                background-size: 50px 50px !important;
-            //            }
+            &:before {
+                content: '';
+                display: block;
+                height: 250px;
+                background-image: url('../img/loading.gif');
+                @include backgroundCover();
+                background-size: 50px 50px !important;
+            }
         }
         &.error {
             img,
             .text-bar {
                 visibility: hidden;
             }
-            v &:before {
+            &:before {
                 content: '';
                 display: block;
                 height: 400px;

@@ -261,17 +261,16 @@ plant.service('service_utility', function ($q, $http, $timeout) {
             var uri = file.url;
             var fileName = file.fileName;
             var fileTransfer = new FileTransfer();
-            $timeout(function () {
-                fileTransfer.download(
-                    uri,
-                    dir.nativeURL + fileName,
-                    function (entry) {
-                        path_list.push(entry.fullPath);
-                        deferred.resolve();
-                    },
-                    DownloadAvatarError,
-                    true);
-            }, 10000)
+
+            fileTransfer.download(
+                uri,
+                dir.nativeURL + fileName,
+                function (entry) {
+                    deferred.resolve(entry.fullPath);
+                },
+                DownloadAvatarError,
+                true);
+
             return deferred.promise;
         }
 
@@ -280,7 +279,10 @@ plant.service('service_utility', function ($q, $http, $timeout) {
             var fileTransfer = new FileTransfer();
             var promises = [];
             angular.forEach(file_list, function (file, index) {
-                var promise = downloadFile(dir, file);
+                var promise = downloadFile(dir, file)
+                    .then(function (path) {
+                        path_list[index] = path;
+                    });
                 promises.push(promise);
             });
             $q.all(promises).then(function () {

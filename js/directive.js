@@ -6,37 +6,6 @@ plant
             }
         };
     })
-    .directive('progressBar', function () {
-        return {
-            //attribute
-            restrict: 'AE',
-            //覆蓋
-            replace: 'true',
-
-            scope: {
-                progressValue: '@'
-            },
-            //功能
-            link: function ($scope, $ele, $attrs) {
-                $scope.$watch(function () {
-                    return $attrs.progressValue
-                }, function (value) {
-                    //這裡輸入觸發$watch之後，欲觸發的行為  
-                    console.log(value, '123');
-                });
-                $scope.getStyle = function (value) {
-                    var style = {
-                        'width': value + '%',
-                        'transitition': '1s ease-in-out all',
-                        '-webkit-transitition': '1s ease-in-out all'
-                    }
-                    return style;
-                }
-            },
-            //顯示
-            template: '<div class="progress-bar"></div>'
-        };
-    })
     .directive('carouselTop', function ($timeout, $rootScope) {
         return function (scope, element, attrs) {
             if (scope.$last) { // all are rendered
@@ -403,78 +372,4 @@ plant
                 });
             }
         }
-    })
-    //touch事件
-    .directive("ngTap", [function () {
-        return function (scope, element, attrs) {
-            element.bind("touchstart click", function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                element.addClass('activated');
-                scope.$apply(attrs["ngTap"], element);
-            });
-            element.bind('touchmove', function (e) {
-                element.removeClass('activated');
-            });
-            element.bind('touchend', function (e) {
-                element.removeClass('activated');
-            });
-        }
-    }])
-    .directive('imagesLoaded', ['$timeout', 'imagesLoaded',
-    function ($timeout, imagesLoaded) {
-            'use strict';
-            return {
-                restrict: 'AC',
-                link: function (scope, element, attrs) {
-                    var events = scope.$eval(attrs.imagesLoaded) || scope.$eval(attrs.imagesLoadedEvents),
-                        className = attrs.imagesLoadedClass || 'images-loaded',
-                        classUsed = element.hasClass(className);
-
-                    var init = function () {
-                        $timeout(function () {
-                            scope.$imagesLoaded = false;
-
-                            scope.$emit('imagesLoaded:started', {
-                                scope: scope,
-                                element: element
-                            });
-
-                            if (classUsed) {
-                                element.addClass(className);
-                            }
-
-                            var imgLoad = imagesLoaded(element[0], function () {
-                                scope.$imagesLoaded = true;
-
-                                scope.$emit('imagesLoaded:loaded', {
-                                    scope: scope,
-                                    element: element
-                                });
-
-                                element.removeClass(className + ' images-loaded: ' + attrs.imagesLoaded + ';');
-
-                                if (!scope.$$phase) {
-                                    scope.$apply();
-                                }
-                            });
-
-                            if (typeof (events) !== undefined) {
-                                angular.forEach(events, function (fn, eventName) {
-                                    imgLoad.on(eventName, fn);
-                                });
-                            }
-                        });
-                    };
-
-                    if (attrs.imagesLoadedWatch) {
-                        scope.$watch(attrs.imagesLoadedWatch, function (n) {
-                            init();
-                        });
-
-                    } else {
-                        init();
-                    }
-                }
-            };
-    }])
+    });
