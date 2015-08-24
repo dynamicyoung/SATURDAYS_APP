@@ -69,6 +69,22 @@ plant
             $state.go(state, data);
         };
 
+        $scope.openDetail = function (product) {
+            switch (product.category) {
+            case 0:
+                $state.go('pot-detail', {
+                    productName: product.name
+                });
+                break;
+            default:
+                $state.go('detail', {
+                    productName: product.name
+                });
+                break;
+            }
+
+        };
+
         $scope.makeImagesPath = function (product) {
             if (product.hasOwnProperty('images_local')) {
                 return service_utility.MakeFilePath(product.images_local[0]);
@@ -169,9 +185,9 @@ plant
             always: function (instance) {},
             done: function (instance) {
                 //畫面LOADING結束
-                console.log('畫面Loading完畢');
                 $scope.imgLoadedCount = 0;
                 progressJs().end();
+                $scope.$broadcast('iso-option', $scope.isoOptions);
             },
             fail: function (instance) {},
             progress: function (instance, image) {

@@ -67,7 +67,7 @@ plant
                 //取得所有列表一一比對最後更新時間，查看是否有圖片需要重新下載
                 var deferred = $q.defer();
                 plantService.initial.getProducts().then(success)
-                console.time('checkUpdate');
+                console.time('update');
                 var update_list = [];
                 var count = 0;
                 var limit = plantService.downloadLimit;
@@ -85,7 +85,6 @@ plant
                 }
 
                 function updateThread() {
-                    console.log('從第', count, '更新');
                     var promises = [];
                     var length = update_list.length;
                     var updates = update_list.slice(count, count + limit);
@@ -94,7 +93,6 @@ plant
                             .downloadImages(update.product, update.index));
                     });
                     $q.all(promises).then(function () {
-                        console.log('每' + plantService.downloadLimit + '個更新完成');
                         count = count + limit;
                         if (count < length) {
                             $timeout(function () {
@@ -108,26 +106,32 @@ plant
                     });
                 }
 
-                function success(data, status, headers, config) {
-                    console.log('CheckUpdate');
-                    var newProducts = data;
-                    var localProducts = plantService.products;
-
+                function checkNewProducts(newProducts) {
                     angular.forEach(newProducts, function (newProduct, index) {
                         var localProduct = plantService.findProductById(newProduct.id);
                         if (!localProduct) {
                             plantService.products.push(newProduct);
-                        } else {
-                            if (check(localProduct, newProduct)) {
-                                var update = {
-                                    product: newProduct,
-                                    index: index
-                                }
-                                update_list.push(update);
-                            }
                         }
                     });
-                    console.log(update_list.length, '需要更新');
+                };
+
+                function success(data, status, headers, config) {
+                    console.log('update');
+                    var newProducts = data;
+                    var localProducts = plantService.products;
+                    checkNewProducts(newProducts);
+                    angular.forEach(newProducts, function (newProduct, index) {
+                        var localProduct = plantService.findProductById(newProduct.id);
+                        if (check(localProduct, newProduct)) {
+                            var update = {
+                                product: newProduct,
+                                index: index
+                            }
+                            update_list.push(update);
+                        }
+
+                    });
+                    console.log(update_list.length, '個商品需要更新');
                     if (update_list.length > 0) {
                         updateThread();
                     }
@@ -182,7 +186,7 @@ plant
             },
             //下載植物裡面的所有圖片
             downloadAllImages: function () {
-                console.time('DownloadAllImages');
+                console.time('download');
                 var deferred = $q.defer();
                 var count = 0;
                 var limit = plantService.downloadLimit;
@@ -197,7 +201,6 @@ plant
                 }
 
                 function downloadThread() {
-                    console.log('從第', count, '下載');
                     var promises = [];
                     var length = plantService.products.length;
                     var products = plantService.products.slice(count, count + limit);
@@ -206,14 +209,13 @@ plant
                     });
 
                     $q.all(promises).then(function () {
-                        console.log('每' + plantService.downloadLimit + '個下載完成');
                         count = count + limit;
                         if (count < length) {
                             $timeout(function () {
                                 downloadThread();
                             }, plantService.downloadTimeout)
                         } else {
-                            console.timeEnd('DownloadAllImages:COMPLETE');
+                            console.timeEnd('download');
                             deferred.resolve();
                         }
                     });
