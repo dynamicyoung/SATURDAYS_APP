@@ -1,8 +1,8 @@
 <!--植物列表-->
 <div class="container shop">
     <div class="isotop" isotope-container>
-        <div class="item" ng-repeat="plant in plants track by $index" isotope-item images-loaded="imgLoadedEvents" ui-sref="detail({'productName': plant.name})">
-            <img ng-src="{{makeImagesPath(plant)}}">
+        <div class="item" ng-repeat="plant in plants track by $index " isotope-item ng-click="openDetail(plant)">
+            <img ng-src="{{makeImagesPath(plant)}}" images-loaded="imgLoadedEvents">
             <div class="text-bar">
                 <h3 class="title" ng-bind="plant.name"></h3>
             </div>

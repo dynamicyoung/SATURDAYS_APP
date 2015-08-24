@@ -167,16 +167,18 @@ plant
                 $scope.$broadcast('iso-option', $scope.isoOptions);
             },
             done: function (instance) {
-                var parent = angular.element(instance.elements[0]);
+                var parent = angular.element(instance.elements[0]).parent();
                 parent.removeClass('loading').addClass('ready');
             },
             fail: function (instance) {
-                var parent = angular.element(instance.elements[0]);
+                var parent = angular.element(instance.elements[0]).parent();
                 parent.removeClass('loading').addClass('error');
             },
             progress: function (instance, image) {
-                var parent = angular.element(instance.elements[0]);
-                parent.addClass('loading');
+                var parent = angular.element(instance.elements[0]).parent();
+                if (!parent.hasClass('ready')) {
+                    parent.addClass('loading');
+                }
             }
         };
 
@@ -352,6 +354,7 @@ plant
         //初始化detail:用id從產品列表找產品
         $scope.initDetail = function () {
             //用一開始取得的產品列表比對
+            console.log($stateParams.productName);
             $scope.detail = plantService.findProductByName($stateParams.productName);
         };
 

@@ -607,6 +607,7 @@ hr {
             width: 100%;
         }
         &.ready {
+            visibility: visible;
             img,
             .text-bar {
                 visibility: visible;
@@ -614,9 +615,11 @@ hr {
             }
         }
         &.loading {
+            visibility: visible;
             img,
             .text-bar {
                 visibility: hidden;
+                display: none;
             }
             &:before {
                 content: '';
@@ -628,9 +631,11 @@ hr {
             }
         }
         &.error {
+            visibility: visible;
             img,
             .text-bar {
                 visibility: hidden;
+                display: none;
             }
             &:before {
                 content: '';
@@ -1157,8 +1162,11 @@ hr {
             .blur {
                 height: 100%;
                 width: 100%;
+                &.loading {
+                    background-size: 50px 50px;
+                    background-image: url('../img/loading.gif');
+                }
                 @include backgroundCover();
-                background-image: url('../img/loading.gif');
             }
             .slide-text {
                 padding: 2px 5px;
